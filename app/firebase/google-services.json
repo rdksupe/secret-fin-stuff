@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "662032352891",
+    "project_id": "finn-agent-66916c",
+    "storage_bucket": "finn-agent-66916c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662032352891:android:58a71be43a7ea4948e44de",
+        "android_client_info": {
+          "package_name": "ai.finn.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAjdADD4KEpcVyFGwc7iWARukmXcP1sgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -135,12 +135,13 @@ def update_me(body: Settings, user: User = Depends(current_user), db: Session = 
 
 class PushToken(BaseModel):
     token: str
+    kind: str = "fcm"  # native device token from the app; "expo" for Expo push tokens
 
 
 @router.post("/push-token")
 def push_token(body: PushToken, user: User = Depends(current_user), db: Session = Depends(get_db)):
     tokens = set(json.loads(user.push_tokens_json or "[]"))
-    tokens.add(body.token)
+    tokens.add(f"fcm:{body.token}" if body.kind == "fcm" else body.token)
     user.push_tokens_json = json.dumps(sorted(tokens))
     db.commit()
     return {"ok": True, "tokens": len(tokens)}

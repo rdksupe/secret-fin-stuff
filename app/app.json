@@ -18,7 +18,11 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "ai.finn.app"
+      "package": "ai.finn.app",
+      "googleServicesFile": "./firebase/google-services.json",
+      "permissions": [
+        "POST_NOTIFICATIONS"
+      ]
     },
     "web": {
       "output": "single",
@@ -37,6 +41,13 @@
           "backgroundColor": "#0F1218",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#F0A63A",
+          "defaultChannel": "alerts"
         }
       ]
     ],

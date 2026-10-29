@@ -6,3 +6,4 @@
 - 2026-10-29 19:02 UTC — ingested presentation (36p, pypdf) → presentations/2026-10-27-presentation-8a0416.md
 - 2026-10-29 19:15 UTC — ingested order_contract (3p, chandra) → filings/docs/2026-10-27-order-contract-8866d3.md
 - 2026-10-29 20:16 UTC — ingested order_contract (2p, chandra) → filings/docs/2026-10-21-order-contract-f4ed51.md
+- 2026-10-29 20:45 UTC — ingested press_release (3p, pypdf) → filings/docs/2026-10-19-press-release-a4ecfa.md

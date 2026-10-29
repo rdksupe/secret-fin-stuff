@@ -8,3 +8,4 @@
 - 2026-10-29 19:15 UTC — ingested press_release (3p, pypdf) → filings/docs/2026-10-27-press-release-0a8eec.md
 - 2026-10-29 19:45 UTC — ingested results (24p, chandra) → results-docs/2026-10-23-results-e27f2f.md
 - 2026-10-29 19:46 UTC — ingested corporate_action (195p, pypdf) → filings/docs/2026-10-23-corporate-action-65e459.md
+- 2026-10-29 20:45 UTC — ingested press_release (4p, pypdf) → filings/docs/2026-10-19-press-release-06e716.md

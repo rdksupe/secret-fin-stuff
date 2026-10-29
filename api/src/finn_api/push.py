@@ -45,17 +45,33 @@ def message(item: FeedItem) -> tuple[str, str]:
 
 
 def send_pending(db: Session, client: httpx.Client | None = None) -> int:
-    """Push every unpushed alert. Marks items pushed even with no device, so they don't pile up."""
+    """Push every unpushed alert. Native app tokens are stored as `fcm:<token>` and go out via
+    FCM; legacy Expo tokens via the Expo push API. Marks items pushed even with no device."""
+    from finn_api import fcm
+
     client = client or httpx.Client(timeout=15)
     sent = 0
     for user in db.scalars(select(User)):
-        tokens = json.loads(user.push_tokens_json or "[]")
+        all_tokens = json.loads(user.push_tokens_json or "[]")
+        fcm_tokens = [t[4:] for t in all_tokens if t.startswith("fcm:")]
+        tokens = [t for t in all_tokens if not t.startswith("fcm:")]
         items = [
             i for i in db.scalars(select(FeedItem).where(FeedItem.user_id == user.id, FeedItem.pushed_at.is_(None)))
             if should_push(user, i)
         ]
         if not items:
             continue
+        if fcm_tokens and fcm.available():
+            gone = set()
+            for item in items:
+                title, body = message(item)
+                for t in fcm_tokens:
+                    res = fcm.send(t, title, body, {"feed_id": item.id, "symbol": item.symbol}, client)
+                    sent += res == "ok"
+                    if res == "gone":
+                        gone.add(f"fcm:{t}")
+            if gone:
+                user.push_tokens_json = json.dumps([t for t in all_tokens if t not in gone])
         messages = []
         for item in items:
             title, body = message(item)
