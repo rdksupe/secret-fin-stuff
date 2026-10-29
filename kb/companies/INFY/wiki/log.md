@@ -5,3 +5,4 @@
 - 2026-10-29 19:01 UTC — ingested press_release (3p, pypdf) → filings/docs/2026-10-29-press-release-61d7f8.md
 - 2026-10-29 19:02 UTC — ingested transcript (48p, pypdf) → transcripts/2026-10-28-transcript-b8e9a9.md
 - 2026-10-29 19:02 UTC — ingested press_release (4p, pypdf) → filings/docs/2026-10-28-press-release-cc12e4.md
+- 2026-10-29 19:15 UTC — ingested press_release (3p, pypdf) → filings/docs/2026-10-27-press-release-0a8eec.md

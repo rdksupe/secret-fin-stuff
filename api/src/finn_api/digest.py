@@ -32,6 +32,8 @@ def _item(i: FeedItem) -> dict:
 
 
 MERGE_WINDOW = timedelta(hours=72)
+# A developing situation (adverse filings + unusual moves) stays one story for longer.
+SITUATION_WINDOW = timedelta(days=10)
 
 
 def cluster(items: list[FeedItem]) -> dict[str, list[FeedItem]]:
@@ -44,10 +46,26 @@ def cluster(items: list[FeedItem]) -> dict[str, list[FeedItem]]:
         topic = rest.rsplit(":", 1)[0] if rest else i.id
         bucket = f"{sym}:{topic}"
         prev = open_.get(bucket)
-        key = prev[0] if prev and i.event_at - prev[1] <= MERGE_WINDOW else sk
+        window = SITUATION_WINDOW if topic == "situation" else MERGE_WINDOW
+        key = prev[0] if prev and i.event_at - prev[1] <= window else sk
         stories.setdefault(key, []).append(i)
         open_[bucket] = (key, i.event_at)
     return stories
+
+
+def situation_summary(group: list[FeedItem]) -> dict:
+    """Timeline + cumulative move for a developing situation."""
+    moves = sorted((i for i in group if i.kind == "signal"), key=lambda i: i.event_at)
+    out: dict = {"situation": True,
+                 "timeline": [{"at": i.event_at.replace(tzinfo=UTC).isoformat(), "kind": i.kind,
+                               "title": i.title, "summary": i.summary}
+                              for i in sorted(group, key=lambda i: i.event_at)]}
+    if moves:
+        first, last = json.loads(moves[0].payload_json), json.loads(moves[-1].payload_json)
+        if first.get("prev_close") and last.get("close"):
+            out["cumulative_pct"] = round((last["close"] - first["prev_close"]) / first["prev_close"] * 100, 1)
+            out["from_close"], out["to_close"] = first["prev_close"], last["close"]
+    return out
 
 
 def _freshness(event_at: datetime, now: datetime) -> float:
@@ -79,7 +97,12 @@ def build_digest(
     ranked = []
     routine: dict[str, list[dict]] = defaultdict(list)
     for key, group in stories.items():
-        group.sort(key=lambda i: (i.tier, i.kind == "results", i.event_at), reverse=True)
+        situation = ":situation:" in (head_key := key)
+        if situation:
+            # Lead with the trigger: the earliest material filing, else the earliest move.
+            group.sort(key=lambda i: (i.kind == "signal", i.event_at))
+        else:
+            group.sort(key=lambda i: (i.tier, i.kind == "results", i.event_at), reverse=True)
         head = group[0]
         when = max(g.event_at for g in group).replace(tzinfo=UTC)
         if head.tier == ROUTINE:
@@ -87,9 +110,11 @@ def build_digest(
                 routine[g.symbol].append(_item(g))
             continue
         score = head.score * (0.5 + _freshness(when, until))
+        extra = situation_summary(group) if situation and len(group) > 1 else {}
         ranked.append(
             {
-                "story_key": key,
+                **extra,
+                "story_key": head_key,
                 "symbol": head.symbol,
                 "tier": head.tier,
                 "score": round(score, 2),

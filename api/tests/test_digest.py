@@ -37,3 +37,13 @@ def test_push_holds_items_awaiting_enrichment():
     done = FeedItem(tier=3, kind="filing", category="management", seen=False, pushed_at=None,
                     created_at=now, payload_json="{}")
     assert should_push(user, done)
+
+
+def test_situation_stays_one_story_for_ten_days():
+    s = cluster([
+        item("EMUDHRA:situation:2026-10-21", 0),
+        item("EMUDHRA:situation:2026-10-22", 30),
+        item("EMUDHRA:situation:2026-10-26", 130),
+        item("EMUDHRA:rating:2026-10-23", 50),
+    ])
+    assert sorted(len(v) for v in s.values()) == [1, 3]

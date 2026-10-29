@@ -6,20 +6,18 @@
 from __future__ import annotations
 
 import hashlib
-import io
 import json
 import logging
 import re
 from dataclasses import asdict
 from datetime import UTC, datetime
 
-from pypdf import PdfReader
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from finn_api.brain import Brain
 from finn_api.models import Document, FeedItem, LLMCall
-from finn_api.sources import chandra, jev, pageindex
+from finn_api.sources import chandra, jev, pageindex, pdf
 from finn_api.sources.nse import NSE
 
 log = logging.getLogger("finn.ingest")
@@ -135,9 +133,10 @@ def process(
         return doc
 
     try:
-        reader = PdfReader(io.BytesIO(raw))
-        doc.pages = len(reader.pages)
-        page_texts = [(p.extract_text() or "") for p in reader.pages]
+        raw = pdf.unwrap(raw)  # some NSE attachments are zips
+        if not pdf_path.exists() or pdf_path.read_bytes()[:2] == b"PK":
+            pdf_path.write_bytes(raw)
+        page_texts, doc.pages = pdf.pages_text(raw)
     except Exception as e:
         doc.status, doc.error = "failed", f"pdf: {e}"
         db.commit()

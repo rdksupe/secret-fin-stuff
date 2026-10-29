@@ -61,9 +61,12 @@ def ingest_announcements(
     rows: list[dict],
     *,
     backfill: bool = False,
+    assess_materiality: bool = True,
 ) -> list[FeedItem]:
     """Classify, write to each company brain, and create feed items per holder.
 
+    Live (non-backfill) filings that the rules can't settle go through the
+    materiality cascade; a "push" verdict promotes them to an alert.
     Returns the newly created feed items (callers decide what to push/enrich).
     """
     by_sym = holdings_by_symbol(db)
@@ -83,23 +86,36 @@ def ingest_announcements(
         when = _event_time(ann)
         key = f"nse:{ann.get('seq_id')}"
         story = _story_key(sym, cat, ann, when)
-        for h in holders:
-            exists = db.scalar(
-                select(FeedItem.id).where(FeedItem.user_id == h.user_id, FeedItem.dedup_key == key)
-            )
-            if exists:
-                continue
+        fresh = [h for h in holders if not db.scalar(
+            select(FeedItem.id).where(FeedItem.user_id == h.user_id, FeedItem.dedup_key == key))]
+        if not fresh:
+            continue
+        verdict = None
+        if assess_materiality and not backfill and cat.key in CASCADE:
+            verdict = assess_filing(db, nse, ann)
+        for h in fresh:
+            tier, summary = cat.tier, text[:400] or None
+            extra: dict = {}
+            if verdict is not None:
+                extra["materiality"] = verdict.as_dict()
+                if verdict.llm and verdict.llm.get("one_liner"):
+                    summary = verdict.llm["one_liner"]
+                    extra["raw_text"] = text[:400]
+                if verdict.push:
+                    tier = taxonomy.ALERT
+                    if (verdict.llm or {}).get("direction", "negative") == "negative":
+                        story = f"{sym}:situation:{(when + IST).date().isoformat()}"
             item = FeedItem(
                 user_id=h.user_id,
                 symbol=sym,
                 kind="filing",
                 category=cat.key,
-                tier=cat.tier,
-                score=base_score(cat.tier, h.weight),
+                tier=tier,
+                score=base_score(tier, h.weight),
                 title=f"{ann.get('desc', 'Filing')}",
-                summary=text[:400] or None,
+                summary=summary,
                 payload_json=json.dumps({"desc": ann.get("desc"), "company": ann.get("sm_name"),
-                                         "category_label": cat.label}),
+                                         "category_label": cat.label} | extra, ensure_ascii=False),
                 source_url=ann.get("attchmntFile") or None,
                 dedup_key=key,
                 story_key=story,
@@ -115,6 +131,26 @@ def ingest_announcements(
         if item.category == "results":
             attach_results_card(db, nse, item)
     return created
+
+
+# Rules can't judge these on their own: generic buckets, press releases, legal,
+# ratings, business updates. Routine, results and management are settled by rules
+# (management still gets the agent's bio enrichment).
+CASCADE = {"other", "investor", "business", "legal", "rating", "orders", "mna", "capital", "governance", "auditor"}
+
+
+def assess_filing(db: Session, nse: NSE, ann: dict):
+    from finn_api import materiality
+
+    raw = None
+    if ann.get("attchmntFile"):
+        try:
+            raw = nse.get_archive(ann["attchmntFile"])
+        except Exception as e:
+            log.info("no pdf for %s: %s", ann.get("symbol"), e)
+    a = materiality.assess(ann, raw, db=db)
+    db.commit()
+    return a
 
 
 def base_score(tier: int, weight: float) -> float:
@@ -208,32 +244,62 @@ def run_eod(db: Session, nse: NSE, *, day: date | None = None) -> list[FeedItem]
     for user in db.scalars(select(User)):
         syms = [h.symbol for h in db.scalars(select(Holding).where(Holding.user_id == user.id))]
         t = Thresholds(**json.loads(user.thresholds_json or "{}"))
+        by_sym: dict[str, list] = {}
         for sig in detect(syms, days, t):
-            key = f"eod:{trade_day}:{sig.symbol}:{sig.kind}"
+            by_sym.setdefault(sig.symbol, []).append(sig)
+        # One move per stock per day: price and volume breaches merge into a single item.
+        for sym, sigs in by_sym.items():
+            key = f"eod:{trade_day}:{sym}"
             if db.scalar(select(FeedItem.id).where(FeedItem.user_id == user.id, FeedItem.dedup_key == key)):
                 continue
+            bar = sigs[0].bar
+            vol = next((s.value for s in sigs if s.kind == "volume"), None)
+            title = f"{sym} {bar.change_pct:+.1f}%" + (f", volume {vol:.1f}× avg" if vol else "")
+            summary = (f"Closed ₹{bar.close:,.2f} vs ₹{bar.prev_close:,.2f}"
+                       + (f"; {bar.volume:,} shares traded" if vol else "")
+                       + f". Crossed your {' and '.join(sorted({s.kind for s in sigs}))} threshold.")
             item = FeedItem(
                 user_id=user.id,
-                symbol=sig.symbol,
+                symbol=sym,
                 kind="signal",
-                category=f"signal_{sig.kind}",
+                category="signal_move",
                 tier=taxonomy.ALERT,
-                score=base_score(taxonomy.ALERT, 0) + min(abs(sig.value), 20),
-                title=sig.headline,
+                score=base_score(taxonomy.ALERT, 0) + min(abs(bar.change_pct), 20) + min(vol or 0, 10),
+                title=title,
+                summary=summary,
                 payload_json=json.dumps({
-                    "kind": sig.kind, "value": sig.value, "threshold": sig.threshold,
-                    "close": sig.bar.close, "prev_close": sig.bar.prev_close,
-                    "volume": sig.bar.volume, "change_pct": sig.bar.change_pct,
+                    "kinds": [s.kind for s in sigs], "volume_x": vol,
+                    "thresholds": {s.kind: s.threshold for s in sigs},
+                    "close": bar.close, "prev_close": bar.prev_close,
+                    "volume": bar.volume, "change_pct": bar.change_pct,
                     "day": trade_day.isoformat(),
                 }),
                 dedup_key=key,
-                story_key=f"{sig.symbol}:move:{trade_day}",
+                story_key=f"{sym}:situation:{trade_day}",
                 event_at=datetime.combine(trade_day, datetime.min.time(), UTC) + timedelta(hours=10),
             )
             db.add(item)
             created.append(item)
+            escalate_explaining_filings(db, item, trade_day)
     db.commit()
     return created
+
+
+def escalate_explaining_filings(db: Session, signal: FeedItem, trade_day: date) -> list[FeedItem]:
+    """Filings from the move day or the day before join the move's story and become alerts."""
+    start = datetime.combine(trade_day - timedelta(days=1), datetime.min.time(), UTC) - IST
+    end = datetime.combine(trade_day + timedelta(days=1), datetime.min.time(), UTC) - IST
+    filings = db.scalars(select(FeedItem).where(
+        FeedItem.user_id == signal.user_id, FeedItem.symbol == signal.symbol, FeedItem.kind != "signal",
+        FeedItem.tier >= taxonomy.LIST, FeedItem.event_at >= start, FeedItem.event_at < end,
+    )).all()
+    for f in filings:
+        payload = json.loads(f.payload_json or "{}")
+        payload["moved_with"] = signal.title
+        f.payload_json = json.dumps(payload, ensure_ascii=False)
+        f.tier = taxonomy.ALERT
+        f.story_key = signal.story_key
+    return list(filings)
 
 
 # ── onboarding ────────────────────────────────────────────────────────────

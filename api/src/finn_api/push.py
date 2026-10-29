@@ -31,6 +31,10 @@ def should_push(user: User, item: FeedItem) -> bool:
         created = item.created_at.replace(tzinfo=item.created_at.tzinfo or UTC)
         if datetime.now(UTC) - created < ENRICH_GRACE:
             return False
+    if (payload.get("materiality") or {}).get("push"):
+        return True  # cascade judged it material regardless of its filing category
+    if payload.get("moved_with"):
+        return True  # filing that explains an unusual price move
     return item.category in set(json.loads(user.alert_categories_json or "[]"))
 
 

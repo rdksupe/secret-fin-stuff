@@ -137,19 +137,17 @@ ALLOWED_PDF_HOSTS = ("nsearchives.nseindia.com", "www.bseindia.com", "archives.n
 
 def cmd_pdftext(a: argparse.Namespace) -> int:
     """First pages of an exchange filing PDF as text (cached). No OCR — scanned PDFs return little."""
-    import io
     from urllib.parse import urlparse
 
-    from pypdf import PdfReader
+    from finn_api.sources import pdf
 
     host = urlparse(a.url).hostname or ""
     if host not in ALLOWED_PDF_HOSTS:
         print(json.dumps({"ok": False, "error": f"host {host} not allowed"}))
         return 1
-    reader = PdfReader(io.BytesIO(NSE().get_archive(a.url)))
-    pages = [p.extract_text() or "" for p in reader.pages[: a.pages]]
+    pages, total = pdf.pages_text(NSE().get_archive(a.url), limit=a.pages)
     text = "\n\n".join(pages).strip()
-    print(json.dumps({"ok": True, "pages": len(reader.pages), "text": text[:12000],
+    print(json.dumps({"ok": True, "pages": total, "text": text[:12000],
                       "scanned": len(text) < 200}, ensure_ascii=False))
     return 0
 
