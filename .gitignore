@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.env
+data/
+kb/companies/*/raw/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+node_modules/
