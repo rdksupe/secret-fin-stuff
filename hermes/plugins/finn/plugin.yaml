@@ -1,0 +1,13 @@
+name: finn
+version: 0.1.0
+description: >
+  Native FINN tools — digest, results card, onboarding and enrichment write-back —
+  so the agent never shells out to reach the FINN CLI (no approval prompts, small schemas).
+author: FINN
+kind: backend
+provides_tools:
+  - finn_digest
+  - finn_results
+  - finn_onboard
+  - finn_enrich
+  - finn_filing_text

@@ -18,3 +18,22 @@ def test_cluster_merges_same_topic_within_72h():
     ])
     sizes = sorted(len(v) for v in s.values())
     assert sizes == [1, 1, 2]
+
+
+def test_push_holds_items_awaiting_enrichment():
+    import json
+
+    from finn_api.models import User
+    from finn_api.push import should_push
+
+    user = User(alert_categories_json='["management"]')
+    now = datetime.now(UTC)
+    fresh = FeedItem(tier=3, kind="filing", category="management", seen=False, pushed_at=None,
+                     created_at=now, payload_json=json.dumps({"enrich_pending": True}))
+    assert not should_push(user, fresh)
+    stale = FeedItem(tier=3, kind="filing", category="management", seen=False, pushed_at=None,
+                     created_at=now - timedelta(minutes=25), payload_json=json.dumps({"enrich_pending": True}))
+    assert should_push(user, stale)
+    done = FeedItem(tier=3, kind="filing", category="management", seen=False, pushed_at=None,
+                    created_at=now, payload_json="{}")
+    assert should_push(user, done)

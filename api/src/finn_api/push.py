@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
 import httpx
 from sqlalchemy import select
@@ -15,6 +15,7 @@ from finn_api.sources.taxonomy import ALERT
 
 log = logging.getLogger("finn.push")
 EXPO_URL = "https://exp.host/--/api/v2/push/send"
+ENRICH_GRACE = timedelta(minutes=20)
 
 
 def should_push(user: User, item: FeedItem) -> bool:
@@ -22,8 +23,14 @@ def should_push(user: User, item: FeedItem) -> bool:
         return False
     if item.kind == "signal":
         return True
-    if json.loads(item.payload_json or "{}").get("results_pending"):
+    payload = json.loads(item.payload_json or "{}")
+    if payload.get("results_pending"):
         return False  # wait for the numbers; a bare "results filed" ping is noise
+    if payload.get("enrich_pending"):
+        # Hold for the agent's bio / one-liner, but never longer than 20 minutes.
+        created = item.created_at.replace(tzinfo=item.created_at.tzinfo or UTC)
+        if datetime.now(UTC) - created < ENRICH_GRACE:
+            return False
     return item.category in set(json.loads(user.alert_categories_json or "[]"))
 
 

@@ -72,6 +72,10 @@ def cmd_cron_announcements(a: argparse.Namespace) -> int:
     with SessionLocal() as db:
         created = ingest_announcements(db, nse, rows)
         retry_pending_results(db, nse)
+        for i in created:
+            if i.category in ENRICH and i.event_at >= cutoff:
+                i.payload_json = json.dumps(json.loads(i.payload_json or "{}") | {"enrich_pending": True})
+        db.commit()
         send_pending(db)
         todo = [
             {"feed_id": i.id, "symbol": i.symbol, "category": i.category, "desc": i.title,
@@ -114,12 +118,81 @@ def cmd_cron_eod(_: argparse.Namespace) -> int:
     return 0
 
 
+ALLOWED_PDF_HOSTS = ("nsearchives.nseindia.com", "www.bseindia.com", "archives.nseindia.com")
+
+
+def cmd_pdftext(a: argparse.Namespace) -> int:
+    """First pages of an exchange filing PDF as text (cached). No OCR — scanned PDFs return little."""
+    import io
+    from urllib.parse import urlparse
+
+    from pypdf import PdfReader
+
+    host = urlparse(a.url).hostname or ""
+    if host not in ALLOWED_PDF_HOSTS:
+        print(json.dumps({"ok": False, "error": f"host {host} not allowed"}))
+        return 1
+    reader = PdfReader(io.BytesIO(NSE().get_archive(a.url)))
+    pages = [p.extract_text() or "" for p in reader.pages[: a.pages]]
+    text = "\n\n".join(pages).strip()
+    print(json.dumps({"ok": True, "pages": len(reader.pages), "text": text[:12000],
+                      "scanned": len(text) < 200}, ensure_ascii=False))
+    return 0
+
+
+def cmd_results(a: argparse.Namespace) -> int:
+    from finn_api.results import results_card
+
+    print(json.dumps(results_card(NSE(), a.symbol), indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_digest(a: argparse.Namespace) -> int:
     from finn_api.digest import build_digest
 
     with SessionLocal() as db:
         d = build_digest(db, _default_user(db).id, hours=a.hours)
     print(json.dumps(d, indent=2, default=str, ensure_ascii=False))
+    return 0
+
+
+def cmd_enrich(a: argparse.Namespace) -> int:
+    """Agent write-back: one-liner and/or person bio onto a feed item (and its siblings)."""
+    from finn_api.brain import Brain
+
+    person = json.loads(a.person) if a.person else None
+    with SessionLocal() as db:
+        item = db.get(FeedItem, a.feed_id)
+        if item is None:
+            print(json.dumps({"ok": False, "error": "no such feed item"}))
+            return 1
+        # Same filing is one feed row per holder — enrich them all.
+        siblings = db.scalars(select(FeedItem).where(FeedItem.dedup_key == item.dedup_key)).all()
+        for it in siblings:
+            payload = json.loads(it.payload_json or "{}")
+            payload.pop("enrich_pending", None)
+            if a.summary:
+                payload["raw_text"] = payload.get("raw_text") or it.summary
+                it.summary = a.summary
+            if person:
+                payload["person"] = person
+            if a.importance is not None:
+                payload["importance"] = a.importance
+            it.payload_json = json.dumps(payload, ensure_ascii=False)
+        db.commit()
+        if person and person.get("name"):
+            body = [f"# {person['name']}", ""]
+            if person.get("role"):
+                body.append(f"**{person['role']}** at {item.symbol} ({person.get('change', 'change')})")
+            if person.get("bio"):
+                body += ["", person["bio"]]
+            for src in person.get("sources", []):
+                body.append(f"- {src}")
+            Brain(item.symbol).write_page("people", person["name"], "\n".join(body) + "\n",
+                                          source=item.source_url)
+        Brain(item.symbol).log(f"enriched {item.category}: {(a.summary or '')[:80]}")
+        sent = send_pending(db)
+    print(json.dumps({"ok": True, "updated": len(siblings), "pushed": sent}))
     return 0
 
 
@@ -137,9 +210,25 @@ def main(argv: list[str] | None = None) -> int:
     c = sub.add_parser("cron")
     csub = c.add_subparsers(dest="job", required=True)
     ca = csub.add_parser("announcements")
-    ca.add_argument("--hours", type=int, default=2)
+    ca.add_argument("--hours", type=int, default=12)
     ca.set_defaults(fn=cmd_cron_announcements)
     csub.add_parser("eod").set_defaults(fn=cmd_cron_eod)
+
+    e = sub.add_parser("enrich", help="agent write-back for a feed item")
+    e.add_argument("feed_id")
+    e.add_argument("--summary", help="one line, <=160 chars, what changed and why it matters")
+    e.add_argument("--person", help='JSON: {"name","role","change","bio","sources":[...]}')
+    e.add_argument("--importance", type=float, help="0-1: how much a holder should care")
+    e.set_defaults(fn=cmd_enrich)
+
+    t = sub.add_parser("pdftext")
+    t.add_argument("url")
+    t.add_argument("--pages", type=int, default=3)
+    t.set_defaults(fn=cmd_pdftext)
+
+    r = sub.add_parser("results")
+    r.add_argument("symbol")
+    r.set_defaults(fn=cmd_results)
 
     d = sub.add_parser("digest")
     d.add_argument("--hours", type=int, default=24)
