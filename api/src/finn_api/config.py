@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     finn_model_reason: str = "accounts/fireworks/models/kimi-k3"
 
     datalab_api_key: str | None = None
+    datalab_mode: str = "accurate"  # Chandra
+    typesafe_api_key: str | None = None
+    pageindex_root: Path = REPO_ROOT.parent / "PageIndex"
     exa_api_key: str | None = None
 
     hermes_api_url: str = "http://127.0.0.1:8642"

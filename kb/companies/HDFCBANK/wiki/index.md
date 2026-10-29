@@ -14,3 +14,8 @@ Start here. Pages are plain markdown; follow the links.
 ## results/
 
 - [[results/2026-09-30]] — HDFCBANK Q2 FY27 results (consolidated)
+
+## people/
+
+- [[people/jigar-shah]] — Jigar Shah
+- [[people/anup-bagchi]] — Anup Bagchi

@@ -94,3 +94,32 @@ class LLMCall(Base):
     cost_usd: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
     cached: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+
+class Document(Base):
+    """A filing PDF FINN has seen: triage decision, conversion, where it lives in the brain."""
+
+    __tablename__ = "documents"
+    __table_args__ = (UniqueConstraint("symbol", "url"),)
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=_uuid)
+    symbol: Mapped[str] = mapped_column(String, nullable=False)
+    url: Mapped[str] = mapped_column(String, nullable=False)
+    sha256: Mapped[str | None] = mapped_column(String, nullable=True)
+    desc: Mapped[str | None] = mapped_column(String, nullable=True)
+    pages: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    filed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    # triage
+    doc_type: Mapped[str | None] = mapped_column(String, nullable=True)
+    triage_json: Mapped[str] = mapped_column(Text, nullable=False, default="{}")
+    triage_by: Mapped[str | None] = mapped_column(String, nullable=True)  # jev | rules
+    decision: Mapped[str] = mapped_column(String, nullable=False, default="pending")  # parse | store | pending
+    # conversion
+    status: Mapped[str] = mapped_column(String, nullable=False, default="new")  # new | triaged | parsed | stored | failed
+    engine: Mapped[str | None] = mapped_column(String, nullable=True)  # chandra | pypdf
+    wiki_path: Mapped[str | None] = mapped_column(String, nullable=True)
+    tree_path: Mapped[str | None] = mapped_column(String, nullable=True)
+    cost_usd: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)

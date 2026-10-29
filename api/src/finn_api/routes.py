@@ -16,7 +16,7 @@ from finn_api.brain import Brain
 from finn_api.config import settings
 from finn_api.db import get_db
 from finn_api.digest import _item, build_digest
-from finn_api.models import FeedItem, Holding, User
+from finn_api.models import Document, FeedItem, Holding, User
 from finn_api.pipeline import onboard
 from finn_api.results import results_card
 from finn_api.sources.nse import NSE
@@ -181,6 +181,29 @@ def company_results(symbol: str):
     if not card:
         raise HTTPException(404, "no XBRL results filings found")
     return card
+
+
+@router.get("/companies/{symbol}/documents")
+def company_documents(symbol: str, db: Session = Depends(get_db)):
+    docs = db.scalars(select(Document).where(Document.symbol == symbol.upper())
+                      .order_by(Document.filed_at.desc())).all()
+    return [{
+        "id": d.id, "desc": d.desc, "url": d.url, "pages": d.pages, "doc_type": d.doc_type,
+        "triage_by": d.triage_by, "triage": json.loads(d.triage_json or "{}"), "decision": d.decision,
+        "status": d.status, "engine": d.engine, "wiki_path": d.wiki_path, "tree_path": d.tree_path,
+        "filed_at": d.filed_at and d.filed_at.isoformat(),
+    } for d in docs]
+
+
+@router.post("/documents/{doc_id}/parse")
+def parse_document(doc_id: str, db: Session = Depends(get_db)):
+    from finn_api.ingest import parse_now
+
+    try:
+        d = parse_now(db, NSE(), doc_id)
+    except KeyError as e:
+        raise HTTPException(404, "no such document") from e
+    return {"id": d.id, "status": d.status, "wiki_path": d.wiki_path, "tree_path": d.tree_path, "engine": d.engine}
 
 
 @router.get("/companies/{symbol}/brain")

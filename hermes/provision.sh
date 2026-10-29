@@ -130,7 +130,16 @@ jobs = [
                 "it, say 'No filing explains the move'.",
          enabled_toolsets=["finn", "file", "skills"]),
 ]
+no_agent = [
+    dict(name="finn-ingest", schedule="*/15 * * * *", script="finn_ingest.py"),
+]
 existing = {j.get("name"): j for j in list_jobs(include_disabled=True)}
+for j in no_agent:
+    if j["name"] in existing:
+        remove_job(existing[j["name"]]["id"])
+    create_job(prompt=None, schedule=j["schedule"], name=j["name"], deliver="local",
+               script=j["script"], no_agent=True)
+    print("cron:", j["name"], j["schedule"], "(no agent)")
 for j in jobs:
     if j["name"] in existing:
         remove_job(existing[j["name"]]["id"])

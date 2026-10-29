@@ -96,6 +96,20 @@ def cmd_cron_announcements(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_cron_ingest(a: argparse.Namespace) -> int:
+    from finn_api import ingest
+
+    with SessionLocal() as db:
+        docs = ingest.run(db, NSE(), limit=a.limit, allow_chandra=not a.no_ocr)
+        rows = [{"symbol": d.symbol, "desc": d.desc, "pages": d.pages, "type": d.doc_type, "by": d.triage_by,
+                 "decision": d.decision, "status": d.status, "engine": d.engine, "wiki": d.wiki_path,
+                 "tree": d.tree_path, "cost": round(d.cost_usd, 5), "error": d.error} for d in docs]
+    for r in rows:
+        print(json.dumps(r, ensure_ascii=False), file=sys.stderr)
+    _gate(False)  # ingest never needs the agent
+    return 0
+
+
 def cmd_cron_eod(_: argparse.Namespace) -> int:
     with SessionLocal() as db:
         created = run_eod(db, NSE())
@@ -213,6 +227,10 @@ def main(argv: list[str] | None = None) -> int:
     ca.add_argument("--hours", type=int, default=12)
     ca.set_defaults(fn=cmd_cron_announcements)
     csub.add_parser("eod").set_defaults(fn=cmd_cron_eod)
+    ci = csub.add_parser("ingest")
+    ci.add_argument("--limit", type=int, default=10)
+    ci.add_argument("--no-ocr", action="store_true", help="text layer only (no Chandra spend)")
+    ci.set_defaults(fn=cmd_cron_ingest)
 
     e = sub.add_parser("enrich", help="agent write-back for a feed item")
     e.add_argument("feed_id")

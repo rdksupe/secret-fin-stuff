@@ -14,3 +14,7 @@ Start here. Pages are plain markdown; follow the links.
 ## results/
 
 - [[results/2026-09-30]] — INFY Q2 FY27 results (consolidated)
+
+## transcripts/
+
+- [[transcripts/2026-10-28-transcript-b8e9a9]] — INFY · Updates · 2026-10-28
