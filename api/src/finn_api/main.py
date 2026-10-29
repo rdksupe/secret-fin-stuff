@@ -1,4 +1,5 @@
 import logging
+import threading
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -10,9 +11,20 @@ from finn_api.routes import router
 log = logging.getLogger("finn")
 
 
+def _warm_prices() -> None:
+    """Parse the last ~60 sessions once so Watch/Company sparklines answer instantly."""
+    from finn_api.sources.nse import NSE
+
+    try:
+        NSE().recent_bhavcopies(60)
+    except Exception as e:  # warm-up is best effort
+        log.warning("price warm-up failed: %s", e)
+
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
+    threading.Thread(target=_warm_prices, daemon=True).start()
     yield
 
 

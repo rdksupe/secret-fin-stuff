@@ -92,7 +92,7 @@ def ingest_announcements(
             continue
         verdict = None
         if assess_materiality and not backfill and cat.key in CASCADE:
-            verdict = assess_filing(db, nse, ann)
+            verdict = assess_filing(db, nse, ann, rule_tier=cat.tier)
         for h in fresh:
             tier, summary = cat.tier, text[:400] or None
             extra: dict = {}
@@ -101,10 +101,9 @@ def ingest_announcements(
                 if verdict.llm and verdict.llm.get("one_liner"):
                     summary = verdict.llm["one_liner"]
                     extra["raw_text"] = text[:400]
-                if verdict.push:
-                    tier = taxonomy.ALERT
-                    if (verdict.llm or {}).get("direction", "negative") == "negative":
-                        story = f"{sym}:situation:{(when + IST).date().isoformat()}"
+                tier = tier_from_verdict(cat.tier, verdict)
+                if verdict.push and (verdict.llm or {}).get("direction", "negative") == "negative":
+                    story = f"{sym}:situation:{(when + IST).date().isoformat()}"
             item = FeedItem(
                 user_id=h.user_id,
                 symbol=sym,
@@ -136,10 +135,58 @@ def ingest_announcements(
 # Rules can't judge these on their own: generic buckets, press releases, legal,
 # ratings, business updates. Routine, results and management are settled by rules
 # (management still gets the agent's bio enrichment).
-CASCADE = {"other", "investor", "business", "legal", "rating", "orders", "mna", "capital", "governance", "auditor"}
+CASCADE = {"other", "investor", "business", "legal", "rating", "orders", "mna", "capital", "governance", "auditor",
+           "distress"}  # insolvency filings are often about a counterparty, not the company
 
 
-def assess_filing(db: Session, nse: NSE, ann: dict):
+def tier_from_verdict(rule_tier: int, verdict) -> int:
+    """Promote on a push. Demote only what Jev is confident is routine paperwork, or what the
+    LLM read in full and called immaterial; otherwise the rule tier stands."""
+    if verdict.push:
+        return taxonomy.ALERT
+    if verdict.nouls.get("routine", 0) >= 0.7:
+        return min(rule_tier, taxonomy.LIST)
+    if verdict.verdict == "not_material":
+        # The LLM read it in full: low importance goes on file, the rest stays worth a look.
+        low = float((verdict.llm or {}).get("importance", 0.5)) < 0.3
+        return min(rule_tier, taxonomy.LIST if low else taxonomy.BRIEF)
+    return rule_tier
+
+
+def reassess_recent(db: Session, nse: NSE, *, days: int = 14, limit: int = 60, force: bool = False) -> list[FeedItem]:
+    """Run the cascade over recent items that predate it (backfill) — fixes stub headlines
+    and mis-tiered filings. One assessment per filing, applied to every holder's copy."""
+    since = datetime.now(UTC) - timedelta(days=days)
+    items = db.scalars(select(FeedItem).where(
+        FeedItem.kind == "filing", FeedItem.event_at >= since, FeedItem.category.in_(CASCADE),
+    ).order_by(FeedItem.event_at.desc())).all()
+    by_key: dict[str, list[FeedItem]] = {}
+    for it in items:
+        if force or "materiality" not in json.loads(it.payload_json or "{}"):
+            by_key.setdefault(it.dedup_key, []).append(it)
+    done = []
+    for _key, copies in list(by_key.items())[:limit]:
+        it = copies[0]
+        p = json.loads(it.payload_json or "{}")
+        cat = taxonomy.classify(p.get("desc") or "", p.get("raw_text") or it.summary or "")
+        ann = {"symbol": it.symbol, "sm_name": p.get("company"), "desc": p.get("desc"),
+               "attchmntText": p.get("raw_text") or it.summary or "", "attchmntFile": it.source_url}
+        v = assess_filing(db, nse, ann, rule_tier=cat.tier)
+        for c in copies:
+            cp = json.loads(c.payload_json or "{}")
+            cp["materiality"] = v.as_dict()
+            if v.llm and v.llm.get("one_liner"):
+                cp["raw_text"] = cp.get("raw_text") or c.summary
+                c.summary = v.llm["one_liner"]
+            c.payload_json = json.dumps(cp, ensure_ascii=False)
+            c.tier = tier_from_verdict(cat.tier, v)
+            c.score = base_score(c.tier, 0)
+        db.commit()
+        done.append(it)
+    return done
+
+
+def assess_filing(db: Session, nse: NSE, ann: dict, *, rule_tier: int = taxonomy.LIST):
     from finn_api import materiality
 
     raw = None
@@ -148,7 +195,7 @@ def assess_filing(db: Session, nse: NSE, ann: dict):
             raw = nse.get_archive(ann["attchmntFile"])
         except Exception as e:
             log.info("no pdf for %s: %s", ann.get("symbol"), e)
-    a = materiality.assess(ann, raw, db=db)
+    a = materiality.assess(ann, raw, db=db, want_summary=rule_tier >= taxonomy.BRIEF)
     db.commit()
     return a
 

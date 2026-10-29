@@ -9,3 +9,4 @@
 - 2026-10-29 18:56 UTC — enriched management: Jagdishan demits office as MD&CEO Oct 26 (tenure end); Anup Bagchi, ex-ICICI Pru
 - 2026-10-29 18:56 UTC — enriched management: RBI clears Anup Bagchi (DIN 00105962) as MD&CEO for 3 yrs from Oct 27, 2026; Boa
 - 2026-10-29 18:56 UTC — enriched management: Group General Counsel Sudhir Kumar Jha superannuates Sep 30 after 22 yrs in HDFC
+- 2026-10-29 19:45 UTC — ingested transcript (17p, pypdf) → transcripts/2026-10-23-transcript-07c340.md

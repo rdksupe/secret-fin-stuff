@@ -128,8 +128,20 @@ def llm_triage(state: dict, db: Session | None = None) -> dict | None:
     return llm.chat_json(LLM_SYSTEM, user, feature="materiality_llm", db=db)
 
 
-def assess(ann: dict, raw_pdf: bytes | None, *, db: Session | None = None, use_llm: bool = True) -> Assessment:
-    """Full cascade for one filing (rules already decided it's worth a look)."""
+def assess(
+    ann: dict,
+    raw_pdf: bytes | None,
+    *,
+    db: Session | None = None,
+    use_llm: bool = True,
+    want_summary: bool = False,
+) -> Assessment:
+    """Full cascade for one filing.
+
+    Jev only screens for *adversity*. A clear verdict means "not bad news", not "unimportant",
+    so `want_summary` (set for filings the rules already rate worth-a-look) still sends it to
+    the LLM for a one-liner — good news needs a headline too.
+    """
     text = ""
     if raw_pdf:
         try:
@@ -144,7 +156,12 @@ def assess(ann: dict, raw_pdf: bytes | None, *, db: Session | None = None, use_l
     else:
         score, verdict = combine(n)
         a = Assessment(stage="jev", verdict=verdict, score=score, nouls=n)
-    if a.verdict == "uncertain" and use_llm:
+    # The LLM sees: everything Jev is unsure of, everything Jev calls adverse (it gets pushed, so
+    # it needs a real headline), and non-routine worth-a-look items (good news needs one too).
+    needs_llm = a.verdict in ("uncertain", "adverse") or (
+        want_summary and a.verdict == "clear" and a.nouls.get("routine", 0) < 0.7
+    )
+    if use_llm and needs_llm:
         out = llm_triage(state, db)
         if out:
             a.stage, a.llm = "llm", out

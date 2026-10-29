@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
 import httpx
 from fastapi import APIRouter, Depends, Header, HTTPException, Query, Request
@@ -67,6 +67,32 @@ def feed_item(item_id: str, user: User = Depends(current_user), db: Session = De
             select(FeedItem).where(FeedItem.user_id == user.id, FeedItem.story_key == item.story_key,
                                    FeedItem.id != item.id))]
     return {**_item(item), "related": related}
+
+
+@router.get("/stories/{item_id}")
+def story_for(item_id: str, user: User = Depends(current_user), db: Session = Depends(get_db)):
+    """The whole story an item belongs to (situations span days), clustered like the digest."""
+    from finn_api.digest import cluster, situation_summary
+
+    item = db.get(FeedItem, item_id)
+    if not item or item.user_id != user.id:
+        raise HTTPException(404)
+    lo, hi = item.event_at - timedelta(days=12), item.event_at + timedelta(days=12)
+    nearby = list(db.scalars(select(FeedItem).where(
+        FeedItem.user_id == user.id, FeedItem.symbol == item.symbol,
+        FeedItem.event_at >= lo, FeedItem.event_at <= hi)))
+    for key, group in cluster(nearby).items():
+        if any(g.id == item.id for g in group):
+            situation = ":situation:" in key
+            group.sort(key=(lambda i: (i.kind == "signal", i.event_at)) if situation
+                       else (lambda i: (-i.tier, i.event_at)))
+            head = group[0]
+            extra = situation_summary(group) if situation and len(group) > 1 else {}
+            return {**extra, "story_key": key, "symbol": item.symbol, "tier": head.tier,
+                    "head": _item(head), "related": [_item(g) for g in group[1:]],
+                    "event_at": max(g.event_at for g in group).isoformat(),
+                    "company": json.loads(head.payload_json or "{}").get("company")}
+    raise HTTPException(404)
 
 
 class FeedAction(BaseModel):
@@ -149,6 +175,17 @@ def holdings(user: User = Depends(current_user), db: Session = Depends(get_db)):
             "close": bar and bar.close, "change_pct": bar and bar.change_pct,
             "volume": bar and bar.volume, "day": bar and bar.day.isoformat(),
         })
+    return out
+
+
+@router.get("/holdings/prices")
+def holdings_prices(days: int = 30, user: User = Depends(current_user), db: Session = Depends(get_db)):
+    syms = {h.symbol for h in db.scalars(select(Holding).where(Holding.user_id == user.id))}
+    out: dict[str, list[float]] = {s: [] for s in syms}
+    for bars in NSE().recent_bhavcopies(min(max(days, 5), 120)):
+        for s in syms:
+            if s in bars:
+                out[s].append(bars[s].close)
     return out
 
 
@@ -282,6 +319,50 @@ async def chat_stop(run_id: str, user: User = Depends(current_user)):
     async with httpx.AsyncClient(timeout=15) as c:
         r = await c.post(f"{settings.hermes_api_url}/v1/runs/{run_id}/stop", headers=_hermes_headers(user))
     return {"ok": r.status_code < 400}
+
+
+@router.get("/status")
+def status(user: User = Depends(current_user), db: Session = Depends(get_db)):
+    """FINN's own pulse: what it read today vs what it kept for you (the sieve)."""
+    from datetime import date as _date
+
+    from finn_api.sources.taxonomy import ROUTINE, classify
+
+    holdings = {h.symbol for h in db.scalars(select(Holding).where(Holding.user_id == user.id))}
+    nse = NSE()
+    try:
+        rows = nse.announcements(start=_date.today() - timedelta(days=1), end=_date.today(), max_age=600)
+    except Exception:
+        rows = []
+    # Rolling 24h in IST (NSE timestamps are IST wall-clock).
+    cutoff = (datetime.now(UTC) + timedelta(hours=5, minutes=30) - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
+    rows = [r for r in rows if (r.get("sort_date") or "") >= cutoff]
+    mine = [r for r in rows if (r.get("symbol") or "").upper() in holdings]
+    d = build_digest(db, user.id, hours=24)
+    last = max((r.get("sort_date") or "" for r in rows), default="") or None
+    return {
+        "watching": len(holdings),
+        "read_24h": len(rows),
+        "yours_24h": len(mine),
+        "routine_24h": sum(1 for r in mine if classify(r.get("desc", ""), r.get("attchmntText", "")).tier == ROUTINE),
+        "kept_24h": d["counts"]["alert"] + d["counts"]["brief"],
+        "alerts_24h": d["counts"]["alert"],
+        "last_filing_at": last,
+        "checked_at": datetime.now(UTC).isoformat(),
+    }
+
+
+@router.get("/companies/{symbol}/prices")
+def company_prices(symbol: str, days: int = 30):
+    sym = symbol.upper()
+    out = []
+    for bars in NSE().recent_bhavcopies(min(max(days, 5), 120)):
+        b = bars.get(sym)
+        if b:
+            out.append({"day": b.day.isoformat(), "close": b.close, "change_pct": b.change_pct, "volume": b.volume})
+    if not out:
+        raise HTTPException(404, "no price history")
+    return out
 
 
 @router.get("/health/sources")

@@ -15,6 +15,10 @@ Start here. Pages are plain markdown; follow the links.
 
 - [[results/2026-09-30]] — HDFCBANK Q2 FY27 results (consolidated)
 
+## transcripts/
+
+- [[transcripts/2026-10-23-transcript-07c340]] — HDFCBANK · Analysts/Institutional Investor Meet/Con. Call Updates · 2026-10-23
+
 ## people/
 
 - [[people/jigar-shah]] — Jigar Shah

@@ -42,6 +42,11 @@ _HEADERS = {
 }
 
 
+_BHAV_PARSED: dict[date, dict[str, "Bar"]] = {}
+_BHAV_MISSING: dict[date, float] = {}  # day → when we found no file (holiday, or not out yet)
+_RECENT_RETRY_S = 900  # today's file appears in the evening; recheck every 15 min
+
+
 class NSEError(RuntimeError):
     pass
 
@@ -198,12 +203,28 @@ class NSE:
     # ── EOD ────────────────────────────────────────────────────────────────
 
     def bhavcopy(self, day: date) -> dict[str, Bar]:
-        """All NSE cash-market equity bars for one trading day (EQ/BE/BZ series)."""
+        """All NSE cash-market equity bars for one trading day (EQ/BE/BZ series).
+
+        Parsed days are kept in memory: a past day never changes, and the app asks for
+        30–60 days of history on every Watch/Company view.
+        """
+        if day in _BHAV_PARSED:
+            return _BHAV_PARSED[day]
+        missed = _BHAV_MISSING.get(day)
+        if missed and (day < date.today() - timedelta(days=3) or time.time() - missed < _RECENT_RETRY_S):
+            raise NSEError(f"no bhavcopy for {day}")
         url = f"{ARCHIVES}/content/cm/BhavCopy_NSE_CM_0_0_0_{day:%Y%m%d}_F_0000.csv.zip"
-        raw = self.get_archive(url)
+        try:
+            raw = self.get_archive(url)
+        except NSEError:
+            _BHAV_MISSING[day] = time.time()
+            raise
         with zipfile.ZipFile(io.BytesIO(raw)) as zf:
             text = zf.read(zf.namelist()[0]).decode("utf-8", errors="ignore")
-        return parse_bhavcopy(text)
+        bars = parse_bhavcopy(text)
+        if day < date.today():
+            _BHAV_PARSED[day] = bars
+        return bars
 
     def recent_bhavcopies(self, n: int, *, until: date | None = None) -> list[dict[str, Bar]]:
         """Last `n` trading days, oldest first. Holidays / weekends are skipped."""

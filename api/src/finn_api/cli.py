@@ -159,6 +159,18 @@ def cmd_results(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_reassess(a: argparse.Namespace) -> int:
+    from finn_api.pipeline import reassess_recent
+
+    with SessionLocal() as db:
+        done = reassess_recent(db, NSE(), days=a.days, limit=a.limit, force=a.force)
+        for it in done:
+            m = json.loads(it.payload_json).get("materiality", {})
+            print(f"{it.symbol:11} t{it.tier} {m.get('stage', '?'):5} {m.get('verdict', '?'):12} {(it.summary or '')[:110]}")
+    print(f"# reassessed {len(done)} filings", file=sys.stderr)
+    return 0
+
+
 def cmd_digest(a: argparse.Namespace) -> int:
     from finn_api.digest import build_digest
 
@@ -245,6 +257,12 @@ def main(argv: list[str] | None = None) -> int:
     r = sub.add_parser("results")
     r.add_argument("symbol")
     r.set_defaults(fn=cmd_results)
+
+    ra = sub.add_parser("reassess", help="run the materiality cascade over recent backfilled items")
+    ra.add_argument("--days", type=int, default=14)
+    ra.add_argument("--limit", type=int, default=60)
+    ra.add_argument("--force", action="store_true", help="re-run even where a verdict exists")
+    ra.set_defaults(fn=cmd_reassess)
 
     d = sub.add_parser("digest")
     d.add_argument("--hours", type=int, default=24)

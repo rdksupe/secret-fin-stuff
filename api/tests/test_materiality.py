@@ -24,3 +24,15 @@ def test_llm_negative_half_importance_pushes():
     assert a.push
     a = Assessment(stage="llm", verdict="not_material", llm={"direction": "positive", "importance": 0.5, "push_now": False})
     assert not a.push
+
+
+def test_clear_of_adversity_keeps_rule_tier():
+    from finn_api.pipeline import tier_from_verdict
+    from finn_api.sources.taxonomy import ALERT, BRIEF, LIST
+
+    order_win = Assessment(stage="jev", verdict="clear", score=0.05, nouls=BASE | {"routine": 0.1})
+    assert tier_from_verdict(BRIEF, order_win) == BRIEF  # good news is not demoted
+    paperwork = Assessment(stage="jev", verdict="clear", score=0.0, nouls=BASE | {"routine": 0.9})
+    assert tier_from_verdict(ALERT, paperwork) == LIST
+    big = Assessment(stage="llm", verdict="material", llm={"direction": "negative", "importance": 0.7})
+    assert tier_from_verdict(LIST, big) == ALERT
