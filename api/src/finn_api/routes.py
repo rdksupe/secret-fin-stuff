@@ -6,12 +6,13 @@ import json
 from datetime import UTC, datetime, timedelta
 
 import httpx
-from fastapi import APIRouter, Depends, Header, HTTPException, Query, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from finn_api.auth import require_auth
 from finn_api.brain import Brain
 from finn_api.config import settings
 from finn_api.db import get_db
@@ -21,15 +22,7 @@ from finn_api.pipeline import onboard
 from finn_api.results import results_card
 from finn_api.sources.nse import NSE
 
-
-def require_key(
-    x_api_key: str | None = Header(default=None), api_key: str | None = Query(default=None)
-) -> None:
-    if (x_api_key or api_key or "") != settings.finn_api_key:
-        raise HTTPException(401, "send X-API-Key")
-
-
-router = APIRouter(prefix="/api", dependencies=[Depends(require_key)])
+router = APIRouter(prefix="/api", dependencies=[Depends(require_auth)])
 
 
 def current_user(db: Session = Depends(get_db)) -> User:

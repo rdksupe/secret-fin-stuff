@@ -171,6 +171,13 @@ def cmd_reassess(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_token(a: argparse.Namespace) -> int:
+    from finn_api.auth import mint
+
+    print(mint(a.sub, days=a.days))
+    return 0
+
+
 def cmd_digest(a: argparse.Namespace) -> int:
     from finn_api.digest import build_digest
 
@@ -263,6 +270,11 @@ def main(argv: list[str] | None = None) -> int:
     ra.add_argument("--limit", type=int, default=60)
     ra.add_argument("--force", action="store_true", help="re-run even where a verdict exists")
     ra.set_defaults(fn=cmd_reassess)
+
+    tk = sub.add_parser("token", help="mint an app token (JWT) for an app build")
+    tk.add_argument("--sub", default="finn-app")
+    tk.add_argument("--days", type=int, default=30)
+    tk.set_defaults(fn=cmd_token)
 
     d = sub.add_parser("digest")
     d.add_argument("--hours", type=int, default=24)

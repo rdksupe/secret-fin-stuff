@@ -1,11 +1,11 @@
-// FINN API client. On the deployed web app the edge proxy adds the API key, so
-// EXPO_PUBLIC_FINN_KEY is only needed when talking to a backend directly.
+// FINN API client. The app authenticates with a JWT minted on the server (`finn token`) and
+// baked in at build time via EXPO_PUBLIC_FINN_TOKEN, sent as `Authorization: Bearer …`.
 
 export const API_BASE = (process.env.EXPO_PUBLIC_FINN_API ?? '').replace(/\/$/, '');
-const KEY = process.env.EXPO_PUBLIC_FINN_KEY ?? '';
+const TOKEN = process.env.EXPO_PUBLIC_FINN_TOKEN ?? '';
 
 export function headers(extra: Record<string, string> = {}): Record<string, string> {
-  return { ...(KEY ? { 'X-API-Key': KEY } : {}), ...extra };
+  return { ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}), ...extra };
 }
 
 export class ApiError extends Error {

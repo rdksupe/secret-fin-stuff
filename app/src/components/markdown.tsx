@@ -127,7 +127,7 @@ export function Markdown({ text, size = 15 }: { text: string; size?: number }) {
     }
     out.push(
       <View key={`p${k++}`} style={{ marginVertical: 3 }}>
-        {inline(para.join(' '), base, `p${k}`)}
+        {inline(para.join('\n'), base, `p${k}`)}
       </View>,
     );
   }

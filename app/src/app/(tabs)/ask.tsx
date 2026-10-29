@@ -12,7 +12,7 @@ import { color, font, maxWidth, size, space } from '@/theme';
 const STARTERS = [
   'What changed in my portfolio this week?',
   'How did TCS do last quarter?',
-  'Walk me through what happened at eMudhra.',
+  "What did Maruti's latest results show?",
   'Which of my companies changed management this year?',
 ];
 

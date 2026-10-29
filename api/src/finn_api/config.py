@@ -13,7 +13,8 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    finn_api_key: str = "dev-key-change-me"
+    finn_api_key: str | None = None  # server-side tools only
+    finn_jwt_secret: str | None = None  # signs app tokens; never leaves the server
     finn_db_path: Path = REPO_ROOT / "data" / "finn.db"
     finn_kb_dir: Path = REPO_ROOT / "kb"
     # Raw HTTP responses from NSE etc. — lets the demo survive upstream blocking.
