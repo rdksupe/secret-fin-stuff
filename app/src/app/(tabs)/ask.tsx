@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { MicIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
 import { Markdown } from '@/components/markdown';
 import { Dot } from '@/components/pulse';
 import { Body, Mono, Strong, Title } from '@/components/type';
@@ -60,8 +61,69 @@ function Prompt({ m, onAnswer }: { m: ChatMessage; onAnswer: (choice: string) =>
 
 type Listen = { playing: string | null; loading: string | null; toggle: (id: string) => void };
 
-function Bubble({ m, onAnswer, listen }: { m: ChatMessage; onAnswer: (id: string, choice: string) => void; listen: Listen }) {
-  if (m.kind !== 'message') return <Prompt m={m} onAnswer={(c) => onAnswer(m.id, c)} />;
+/** The quoted message a reply points at, Telegram-style. */
+function Quote({ m, onClear }: { m: Pick<ChatMessage, 'role' | 'text'>; onClear?: () => void }) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', borderLeftWidth: 2, borderLeftColor: m.role === 'finn' ? color.marigold : color.mist, paddingLeft: 8, marginBottom: 6 }}>
+      <View style={{ flex: 1 }}>
+        <Body size={size.meta} c={m.role === 'finn' ? color.marigold : color.mist}>{m.role === 'finn' ? 'FINN' : 'You'}</Body>
+        <Body size={size.meta} c={color.mist} numberOfLines={2}>{clean(m.text).replace(/[#*_`|>]/g, '')}</Body>
+      </View>
+      {onClear ? (
+        <Pressable onPress={onClear} hitSlop={12} accessibilityLabel="Cancel reply" style={{ paddingHorizontal: 6 }}>
+          <Body c={color.dim}>×</Body>
+        </Pressable>
+      ) : null}
+    </View>
+  );
+}
+
+/** The gateway's tool-progress bubble: what FINN is doing, one line per tool call. */
+function ToolTrace({ m, live }: { m: ChatMessage; live: boolean }) {
+  const [open, setOpen] = useState(false);
+  const lines = m.text.split('\n').filter((l) => l.trim() && !l.startsWith('```'));
+  const shown = open || live ? lines : lines.slice(-2);
+  return (
+    <Pressable onPress={() => setOpen((o) => !o)} disabled={live || lines.length <= 2} style={{ marginVertical: space.xs, gap: 2 }}>
+      {!open && !live && lines.length > 2 ? (
+        <Mono size={12} c={color.dim}>{`${lines.length} steps · show all`}</Mono>
+      ) : null}
+      {shown.map((l, i) => (
+        <Mono key={i} size={12} c={live && i === shown.length - 1 ? color.marigold : color.dim} numberOfLines={2}>{l}</Mono>
+      ))}
+    </Pressable>
+  );
+}
+
+function Reaction({ emoji }: { emoji: string }) {
+  return (
+    <View style={{ alignSelf: 'flex-start', marginTop: 6, borderRadius: 10, borderWidth: 1, borderColor: color.hairline, backgroundColor: color.panel, paddingHorizontal: 7, paddingVertical: 2 }}>
+      <Body size={size.small}>{emoji}</Body>
+    </View>
+  );
+}
+
+function Bubble({
+  m,
+  live,
+  showQuote,
+  selected,
+  onSelect,
+  onAnswer,
+  listen,
+}: {
+  m: ChatMessage;
+  live: boolean;
+  showQuote: boolean;
+  selected: boolean;
+  onSelect: (m: ChatMessage) => void;
+  onAnswer: (id: string, choice: string) => void;
+  listen: Listen;
+}) {
+  if (m.kind === 'approval' || m.kind === 'clarify') return <Prompt m={m} onAnswer={(c) => onAnswer(m.id, c)} />;
+  if (m.kind === 'tool') return <ToolTrace m={m} live={live} />;
+  const quote = showQuote && m.payload.reply_text ? { role: m.payload.reply_role ?? 'finn', text: m.payload.reply_text } : null;
+  const highlight = selected ? { backgroundColor: color.well, borderRadius: 14 } : null;
   if (m.role === 'user') {
     // Slash commands are controls, not conversation.
     if (m.text.startsWith('/')) {
@@ -72,37 +134,59 @@ function Bubble({ m, onAnswer, listen }: { m: ChatMessage; onAnswer: (id: string
       );
     }
     return (
-      <View style={{ alignSelf: 'flex-end', maxWidth: '86%', backgroundColor: color.panel, borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10, marginVertical: space.s }}>
-        {(m.payload as { voice?: boolean }).voice ? <Body size={size.meta} c={color.dim}>Voice note</Body> : null}
-        <Body>{m.text}</Body>
-      </View>
+      <Pressable onLongPress={() => onSelect(m)} delayLongPress={300} style={[{ alignSelf: 'flex-end', maxWidth: '86%', marginVertical: space.s }, highlight]}>
+        <View style={{ backgroundColor: selected ? color.hairline : color.panel, borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10 }}>
+          {quote ? <Quote m={quote} /> : null}
+          {m.payload.voice ? <Body size={size.meta} c={color.dim}>Voice note</Body> : null}
+          <Body>{m.text}</Body>
+        </View>
+        {m.payload.finn_reaction ? (
+          <View style={{ position: 'absolute', left: -10, bottom: -8, borderRadius: 10, backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, paddingHorizontal: 4, paddingVertical: 1 }}>
+            <Body size={12}>{m.payload.finn_reaction}</Body>
+          </View>
+        ) : null}
+      </Pressable>
     );
   }
   const text = clean(m.text);
   return (
-    <View style={{ marginVertical: space.m }}>
+    <Pressable onLongPress={() => onSelect(m)} delayLongPress={300} style={[{ marginVertical: space.m, paddingVertical: selected ? 6 : 0, paddingHorizontal: selected ? 8 : 0, marginHorizontal: selected ? -8 : 0 }, highlight]}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
         <Dot size={6} working={!m.final} />
         <Body size={size.meta} c={m.final ? color.dim : color.marigold}>
           {m.proactive ? `FINN · scheduled · ${when(m.at)}` : m.final ? 'FINN' : 'FINN is writing'}
         </Body>
       </View>
+      {quote ? <Quote m={quote} /> : null}
       {text ? <Markdown text={text} /> : <Body c={color.dim}>…</Body>}
-      {m.final && text.length > 0 && (
-        <Pressable onPress={() => listen.toggle(m.id)} hitSlop={8} accessibilityRole="button" style={{ marginTop: space.s, alignSelf: 'flex-start' }}>
-          <Body size={size.meta} c={color.mist}>
-            {listen.loading === m.id ? 'Preparing audio…' : listen.playing === m.id ? 'Stop listening' : 'Listen'}
-          </Body>
-        </Pressable>
-      )}
-    </View>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m }}>
+        {m.payload.reaction ? <Reaction emoji={m.payload.reaction} /> : null}
+        {m.final && text.length > 0 && (
+          <Pressable onPress={() => listen.toggle(m.id)} hitSlop={8} accessibilityRole="button" style={{ marginTop: space.s }}>
+            <Body size={size.meta} c={color.mist}>
+              {listen.loading === m.id ? 'Preparing audio…' : listen.playing === m.id ? 'Stop listening' : 'Listen'}
+            </Body>
+          </Pressable>
+        )}
+      </View>
+    </Pressable>
   );
+}
+
+const REACTIONS = ['👍', '👎', '🎯', '🤔'];
+
+function lastUserBefore(ms: ChatMessage[], i: number): string | undefined {
+  for (let j = i - 1; j >= 0; j--) if (ms[j].role === 'user') return ms[j].id;
+  return undefined;
 }
 
 export default function Ask() {
   const params = useLocalSearchParams<{ feed?: string; symbol?: string }>();
   const [context, setContext] = useState<{ symbol: string; label: string } | null>(null);
-  const { chatId, add, messages, working, online, send, stop, newChat, answer } = useConversation();
+  const { chatId, add, messages, working, online, send, stop, newChat, answer, react } = useConversation();
+  const [selected, setSelected] = useState<ChatMessage | null>(null);
+  const [replyTo, setReplyTo] = useState<ChatMessage | null>(null);
+  const input = useRef<{ focus: () => void } | null>(null);
   const voice = useVoiceNote(chatId, add);
   const listen = useSpeech(chatId);
   const [draft, setDraft] = useState('');
@@ -130,8 +214,9 @@ export default function Ask() {
     const ctx = context
       ? `Investor is asking about ${context.symbol}${context.label ? `; the story they opened: ${context.label}` : ''}`
       : undefined;
-    send(text, ctx);
+    send(text, ctx, replyTo?.id);
     setDraft('');
+    setReplyTo(null);
   };
 
   const clearContext = () => {
@@ -140,7 +225,7 @@ export default function Ask() {
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.ink }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.ink }} behavior="padding">
       <View style={{ paddingTop: insets.top + space.l, paddingHorizontal: space.l, width: '100%', maxWidth, alignSelf: 'center' }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Title size={20} style={{ fontFamily: font.bold, letterSpacing: 0.5 }}>Ask</Title>
@@ -198,53 +283,145 @@ export default function Ask() {
             </View>
           </View>
         ) : (
-          messages.map((m) => <Bubble key={m.id} m={m} onAnswer={answer} listen={listen} />)
+          messages.map((m, i) => (
+            <Bubble
+              key={m.id}
+              m={m}
+              live={working && i === messages.length - 1}
+              // Hermes threads every answer to the question it answers; only show a quote when it isn't the one just above.
+              showQuote={m.role === 'user' || m.payload.reply_to !== lastUserBefore(messages, i)}
+              selected={selected?.id === m.id}
+              onSelect={setSelected}
+              onAnswer={answer}
+              listen={listen}
+            />
+          ))
         )}
       </ScrollView>
 
       <View style={{ paddingHorizontal: space.l, paddingBottom: space.s, paddingTop: space.s, width: '100%', maxWidth, alignSelf: 'center' }}>
-        <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 14, paddingLeft: 14, paddingRight: 6, paddingVertical: 6 }}>
-          <TextInput
-            value={draft}
-            onChangeText={setDraft}
-            placeholder={working ? 'Add to that; FINN folds it into what it is doing' : 'Ask about a company, a filing, a number'}
-            placeholderTextColor={color.dim}
-            multiline
-            style={{ flex: 1, minHeight: 36, maxHeight: 120, color: color.paper, fontFamily: font.regular, fontSize: 15, paddingTop: 8, paddingBottom: 8, outlineStyle: 'none' } as any}
-            onKeyPress={(e: any) => {
-              if (Platform.OS === 'web' && e.nativeEvent.key === 'Enter' && !e.nativeEvent.shiftKey) {
-                e.preventDefault?.();
-                submit();
-              }
-            }}
-          />
-          {voice.supported && !draft.trim() && !working ? (
+        {selected ? (
+          // Long-press menu: reply to any message, react to FINN's.
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: space.s, backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 14, padding: 4 }}>
             <Pressable
-              onPress={() => (voice.recording ? voice.stopAndSend(contextText()) : voice.start())}
-              disabled={voice.sending}
+              onPress={() => {
+                setReplyTo(selected);
+                setSelected(null);
+                input.current?.focus();
+              }}
               accessibilityRole="button"
-              accessibilityLabel={voice.recording ? 'Stop and send voice note' : 'Record a voice note'}
-              style={{ paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, backgroundColor: voice.recording ? color.loss : color.well, borderWidth: 1, borderColor: voice.recording ? color.loss : color.hairline }}>
-              <Body size={size.small} c={voice.recording ? color.ink : color.paper}>
-                {voice.sending ? 'Sending…' : voice.recording ? `Send · ${Math.max(0, Math.round((Date.now() - voice.startedAt) / 1000))}s` : 'Speak'}
-              </Body>
+              style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingVertical: 8 }}>
+              <ReplyIcon c={color.paper} />
+              <Body size={size.small}>Reply</Body>
             </Pressable>
-          ) : working && !draft.trim() ? (
-            <Pressable onPress={stop} accessibilityRole="button" style={{ paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, borderWidth: 1, borderColor: color.hairline }}>
-              <Body size={size.small} c={color.paper}>Stop</Body>
+            {selected.role === 'finn'
+              ? REACTIONS.map((e) => (
+                  <Pressable
+                    key={e}
+                    onPress={() => {
+                      react(selected.id, selected.payload.reaction === e ? null : e);
+                      setSelected(null);
+                    }}
+                    accessibilityLabel={`React ${e}`}
+                    style={{ paddingHorizontal: 8, paddingVertical: 6, borderRadius: 10, backgroundColor: selected.payload.reaction === e ? color.hairline : 'transparent' }}>
+                    <Body size={size.lead}>{e}</Body>
+                  </Pressable>
+                ))
+              : null}
+            <View style={{ flex: 1 }} />
+            <Pressable onPress={() => setSelected(null)} hitSlop={8} style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
+              <Body size={size.small} c={color.dim}>Cancel</Body>
             </Pressable>
-          ) : (
-            <Pressable
-              onPress={() => submit()}
-              disabled={!draft.trim()}
-              accessibilityRole="button"
-              style={{ paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, backgroundColor: draft.trim() ? color.paper : color.well }}>
-              <Strong size={14} c={draft.trim() ? color.ink : color.dim}>Send</Strong>
-            </Pressable>
-          )}
+          </View>
+        ) : null}
+        <View style={{ backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 18, paddingLeft: 14, paddingRight: 5, paddingVertical: 5 }}>
+          {replyTo ? (
+            <View style={{ paddingTop: 6, paddingRight: 6 }}>
+              <Quote m={replyTo} onClear={() => setReplyTo(null)} />
+            </View>
+          ) : null}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8 }}>
+            <TextInput
+              ref={input as never}
+              value={draft}
+              onChangeText={setDraft}
+              placeholder={voice.recording ? 'Listening… tap the mic to send' : working ? 'Add to that; FINN folds it in' : 'Ask about a company, a filing, a number'}
+              placeholderTextColor={voice.recording ? color.loss : color.dim}
+              multiline
+              style={{ flex: 1, minHeight: 38, maxHeight: 120, color: color.paper, fontFamily: font.regular, fontSize: 15, paddingTop: 9, paddingBottom: 9, outlineStyle: 'none' } as any}
+              onKeyPress={(e: any) => {
+                if (Platform.OS === 'web' && e.nativeEvent.key === 'Enter' && !e.nativeEvent.shiftKey) {
+                  e.preventDefault?.();
+                  submit();
+                }
+              }}
+            />
+            {voice.recording ? (
+              <Mono size={12} c={color.loss} style={{ alignSelf: 'center' }}>
+                {`${Math.max(0, Math.round((Date.now() - voice.startedAt) / 1000))}s`}
+              </Mono>
+            ) : null}
+            {draft.trim() ? (
+              <RoundButton label="Send" onPress={() => submit()} bg={color.paper}>
+                <SendIcon c={color.ink} />
+              </RoundButton>
+            ) : working && !voice.recording ? (
+              <RoundButton label="Stop FINN" onPress={stop} bg={color.well} border>
+                <StopIcon c={color.paper} size={14} />
+              </RoundButton>
+            ) : voice.supported ? (
+              <RoundButton
+                label={voice.recording ? 'Stop and send voice note' : 'Record a voice note'}
+                onPress={() => (voice.recording ? voice.stopAndSend(contextText()) : voice.start())}
+                disabled={voice.sending}
+                bg={voice.recording ? color.loss : color.well}
+                border={!voice.recording}>
+                {voice.recording ? <SendIcon c={color.ink} /> : <MicIcon c={voice.sending ? color.dim : color.paper} />}
+              </RoundButton>
+            ) : null}
+          </View>
         </View>
+        {voice.sending ? <Body size={size.meta} c={color.dim} style={{ marginTop: space.xs }}>Transcribing…</Body> : null}
         {voice.error ? <Body size={size.meta} c={color.loss} style={{ marginTop: space.xs }}>{voice.error}</Body> : null}
       </View>
     </KeyboardAvoidingView>
+  );
+}
+
+function RoundButton({
+  children,
+  label,
+  onPress,
+  disabled,
+  bg,
+  border,
+}: {
+  children: React.ReactNode;
+  label: string;
+  onPress: () => void;
+  disabled?: boolean;
+  bg: string;
+  border?: boolean;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      hitSlop={6}
+      style={({ pressed }) => ({
+        width: 38,
+        height: 38,
+        borderRadius: 19,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: bg,
+        borderWidth: border ? 1 : 0,
+        borderColor: color.hairline,
+        opacity: pressed ? 0.7 : 1,
+      })}>
+      {children}
+    </Pressable>
   );
 }

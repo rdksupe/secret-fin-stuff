@@ -12,9 +12,20 @@ import { API_BASE, api, headers } from './api';
 export type ChatMessage = {
   id: string;
   role: 'user' | 'finn';
-  kind: 'message' | 'approval' | 'clarify';
+  kind: 'message' | 'tool' | 'approval' | 'clarify';
   text: string;
-  payload: { choices?: string[]; command?: string; answered?: string; resolved?: boolean };
+  payload: {
+    choices?: string[];
+    command?: string;
+    answered?: string;
+    resolved?: boolean;
+    voice?: boolean;
+    reply_to?: string;
+    reply_text?: string;
+    reply_role?: 'user' | 'finn';
+    reaction?: string | null; // the investor's, on a FINN message
+    finn_reaction?: string | null; // FINN's 👀 / 👍 / 👎 on the investor's message
+  };
   final: boolean;
   proactive: boolean;
   at: string;
@@ -122,10 +133,10 @@ export function useConversation() {
   }, [id, upsert]);
 
   const send = useCallback(
-    async (text: string, context?: string) => {
+    async (text: string, context?: string, replyTo?: string) => {
       if (!id || !text.trim()) return;
       try {
-        const m = await api.post<ChatMessage>(`/conversations/${id}/messages`, { text: text.trim(), context });
+        const m = await api.post<ChatMessage>(`/conversations/${id}/messages`, { text: text.trim(), context, reply_to: replyTo });
         upsert(m);
       } catch (e: any) {
         upsert({
@@ -153,9 +164,20 @@ export function useConversation() {
     [id, upsert],
   );
 
+  const react = useCallback(
+    async (messageId: string, emoji: string | null) => {
+      if (!id) return;
+      try {
+        upsert(await api.post<ChatMessage>(`/conversations/${id}/messages/${messageId}/reaction`, { emoji }));
+      } catch {}
+    },
+    [id, upsert],
+  );
+
   const last = messages[messages.length - 1];
   const working =
     now - typingAt < 6000 ||
+    (!!last && last.kind === 'tool' && now - Date.parse(last.at) < 90_000) ||
     (!!last && last.role === 'finn' && last.kind === 'message' && !last.final) ||
     (!!last && last.role === 'user' && now - Date.parse(last.at) < 90_000);
 
@@ -169,5 +191,6 @@ export function useConversation() {
     stop: () => send('/stop'),
     newChat: () => send('/new'),
     answer,
+    react,
   };
 }

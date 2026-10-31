@@ -15,6 +15,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import os
+import re
 import uuid
 from datetime import UTC, datetime
 from typing import Any, Dict, List, Optional
@@ -23,11 +24,23 @@ import httpx
 from aiohttp import web
 
 from gateway.config import Platform, PlatformConfig
-from gateway.platforms.base import BasePlatformAdapter, MessageEvent, MessageType, SendResult
+from gateway.platforms.base import BasePlatformAdapter, MessageEvent, MessageType, ProcessingOutcome, SendResult
 
 logger = logging.getLogger(__name__)
 PLATFORM = "finn_app"
 MAX_MESSAGE_LENGTH = 16000
+
+# The gateway's tool-progress bubble ("🔍 web_search: \"…\"", "📈 finn_results...", "💻 terminal\n```…")
+# arrives through the same send/edit calls as the answer, with no metadata. Its first line is
+# always "<emoji> <tool_name>" followed by `: "`, `...`, `(` or the end of the line.
+_PROGRESS = re.compile(r'^\S{1,3} [a-z][a-z0-9_]*(?:: "|\.\.\.|\(|\s*$)')
+
+
+def _is_progress(content: str, metadata: Optional[Dict[str, Any]]) -> bool:
+    if metadata:  # streamed answers always carry expect_edits / notify
+        return False
+    first = (content or "").lstrip().split("\n", 1)[0]
+    return bool(_PROGRESS.match(first))
 
 
 def _api_url(extra: dict | None = None) -> str:
@@ -113,6 +126,7 @@ class FinnAppAdapter(BasePlatformAdapter):
         user_id = str(body.get("user_id") or chat_id)
         source = self.build_source(chat_id=chat_id, chat_name="FINN", chat_type="dm",
                                    user_id=user_id, user_name=body.get("user_name") or "Investor")
+        reply = body.get("reply_to") or {}
         event = MessageEvent(
             text=text,
             message_type=MessageType.TEXT,
@@ -120,6 +134,10 @@ class FinnAppAdapter(BasePlatformAdapter):
             message_id=str(body.get("message_id") or uuid.uuid4().hex),
             raw_message=body,
             timestamp=datetime.now(tz=UTC),
+            # Same reply semantics as Telegram: the gateway injects the quoted text as context.
+            reply_to_message_id=reply.get("id"),
+            reply_to_text=reply.get("text"),
+            reply_to_is_own_message=reply.get("role") == "finn",
         )
         # Don't block the HTTP reply on the agent run.
         asyncio.create_task(self.handle_message(event))
@@ -157,7 +175,8 @@ class FinnAppAdapter(BasePlatformAdapter):
                    metadata: Optional[Dict[str, Any]] = None) -> SendResult:
         try:
             res = await self._emit({"chat_id": chat_id, "type": "message", "text": content[:MAX_MESSAGE_LENGTH],
-                                    "reply_to": reply_to})
+                                    "reply_to": reply_to,
+                                    "kind": "tool" if _is_progress(content, metadata) else "message"})
             return SendResult(success=True, message_id=res.get("message_id"))
         except Exception as e:
             logger.warning("[%s] send failed: %s", self.name, e)
@@ -171,6 +190,25 @@ class FinnAppAdapter(BasePlatformAdapter):
             return SendResult(success=True, message_id=message_id)
         except Exception as e:
             return SendResult(success=False, error=str(e))
+
+    # Processing lifecycle, as on Telegram: 👀 on the user's message while FINN works, then 👍 / 👎.
+    async def _react(self, event: MessageEvent, emoji: Optional[str]) -> None:
+        chat_id = getattr(event.source, "chat_id", None)
+        if chat_id and event.message_id:
+            try:
+                await self._emit({"chat_id": chat_id, "type": "reaction", "message_id": event.message_id,
+                                  "text": emoji})
+            except Exception:
+                pass
+
+    async def on_processing_start(self, event: MessageEvent) -> None:
+        await self._react(event, "\U0001f440")
+
+    async def on_processing_complete(self, event: MessageEvent, outcome: ProcessingOutcome) -> None:
+        if outcome == ProcessingOutcome.CANCELLED:
+            await self._react(event, None)
+        else:
+            await self._react(event, "\U0001f44d" if outcome == ProcessingOutcome.SUCCESS else "\U0001f44e")
 
     async def send_typing(self, chat_id: str, metadata=None) -> None:
         try:

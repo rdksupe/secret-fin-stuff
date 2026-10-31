@@ -3,7 +3,7 @@ import { TabList, TabSlot, TabTrigger, Tabs, type TabTriggerSlotProps } from 'ex
 import { Pressable, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { color, font, maxWidth } from '@/theme';
+import { color, font } from '@/theme';
 
 // React 19: `ref` arrives as a normal prop, so TabTrigger asChild can hand it straight through.
 function TabButton({ isFocused: _ignored, label, path, ...props }: TabTriggerSlotProps & { label: string; path: string }) {
@@ -28,10 +28,11 @@ function Bar({ children, ...props }: { children?: React.ReactNode }) {
       style={{
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignSelf: 'center',
         width: '100%',
-        maxWidth,
         paddingBottom: Math.max(insets.bottom, 6),
+        backgroundColor: color.ink,
+        borderTopWidth: 1,
+        borderTopColor: color.hairline,
       }}>
       {children}
     </View>
@@ -42,8 +43,8 @@ export default function TabsLayout() {
   return (
     <Tabs>
       <TabSlot style={{ flex: 1 }} />
-      <View style={{ backgroundColor: color.ink, borderTopWidth: 1, borderTopColor: color.hairline }}>
-        <TabList asChild>
+      {/* TabList must be a direct child of Tabs, or its triggers are never registered on native. */}
+      <TabList asChild>
           <Bar>
             <TabTrigger name="index" href="/" asChild>
               <TabButton label="Brief" path="/" />
@@ -55,8 +56,7 @@ export default function TabsLayout() {
               <TabButton label="Ask" path="/ask" />
             </TabTrigger>
           </Bar>
-        </TabList>
-      </View>
+      </TabList>
     </Tabs>
   );
 }

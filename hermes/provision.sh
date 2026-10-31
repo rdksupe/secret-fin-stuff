@@ -102,7 +102,7 @@ plug = cfg.setdefault("plugins", {})
 plug["enabled"] = sorted(set(plug.get("enabled") or []) | {"protect-identity", "finn", "finn_app"})
 # The app is a first-class chat platform: stream replies, no tool-progress spam.
 dp = cfg.setdefault("display", {}).setdefault("platforms", {}).setdefault("finn_app", {})
-dp.update({"streaming": True, "tool_progress": "off"})
+dp.update({"streaming": True, "tool_progress": "all", "tool_progress_grouping": "accumulate"})
 # Personal memory per chat (Mem0) and voice via smallest.ai — the FieldClaw setup.
 import os
 repo = os.environ.get("FINN_REPO_PATH", "")

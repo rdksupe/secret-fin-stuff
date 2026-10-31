@@ -133,7 +133,7 @@ class ChatMessage(Base):
     id: Mapped[str] = mapped_column(String, primary_key=True, default=_uuid)
     chat_id: Mapped[str] = mapped_column(String, nullable=False, index=True)
     role: Mapped[str] = mapped_column(String, nullable=False)  # user | finn
-    kind: Mapped[str] = mapped_column(String, nullable=False, default="message")  # message | approval | clarify
+    kind: Mapped[str] = mapped_column(String, nullable=False, default="message")  # message | tool | approval | clarify
     text: Mapped[str] = mapped_column(Text, nullable=False, default="")
     payload_json: Mapped[str] = mapped_column(Text, nullable=False, default="{}")  # choices, session_key, …
     final: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)

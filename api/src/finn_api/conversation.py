@@ -74,6 +74,14 @@ async def _bridge(path: str, body: dict) -> dict:
 class Say(BaseModel):
     text: str
     context: str | None = None  # e.g. "about TCS" / the story the user opened
+    reply_to: str | None = None  # id of the message being quoted
+
+
+def _quote(db: Session, chat_id: str, mid: str | None) -> dict | None:
+    q = db.get(ChatMessage, mid) if mid else None
+    if not q or q.chat_id != chat_id:
+        return None
+    return {"id": q.id, "role": q.role, "text": (q.text or "")[:500]}
 
 
 @router.post("/conversations/{chat_id}/messages", dependencies=[Depends(require_auth)])
@@ -82,13 +90,37 @@ async def say(chat_id: str, body: Say, db: Session = Depends(get_db)):
     text = body.text.strip()
     if not text:
         raise HTTPException(400, "empty message")
-    m = ChatMessage(chat_id=chat_id, role="user", text=text)
+    quote = _quote(db, chat_id, body.reply_to)
+    payload = {"reply_to": quote["id"], "reply_text": quote["text"][:160], "reply_role": quote["role"]} if quote else {}
+    m = ChatMessage(chat_id=chat_id, role="user", text=text, payload_json=json.dumps(payload))
     db.add(m)
     db.commit()
     _publish(chat_id, {"type": "message", "message": _msg(m)})
     # Context rides along as a bracketed preface the agent can see; the user sees their own words.
     agent_text = f"[{body.context}]\n{text}" if body.context else text
-    await _bridge("/inbound", {"chat_id": chat_id, "user_id": chat_id, "text": agent_text, "message_id": m.id})
+    await _bridge("/inbound", {"chat_id": chat_id, "user_id": chat_id, "text": agent_text, "message_id": m.id,
+                               "reply_to": quote})
+    return _msg(m)
+
+
+class React(BaseModel):
+    emoji: str | None = None  # None clears it
+
+
+@router.post("/conversations/{chat_id}/messages/{message_id}/reaction", dependencies=[Depends(require_auth)])
+def react(chat_id: str, message_id: str, body: React, db: Session = Depends(get_db)):
+    """The investor's reaction on one of FINN's messages (kept as feedback; not sent to the agent)."""
+    _valid_chat(chat_id)
+    m = db.get(ChatMessage, message_id)
+    if not m or m.chat_id != chat_id:
+        raise HTTPException(404)
+    if body.emoji and len(body.emoji) > 8:
+        raise HTTPException(400, "one emoji")
+    p = json.loads(m.payload_json or "{}")
+    p["reaction"] = body.emoji
+    m.payload_json = json.dumps(p)
+    db.commit()
+    _publish(chat_id, {"type": "update", "message": _msg(m)})
     return _msg(m)
 
 
@@ -262,6 +294,7 @@ class HermesEvent(BaseModel):
     id: str | None = None
     session_key: str | None = None
     reply_to: str | None = None
+    kind: str | None = None  # "tool" for the gateway's tool-progress bubble
 
 
 @router.post("/internal/hermes/events")
@@ -272,22 +305,37 @@ def hermes_event(ev: HermesEvent, claims: dict = Depends(require_auth), db: Sess
     if ev.type == "typing":
         _publish(chat_id, {"type": "typing"})
         return {"ok": True}
+    if ev.type == "reaction" and ev.message_id:
+        # FINN's processing reaction on the investor's message (👀 → 👍 / 👎).
+        m = db.get(ChatMessage, ev.message_id)
+        if not m or m.chat_id != chat_id:
+            return {"ok": False}
+        p = json.loads(m.payload_json or "{}")
+        p["finn_reaction"] = ev.text or None
+        m.payload_json = json.dumps(p)
+        db.commit()
+        _publish(chat_id, {"type": "update", "message": _msg(m)})
+        return {"ok": True, "message_id": m.id}
     if ev.type == "edit" and ev.message_id:
         m = db.get(ChatMessage, ev.message_id)
         if m:
-            m.text, m.final = ev.text or m.text, ev.finalize
+            m.text = ev.text or m.text
+            m.final = True if m.kind == "tool" else ev.finalize
             db.commit()
             _publish(chat_id, {"type": "update", "message": _msg(m)})
             return {"ok": True, "message_id": m.id}
-    kind = ev.type if ev.type in ("approval", "clarify") else "message"
+    kind = ev.type if ev.type in ("approval", "clarify") else ("tool" if ev.kind == "tool" else "message")
     payload = {k: v for k, v in {"command": ev.command, "choices": ev.choices, "id": ev.id,
                                  "session_key": ev.session_key}.items() if v}
+    quote = _quote(db, chat_id, ev.reply_to)
+    if quote:
+        payload |= {"reply_to": quote["id"], "reply_text": quote["text"][:160], "reply_role": quote["role"]}
     m = ChatMessage(chat_id=chat_id, role="finn", kind=kind, text=ev.text or "", payload_json=json.dumps(payload),
                     final=kind != "message", proactive=ev.proactive)
     db.add(m)
     db.commit()
     listeners = _publish(chat_id, {"type": "message", "message": _msg(m)})
-    if listeners == 0:
+    if listeners == 0 and kind != "tool":
         # Nobody has the app open: a cron result, reminder or late reply — push it.
         m.proactive = True
         db.commit()
