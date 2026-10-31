@@ -30,6 +30,8 @@ FINN_API_KEY="${FINN_API_KEY:-$(read_env "$FINN_REPO/.env" FINN_API_KEY)}"
 FINN_API_KEY="${FINN_API_KEY:-$(python3 -c 'import secrets;print(secrets.token_urlsafe(24))')}"
 API_SERVER_KEY="$(read_env "$HOME_DIR/.env" API_SERVER_KEY)"
 API_SERVER_KEY="${API_SERVER_KEY:-$(python3 -c 'import secrets;print(secrets.token_urlsafe(24))')}"
+BRIDGE_SECRET="$(read_env "$HOME_DIR/.env" FINN_APP_BRIDGE_SECRET)"
+BRIDGE_SECRET="${BRIDGE_SECRET:-$(python3 -c 'import secrets;print(secrets.token_urlsafe(32))')}"
 for k in FIREWORKS_API_KEY EXA_API_KEY; do
   [[ -n "${!k}" ]] || echo "WARNING: $k not found — set it in $HOME_DIR/.env" >&2
 done
@@ -45,15 +47,22 @@ OPENROUTER_API_KEY=$OPENROUTER_API_KEY
 API_SERVER_ENABLED=true
 API_SERVER_KEY=$API_SERVER_KEY
 API_SERVER_PORT=8642
+FINN_API_KEY=$FINN_API_KEY
+FINN_APP_BRIDGE_SECRET=$BRIDGE_SECRET
+FINN_APP_API_URL=http://127.0.0.1:8000
+FINN_APP_LISTEN=127.0.0.1:8650
+FINN_APP_HOME_CHANNEL=home
+FINN_APP_ALLOW_ALL_USERS=true
 EOF
 # The FINN API proxies chat to Hermes with the same key.
 touch "$FINN_REPO/.env"
-python3 - "$FINN_REPO/.env" "$FINN_API_KEY" "$API_SERVER_KEY" "$FIREWORKS_API_KEY" "$DATALAB_API_KEY" "$EXA_API_KEY" <<'PY'
+python3 - "$FINN_REPO/.env" "$FINN_API_KEY" "$API_SERVER_KEY" "$FIREWORKS_API_KEY" "$DATALAB_API_KEY" "$EXA_API_KEY" "$BRIDGE_SECRET" <<'PY'
 import sys
 from pathlib import Path
 p = Path(sys.argv[1])
 want = {"FINN_API_KEY": sys.argv[2], "HERMES_API_KEY": sys.argv[3], "FIREWORKS_API_KEY": sys.argv[4],
-        "DATALAB_API_KEY": sys.argv[5], "EXA_API_KEY": sys.argv[6], "HERMES_API_URL": "http://127.0.0.1:8642"}
+        "DATALAB_API_KEY": sys.argv[5], "EXA_API_KEY": sys.argv[6], "HERMES_API_URL": "http://127.0.0.1:8642",
+        "FINN_APP_BRIDGE_SECRET": sys.argv[7], "FINN_APP_BRIDGE_URL": "http://127.0.0.1:8650"}
 lines = [l for l in p.read_text().splitlines() if l.split("=", 1)[0] not in want]
 lines += [f"{k}={v}" for k, v in want.items() if v]
 p.write_text("\n".join(lines) + "\n")
@@ -65,6 +74,7 @@ cp "$FINN_REPO/hermes/SOUL.md" "$HOME_DIR/SOUL.md"
 ln -sfn "$FINN_REPO/hermes/skills/finn" "$HOME_DIR/skills/finn"
 [[ -d "$PLUGIN_SRC" ]] && ln -sfn "$PLUGIN_SRC" "$HOME_DIR/plugins/protect-identity"
 ln -sfn "$FINN_REPO/hermes/plugins/finn" "$HOME_DIR/plugins/finn"
+ln -sfn "$FINN_REPO/hermes/plugins/finn_app" "$HOME_DIR/plugins/finn_app"
 for s in "$FINN_REPO"/hermes/scripts/*.py; do
   sed "s|__FINN_REPO__|$FINN_REPO|" "$s" > "$HOME_DIR/scripts/$(basename "$s")"
 done
@@ -84,7 +94,10 @@ cfg["model"] = {"default": model, "provider": "custom:fireworks", "base_url": fw
 cfg.setdefault("display", {})["busy_input_mode"] = "steer"
 cfg.setdefault("web", {})["search_backend"] = "exa"
 plug = cfg.setdefault("plugins", {})
-plug["enabled"] = sorted(set(plug.get("enabled") or []) | {"protect-identity", "finn"})
+plug["enabled"] = sorted(set(plug.get("enabled") or []) | {"protect-identity", "finn", "finn_app"})
+# The app is a first-class chat platform: stream replies, no tool-progress spam.
+dp = cfg.setdefault("display", {}).setdefault("platforms", {}).setdefault("finn_app", {})
+dp.update({"streaming": True, "tool_progress": "off"})
 gw = cfg.setdefault("gateway", {})
 gw["multiplex_profiles"] = False
 gw.setdefault("api_server", {})["max_concurrent_runs"] = 4

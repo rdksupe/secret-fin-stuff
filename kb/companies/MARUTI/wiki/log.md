@@ -6,3 +6,4 @@
 - 2026-10-29 19:15 UTC — ingested presentation (17p, chandra) → presentations/2026-10-27-presentation-4d691a.md
 - 2026-10-29 19:15 UTC — ingested press_release (2p, pypdf) → filings/docs/2026-10-27-press-release-0dca24.md
 - 2026-10-29 19:30 UTC — ingested press_release (3p, pypdf) → filings/docs/2026-10-24-press-release-6a1fb7.md
+- 2026-10-29 21:15 UTC — ingested legal_regulatory (2p, pypdf) → filings/docs/2026-10-15-legal-regulatory-6050eb.md

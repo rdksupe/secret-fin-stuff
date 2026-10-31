@@ -1,194 +1,172 @@
 import { fetch as streamingFetch } from 'expo/fetch';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import * as SecureStore from 'expo-secure-store';
+import { useCallback, useEffect, useState } from 'react';
+import { Platform } from 'react-native';
 
-import { API_BASE, headers } from './api';
+import { API_BASE, api, headers } from './api';
 
-export type ToolStep = { name: string; detail: string; done: boolean };
-export type Message = {
+// The app is a Hermes messaging platform (`finn_app`), like a Telegram chat: sessions,
+// burst merging, steer-while-working, /stop and scheduled jobs are all handled by the
+// Hermes gateway. This hook just keeps one conversation in sync with the server.
+
+export type ChatMessage = {
   id: string;
   role: 'user' | 'finn';
+  kind: 'message' | 'approval' | 'clarify';
   text: string;
-  tools: ToolStep[];
-  state: 'streaming' | 'done' | 'stopped' | 'failed';
+  payload: { choices?: string[]; command?: string; answered?: string; resolved?: boolean };
+  final: boolean;
+  proactive: boolean;
+  at: string;
 };
-export type ChatContext = { symbol?: string; feedId?: string };
 
-const BURST_MS = 400; // rapid messages within this window become one turn
+const KEY = 'finn.chat-id';
 
-let seq = 0;
-const nid = () => `${Date.now().toString(36)}-${seq++}`;
-
-/** Human-readable line for what FINN is doing right now. */
-export function describeTool(name: string, detail: string): string {
-  const path = (detail.match(/companies\/([A-Z0-9&-]+)\/wiki\/([^"' ]+)/) ?? []).slice(1);
-  switch (name) {
-    case 'read_file':
-      return path.length ? `reading ${path[0]} · ${path[1]}` : 'reading a file';
-    case 'search_files':
-    case 'list_directory':
-      return path.length ? `looking through ${path[0]}'s brain` : 'looking through the brains';
-    case 'finn_results':
-      return 'pulling the results filing';
-    case 'finn_digest':
-      return 'checking your digest';
-    case 'finn_filing_text':
-      return 'reading the filing';
-    case 'finn_onboard':
-      return 'building a brain for this company';
-    case 'web_search':
-      return 'searching the web';
-    case 'skill_view':
-      return 'loading its playbook';
-    default:
-      return name.replace(/_/g, ' ');
-  }
+async function chatId(): Promise<string> {
+  try {
+    if (Platform.OS === 'web') {
+      const v = globalThis.localStorage?.getItem(KEY);
+      if (v) return v;
+    } else {
+      const v = await SecureStore.getItemAsync(KEY);
+      if (v) return v;
+    }
+  } catch {}
+  const id = `app-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  try {
+    if (Platform.OS === 'web') globalThis.localStorage?.setItem(KEY, id);
+    else await SecureStore.setItemAsync(KEY, id);
+  } catch {}
+  return id;
 }
 
-export function useChat(ctx: ChatContext = {}) {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [running, setRunning] = useState(false);
-  const session = useRef<string | undefined>(undefined);
-  const runId = useRef<string | null>(null);
-  const abort = useRef<AbortController | null>(null);
-  const pending = useRef<string[]>([]);
-  const burst = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const ctxRef = useRef(ctx);
-  ctxRef.current = ctx;
+/** Strip the gateway's streaming cursor; the app draws its own state. */
+export const clean = (t: string) => t.replace(/\s*▉\s*$/, '').replace(/^\n+/, '');
 
-  const patchFinn = useCallback((id: string, fn: (m: Message) => Message) => {
-    setMessages((ms) => ms.map((m) => (m.id === id ? fn(m) : m)));
+export function useConversation() {
+  const [id, setId] = useState<string | null>(null);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [typingAt, setTypingAt] = useState(0);
+  const [online, setOnline] = useState(false);
+  const [now, setNow] = useState(Date.now());
+
+  useEffect(() => {
+    chatId().then(setId);
+    const t = setInterval(() => setNow(Date.now()), 1500);
+    return () => clearInterval(t);
   }, []);
 
-  const run = useCallback(
-    async (text: string) => {
-      const finnId = nid();
-      setMessages((ms) => [...ms, { id: finnId, role: 'finn', text: '', tools: [], state: 'streaming' }]);
-      setRunning(true);
-      const ac = new AbortController();
-      abort.current = ac;
-      try {
-        const start = await globalThis.fetch(`${API_BASE}/api/chat`, {
-          method: 'POST',
-          headers: headers({ 'Content-Type': 'application/json' }),
-          body: JSON.stringify({
-            message: text,
-            session_id: session.current,
-            symbol: ctxRef.current.symbol,
-            feed_id: ctxRef.current.feedId,
-          }),
-        });
-        if (!start.ok) throw new Error(`FINN couldn't start (${start.status})`);
-        const { run_id, session_id } = await start.json();
-        session.current = session_id;
-        runId.current = run_id;
+  const upsert = useCallback((m: ChatMessage) => {
+    setMessages((ms) => {
+      const i = ms.findIndex((x) => x.id === m.id);
+      if (i === -1) return [...ms, m];
+      const next = ms.slice();
+      next[i] = m;
+      return next;
+    });
+  }, []);
 
-        const res = await streamingFetch(`${API_BASE}/api/chat/${run_id}/events`, {
-          headers: headers({ Accept: 'text/event-stream' }),
-          signal: ac.signal,
-        });
-        const reader = res.body!.getReader();
-        const decoder = new TextDecoder();
-        let buf = '';
-        let finished = false;
-        while (!finished) {
-          const { value, done } = await reader.read();
-          if (done) break;
-          buf += decoder.decode(value, { stream: true });
-          const lines = buf.split('\n');
-          buf = lines.pop() ?? '';
-          for (const line of lines) {
-            if (!line.startsWith('data:')) continue;
-            let ev: any;
-            try {
-              ev = JSON.parse(line.slice(5).trim());
-            } catch {
-              continue;
-            }
-            const kind = ev.event as string | undefined;
-            if (kind === 'message.delta' && ev.delta) {
-              patchFinn(finnId, (m) => ({ ...m, text: m.text + ev.delta }));
-            } else if (kind === 'tool.started') {
-              const name = ev.tool ?? ev.name ?? 'tool';
-              const detail = JSON.stringify(ev.args ?? ev.preview ?? '');
-              patchFinn(finnId, (m) => ({ ...m, tools: [...m.tools, { name, detail, done: false }] }));
-            } else if (kind === 'tool.completed' || kind === 'tool.failed') {
-              patchFinn(finnId, (m) => {
-                const tools = [...m.tools];
-                const i = tools.findIndex((t) => !t.done);
-                if (i >= 0) tools[i] = { ...tools[i], done: true };
-                return { ...m, tools };
-              });
-            } else if (kind === 'run.completed') {
-              finished = true;
-              patchFinn(finnId, (m) => ({ ...m, state: 'done' }));
-            } else if (kind === 'run.cancelled') {
-              finished = true;
-              patchFinn(finnId, (m) => ({ ...m, state: 'stopped' }));
-            } else if (kind === 'run.failed') {
-              finished = true;
-              patchFinn(finnId, (m) => ({ ...m, state: 'failed', text: m.text || String(ev.error ?? 'FINN hit an error.') }));
+  // History, then a live stream that reconnects with back-off.
+  useEffect(() => {
+    if (!id) return;
+    let stop = false;
+    let ctrl: AbortController | null = null;
+    api.get<ChatMessage[]>(`/conversations/${id}/messages`).then(setMessages).catch(() => {});
+
+    (async () => {
+      let delay = 1000;
+      while (!stop) {
+        ctrl = new AbortController();
+        try {
+          const res = await streamingFetch(`${API_BASE}/api/conversations/${id}/stream`, {
+            headers: headers({ Accept: 'text/event-stream' }),
+            signal: ctrl.signal,
+          });
+          if (!res.ok || !res.body) throw new Error(String(res.status));
+          setOnline(true);
+          delay = 1000;
+          const reader = res.body.getReader();
+          const dec = new TextDecoder();
+          let buf = '';
+          for (;;) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buf += dec.decode(value, { stream: true });
+            const lines = buf.split('\n');
+            buf = lines.pop() ?? '';
+            for (const line of lines) {
+              if (!line.startsWith('data:')) continue;
+              let ev: any;
+              try {
+                ev = JSON.parse(line.slice(5).trim());
+              } catch {
+                continue;
+              }
+              if (ev?.type === 'typing') setTypingAt(Date.now());
+              else if (ev?.message) upsert(ev.message);
             }
           }
-        }
-        patchFinn(finnId, (m) => (m.state === 'streaming' ? { ...m, state: 'done' } : m));
-      } catch (e: any) {
-        const stopped = ac.signal.aborted;
-        patchFinn(finnId, (m) => ({
-          ...m,
-          state: stopped ? 'stopped' : 'failed',
-          text: m.text || (stopped ? '' : `Couldn't reach FINN. ${e?.message ?? ''}`.trim()),
-        }));
-      } finally {
-        runId.current = null;
-        abort.current = null;
-        setRunning(false);
+        } catch {}
+        setOnline(false);
+        if (stop) break;
+        await new Promise((r) => setTimeout(r, delay));
+        delay = Math.min(delay * 2, 15000);
+        // Catch up on anything sent while we were disconnected.
+        api.get<ChatMessage[]>(`/conversations/${id}/messages`).then(setMessages).catch(() => {});
       }
-    },
-    [patchFinn],
-  );
-
-  // When a run ends, anything typed meanwhile goes as the next turn.
-  useEffect(() => {
-    if (!running && pending.current.length) {
-      const text = pending.current.join('\n');
-      pending.current = [];
-      run(text);
-    }
-  }, [running, run]);
+    })();
+    return () => {
+      stop = true;
+      ctrl?.abort();
+    };
+  }, [id, upsert]);
 
   const send = useCallback(
-    (text: string) => {
-      const t = text.trim();
-      if (!t) return;
-      setMessages((ms) => [...ms, { id: nid(), role: 'user', text: t, tools: [], state: 'done' }]);
-      pending.current.push(t);
-      if (running) return; // queued; flushed when the current run ends
-      if (burst.current) clearTimeout(burst.current);
-      burst.current = setTimeout(() => {
-        burst.current = null;
-        if (!pending.current.length) return;
-        const merged = pending.current.join('\n');
-        pending.current = [];
-        run(merged);
-      }, BURST_MS);
+    async (text: string, context?: string) => {
+      if (!id || !text.trim()) return;
+      try {
+        const m = await api.post<ChatMessage>(`/conversations/${id}/messages`, { text: text.trim(), context });
+        upsert(m);
+      } catch (e: any) {
+        upsert({
+          id: `err-${Date.now()}`,
+          role: 'finn',
+          kind: 'message',
+          text: `Couldn't reach FINN: ${e?.message ?? 'network error'}`,
+          payload: {},
+          final: true,
+          proactive: false,
+          at: new Date().toISOString(),
+        });
+      }
     },
-    [running, run],
+    [id, upsert],
   );
 
-  const stop = useCallback(async () => {
-    const id = runId.current;
-    abort.current?.abort();
-    if (id) {
+  const answer = useCallback(
+    async (messageId: string, choice: string) => {
+      if (!id) return;
       try {
-        await globalThis.fetch(`${API_BASE}/api/chat/${id}/stop`, { method: 'POST', headers: headers() });
+        upsert(await api.post<ChatMessage>(`/conversations/${id}/actions`, { message_id: messageId, choice }));
       } catch {}
-    }
-  }, []);
+    },
+    [id, upsert],
+  );
 
-  const reset = useCallback(() => {
-    setMessages([]);
-    session.current = undefined;
-  }, []);
+  const last = messages[messages.length - 1];
+  const working =
+    now - typingAt < 6000 ||
+    (!!last && last.role === 'finn' && last.kind === 'message' && !last.final) ||
+    (!!last && last.role === 'user' && now - Date.parse(last.at) < 90_000);
 
-  return { messages, running, send, stop, reset, queued: pending.current.length };
+  return {
+    chatId: id,
+    messages,
+    online,
+    working,
+    send,
+    stop: () => send('/stop'),
+    newChat: () => send('/new'),
+    answer,
+  };
 }

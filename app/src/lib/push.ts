@@ -34,8 +34,9 @@ export function usePushRegistration() {
     })();
 
     const open = (r: Notifications.NotificationResponse) => {
-      const feedId = r.notification.request.content.data?.feed_id;
-      if (typeof feedId === 'string') router.push({ pathname: '/story/[id]', params: { id: feedId } });
+      const data = r.notification.request.content.data ?? {};
+      if (data.kind === 'chat') router.push('/ask'); // scheduled job / reminder from FINN
+      else if (typeof data.feed_id === 'string') router.push({ pathname: '/story/[id]', params: { id: data.feed_id } });
     };
     Notifications.getLastNotificationResponseAsync().then((r) => r && open(r));
     const sub = Notifications.addNotificationResponseReceivedListener(open);

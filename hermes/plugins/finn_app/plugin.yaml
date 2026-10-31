@@ -1,0 +1,29 @@
+name: finn_app
+label: FINN app
+kind: platform
+version: 0.1.0
+description: >
+  The FINN mobile app as a first-class Hermes messaging platform. The FINN API
+  bridges the app to this adapter: inbound messages and button taps arrive on a
+  private HTTP listener; replies, streaming edits, typing, approvals and clarify
+  prompts go back to the FINN API, which streams them to the open app or pushes
+  them over FCM when the app is closed (cron output, reminders).
+author: FINN
+requires_env:
+  - name: FINN_APP_BRIDGE_SECRET
+    description: "Shared secret between the FINN API and this adapter"
+    prompt: "Bridge secret"
+    password: true
+optional_env:
+  - name: FINN_APP_API_URL
+    description: "FINN API base URL the adapter posts outbound events to (default http://127.0.0.1:8000)"
+    prompt: "FINN API URL"
+    password: false
+  - name: FINN_APP_LISTEN
+    description: "host:port for the inbound bridge listener (default 127.0.0.1:8650)"
+    prompt: "Listen address"
+    password: false
+  - name: FINN_APP_HOME_CHANNEL
+    description: "Chat id for cron / proactive delivery (default: home)"
+    prompt: "Home chat id"
+    password: false

@@ -123,3 +123,20 @@ class Document(Base):
     error: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
+
+
+class ChatMessage(Base):
+    """The app's conversation with FINN (Hermes `finn_app` platform). One chat per app install."""
+
+    __tablename__ = "chat_messages"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=_uuid)
+    chat_id: Mapped[str] = mapped_column(String, nullable=False, index=True)
+    role: Mapped[str] = mapped_column(String, nullable=False)  # user | finn
+    kind: Mapped[str] = mapped_column(String, nullable=False, default="message")  # message | approval | clarify
+    text: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    payload_json: Mapped[str] = mapped_column(Text, nullable=False, default="{}")  # choices, session_key, …
+    final: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    proactive: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)  # cron / reminder
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)

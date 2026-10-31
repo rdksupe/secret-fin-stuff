@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from finn_api.conversation import router as conversation_router
 from finn_api.db import init_db
 from finn_api.routes import router
 
@@ -38,6 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(router)
+app.include_router(conversation_router)
 
 
 @app.get("/health")

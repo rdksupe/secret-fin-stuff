@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     exa_api_key: str | None = None
     finn_fcm_credentials: str | None = None  # path to an FCM-only service-account JSON
 
+    finn_app_bridge_url: str = "http://127.0.0.1:8650"  # Hermes finn_app adapter listener
+    finn_app_bridge_secret: str | None = None
     hermes_api_url: str = "http://127.0.0.1:8642"
     hermes_api_key: str | None = None
 
