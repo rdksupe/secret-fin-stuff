@@ -25,10 +25,15 @@ worker() {
     --exclude __pycache__/ --exclude .pytest_cache/ --exclude .ruff_cache/ "$REPO/" "$WORKER:/home/ubuntu/finn/"
   "${RSYNCJ[@]}" --exclude .venv/ --exclude .git/ --exclude __pycache__/ "$PAGEINDEX/" "$WORKER:/home/ubuntu/PageIndex/"
 
+  echo "==> worker: system packages"
+  "${SSHJ[@]}" 'command -v pdftotext >/dev/null || sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q poppler-utils >/dev/null'
+
   echo "==> worker: python envs"
   "${SSHJ[@]}" 'export PATH=$HOME/.local/bin:$PATH
     cd ~/finn/api && uv sync -q --no-dev
-    cd ~/PageIndex && [ -x .venv/bin/python ] || { uv venv -q --python 3.12 .venv && uv pip install -q --python .venv/bin/python -r requirements.txt; }'
+    cd ~/PageIndex && [ -x .venv/bin/python ] || { uv venv -q --python 3.12 .venv && uv pip install -q --python .venv/bin/python -r requirements.txt; }
+    # Hermes needs aiohttp for the finn_app bridge and the api_server; the FieldClaw install lacked it.
+    /opt/hermes-agent/.venv/bin/python -c "import aiohttp" 2>/dev/null || uv pip install -q --python /opt/hermes-agent/.venv/bin/python aiohttp'
 
   echo "==> worker: hermes profile (keys passed via a short-lived env file)"
   local tmp; tmp="$(mktemp)"

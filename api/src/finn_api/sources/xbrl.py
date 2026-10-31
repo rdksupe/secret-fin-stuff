@@ -37,6 +37,8 @@ class Headline:
     ebitda: float | None
     pbt: float | None
     pat: float | None
+    # Operating profit (EBIT = EBITDA − D&A) — what companies usually call "operating margin".
+    ebit: float | None = None
     # Non-operating pieces inside PBT, ₹ crore — feed the card's flags.
     other_income: float | None = None
     exceptional: float | None = None
@@ -101,6 +103,7 @@ def parse_headline(xml: str) -> Headline:
         return None if v is None else round(v / CRORE, 2)
 
     is_bank = "InterestEarned" in facts
+    ebit = None
     pbt = first("ProfitBeforeTax", "ProfitLossFromOrdinaryActivitiesBeforeTax")
     pat = first(
         "ProfitOrLossAttributableToOwnersOfParent",
@@ -126,6 +129,7 @@ def parse_headline(xml: str) -> Headline:
         if base is not None and "ProfitBeforeExceptionalItemsAndTax" not in facts:
             jv = 0.0  # legacy schedules put the JV share after PBT
         ebitda = None if None in (base, fin, dep) else base - jv + fin + dep - other
+        ebit = None if ebitda is None or dep is None else ebitda - dep
 
     nature = text.get("NatureOfReportStandaloneConsolidated", "")
     return Headline(
@@ -138,6 +142,7 @@ def parse_headline(xml: str) -> Headline:
         ebitda=cr(ebitda),
         pbt=cr(pbt),
         pat=cr(pat),
+        ebit=cr(ebit),
         other_income=cr(first("OtherIncome")),
         exceptional=cr(first("ExceptionalItemsBeforeTax")),
     )

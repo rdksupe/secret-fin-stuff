@@ -28,7 +28,11 @@ def chat_json(
     db: Session | None = None,
     models: tuple[str, ...] | None = None,
     max_tokens: int = 4000,
+    effort: str | None = "low",
 ) -> dict | None:
+    """`effort` caps the model's hidden reasoning. Reading and extraction need "low" — left
+    unset, these thinking models can spend the whole budget thinking and return nothing.
+    Pass None for genuine reasoning steps."""
     models = models or (settings.finn_model_cheap, settings.finn_model_reason)
     for model in models:
         body = {
@@ -38,6 +42,8 @@ def chat_json(
             "max_tokens": max_tokens,
             "temperature": 0,
         }
+        if effort:
+            body["reasoning_effort"] = effort
         try:
             r = httpx.post(URL, json=body, timeout=180,
                            headers={"Authorization": f"Bearer {settings.fireworks_api_key}"})

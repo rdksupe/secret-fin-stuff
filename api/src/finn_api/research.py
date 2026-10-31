@@ -64,29 +64,55 @@ def _with_page_marks(markdown: str, limit: int) -> str:
 # ── guidance ledger ───────────────────────────────────────────────────────
 
 GUIDANCE_SYSTEM = (
-    "You extract management's explicit forward-looking statements from an Indian listed company's "
-    "earnings-call transcript. " + GROUNDING + " "
-    'Return JSON: {"call": "<quarter the call discusses, e.g. Q2 FY27>", "items": [{"metric": str '
-    '(revenue growth, EBITDA margin, PAT, capex, order book, deal wins, volume, market share, other), '
-    '"statement": str (what was promised, in plain words), "target": str (number/range as stated, or '
-    '"directional"), "horizon": str (e.g. FY27, next quarter, medium term), "speaker": str, '
-    '"quote": str (verbatim, <= 40 words), "page": int}]}. '
-    "Include only statements about the future that could later be checked. Skip pleasantries, "
-    "history, and analyst questions. At most 12 items, most important first."
+    "You read part of an Indian listed company's earnings-call transcript. " + GROUNDING + " "
+    'Return JSON: {"call": "<quarter the call discusses, e.g. Q2 FY27, or null>", '
+    '"items": [{"metric": str (revenue growth, operating/EBIT margin, EBITDA margin, PAT, capex, order book, '
+    'deal wins/TCV, volume, market share, segment growth, other), "statement": str (what was promised, plain words), '
+    '"target": str (number/range as stated, or "directional"), "horizon": str (e.g. FY27, next quarter, medium term), '
+    '"speaker": str, "quote": str (verbatim, <= 40 words), "page": int}], '
+    '"reported": [{"metric": str, "value": str (the number management reported for the quarter just ended, '
+    'e.g. "BFSI +3.2% QoQ CC", "operating margin 25.2%", "TCV $10bn"), "quote": str (verbatim, <= 30 words), '
+    '"page": int}]}. '
+    "items = forward-looking statements that could later be checked (skip pleasantries, history, analyst "
+    "questions). reported = what management said was actually achieved this quarter, with numbers. "
+    "At most 10 of each. Empty lists if this part has none."
 )
+_CHUNK = 30_000
 
 
 def extract_guidance(db: Session, brain: Brain, doc: Document) -> dict:
     md = (brain.wiki / doc.wiki_path).read_text(encoding="utf-8")
     key = hashlib.sha1(md.encode()).hexdigest()[:12]
-    cp = _cache(brain, f"guidance-{key}.json")
+    cp = _cache(brain, f"guidance-v2-{key}.json")
     if cp.exists():
         return json.loads(cp.read_text())
-    out = llm.chat_json(GUIDANCE_SYSTEM, _with_page_marks(md, 90_000), feature="research_guidance",
-                        db=db, models=CHEAP, max_tokens=6000) or {"items": []}
+    text = _with_page_marks(md, 120_000)
+    chunks = [text[i:i + _CHUNK] for i in range(0, len(text), _CHUNK)][:4]
+    out: dict = {"call": None, "items": [], "reported": []}
+    ok = 0
+    for ch in chunks:
+        part = llm.chat_json(GUIDANCE_SYSTEM, ch, feature="research_guidance", db=db, models=CHEAP, max_tokens=12000)
+        if not part:
+            continue
+        ok += 1
+        out["call"] = out["call"] or part.get("call")
+        out["items"] += part.get("items") or []
+        out["reported"] += part.get("reported") or []
+
+    def dedupe(rows: list[dict]) -> list[dict]:
+        seen, keep = set(), []
+        for r in rows:
+            k = (r.get("quote") or r.get("statement") or r.get("value") or "")[:60].lower()
+            if k and k not in seen:
+                seen.add(k)
+                keep.append(r)
+        return keep
+
+    out["items"], out["reported"] = dedupe(out["items"])[:12], dedupe(out["reported"])[:12]
     out["source"] = doc.wiki_path
     out["month"] = (doc.filed_at or date.today()).strftime("%Y-%m")
-    cp.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    if ok:  # never cache a failed read
+        cp.write_text(json.dumps(out, ensure_ascii=False, indent=1))
     return out
 
 
@@ -100,6 +126,9 @@ def write_ledger(brain: Brain, calls: list[dict]) -> None:
             q = (it.get("quote") or "").replace("|", "/")
             lines.append(f"| {it.get('metric', '')} | {it.get('statement', '')} | {it.get('target', '')} | "
                          f"{it.get('horizon', '')} | “{q}” (p{it.get('page', '?')}) |")
+        if c.get("reported"):
+            lines += ["", "Reported on this call:", ""]
+            lines += [f"- {r.get('metric', '')}: {r.get('value', '')} (p{r.get('page', '?')})" for r in c["reported"]]
         lines.append("")
     brain.write_page("", "guidance-ledger", "\n".join(lines))
 
@@ -116,7 +145,7 @@ def quarterly_series(nse: NSE, symbol: str, n: int = 10) -> list[dict]:
         except Exception:
             continue
         rows.append({"period_end": h.period_end.isoformat(), "labels": list(h.labels), "revenue": h.revenue,
-                     "ebitda": h.ebitda, "pbt": h.pbt, "pat": h.pat, "is_bank": h.is_bank})
+                     "ebitda": h.ebitda, "ebit": h.ebit, "pbt": h.pbt, "pat": h.pat, "is_bank": h.is_bank})
     by_end = {r["period_end"]: r for r in rows}
     for r in rows:
         y, m = _quarter_back(date.fromisoformat(r["period_end"]), 4)
@@ -125,6 +154,7 @@ def quarterly_series(nse: NSE, symbol: str, n: int = 10) -> list[dict]:
             r[f"{f}_yoy"] = (round((r[f] - ago[f]) / abs(ago[f]) * 100, 1)
                              if ago and r[f] is not None and ago.get(f) else None)
         r["margin"] = round(r["ebitda"] / r["revenue"] * 100, 1) if r["revenue"] and r["ebitda"] and not r["is_bank"] else None
+        r["op_margin"] = round(r["ebit"] / r["revenue"] * 100, 1) if r["revenue"] and r.get("ebit") and not r["is_bank"] else None
     return sorted(rows, key=lambda r: r["period_end"])
 
 
@@ -133,8 +163,9 @@ def write_trajectory(brain: Brain, series: list[dict]) -> None:
         return
     lab = series[-1]["labels"]
     lines = [f"# {brain.symbol} trajectory (quarterly, ₹ Cr)", "", "From NSE results filings (XBRL).", "",
-             f"| Quarter | {lab[0]} | {lab[0]} YoY | {lab[1]} | Margin | {lab[3]} | {lab[3]} YoY |",
-             "|---|---:|---:|---:|---:|---:|---:|"]
+             "EBITDA = PBT + finance costs + D&A − other income; operating (EBIT) margin = (EBITDA − D&A) / revenue.", "",
+             f"| Quarter | {lab[0]} | {lab[0]} YoY | {lab[1]} | EBITDA margin | Operating margin | {lab[3]} | {lab[3]} YoY |",
+             "|---|---:|---:|---:|---:|---:|---:|---:|"]
 
     def n(v):
         return "—" if v is None else f"{v:,.0f}"
@@ -144,7 +175,8 @@ def write_trajectory(brain: Brain, series: list[dict]) -> None:
 
     for r in series:
         lines.append(f"| {r['period_end']} | {n(r['revenue'])} | {p(r['revenue_yoy'])} | {n(r['ebitda'])} | "
-                     f"{'—' if r['margin'] is None else str(r['margin']) + '%'} | {n(r['pat'])} | {p(r['pat_yoy'])} |")
+                     f"{'—' if r['margin'] is None else str(r['margin']) + '%'} | "
+                     f"{'—' if r.get('op_margin') is None else str(r['op_margin']) + '%'} | {n(r['pat'])} | {p(r['pat_yoy'])} |")
     brain.write_page("dossier", "trajectory", "\n".join(lines) + "\n")
 
 
@@ -203,13 +235,17 @@ def write_snapshot(brain: Brain, s: dict) -> None:
 # ── reasoning: promised vs delivered, bull vs bear ────────────────────────
 
 PVD_SYSTEM = (
-    "You audit management credibility for an investor. Compare what management promised on its "
-    "calls with what the reported numbers show. " + GROUNDING + " "
-    'Return JSON: {"verdict": str (2 sentences: overall credibility), "score": "high"|"mixed"|"low", '
-    '"rows": [{"call": str, "promise": str, "delivered": str (what the numbers show, with figures and '
-    'quarter), "status": "delivered"|"partly"|"missed"|"too early"|"not measurable", "cite": str}]}. '
-    "Use the quarterly table for actuals; a promise about a future period that hasn't reported yet is "
-    '"too early". Keep each cell under 25 words. At most 10 rows, the most material first.'
+    "You audit management credibility for an investor: what management promised on each call versus what "
+    "then happened. " + GROUNDING + " Evidence for 'what happened' comes from two places: (1) quarterly_actuals "
+    "(from exchange filings; revenue, EBITDA margin, operating margin = EBIT margin, PAT, YoY), and (2) the "
+    "'reported' lists of LATER calls (what management itself reported afterwards, e.g. segment growth, TCV). "
+    "Companies' 'operating margin' means EBIT margin — compare it to op_margin, not EBITDA margin. "
+    'Return JSON: {"verdict": str (2 sentences: overall credibility, specific), "score": "high"|"mixed"|"low", '
+    '"rows": [{"call": str, "promise": str, "delivered": str (what happened, with figures and the quarter or '
+    'later call it comes from), "status": "delivered"|"partly"|"missed"|"too early"|"not measurable", '
+    '"cite": str}]}. Prefer promises that CAN be checked; use "too early" only when the promised period '
+    "has not reported yet, and at most 2 'not measurable' rows. Cover every call that has promises, oldest "
+    "first. Keep each cell under 25 words. 6-10 rows."
 )
 
 BULL_BEAR_SYSTEM = (
@@ -222,17 +258,17 @@ BULL_BEAR_SYSTEM = (
 
 
 def promised_vs_delivered(db: Session, symbol: str, calls: list[dict], series: list[dict]) -> dict:
-    material = json.dumps({"calls": [{k: c.get(k) for k in ("call", "month", "source", "items")} for c in calls],
+    material = json.dumps({"calls": [{k: c.get(k) for k in ("call", "month", "source", "items", "reported")} for c in calls],
                            "quarterly_actuals": series}, ensure_ascii=False)
     return llm.chat_json(PVD_SYSTEM, f"Company: {symbol}\n{material}", feature="research_pvd", db=db,
-                         models=REASON, max_tokens=8000) or {}
+                         models=REASON, max_tokens=12000, effort=None) or {}
 
 
 def bull_bear(db: Session, symbol: str, snap: dict, series: list[dict], pvd: dict) -> dict:
     material = json.dumps({"snapshot": snap, "quarterly_actuals": series, "promised_vs_delivered": pvd},
                           ensure_ascii=False)
     return llm.chat_json(BULL_BEAR_SYSTEM, f"Company: {symbol}\n{material}", feature="research_bullbear",
-                         db=db, models=REASON, max_tokens=6000) or {}
+                         db=db, models=REASON, max_tokens=10000, effort=None) or {}
 
 
 def write_pvd(brain: Brain, pvd: dict) -> None:
@@ -270,8 +306,16 @@ def build_dossier(db: Session, nse: NSE, symbol: str, *, refresh_docs: bool = Tr
     if refresh_docs:
         ingest.run_research_docs(db, nse, sym)
     docs = db.scalars(select(Document).where(Document.symbol == sym, Document.status == "parsed")).all()
-    transcripts = sorted((d for d in docs if d.doc_type == "transcript" and d.wiki_path),
-                         key=lambda d: d.filed_at or date.min, reverse=True)[:4]
+    seen_paths: set[str] = set()
+    transcripts = []
+    for d in sorted((d for d in docs if d.doc_type == "transcript" and d.wiki_path),
+                    key=lambda d: (d.filed_at or date.min), reverse=True):
+        if d.wiki_path in seen_paths or (d.sha256 and d.sha256 in seen_paths):
+            continue
+        seen_paths |= {d.wiki_path, d.sha256 or ""}
+        transcripts.append(d)
+        if len(transcripts) == 4:
+            break
     ar = next((d for d in sorted(docs, key=lambda d: d.filed_at or date.min, reverse=True)
                if d.doc_type == "annual_report" and d.wiki_path), None)
 
