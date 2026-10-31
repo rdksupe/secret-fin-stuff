@@ -11,11 +11,12 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 from collections import defaultdict
 
 import httpx
-from fastapi import APIRouter, Depends, HTTPException, Request
-from fastapi.responses import StreamingResponse
+from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, UploadFile
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -89,6 +90,106 @@ async def say(chat_id: str, body: Say, db: Session = Depends(get_db)):
     agent_text = f"[{body.context}]\n{text}" if body.context else text
     await _bridge("/inbound", {"chat_id": chat_id, "user_id": chat_id, "text": agent_text, "message_id": m.id})
     return _msg(m)
+
+
+# ── voice: speech in (smallest.ai STT) and speech out (TTS) ─────────────────
+
+_VOICE = settings.finn_kb_dir.parent / "hermes" / "scripts" / "voice"
+
+
+def _voice_env() -> dict:
+    import os
+
+    if not settings.smallest_api_key:
+        raise HTTPException(503, "voice not configured")
+    return os.environ | {"SMALLEST_API_KEY": settings.smallest_api_key}
+
+
+async def _run(*args: str, timeout: int = 180) -> None:
+    proc = await asyncio.create_subprocess_exec(*args, env=_voice_env(), stdout=asyncio.subprocess.PIPE,
+                                                stderr=asyncio.subprocess.PIPE)
+    try:
+        _, err = await asyncio.wait_for(proc.communicate(), timeout=timeout)
+    except TimeoutError as e:
+        proc.kill()
+        raise HTTPException(504, "voice service timed out") from e
+    if proc.returncode != 0:
+        raise HTTPException(502, f"voice service failed: {err.decode(errors='ignore')[-200:]}")
+
+
+@router.post("/conversations/{chat_id}/voice", dependencies=[Depends(require_auth)])
+async def say_voice(chat_id: str, audio: UploadFile = File(...), context: str | None = None,
+                    db: Session = Depends(get_db)):
+    """A voice note: transcribe it, show the transcript as the user's message, send it on to FINN."""
+    import uuid
+
+    _valid_chat(chat_id)
+    d = settings.finn_audio_dir
+    d.mkdir(parents=True, exist_ok=True)
+    ext = (audio.filename or "note.m4a").rsplit(".", 1)[-1][:5] or "m4a"
+    src = d / f"in-{uuid.uuid4().hex}.{ext}"
+    src.write_bytes(await audio.read())
+    out = src.with_suffix(".txt")
+    await _run("python3", str(_VOICE / "smallest_stt.py"), "--audio", str(src), "--out", str(out))
+    text = out.read_text(encoding="utf-8").strip() if out.exists() else ""
+    if not text:
+        raise HTTPException(422, "couldn't make out any words in that recording")
+    msg = await say(chat_id, Say(text=text, context=context), db)
+    m = db.get(ChatMessage, msg["id"])
+    m.payload_json = json.dumps({"voice": True})
+    db.commit()
+    return _msg(m)
+
+
+def _speakable(md: str) -> str:
+    """Markdown → something a voice can read: drop tables, citations, formatting."""
+    lines = [ln for ln in md.splitlines() if not ln.strip().startswith("|")]
+    t = "\n".join(lines)
+    t = re.sub(r"\([a-z0-9_-]+/[^)]+\)", "", t)  # (results/2026-09-30.md)
+    t = re.sub(r"[*_`#>]", "", t).replace("▉", "")
+    t = re.sub(r"\n{2,}", "\n", t).strip()
+    # Finance shorthand → words a voice reads correctly.
+    t = re.sub(r"₹\s?([\d,.]+)\s?(Cr|cr|crore)\b", r"\1 crore rupees", t)
+    t = re.sub(r"₹\s?([\d,.]+)\s?(L|lakh)\b", r"\1 lakh rupees", t)
+    t = re.sub(r"₹\s?([\d,.]+)", r"\1 rupees", t)
+    for a, b in (("QoQ", "quarter on quarter"), ("YoY", "year on year"), ("bps", "basis points"),
+                 ("CC", "constant currency"), ("FY", "F Y "), ("PAT", "profit after tax"),
+                 ("PBT", "profit before tax"), ("EBITDA", "E B I T D A"), ("TCV", "total contract value")):
+        t = re.sub(rf"\b{a}\b", b, t)
+    t = re.sub(r"\(?NSE XBRL[^)]*\)?", "", t)
+    return t[:1500]
+
+
+@router.post("/conversations/{chat_id}/messages/{message_id}/speech", dependencies=[Depends(require_auth)])
+async def speech(chat_id: str, message_id: str, db: Session = Depends(get_db)):
+    _valid_chat(chat_id)
+    m = db.get(ChatMessage, message_id)
+    if not m or m.chat_id != chat_id or m.role != "finn":
+        raise HTTPException(404)
+    d = settings.finn_audio_dir
+    d.mkdir(parents=True, exist_ok=True)
+    mp3 = d / f"tts-{m.id}.mp3"
+    if not mp3.exists():
+        txt = d / f"tts-{m.id}.txt"
+        txt.write_text(_speakable(m.text), encoding="utf-8")
+        await _run("python3", str(_VOICE / "smallest_tts.py"), "--text-file", str(txt), "--out", str(mp3))
+    return {"url": f"/api/audio/{mp3.name}"}
+
+
+@router.get("/audio/{name}")
+def audio_file(name: str, token: str | None = Query(default=None), request: Request = None):
+    """Audio for the app's player. Accepts the bearer token as ?token= because native audio
+    players can't always attach headers."""
+    from finn_api.auth import require_auth as _check
+
+    auth = request.headers.get("authorization") if request else None
+    _check(authorization=auth or (f"Bearer {token}" if token else None), x_api_key=None)
+    if not re.fullmatch(r"tts-[0-9a-f-]{36}\.mp3", name):
+        raise HTTPException(404)
+    p = settings.finn_audio_dir / name
+    if not p.exists():
+        raise HTTPException(404)
+    return FileResponse(p, media_type="audio/mpeg")
 
 
 @router.get("/conversations/{chat_id}/messages", dependencies=[Depends(require_auth)])

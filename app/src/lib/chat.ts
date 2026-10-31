@@ -161,6 +161,7 @@ export function useConversation() {
 
   return {
     chatId: id,
+    add: upsert,
     messages,
     online,
     working,

@@ -23,6 +23,8 @@ read_env() { # file key
 FIREWORKS_API_KEY="${FIREWORKS_API_KEY:-$(read_env "$HOME/.hermes-fieldclaw/.env" FIREWORKS_API_KEY)}"
 DATALAB_API_KEY="${DATALAB_API_KEY:-$(read_env "$HOME/.hermes-fieldclaw/.env" DATALAB_API_KEY)}"
 OPENROUTER_API_KEY="${OPENROUTER_API_KEY:-$(read_env "$HOME/.hermes-fieldclaw/.env" OPENROUTER_API_KEY)}"
+MEM0_API_KEY="${MEM0_API_KEY:-$(read_env "$HOME/.hermes-fieldclaw/.env" MEM0_API_KEY)}"
+SMALLEST_API_KEY="${SMALLEST_API_KEY:-$(read_env "$HOME/.hermes-fieldclaw/.env" SMALLEST_API_KEY)}"
 if [[ -z "${EXA_API_KEY:-}" && -f "$HOME/.pi/web-search.json" ]]; then
   EXA_API_KEY="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get("exaApiKey",""))' "$HOME/.pi/web-search.json")"
 fi
@@ -53,16 +55,19 @@ FINN_APP_API_URL=http://127.0.0.1:8000
 FINN_APP_LISTEN=127.0.0.1:8650
 FINN_APP_HOME_CHANNEL=home
 FINN_APP_ALLOW_ALL_USERS=true
+MEM0_API_KEY=$MEM0_API_KEY
+SMALLEST_API_KEY=$SMALLEST_API_KEY
 EOF
 # The FINN API proxies chat to Hermes with the same key.
 touch "$FINN_REPO/.env"
-python3 - "$FINN_REPO/.env" "$FINN_API_KEY" "$API_SERVER_KEY" "$FIREWORKS_API_KEY" "$DATALAB_API_KEY" "$EXA_API_KEY" "$BRIDGE_SECRET" <<'PY'
+python3 - "$FINN_REPO/.env" "$FINN_API_KEY" "$API_SERVER_KEY" "$FIREWORKS_API_KEY" "$DATALAB_API_KEY" "$EXA_API_KEY" "$BRIDGE_SECRET" "$SMALLEST_API_KEY" <<'PY'
 import sys
 from pathlib import Path
 p = Path(sys.argv[1])
 want = {"FINN_API_KEY": sys.argv[2], "HERMES_API_KEY": sys.argv[3], "FIREWORKS_API_KEY": sys.argv[4],
         "DATALAB_API_KEY": sys.argv[5], "EXA_API_KEY": sys.argv[6], "HERMES_API_URL": "http://127.0.0.1:8642",
-        "FINN_APP_BRIDGE_SECRET": sys.argv[7], "FINN_APP_BRIDGE_URL": "http://127.0.0.1:8650"}
+        "FINN_APP_BRIDGE_SECRET": sys.argv[7], "FINN_APP_BRIDGE_URL": "http://127.0.0.1:8650",
+        "SMALLEST_API_KEY": sys.argv[8]}
 lines = [l for l in p.read_text().splitlines() if l.split("=", 1)[0] not in want]
 lines += [f"{k}={v}" for k, v in want.items() if v]
 p.write_text("\n".join(lines) + "\n")
@@ -80,7 +85,7 @@ for s in "$FINN_REPO"/hermes/scripts/*.py; do
 done
 
 # ── config.yaml ─────────────────────────────────────────────────────────────
-"$HERMES_PY" - "$HOME_DIR/config.yaml" "$MODEL_CHAT" <<'PY'
+FINN_REPO_PATH="$FINN_REPO" "$HERMES_PY" - "$HOME_DIR/config.yaml" "$MODEL_CHAT" <<'PY'
 import sys, yaml
 from pathlib import Path
 p, model = Path(sys.argv[1]), sys.argv[2]
@@ -98,6 +103,21 @@ plug["enabled"] = sorted(set(plug.get("enabled") or []) | {"protect-identity", "
 # The app is a first-class chat platform: stream replies, no tool-progress spam.
 dp = cfg.setdefault("display", {}).setdefault("platforms", {}).setdefault("finn_app", {})
 dp.update({"streaming": True, "tool_progress": "off"})
+# Personal memory per chat (Mem0) and voice via smallest.ai — the FieldClaw setup.
+import os
+repo = os.environ.get("FINN_REPO_PATH", "")
+mem = cfg.setdefault("memory", {})
+mem.update({"memory_enabled": True, "user_profile_enabled": True, "provider": "mem0"})
+voice_dir = f"{repo}/hermes/scripts/voice"
+cfg["stt"] = {"enabled": True, "provider": "smallest", "providers": {"smallest": {
+    "type": "command", "format": "txt", "language": "en", "model": "pulse", "timeout": 180,
+    "command": f"python3 {voice_dir}/smallest_stt.py --audio {{input_path}} --out {{output_path}} --language {{language}} --model {{model}}"}}}
+cfg["tts"] = {"provider": "smallest", "providers": {"smallest": {
+    "type": "command", "output_format": "mp3", "voice_compatible": True, "voice": "avery", "model": "lightning_v3.1",
+    "timeout": 120, "max_text_length": 4000,
+    "command": f"python3 {voice_dir}/smallest_tts.py --text-file {{input_path}} --out {{output_path}} --voice {{voice}} --model {{model}}"}}}
+# Same tools as a Telegram chat (memory, cron, web, files, skills, delegation…) plus FINN's own.
+cfg.setdefault("platform_toolsets", {})["finn_app"] = ["hermes-telegram", "finn"]
 gw = cfg.setdefault("gateway", {})
 gw["multiplex_profiles"] = False
 gw.setdefault("api_server", {})["max_concurrent_runs"] = 4

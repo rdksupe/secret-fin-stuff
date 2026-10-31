@@ -21,7 +21,8 @@
       "package": "ai.finn.app",
       "googleServicesFile": "./firebase/google-services.json",
       "permissions": [
-        "POST_NOTIFICATIONS"
+        "POST_NOTIFICATIONS",
+        "RECORD_AUDIO"
       ]
     },
     "web": {
@@ -48,6 +49,12 @@
         {
           "color": "#F0A63A",
           "defaultChannel": "alerts"
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "FINN listens when you tap the mic, to turn your question into text."
         }
       ]
     ],

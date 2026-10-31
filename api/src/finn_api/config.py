@@ -29,7 +29,9 @@ class Settings(BaseSettings):
     typesafe_api_key: str | None = None
     pageindex_root: Path = REPO_ROOT.parent / "PageIndex"
     exa_api_key: str | None = None
-    finn_fcm_credentials: str | None = None  # path to an FCM-only service-account JSON
+    finn_fcm_credentials: str | None = None
+    smallest_api_key: str | None = None  # speech in/out (same provider Hermes uses)
+    finn_audio_dir: Path = REPO_ROOT / "data" / "audio"  # path to an FCM-only service-account JSON
 
     finn_app_bridge_url: str = "http://127.0.0.1:8650"  # Hermes finn_app adapter listener
     finn_app_bridge_secret: str | None = None

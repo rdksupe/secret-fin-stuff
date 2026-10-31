@@ -68,6 +68,7 @@ class Assessment:
     score: float | None = None
     nouls: dict[str, float] = field(default_factory=dict)
     llm: dict | None = None
+    verify: dict | None = None  # figures in the one-liner found in the filing?
 
     @property
     def push(self) -> bool:
@@ -78,7 +79,7 @@ class Assessment:
 
     def as_dict(self) -> dict:
         return {"stage": self.stage, "verdict": self.verdict, "score": self.score,
-                "nouls": self.nouls, "llm": self.llm, "push": self.push}
+                "nouls": self.nouls, "llm": self.llm, "push": self.push, "verify": self.verify}
 
 
 def build_state(ann: dict, description: str, text: str) -> dict:
@@ -164,7 +165,16 @@ def assess(
     if use_llm and needs_llm:
         out = llm_triage(state, db)
         if out:
+            from finn_api.verify import check
+
             a.stage, a.llm = "llm", out
+            full = ""
+            if raw_pdf:
+                try:
+                    full = "\n".join(pdf.pages_text(raw_pdf, limit=12)[0])
+                except Exception:
+                    full = ""
+            a.verify = check(out.get("one_liner") or "", [full, text, ann.get("attchmntText") or ""]).as_dict()
             a.verdict = "material" if a.push else "not_material"
     return a
 

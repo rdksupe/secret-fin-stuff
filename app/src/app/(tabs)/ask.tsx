@@ -8,6 +8,7 @@ import { Dot } from '@/components/pulse';
 import { Body, Mono, Strong, Title } from '@/components/type';
 import { api, type Story } from '@/lib/api';
 import { clean, useConversation, type ChatMessage } from '@/lib/chat';
+import { useSpeech, useVoiceNote } from '@/lib/voice';
 import { headline, when } from '@/lib/format';
 import { color, font, maxWidth, size, space } from '@/theme';
 
@@ -57,7 +58,9 @@ function Prompt({ m, onAnswer }: { m: ChatMessage; onAnswer: (choice: string) =>
   );
 }
 
-function Bubble({ m, onAnswer }: { m: ChatMessage; onAnswer: (id: string, choice: string) => void }) {
+type Listen = { playing: string | null; loading: string | null; toggle: (id: string) => void };
+
+function Bubble({ m, onAnswer, listen }: { m: ChatMessage; onAnswer: (id: string, choice: string) => void; listen: Listen }) {
   if (m.kind !== 'message') return <Prompt m={m} onAnswer={(c) => onAnswer(m.id, c)} />;
   if (m.role === 'user') {
     // Slash commands are controls, not conversation.
@@ -70,6 +73,7 @@ function Bubble({ m, onAnswer }: { m: ChatMessage; onAnswer: (id: string, choice
     }
     return (
       <View style={{ alignSelf: 'flex-end', maxWidth: '86%', backgroundColor: color.panel, borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10, marginVertical: space.s }}>
+        {(m.payload as { voice?: boolean }).voice ? <Body size={size.meta} c={color.dim}>Voice note</Body> : null}
         <Body>{m.text}</Body>
       </View>
     );
@@ -84,6 +88,13 @@ function Bubble({ m, onAnswer }: { m: ChatMessage; onAnswer: (id: string, choice
         </Body>
       </View>
       {text ? <Markdown text={text} /> : <Body c={color.dim}>…</Body>}
+      {m.final && text.length > 0 && (
+        <Pressable onPress={() => listen.toggle(m.id)} hitSlop={8} accessibilityRole="button" style={{ marginTop: space.s, alignSelf: 'flex-start' }}>
+          <Body size={size.meta} c={color.mist}>
+            {listen.loading === m.id ? 'Preparing audio…' : listen.playing === m.id ? 'Stop listening' : 'Listen'}
+          </Body>
+        </Pressable>
+      )}
     </View>
   );
 }
@@ -91,7 +102,9 @@ function Bubble({ m, onAnswer }: { m: ChatMessage; onAnswer: (id: string, choice
 export default function Ask() {
   const params = useLocalSearchParams<{ feed?: string; symbol?: string }>();
   const [context, setContext] = useState<{ symbol: string; label: string } | null>(null);
-  const { messages, working, online, send, stop, newChat, answer } = useConversation();
+  const { chatId, add, messages, working, online, send, stop, newChat, answer } = useConversation();
+  const voice = useVoiceNote(chatId, add);
+  const listen = useSpeech(chatId);
   const [draft, setDraft] = useState('');
   const scroll = useRef<{ scrollToEnd: (o?: { animated?: boolean }) => void } | null>(null);
   const insets = useSafeAreaInsets();
@@ -108,6 +121,9 @@ export default function Ask() {
       setContext({ symbol: params.symbol, label: '' });
     }
   }, [params.symbol, params.feed]);
+
+  const contextText = () =>
+    context ? `Investor is asking about ${context.symbol}${context.label ? `; the story they opened: ${context.label}` : ''}` : undefined;
 
   const submit = (text = draft) => {
     if (!text.trim()) return;
@@ -182,7 +198,7 @@ export default function Ask() {
             </View>
           </View>
         ) : (
-          messages.map((m) => <Bubble key={m.id} m={m} onAnswer={answer} />)
+          messages.map((m) => <Bubble key={m.id} m={m} onAnswer={answer} listen={listen} />)
         )}
       </ScrollView>
 
@@ -202,7 +218,18 @@ export default function Ask() {
               }
             }}
           />
-          {working && !draft.trim() ? (
+          {voice.supported && !draft.trim() && !working ? (
+            <Pressable
+              onPress={() => (voice.recording ? voice.stopAndSend(contextText()) : voice.start())}
+              disabled={voice.sending}
+              accessibilityRole="button"
+              accessibilityLabel={voice.recording ? 'Stop and send voice note' : 'Record a voice note'}
+              style={{ paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, backgroundColor: voice.recording ? color.loss : color.well, borderWidth: 1, borderColor: voice.recording ? color.loss : color.hairline }}>
+              <Body size={size.small} c={voice.recording ? color.ink : color.paper}>
+                {voice.sending ? 'Sending…' : voice.recording ? `Send · ${Math.max(0, Math.round((Date.now() - voice.startedAt) / 1000))}s` : 'Speak'}
+              </Body>
+            </Pressable>
+          ) : working && !draft.trim() ? (
             <Pressable onPress={stop} accessibilityRole="button" style={{ paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, borderWidth: 1, borderColor: color.hairline }}>
               <Body size={size.small} c={color.paper}>Stop</Body>
             </Pressable>
@@ -216,6 +243,7 @@ export default function Ask() {
             </Pressable>
           )}
         </View>
+        {voice.error ? <Body size={size.meta} c={color.loss} style={{ marginTop: space.xs }}>{voice.error}</Body> : null}
       </View>
     </KeyboardAvoidingView>
   );

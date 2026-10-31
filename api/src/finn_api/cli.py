@@ -204,6 +204,55 @@ def cmd_dossier(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_verify_dossiers(_a: argparse.Namespace) -> int:
+    """Re-run the number checker over existing dossiers (no model calls)."""
+    from finn_api.brain import Brain
+    from finn_api.research import verify_dossier
+
+    for b in Brain.all():
+        p = b.wiki / "dossier" / "dossier.json"
+        if not p.exists():
+            continue
+        d = verify_dossier(b, json.loads(p.read_text()))
+        p.write_text(json.dumps(d, ensure_ascii=False, indent=1))
+        v = d["verification"]
+        missing = [m for r in (d.get("promised_vs_delivered") or {}).get("rows") or [] for m in r["verify"]["missing"]]
+        print(f"{b.symbol:11} {v['found']}/{v['checked']} figures found in sources; not found: {missing[:4]}")
+    return 0
+
+
+def cmd_export_docs(a: argparse.Namespace) -> int:
+    from sqlalchemy import select
+
+    from finn_api.models import Document
+
+    cols = [c.name for c in Document.__table__.columns]
+    with SessionLocal() as db:
+        rows = [{c: (getattr(d, c).isoformat() if hasattr(getattr(d, c), "isoformat") else getattr(d, c))
+                 for c in cols} for d in db.scalars(select(Document).where(Document.status == "parsed"))]
+    print(json.dumps(rows, ensure_ascii=False))
+    return 0
+
+
+def cmd_import_docs(a: argparse.Namespace) -> int:
+    from datetime import datetime as _dt
+
+    from finn_api.models import Document
+
+    rows = json.loads(open(a.file).read())
+    n = 0
+    with SessionLocal() as db:
+        for r in rows:
+            for k in ("filed_at", "created_at", "updated_at"):
+                if r.get(k):
+                    r[k] = _dt.fromisoformat(r[k])
+            db.merge(Document(**r))
+            n += 1
+        db.commit()
+    print(f"imported {n} documents")
+    return 0
+
+
 def cmd_digest(a: argparse.Namespace) -> int:
     from finn_api.digest import build_digest
 
@@ -310,6 +359,14 @@ def main(argv: list[str] | None = None) -> int:
     ds.add_argument("symbols", nargs="+")
     ds.add_argument("--no-fetch", action="store_true")
     ds.set_defaults(fn=cmd_dossier)
+
+    sub.add_parser("verify-dossiers", help="check dossier figures against their sources").set_defaults(
+        fn=cmd_verify_dossiers)
+
+    sub.add_parser("export-docs").set_defaults(fn=cmd_export_docs)
+    im = sub.add_parser("import-docs")
+    im.add_argument("file")
+    im.set_defaults(fn=cmd_import_docs)
 
     d = sub.add_parser("digest")
     d.add_argument("--hours", type=int, default=24)

@@ -293,6 +293,45 @@ def write_bull_bear(brain: Brain, bb: dict) -> None:
     brain.write_page("dossier", "bull-bear", "\n".join(lines) + "\n")
 
 
+# ── verification ──────────────────────────────────────────────────────────
+
+
+def verify_dossier(brain: Brain, d: dict) -> dict:
+    """Mark every figure in the generated sections as found / not found in the cited sources."""
+    from finn_api.verify import check, series_values
+
+    texts = []
+    for rel in (d.get("sources") or {}).get("transcripts") or []:
+        p = brain.wiki / rel
+        if p.exists():
+            texts.append(p.read_text(encoding="utf-8"))
+    ar = (d.get("sources") or {}).get("annual_report")
+    if ar and (brain.wiki / ar).exists():
+        texts.append((brain.wiki / ar).read_text(encoding="utf-8"))
+    extra = series_values(d.get("trajectory") or [])
+    totals = {"checked": 0, "found": 0}
+
+    def mark(obj: dict, *fields: str) -> None:
+        c = check(" ".join(str(obj.get(f) or "") for f in fields), texts, extra)
+        obj["verify"] = c.as_dict()
+        totals["checked"] += c.checked
+        totals["found"] += c.found
+
+    for row in (d.get("promised_vs_delivered") or {}).get("rows") or []:
+        mark(row, "promise", "delivered")
+    for side in ("bull", "bear"):
+        for pt in (d.get("bull_bear") or {}).get(side) or []:
+            mark(pt, "point")
+    snap = d.get("snapshot") or {}
+    if snap.get("key_facts"):
+        snap["key_facts_verify"] = [check(k, texts, extra).as_dict() for k in snap["key_facts"]]
+        for v in snap["key_facts_verify"]:
+            totals["checked"] += v["checked"]
+            totals["found"] += v["found"]
+    d["verification"] = totals
+    return d
+
+
 # ── orchestration ─────────────────────────────────────────────────────────
 
 
@@ -335,6 +374,7 @@ def build_dossier(db: Session, nse: NSE, symbol: str, *, refresh_docs: bool = Tr
     dossier = {"symbol": sym, "built_on": date.today().isoformat(), "snapshot": snap, "trajectory": series,
                "guidance": calls, "promised_vs_delivered": pvd, "bull_bear": bb,
                "sources": {"transcripts": [d.wiki_path for d in transcripts], "annual_report": ar and ar.wiki_path}}
+    dossier = verify_dossier(brain, dossier)
     (brain.wiki / "dossier" / "dossier.json").write_text(json.dumps(dossier, ensure_ascii=False, indent=1))
     brain.log(f"dossier built: {len(calls)} calls, {len(series)} quarters, AR={'yes' if ar else 'no'}")
     return dossier

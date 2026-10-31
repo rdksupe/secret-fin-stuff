@@ -21,7 +21,9 @@ worker() {
 
   echo "==> worker: code + data"
   # .env is NOT synced: the worker keeps its own (JWT secret, server keys).
+  # The worker's DB is live (its crons ingest filings) — never overwrite it; documents ship separately.
   "${RSYNCJ[@]}" --delete --exclude .env --exclude app/ --exclude .venv/ --exclude data/research/ --exclude 'data/research_*' \
+    --exclude 'data/finn.db*' --exclude data/audio/ \
     --exclude __pycache__/ --exclude .pytest_cache/ --exclude .ruff_cache/ "$REPO/" "$WORKER:/home/ubuntu/finn/"
   "${RSYNCJ[@]}" --exclude .venv/ --exclude .git/ --exclude __pycache__/ "$PAGEINDEX/" "$WORKER:/home/ubuntu/PageIndex/"
 
@@ -33,11 +35,12 @@ worker() {
     cd ~/finn/api && uv sync -q --no-dev
     cd ~/PageIndex && [ -x .venv/bin/python ] || { uv venv -q --python 3.12 .venv && uv pip install -q --python .venv/bin/python -r requirements.txt; }
     # Hermes needs aiohttp for the finn_app bridge and the api_server; the FieldClaw install lacked it.
-    /opt/hermes-agent/.venv/bin/python -c "import aiohttp" 2>/dev/null || uv pip install -q --python /opt/hermes-agent/.venv/bin/python aiohttp'
+    /opt/hermes-agent/.venv/bin/python -c "import aiohttp" 2>/dev/null || uv pip install -q --python /opt/hermes-agent/.venv/bin/python aiohttp
+    /opt/hermes-agent/.venv/bin/python -c "import mem0" 2>/dev/null || uv pip install -q --python /opt/hermes-agent/.venv/bin/python "mem0ai==2.0.18"'
 
   echo "==> worker: hermes profile (keys passed via a short-lived env file)"
   local tmp; tmp="$(mktemp)"
-  grep -E '^(FIREWORKS_API_KEY|EXA_API_KEY|DATALAB_API_KEY|OPENROUTER_API_KEY)=' "$HOME/.hermes-finn/.env" > "$tmp"
+  grep -E '^(FIREWORKS_API_KEY|EXA_API_KEY|DATALAB_API_KEY|OPENROUTER_API_KEY|MEM0_API_KEY|SMALLEST_API_KEY)=' "$HOME/.hermes-finn/.env" > "$tmp"
   grep -E '^TYPESAFE_API_KEY=' "$REPO/.env" >> "$tmp" || true
   "${RSYNCJ[@]}" "$tmp" "$WORKER:/home/ubuntu/.finn-provision.env"
   rm -f "$tmp"
@@ -50,6 +53,18 @@ worker() {
     FINN_REPO=/home/ubuntu/finn HERMES_BIN=/opt/hermes-agent/.venv/bin/hermes \
       PLUGIN_SRC=/opt/fieldclaw/deploy/hermes/plugins/protect-identity \
       bash ~/finn/hermes/provision.sh | tail -6'
+
+  echo "==> worker: research document records"
+  (cd "$REPO/api" && uv run finn export-docs 2>/dev/null) > /tmp/finn-docs.json
+  "${RSYNCJ[@]}" /tmp/finn-docs.json "$WORKER:/home/ubuntu/finn-docs.json" && rm -f /tmp/finn-docs.json
+  "${SSHJ[@]}" 'cd ~/finn/api && .venv/bin/finn import-docs ~/finn-docs.json && rm -f ~/finn-docs.json'
+
+  echo "==> worker: FCM sender key (server only)"
+  if [ -f "${FCM_KEY:-/run/media/rdksupe/finn/.secrets/fcm-sa.json}" ]; then
+    "${SSHJ[@]}" 'mkdir -p ~/.finn-secrets && chmod 700 ~/.finn-secrets'
+    "${RSYNCJ[@]}" --chmod=F600 "${FCM_KEY:-/run/media/rdksupe/finn/.secrets/fcm-sa.json}" "$WORKER:/home/ubuntu/.finn-secrets/fcm-sa.json"
+    "${SSHJ[@]}" 'grep -q "^FINN_FCM_CREDENTIALS=" ~/finn/.env || echo "FINN_FCM_CREDENTIALS=/home/ubuntu/.finn-secrets/fcm-sa.json" >> ~/finn/.env'
+  fi
 
   echo "==> worker: services"
   "${SSHJ[@]}" 'sudo tee /etc/systemd/system/finn-api.service >/dev/null <<EOF
