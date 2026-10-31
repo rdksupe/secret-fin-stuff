@@ -35,7 +35,7 @@ export function usePushRegistration() {
 
     const open = (r: Notifications.NotificationResponse) => {
       const data = r.notification.request.content.data ?? {};
-      if (data.kind === 'chat') router.push('/ask'); // scheduled job / reminder from FINN
+      if (data.kind === 'chat') router.push({ pathname: '/ask', params: typeof data.chat_id === 'string' ? { chat: data.chat_id } : {} }); // scheduled job / reminder from FINN
       else if (typeof data.feed_id === 'string') router.push({ pathname: '/story/[id]', params: { id: data.feed_id } });
     };
     Notifications.getLastNotificationResponseAsync().then((r) => r && open(r));

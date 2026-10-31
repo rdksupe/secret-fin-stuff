@@ -5,30 +5,51 @@ import { color, font } from '@/theme';
 // Small markdown renderer for FINN's answers: headings, paragraphs, lists, tables,
 // bold, inline code, links. Enough for analyst-style replies; nothing exotic.
 
-function inline(text: string, base: object, key: string) {
+type OnLink = ((path: string) => void) | undefined;
+
+const toPath = (t: string) => (t.endsWith('.md') ? t : `${t}.md`);
+
+function inline(text: string, base: object, key: string, onLink?: OnLink) {
   const parts: React.ReactNode[] = [];
-  const re = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|\([a-z0-9_-]+\/[^)\s]+\.md\))/gi;
+  const re = /(\[\[[^\]]+\]\]|\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|\([a-z0-9_-]+\/[^)\s]+\.md\))/gi;
   let last = 0;
   let m: RegExpExecArray | null;
   let i = 0;
   while ((m = re.exec(text))) {
     if (m.index > last) parts.push(text.slice(last, m.index));
     const t = m[0];
-    if (t.startsWith('**')) {
+    if (t.startsWith('[[')) {
+      // Obsidian-style link inside the company brain: [[results/2026-09-30]] or [[profile|Business profile]]
+      const [target, label] = t.slice(2, -2).split('|');
+      parts.push(
+        <Text
+          key={`${key}w${i++}`}
+          onPress={onLink ? () => onLink(toPath(target.trim())) : undefined}
+          style={{ color: onLink ? color.marigold : color.mist }}>
+          {(label ?? target).trim()}
+        </Text>,
+      );
+    } else if (t.startsWith('**')) {
       parts.push(<Text key={`${key}b${i++}`} style={{ fontFamily: font.semibold }}>{t.slice(2, -2)}</Text>);
     } else if (t.startsWith('`')) {
       parts.push(<Text key={`${key}c${i++}`} style={{ fontFamily: font.mono, fontSize: 13, color: color.mist }}>{t.slice(1, -1)}</Text>);
     } else if (t.startsWith('[')) {
       const [, label, href] = t.match(/\[([^\]]+)\]\(([^)]+)\)/) ?? [];
       parts.push(
-        <Text key={`${key}l${i++}`} onPress={() => Linking.openURL(href)} style={{ textDecorationLine: 'underline' }}>
+        <Text
+          key={`${key}l${i++}`}
+          onPress={() => (onLink && !/^[a-z]+:/i.test(href) && href.endsWith('.md') ? onLink(href.replace(/^\.\//, '')) : Linking.openURL(href))}
+          style={{ textDecorationLine: 'underline' }}>
           {label}
         </Text>,
       );
     } else {
       // (results/2026-09-30.md) — a citation into the company brain
       parts.push(
-        <Text key={`${key}s${i++}`} style={{ fontFamily: font.mono, fontSize: 12, color: color.dim }}>
+        <Text
+          key={`${key}s${i++}`}
+          onPress={onLink ? () => onLink(t.slice(1, -1)) : undefined}
+          style={{ fontFamily: font.mono, fontSize: 12, color: onLink ? color.marigold : color.dim }}>
           {t}
         </Text>,
       );
@@ -76,7 +97,7 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
   );
 }
 
-export function Markdown({ text, size = 15 }: { text: string; size?: number }) {
+export function Markdown({ text, size = 15, onLink }: { text: string; size?: number; onLink?: OnLink }) {
   const base = { fontFamily: font.regular, fontSize: size, lineHeight: size * 1.5, color: color.paper };
   const lines = text.replace(/\r/g, '').split('\n');
   const out: React.ReactNode[] = [];
@@ -114,7 +135,7 @@ export function Markdown({ text, size = 15 }: { text: string; size?: number }) {
       out.push(
         <View key={`l${k++}`} style={{ flexDirection: 'row', paddingLeft: 2, marginVertical: 1 }}>
           <Text style={[base, { width: 18, color: color.mist, fontFamily: font.mono }]}>{bullet}</Text>
-          <View style={{ flex: 1 }}>{inline(li[2], base, `l${k}`)}</View>
+          <View style={{ flex: 1 }}>{inline(li[2], base, `l${k}`, onLink)}</View>
         </View>,
       );
       i++;
@@ -127,7 +148,7 @@ export function Markdown({ text, size = 15 }: { text: string; size?: number }) {
     }
     out.push(
       <View key={`p${k++}`} style={{ marginVertical: 3 }}>
-        {inline(para.join('\n'), base, `p${k}`)}
+        {inline(para.join('\n'), base, `p${k}`, onLink)}
       </View>,
     );
   }

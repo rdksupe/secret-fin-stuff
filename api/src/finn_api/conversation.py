@@ -224,6 +224,46 @@ def audio_file(name: str, token: str | None = Query(default=None), request: Requ
     return FileResponse(p, media_type="audio/mpeg")
 
 
+@router.get("/conversations", dependencies=[Depends(require_auth)])
+def conversations(ids: str = "", db: Session = Depends(get_db)):
+    """Summaries of this install's sessions (it keeps the list of ids), plus FINN's home channel,
+    where scheduled jobs land. Each is its own Hermes session and can be running at once."""
+    from datetime import UTC, datetime, timedelta
+
+    wanted = [i for i in ids.split(",") if i][:50]
+    out = []
+    for cid in [*wanted, "home"]:
+        try:
+            _valid_chat(cid)
+        except HTTPException:
+            continue
+        rows = db.scalars(select(ChatMessage).where(ChatMessage.chat_id == cid)
+                          .order_by(ChatMessage.created_at.desc()).limit(40)).all()
+        if not rows and cid == "home":
+            continue
+        first = next((r.text for r in reversed(rows) if r.role == "user" and not r.text.startswith("/")), "")
+        last = next((r for r in rows if r.kind in ("message", "approval", "clarify", "confirm")
+                     and not (r.role == "user" and r.text.startswith("/"))), None)
+        now = datetime.now(tz=UTC).replace(tzinfo=None)
+        head = rows[0] if rows else None
+        working = bool(head) and (
+            (head.role == "finn" and head.kind == "message" and not head.final
+             and now - head.created_at < timedelta(minutes=5))
+            or (head.kind == "tool" and now - head.created_at < timedelta(seconds=90))
+            or (head.role == "user" and not head.text.startswith("/") and now - head.created_at < timedelta(seconds=90))
+        )
+        out.append({
+            "id": cid,
+            "title": "Scheduled from FINN" if cid == "home" else (first[:80] or "New chat"),
+            "last": (last.text or "").strip()[:140] if last else "",
+            "last_role": last.role if last else None,
+            "at": (head.created_at.isoformat() if head else None),
+            "working": working,
+            "count": len(rows),
+        })
+    return out
+
+
 @router.get("/conversations/{chat_id}/messages", dependencies=[Depends(require_auth)])
 def history(chat_id: str, limit: int = 60, db: Session = Depends(get_db)):
     _valid_chat(chat_id)
@@ -264,7 +304,7 @@ async def tap(chat_id: str, body: Tap, db: Session = Depends(get_db)):
     """A button in an approval / clarify prompt."""
     _valid_chat(chat_id)
     m = db.get(ChatMessage, body.message_id)
-    if not m or m.chat_id != chat_id or m.kind not in ("approval", "clarify"):
+    if not m or m.chat_id != chat_id or m.kind not in ("approval", "clarify", "confirm"):
         raise HTTPException(404, "no such prompt")
     p = json.loads(m.payload_json or "{}")
     if p.get("answered"):
@@ -284,7 +324,7 @@ async def tap(chat_id: str, body: Tap, db: Session = Depends(get_db)):
 
 class HermesEvent(BaseModel):
     chat_id: str
-    type: str  # message | edit | typing | approval | clarify
+    type: str  # message | edit | typing | reaction | approval | clarify | confirm
     text: str | None = None
     message_id: str | None = None
     finalize: bool = False
@@ -319,23 +359,28 @@ def hermes_event(ev: HermesEvent, claims: dict = Depends(require_auth), db: Sess
     if ev.type == "edit" and ev.message_id:
         m = db.get(ChatMessage, ev.message_id)
         if m:
+            was_final = m.final
             m.text = ev.text or m.text
             m.final = True if m.kind == "tool" else ev.finalize
             db.commit()
-            _publish(chat_id, {"type": "update", "message": _msg(m)})
+            listeners = _publish(chat_id, {"type": "update", "message": _msg(m)})
+            if m.kind == "message" and m.final and not was_final and listeners == 0:
+                # A streamed answer finished while the investor was elsewhere (another chat, app closed).
+                _push_to_phone(db, m)
             return {"ok": True, "message_id": m.id}
-    kind = ev.type if ev.type in ("approval", "clarify") else ("tool" if ev.kind == "tool" else "message")
+    kind = ev.type if ev.type in ("approval", "clarify", "confirm") else ("tool" if ev.kind == "tool" else "message")
     payload = {k: v for k, v in {"command": ev.command, "choices": ev.choices, "id": ev.id,
                                  "session_key": ev.session_key}.items() if v}
     quote = _quote(db, chat_id, ev.reply_to)
     if quote:
         payload |= {"reply_to": quote["id"], "reply_text": quote["text"][:160], "reply_role": quote["role"]}
+    final = kind != "message" or ev.finalize
     m = ChatMessage(chat_id=chat_id, role="finn", kind=kind, text=ev.text or "", payload_json=json.dumps(payload),
-                    final=kind != "message", proactive=ev.proactive)
+                    final=final, proactive=ev.proactive)
     db.add(m)
     db.commit()
     listeners = _publish(chat_id, {"type": "message", "message": _msg(m)})
-    if listeners == 0 and kind != "tool":
+    if listeners == 0 and kind != "tool" and final:
         # Nobody has the app open: a cron result, reminder or late reply — push it.
         m.proactive = True
         db.commit()

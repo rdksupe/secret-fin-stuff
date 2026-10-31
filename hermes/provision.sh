@@ -118,6 +118,13 @@ cfg["tts"] = {"provider": "smallest", "providers": {"smallest": {
     "command": f"python3 {voice_dir}/smallest_tts.py --text-file {{input_path}} --out {{output_path}} --voice {{voice}} --model {{model}}"}}}
 # Same tools as a Telegram chat (memory, cron, web, files, skills, delegation…) plus FINN's own.
 cfg.setdefault("platform_toolsets", {})["finn_app"] = ["hermes-telegram", "finn"]
+# Single-investor deployment: run without approval prompts (owner's choice). Dangerous
+# commands, cron jobs and /new-style resets all proceed; protect-identity still guards
+# SOUL.md / config.yaml / .env.
+cfg["approvals"] = {**(cfg.get("approvals") or {}), "mode": "off", "cron_mode": "approve",
+                    "destructive_slash_confirm": False, "mcp_reload_confirm": False}
+# Each app chat is its own Hermes session and they run in parallel; cap simultaneous runs for the small VM.
+cfg["max_concurrent_sessions"] = 4
 gw = cfg.setdefault("gateway", {})
 gw["multiplex_profiles"] = False
 gw.setdefault("api_server", {})["max_concurrent_runs"] = 4

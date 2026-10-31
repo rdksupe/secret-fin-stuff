@@ -155,6 +155,14 @@ class FinnAppAdapter(BasePlatformAdapter):
 
                 n = resolve_gateway_approval(str(body["session_key"]), str(body["choice"]))
                 return web.json_response({"ok": n > 0, "resolved": n})
+            if kind == "confirm":
+                # Slash-command confirm (/new, /reset…): the handler's reply goes back as a message.
+                from tools import slash_confirm
+
+                result = await slash_confirm.resolve(str(body["session_key"]), str(body["id"]), str(body["choice"]))
+                if result:
+                    await self.send(str(body["chat_id"]), result, metadata={"notify": True})
+                return web.json_response({"ok": result is not None})
             if kind == "clarify":
                 from tools.clarify_gateway import resolve_gateway_clarify
 
@@ -176,7 +184,9 @@ class FinnAppAdapter(BasePlatformAdapter):
         try:
             res = await self._emit({"chat_id": chat_id, "type": "message", "text": content[:MAX_MESSAGE_LENGTH],
                                     "reply_to": reply_to,
-                                    "kind": "tool" if _is_progress(content, metadata) else "message"})
+                                    "kind": "tool" if _is_progress(content, metadata) else "message",
+                                    # Streamed previews are edited until finalize; anything else is complete.
+                                    "finalize": not (metadata or {}).get("expect_edits")})
             return SendResult(success=True, message_id=res.get("message_id"))
         except Exception as e:
             logger.warning("[%s] send failed: %s", self.name, e)
@@ -237,6 +247,17 @@ class FinnAppAdapter(BasePlatformAdapter):
         except Exception as e:
             return SendResult(success=False, error=str(e))
 
+    async def send_slash_confirm(self, chat_id: str, title: str, message: str, session_key: str,
+                                 confirm_id: str, metadata: Optional[Dict[str, Any]] = None) -> SendResult:
+        """Approve once / Always approve / Cancel as buttons, like Telegram."""
+        try:
+            res = await self._emit({"chat_id": chat_id, "type": "confirm", "text": title or message,
+                                    "choices": ["once", "always", "cancel"], "id": confirm_id,
+                                    "session_key": session_key})
+            return SendResult(success=True, message_id=res.get("message_id"))
+        except Exception as e:
+            return SendResult(success=False, error=str(e))
+
     async def send_image(self, chat_id: str, image_url: str, caption: Optional[str] = None, **_kw) -> SendResult:
         return await self.send(chat_id, f"{caption + chr(10) if caption else ''}![image]({image_url})")
 
@@ -265,7 +286,8 @@ async def _standalone_send(pconfig, chat_id: str, message: str, *, thread_id: Op
         async with httpx.AsyncClient() as c:
             res = await _post_event(c, _api_url(getattr(pconfig, "extra", None)),
                                     {"chat_id": chat_id or os.getenv("FINN_APP_HOME_CHANNEL", "home"),
-                                     "type": "message", "text": message[:MAX_MESSAGE_LENGTH], "proactive": True})
+                                     "type": "message", "text": message[:MAX_MESSAGE_LENGTH], "proactive": True,
+                                     "finalize": True})
         return {"success": True, "platform": PLATFORM, "chat_id": chat_id, "message_id": res.get("message_id")}
     except Exception as e:
         return {"error": f"finn_app standalone send failed: {e}"}

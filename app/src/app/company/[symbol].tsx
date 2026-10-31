@@ -2,8 +2,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, View } from 'react-native';
 
+import { AskBar } from '@/components/ask-bar';
+import { BrainEntry, openBrainPage } from '@/components/brain';
 import { DossierView } from '@/components/dossier';
-import { Markdown } from '@/components/markdown';
 import { ResultsTable } from '@/components/results';
 import { Screen } from '@/components/screen';
 import { Spark } from '@/components/spark';
@@ -36,29 +37,25 @@ export default function Company() {
   const [prices, setPrices] = useState<PricePoint[]>([]);
   const [card, setCard] = useState<ResultsCard | null>(null);
   const [brain, setBrain] = useState<Brain | null>(null);
+  const [brainMissing, setBrainMissing] = useState(false);
   const [docs, setDocs] = useState<Doc[]>([]);
-  const [page, setPage] = useState<{ path: string; md: string } | null>(null);
   const [parsing, setParsing] = useState<string | null>(null);
 
   useEffect(() => {
     api.get<PricePoint[]>(`/companies/${sym}/prices?days=60`).then(setPrices).catch(() => {});
     api.get<ResultsCard>(`/companies/${sym}/results`).then(setCard).catch(() => {});
-    api.get<Brain>(`/companies/${sym}/brain`).then(setBrain).catch(() => {});
+    api.get<Brain>(`/companies/${sym}/brain`).then(setBrain).catch(() => setBrainMissing(true));
     api.get<Doc[]>(`/companies/${sym}/documents`).then(setDocs).catch(() => {});
   }, [sym]);
 
-  const open = async (path: string) => {
-    try {
-      const r = await api.get<{ path: string; markdown: string }>(`/companies/${sym}/brain/${path}`);
-      setPage({ path, md: r.markdown });
-    } catch {}
-  };
+  const open = (path: string) => openBrainPage(sym, path);
 
   const parse = async (d: Doc) => {
     setParsing(d.id);
     try {
       const r = await api.post<{ wiki_path: string | null }>(`/documents/${d.id}/parse`, {});
       setDocs(await api.get<Doc[]>(`/companies/${sym}/documents`));
+      api.get<Brain>(`/companies/${sym}/brain`).then(setBrain).catch(() => {});
       if (r.wiki_path) open(r.wiki_path);
     } finally {
       setParsing(null);
@@ -69,7 +66,6 @@ export default function Company() {
   const first = prices[0];
   const research = docs.filter((d) => d.status === 'parsed' && ['transcript', 'presentation', 'annual_report', 'results'].includes(d.doc_type ?? ''));
   const stored = docs.filter((d) => d.status === 'stored' && !['routine_compliance', 'call_notice'].includes(d.doc_type ?? ''));
-  const brainPages = (brain?.pages ?? []).filter((p) => !p.startsWith('filings/') && p !== 'index.md' && !p.includes('/trees/'));
 
   return (
     <View style={{ flex: 1, backgroundColor: color.ink }}>
@@ -94,7 +90,17 @@ export default function Company() {
           </View>
         )}
 
-        {!page && <DossierView symbol={sym} />}
+        {brain ? (
+          <BrainEntry brain={brain} />
+        ) : !brainMissing ? (
+          <ActivityIndicator color={color.marigold} style={{ marginTop: space.xl, alignSelf: 'flex-start' }} />
+        ) : (
+          <Body c={color.dim} size={14} style={{ marginTop: space.xl }}>
+            No brain for {sym} yet. Ask FINN to research it and it will build one.
+          </Body>
+        )}
+
+        <DossierView symbol={sym} />
 
         {card && (
           <View style={{ marginTop: space.xxl }}>
@@ -109,21 +115,7 @@ export default function Company() {
           </View>
         )}
 
-        {page ? (
-          <View style={{ marginTop: space.xxl }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: space.m }}>
-              <Mono size={12} c={color.mist} style={{ flex: 1 }} numberOfLines={1}>{page.path}</Mono>
-              <Pressable onPress={() => setPage(null)} hitSlop={10}>
-                <Mono size={12} c={color.paper}>Close</Mono>
-              </Pressable>
-            </View>
-            <Rule />
-            <View style={{ marginTop: space.m }}>
-              <Markdown text={page.md.slice(0, 20000)} size={14} />
-            </View>
-          </View>
-        ) : (
-          <>
+        <>
             <View style={{ marginTop: space.xxl }}>
               <Title size={size.lead}>What FINN has read</Title>
               <Body c={color.mist} size={14} style={{ marginTop: space.s }}>
@@ -175,29 +167,10 @@ export default function Company() {
               </View>
             )}
 
-            {brainPages.length > 0 && (
-              <View style={{ marginTop: space.xl }}>
-                <Title size={size.lead}>Notes FINN keeps</Title>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: space.s }}>
-                  {brainPages.slice(0, 24).map((p) => (
-                    <Pressable key={p} onPress={() => open(p)} style={{ borderWidth: 1, borderColor: color.hairline, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 6 }}>
-                      <Mono size={12} c={color.mist}>{p.replace(/\.md$/, '')}</Mono>
-                    </Pressable>
-                  ))}
-                </View>
-              </View>
-            )}
-          </>
-        )}
+        </>
       </Screen>
 
-      <View style={{ borderTopWidth: 1, borderTopColor: color.hairline, backgroundColor: color.ink, alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.m, paddingBottom: space.l }}>
-        <Pressable
-          onPress={() => router.push({ pathname: '/ask', params: { symbol: sym } })}
-          style={({ pressed }) => ({ width: '100%', maxWidth: 608, backgroundColor: color.paper, borderRadius: 14, paddingVertical: 14, alignItems: 'center', opacity: pressed ? 0.85 : 1 })}>
-          <Strong c={color.ink}>Research {sym} with FINN</Strong>
-        </Pressable>
-      </View>
+      <AskBar symbol={sym} label={`Research ${sym} with FINN`} />
     </View>
   );
 }

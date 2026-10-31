@@ -144,7 +144,9 @@ export type Me = {
   alert_categories: string[];
 };
 export type PricePoint = { day: string; close: number; change_pct: number; volume: number };
-export type Brain = { symbol: string; pages: string[]; index: string };
+export type BrainPage = { path: string; title: string; tree?: string | null };
+export type BrainFolder = { name: string; label: string; about: string; pages: BrainPage[] };
+export type Brain = { symbol: string; pages: string[]; index: string; tree?: BrainFolder[] };
 export type Doc = {
   id: string;
   desc: string;

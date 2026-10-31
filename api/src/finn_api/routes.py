@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import re
+import sqlite3
 from datetime import UTC, datetime, timedelta
 
 import httpx
@@ -280,7 +282,126 @@ def company_brain(symbol: str):
     b = Brain(symbol)
     if not b.exists:
         raise HTTPException(404, "no brain yet — onboard or research this symbol first")
-    return {"symbol": b.symbol, "pages": b.pages(), "index": b.read("index.md")}
+    return {"symbol": b.symbol, "pages": b.pages(), "index": b.read("index.md"), "tree": _brain_tree(b)}
+
+
+# What each brain folder holds, in the order a reader should meet them.
+_FOLDERS = [
+    ("dossier", "Dossier", "FINN's research: snapshot, promised vs delivered, bull and bear"),
+    ("results", "Results", "Quarterly numbers from NSE XBRL"),
+    ("transcripts", "Call transcripts", "What management said, quarter by quarter"),
+    ("annual-reports", "Annual reports", "Read and indexed page by page"),
+    ("filings", "Filings", "Every exchange filing, by month"),
+    ("people", "People", "Directors and key managers"),
+    ("news", "News", "Context only; research never cites it"),
+]
+
+
+def _title(path) -> str:
+    try:
+        with open(path, encoding="utf-8") as f:
+            for _ in range(8):
+                line = f.readline()
+                if not line:
+                    break
+                if line.startswith("# "):
+                    return line[2:].strip()[:120]
+    except OSError:
+        pass
+    return ""
+
+
+def _brain_tree(b: Brain) -> list[dict]:
+    """The brain as folders → pages, with titles, including folders that are still empty."""
+    wiki = b.wiki
+    top = [{"path": p, "title": _title(wiki / p) or p.removesuffix(".md")} for p in
+           ("index.md", "profile.md", "guidance-ledger.md", "log.md") if (wiki / p).exists()]
+    known = {name for name, _, _ in _FOLDERS}
+    extra = sorted(d.name for d in wiki.iterdir() if d.is_dir() and d.name not in known) if wiki.is_dir() else []
+    folders = []
+    for name, label, about in [*_FOLDERS, *[(x, x.replace("-", " ").capitalize(), "") for x in extra]]:
+        d = wiki / name
+        if not d.is_dir():
+            continue
+        pages = sorted((p for p in d.rglob("*.md") if "trees" not in p.relative_to(d).parts),
+                       key=lambda p: p.name, reverse=True)
+        trees = {p.name for p in (d / "trees").glob("*.md")} if (d / "trees").is_dir() else set()
+        folders.append({
+            "name": name, "label": label, "about": about,
+            "pages": [{"path": str(p.relative_to(wiki)), "title": _title(p) or p.stem,
+                       "tree": f"{name}/trees/{p.name}" if p.name in trees else None} for p in pages],
+        })
+    return [{"name": "", "label": "", "about": "", "pages": top}, *folders]
+
+
+# ── brain search: SQLite FTS5 over heading-sized chunks, rebuilt when a page changes ──
+
+_FTS: dict[str, tuple[float, sqlite3.Connection]] = {}
+
+
+def _chunks(text: str, size: int = 1800):
+    """Split a page at its headings, then into ~size-char pieces, keeping the nearest heading."""
+    heading, buf = "", []
+    for line in text.splitlines():
+        if line.startswith("#"):
+            if buf:
+                yield heading, "\n".join(buf)
+            heading, buf = line.lstrip("#").strip(), []
+            continue
+        buf.append(line)
+        if sum(len(x) for x in buf) > size:
+            yield heading, "\n".join(buf)
+            buf = []
+    if buf:
+        yield heading, "\n".join(buf)
+
+
+def _brain_index(b: Brain) -> sqlite3.Connection:
+    files = [p for p in b.wiki.rglob("*.md")]
+    stamp = max((p.stat().st_mtime for p in files), default=0) + len(files)
+    hit = _FTS.get(b.symbol)
+    if hit and hit[0] == stamp:
+        return hit[1]
+    con = sqlite3.connect(":memory:", check_same_thread=False)
+    con.execute("create virtual table c using fts5(path unindexed, title, heading, body, tokenize='porter unicode61')")
+    rows = []
+    for p in files:
+        rel = str(p.relative_to(b.wiki))
+        if "/trees/" in f"/{rel}":
+            continue  # PageIndex trees repeat the report's own headings
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        title = _title(p) or p.stem
+        rows += [(rel, title, h, body) for h, body in _chunks(text) if body.strip()]
+    con.executemany("insert into c values (?,?,?,?)", rows)
+    _FTS[b.symbol] = (stamp, con)
+    return con
+
+
+def _fts_query(q: str) -> str:
+    # Words as prefix terms, ANDed; quotes keep FTS syntax out of user input.
+    words = re.findall(r"[\w%.-]+", q)[:8]
+    return " ".join(f'"{w}"*' for w in words)
+
+
+def _clean_heading(h: str) -> str:
+    return re.sub(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]", lambda m: m.group(2) or m.group(1).split("/")[-1], h)[:80]
+
+
+@router.get("/companies/{symbol}/brain/search")
+def brain_search(symbol: str, q: str, limit: int = 20):
+    b = Brain(symbol)
+    if not b.exists:
+        raise HTTPException(404, "no brain yet")
+    query = _fts_query(q)
+    if not query:
+        return []
+    con = _brain_index(b)
+    sql = ("select path, title, heading, snippet(c, 3, '«', '»', ' … ', 18) from c where c match ? "
+           "order by bm25(c, 0, 4, 2, 1) limit ?")
+    rows = con.execute(sql, (query, min(limit, 50))).fetchall()
+    if not rows and " " in query:  # every word didn't match together: any word, best first
+        rows = con.execute(sql, (query.replace(" ", " OR "), min(limit, 50))).fetchall()
+    return [{"path": r[0], "title": r[1], "heading": _clean_heading(r[2]), "snippet": r[3]} for r in rows]
 
 
 @router.get("/companies/{symbol}/brain/{path:path}")
