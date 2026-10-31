@@ -71,6 +71,19 @@ def filing_text(args: dict, **_kw) -> str:
     return _finn("pdftext", url, "--pages", pages) if url.startswith("https://") else _err("https url required")
 
 
+def dossier(args: dict, **_kw) -> str:
+    try:
+        (sym,) = _symbols(args.get("symbol"))[:1] or [""]
+    except ValueError as e:
+        return _err(str(e))
+    if not sym:
+        return _err("symbol is required")
+    page = _repo() / "kb" / "companies" / sym / "wiki" / "dossier" / "dossier.json"
+    if page.exists() and not args.get("rebuild"):
+        return page.read_text()[-60000:]
+    return _finn("dossier", sym, timeout=1800)
+
+
 def enrich(args: dict, **_kw) -> str:
     feed_id = str(args.get("feed_id") or "")
     if not re.fullmatch(r"[0-9a-f\-]{36}", feed_id):
@@ -111,6 +124,13 @@ SCHEMAS = {
                        "Use when the exchange summary is a stub.",
         "parameters": {"type": "object", "properties": {"url": S, "pages": {"type": "integer"}}, "required": ["url"]},
     },
+    "finn_dossier": {
+        "description": "Grounded research dossier for an NSE symbol, built only from its annual report, last 4 "
+                       "concall transcripts and NSE results: snapshot, quarterly trajectory, guidance ledger, "
+                       "promised-vs-delivered audit, bull/bear. Builds it (a few minutes) if missing.",
+        "parameters": {"type": "object", "properties": {"symbol": S, "rebuild": {"type": "boolean"}},
+                       "required": ["symbol"]},
+    },
     "finn_enrich": {
         "description": "Write enrichment back to a FINN feed item: a ≤160-char 'what changed and why it matters' "
                        "line, importance 0–1, and for management changes the person's bio. Releases the held push.",
@@ -125,7 +145,7 @@ SCHEMAS = {
         }, "required": ["feed_id", "summary"]},
     },
 }
-HANDLERS = {"finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
+HANDLERS = {"finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
 
 
 def register(ctx) -> None:

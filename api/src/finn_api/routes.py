@@ -237,6 +237,44 @@ def parse_document(doc_id: str, db: Session = Depends(get_db)):
     return {"id": d.id, "status": d.status, "wiki_path": d.wiki_path, "tree_path": d.tree_path, "engine": d.engine}
 
 
+_DOSSIER_JOBS: dict[str, dict] = {}
+
+
+@router.get("/companies/{symbol}/dossier")
+def get_dossier(symbol: str):
+    sym = symbol.upper()
+    p = Brain(sym).wiki / "dossier" / "dossier.json"
+    job = _DOSSIER_JOBS.get(sym)
+    if not p.exists():
+        return {"symbol": sym, "status": job["status"] if job else "missing", "dossier": None, "error": job and job.get("error")}
+    return {"symbol": sym, "status": job["status"] if job else "ready", "dossier": json.loads(p.read_text())}
+
+
+@router.post("/companies/{symbol}/dossier")
+def start_dossier(symbol: str):
+    """Build (or rebuild) the grounded dossier in the background. Works for any NSE symbol."""
+    import threading
+
+    from finn_api.db import SessionLocal
+    from finn_api.research import build_dossier
+
+    sym = symbol.upper()
+    if _DOSSIER_JOBS.get(sym, {}).get("status") == "building":
+        return {"symbol": sym, "status": "building"}
+    _DOSSIER_JOBS[sym] = {"status": "building", "started": datetime.now(UTC).isoformat()}
+
+    def work():
+        try:
+            with SessionLocal() as db:
+                build_dossier(db, NSE(), sym)
+            _DOSSIER_JOBS[sym] = {"status": "ready"}
+        except Exception as e:  # surfaced to the app
+            _DOSSIER_JOBS[sym] = {"status": "failed", "error": str(e)[:300]}
+
+    threading.Thread(target=work, daemon=True).start()
+    return {"symbol": sym, "status": "building"}
+
+
 @router.get("/companies/{symbol}/brain")
 def company_brain(symbol: str):
     b = Brain(symbol)

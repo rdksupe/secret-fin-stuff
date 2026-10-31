@@ -178,6 +178,32 @@ def cmd_token(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_research_docs(a: argparse.Namespace) -> int:
+    from finn_api import ingest
+
+    with SessionLocal() as db:
+        for sym in a.symbols:
+            for d in ingest.run_research_docs(db, NSE(), sym):
+                print(json.dumps({"symbol": d.symbol, "type": d.doc_type, "desc": d.desc, "pages": d.pages,
+                                  "status": d.status, "wiki": d.wiki_path, "tree": d.tree_path, "error": d.error}))
+    return 0
+
+
+def cmd_dossier(a: argparse.Namespace) -> int:
+    from finn_api.research import build_dossier
+
+    with SessionLocal() as db:
+        for sym in a.symbols:
+            d = build_dossier(db, NSE(), sym, refresh_docs=not a.no_fetch)
+            pvd = d.get("promised_vs_delivered") or {}
+            print(json.dumps({"symbol": d["symbol"], "calls": len(d["guidance"]),
+                              "guidance_items": sum(len(c.get("items", [])) for c in d["guidance"]),
+                              "quarters": len(d["trajectory"]), "segments": len((d["snapshot"] or {}).get("segments", [])),
+                              "credibility": pvd.get("score"), "pvd_rows": len(pvd.get("rows", [])),
+                              "bull": len((d["bull_bear"] or {}).get("bull", []))}))
+    return 0
+
+
 def cmd_digest(a: argparse.Namespace) -> int:
     from finn_api.digest import build_digest
 
@@ -275,6 +301,15 @@ def main(argv: list[str] | None = None) -> int:
     tk.add_argument("--sub", default="finn-app")
     tk.add_argument("--days", type=int, default=30)
     tk.set_defaults(fn=cmd_token)
+
+    rd = sub.add_parser("research-docs", help="fetch + ingest annual report and concall transcripts")
+    rd.add_argument("symbols", nargs="+")
+    rd.set_defaults(fn=cmd_research_docs)
+
+    ds = sub.add_parser("dossier", help="build the grounded research dossier")
+    ds.add_argument("symbols", nargs="+")
+    ds.add_argument("--no-fetch", action="store_true")
+    ds.set_defaults(fn=cmd_dossier)
 
     d = sub.add_parser("digest")
     d.add_argument("--hours", type=int, default=24)

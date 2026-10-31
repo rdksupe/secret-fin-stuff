@@ -11,3 +11,4 @@ provides_tools:
   - finn_onboard
   - finn_enrich
   - finn_filing_text
+  - finn_dossier

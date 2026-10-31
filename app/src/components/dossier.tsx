@@ -1,0 +1,196 @@
+import { useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, Pressable, View } from 'react-native';
+
+import { api } from '@/lib/api';
+import { quarterLabel } from '@/lib/format';
+import { color, size, space } from '@/theme';
+
+import { Rule } from './story-row';
+import { Body, Medium, Mono, Pct, Strong, Title } from './type';
+
+type Row = { call: string; promise: string; delivered: string; status: string; cite?: string };
+type Quarter = { period_end: string; labels: string[]; revenue: number | null; revenue_yoy: number | null; pat: number | null; pat_yoy: number | null; margin: number | null };
+type Dossier = {
+  symbol: string;
+  built_on: string;
+  snapshot: { what_it_does?: string; segments?: { name: string; share: string; note: string }[]; key_facts?: string[]; pages?: number[] };
+  trajectory: Quarter[];
+  guidance: { call?: string; month: string; items: unknown[] }[];
+  promised_vs_delivered: { verdict?: string; score?: string; rows?: Row[] };
+  bull_bear: { bull?: { point: string; cite?: string }[]; bear?: { point: string; cite?: string }[]; watch?: string[] };
+  sources: { transcripts: string[]; annual_report: string | null };
+};
+type Resp = { status: 'missing' | 'building' | 'ready' | 'failed'; dossier: Dossier | null; error?: string };
+
+const STATUS: Record<string, { label: string; c: string }> = {
+  delivered: { label: 'Delivered', c: color.gain },
+  partly: { label: 'Partly', c: color.marigold },
+  missed: { label: 'Missed', c: color.loss },
+  'too early': { label: 'Too early', c: color.mist },
+  'not measurable': { label: 'Not measurable', c: color.dim },
+};
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <View style={{ marginTop: space.xxl }}>
+      <Title size={size.lead} style={{ marginBottom: space.m }}>{title}</Title>
+      {children}
+    </View>
+  );
+}
+
+export function DossierView({ symbol }: { symbol: string }) {
+  const [r, setR] = useState<Resp | null>(null);
+
+  const load = useCallback(() => api.get<Resp>(`/companies/${symbol}/dossier`).then(setR).catch(() => {}), [symbol]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  useEffect(() => {
+    if (r?.status !== 'building') return;
+    const t = setInterval(load, 5000);
+    return () => clearInterval(t);
+  }, [r?.status, load]);
+
+  const build = async () => {
+    setR((x) => ({ ...(x ?? { dossier: null }), status: 'building' }));
+    await api.post(`/companies/${symbol}/dossier`, {}).catch(() => {});
+    load();
+  };
+
+  if (!r) return null;
+  const d = r.dossier;
+
+  if (!d) {
+    return (
+      <Section title="Research">
+        <Body c={color.mist}>
+          {r.status === 'building'
+            ? `Reading ${symbol}'s annual report and last four call transcripts. This takes a few minutes.`
+            : r.status === 'failed'
+              ? `The last attempt failed: ${r.error ?? 'unknown error'}.`
+              : `FINN builds research only from ${symbol}'s own annual report, call transcripts and results filings.`}
+        </Body>
+        {r.status === 'building' ? (
+          <ActivityIndicator color={color.marigold} style={{ marginTop: space.l, alignSelf: 'flex-start' }} />
+        ) : (
+          <Pressable onPress={build} accessibilityRole="button" style={{ marginTop: space.l, alignSelf: 'flex-start', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 10, backgroundColor: color.paper }}>
+            <Strong size={size.small} c={color.ink}>Build research</Strong>
+          </Pressable>
+        )}
+      </Section>
+    );
+  }
+
+  const pvd = d.promised_vs_delivered ?? {};
+  const counts = (pvd.rows ?? []).reduce<Record<string, number>>((a, row) => ({ ...a, [row.status]: (a[row.status] ?? 0) + 1 }), {});
+  const recent = d.trajectory.slice(-6);
+
+  return (
+    <>
+      {pvd.rows && pvd.rows.length > 0 && (
+        <Section title="Promised vs delivered">
+          <Body>
+            {pvd.score ? <Strong c={pvd.score === 'high' ? color.gain : pvd.score === 'low' ? color.loss : color.marigold}>{pvd.score.charAt(0).toUpperCase() + pvd.score.slice(1)} credibility. </Strong> : null}
+            {pvd.verdict}
+          </Body>
+          <Body size={size.meta} c={color.dim} style={{ marginTop: space.xs }}>
+            {Object.entries(counts).map(([k, v]) => `${v} ${STATUS[k]?.label.toLowerCase() ?? k}`).join(' · ')} · from {d.guidance.length} calls
+          </Body>
+          <View style={{ marginTop: space.m }}>
+            {pvd.rows.map((row, i) => (
+              <View key={i}>
+                <Rule />
+                <View style={{ paddingVertical: space.m }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                    <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: STATUS[row.status]?.c ?? color.dim }} />
+                    <Body size={size.meta} c={STATUS[row.status]?.c ?? color.dim}>{STATUS[row.status]?.label ?? row.status}</Body>
+                    <Body size={size.meta} c={color.dim}>· {row.call}</Body>
+                  </View>
+                  <Medium size={size.body} style={{ marginTop: 6 }}>{row.promise}</Medium>
+                  <Body size={size.small} c={color.mist} style={{ marginTop: 2 }}>{row.delivered}</Body>
+                </View>
+              </View>
+            ))}
+          </View>
+        </Section>
+      )}
+
+      {d.snapshot?.what_it_does && (
+        <Section title="The business">
+          <Body>{d.snapshot.what_it_does}</Body>
+          {(d.snapshot.segments ?? []).length > 0 && (
+            <View style={{ marginTop: space.m }}>
+              {d.snapshot.segments!.map((s) => (
+                <View key={s.name} style={{ flexDirection: 'row', gap: space.m, paddingVertical: 7, borderBottomWidth: 1, borderColor: color.hairline }}>
+                  <Body size={size.small} style={{ flex: 1 }}>{s.name}</Body>
+                  <Mono size={13} c={color.mist}>{s.share}</Mono>
+                </View>
+              ))}
+            </View>
+          )}
+          {(d.snapshot.key_facts ?? []).slice(0, 4).map((k) => (
+            <Body key={k} size={size.small} c={color.mist} style={{ marginTop: space.s }}>{k}</Body>
+          ))}
+          <Body size={size.meta} c={color.dim} style={{ marginTop: space.s }}>
+            From the annual report{d.snapshot.pages?.length ? `, pages ${d.snapshot.pages.slice(0, 6).join(', ')}` : ''}
+          </Body>
+        </Section>
+      )}
+
+      {recent.length > 1 && (
+        <Section title="Trajectory">
+          <View style={{ flexDirection: 'row', paddingBottom: space.s, borderBottomWidth: 1, borderColor: color.hairline }}>
+            <Body size={size.meta} c={color.dim} style={{ flex: 1 }}>Quarter</Body>
+            <Body size={size.meta} c={color.dim} style={{ width: 72, textAlign: 'right' }}>{recent[0].labels[0]} YoY</Body>
+            <Body size={size.meta} c={color.dim} style={{ width: 64, textAlign: 'right' }}>Margin</Body>
+            <Body size={size.meta} c={color.dim} style={{ width: 72, textAlign: 'right' }}>PAT YoY</Body>
+          </View>
+          {recent.map((q) => (
+            <View key={q.period_end} style={{ flexDirection: 'row', alignItems: 'baseline', paddingVertical: 9, borderBottomWidth: 1, borderColor: color.hairline }}>
+              <Mono size={13} c={color.mist} style={{ flex: 1 }}>{quarterLabel(q.period_end)}</Mono>
+              <View style={{ width: 72, alignItems: 'flex-end' }}><Pct v={q.revenue_yoy} /></View>
+              <Mono size={13} style={{ width: 64, textAlign: 'right' }}>{q.margin === null ? '—' : `${q.margin}%`}</Mono>
+              <View style={{ width: 72, alignItems: 'flex-end' }}><Pct v={q.pat_yoy} /></View>
+            </View>
+          ))}
+          <Body size={size.meta} c={color.dim} style={{ marginTop: space.s }}>From NSE results filings</Body>
+        </Section>
+      )}
+
+      {(d.bull_bear?.bull?.length || d.bull_bear?.bear?.length) ? (
+        <Section title="Bull and bear">
+          {(['bull', 'bear'] as const).map((side) => (
+            <View key={side} style={{ marginBottom: space.l }}>
+              <Strong size={size.small} c={side === 'bull' ? color.gain : color.loss}>{side === 'bull' ? 'Bull' : 'Bear'}</Strong>
+              {(d.bull_bear[side] ?? []).map((p, i) => (
+                <Body key={i} size={size.small} style={{ marginTop: 6 }}>
+                  {p.point} <Body size={size.meta} c={color.dim}>({p.cite})</Body>
+                </Body>
+              ))}
+            </View>
+          ))}
+          {(d.bull_bear.watch ?? []).length > 0 && (
+            <>
+              <Strong size={size.small} c={color.mist}>Watch next quarter</Strong>
+              {d.bull_bear.watch!.map((w, i) => (
+                <Body key={i} size={size.small} c={color.mist} style={{ marginTop: 6 }}>{w}</Body>
+              ))}
+            </>
+          )}
+        </Section>
+      ) : null}
+
+      <View style={{ marginTop: space.l, flexDirection: 'row', alignItems: 'center', gap: space.l }}>
+        <Body size={size.meta} c={color.dim} style={{ flex: 1 }}>
+          Built {d.built_on} from {d.sources.transcripts.length} call transcripts{d.sources.annual_report ? ' and the annual report' : ''}. No news or broker views.
+        </Body>
+        <Pressable onPress={build} hitSlop={8} accessibilityRole="button">
+          <Body size={size.meta} c={color.mist}>Rebuild</Body>
+        </Pressable>
+      </View>
+    </>
+  );
+}

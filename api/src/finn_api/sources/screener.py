@@ -49,3 +49,37 @@ def about(symbol: str) -> str:
 def key_points(symbol: str) -> str:
     m = re.search(r'<div class="sub commentary always-show-more-box"[^>]*>(.*?)</div>', page(symbol), re.S)
     return _text(m.group(1))[:1500] if m else ""
+
+
+_MONTHS = {m: i for i, m in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
+
+
+def documents(symbol: str) -> dict:
+    """Primary documents screener links to (hosted on BSE / the company's site).
+
+    {"annual_reports": [{"year": 2026, "url": …}], "concalls": [{"month": "2026-10", "transcript": …}]}
+    newest first.
+    """
+    h = page(symbol)
+    i = h.find('id="documents"')
+    seg = h[i:] if i >= 0 else ""
+    out: dict = {"annual_reports": [], "concalls": []}
+
+    a = seg.find("Annual reports")
+    if a >= 0:
+        block = seg[a: seg.find("</ul>", a)]
+        for href, label in re.findall(r'<a\s+href="([^"]+)"[^>]*>\s*([^<]*Annual Report[^<]*)</a>', block):
+            y = re.search(r"(20\d\d)", label)
+            out["annual_reports"].append({"year": int(y.group(1)) if y else None, "url": html.unescape(href),
+                                          "label": label.strip()})
+
+    c = seg.find("Concalls")
+    if c >= 0:
+        block = seg[c: seg.find("</ul>", c)]
+        for li in re.findall(r"<li[^>]*>(.*?)</li>", block, re.S):
+            when = re.search(r">\s*([A-Z][a-z]{2}) (20\d\d)\s*</div>", li)
+            tr = re.search(r'<a\s+class="button-chip"\s+href="([^"]+)"[^>]*title="Raw Transcript"', li)
+            if when and tr:
+                mon = _MONTHS.get(when.group(1), 1)
+                out["concalls"].append({"month": f"{when.group(2)}-{mon:02d}", "transcript": html.unescape(tr.group(1))})
+    return out

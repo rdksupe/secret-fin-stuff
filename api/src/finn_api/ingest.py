@@ -148,8 +148,10 @@ def process(
     category = item.category if item else ""
     state = (f"Exchange category: {doc.desc}\nExchange summary: {item.summary if item else ''}\n"
              f"File: {doc.url.rsplit('/', 1)[-1]}\nPages: {doc.pages}\n--- first pages ---\n{first}")
-    t = jev.classify_pdf(state)
-    if t and t.doc_type_confidence >= 0.4:
+    t = None if doc.triage_by == "screener" else jev.classify_pdf(state)
+    if doc.triage_by == "screener" and doc.doc_type:
+        tri = {"doc_type": doc.doc_type, "doc_type_confidence": 1.0, "substantive": 1.0, "research_value": 1.0}
+    elif t and t.doc_type_confidence >= 0.4:
         tri = asdict(t)
         doc.triage_by = "jev"
         _log_cost(db, "pdf_triage", jev.MODEL, t.input_tokens, t.cost_usd)
@@ -158,6 +160,7 @@ def process(
         tri = rules_triage(doc.desc or "", category, first, doc.pages)
         doc.triage_by = "rules"
     doc.doc_type = tri["doc_type"]
+    doc.triage_by = doc.triage_by or "rules"
     doc.triage_json = json.dumps(tri)
     doc.decision = "parse" if force_parse else decide(tri)
     doc.status = "triaged"
@@ -171,6 +174,8 @@ def process(
     # 2. convert: Chandra for normal-length docs, free text layer beyond the cap.
     when = (doc.filed_at or datetime.now(UTC)).strftime("%Y-%m-%d")
     name = f"{when}-{_slug(doc.doc_type)}-{doc.sha256[:6]}"
+    if doc.triage_by == "screener":
+        name = (f"annual-report-{when[:4]}" if doc.doc_type == "annual_report" else f"{when[:7]}-concall")
     folder = FOLDER.get(doc.doc_type, "filings/docs")
     scanned = sum(len(x) for x in page_texts[:3]) < 300
     md, engine = None, "pypdf"
@@ -221,6 +226,46 @@ def run(db: Session, nse: NSE, *, limit: int = 10, allow_chandra: bool = True) -
         select(Document).where(Document.status == "new").order_by(Document.filed_at.desc()).limit(limit)
     ).all()
     return [process(db, nse, d, allow_chandra=allow_chandra) for d in todo]
+
+
+def queue_research_docs(db: Session, symbol: str, *, transcripts: int = 4, annual_reports: int = 1) -> list[Document]:
+    """The primary sources research needs, from screener's Documents section (PDFs on BSE /
+    company IR): the latest annual report(s) and the last few concall transcripts."""
+    from finn_api.sources import screener
+
+    sym = symbol.upper()
+    docs = screener.documents(sym)
+    have = {d.url for d in db.scalars(select(Document).where(Document.symbol == sym))}
+    queued: list[Document] = []
+    seen_months: set[str] = set()
+    picks: list[tuple[str, str, datetime, str]] = []
+    for c in docs["concalls"]:
+        if c["month"] in seen_months:
+            continue
+        seen_months.add(c["month"])
+        y, m = map(int, c["month"].split("-"))
+        picks.append(("transcript", c["transcript"], datetime(y, m, 1, tzinfo=UTC), f"Concall transcript {c['month']}"))
+        if len(seen_months) >= transcripts:
+            break
+    for a in docs["annual_reports"][:annual_reports]:
+        y = a.get("year") or datetime.now(UTC).year
+        picks.append(("annual_report", a["url"], datetime(y, 7, 1, tzinfo=UTC), a.get("label") or f"Annual Report {y}"))
+    for doc_type, url, when, desc in picks:
+        if url in have:
+            continue
+        d = Document(symbol=sym, url=url, desc=desc, doc_type=doc_type, triage_by="screener", filed_at=when)
+        db.add(d)
+        queued.append(d)
+    db.commit()
+    return queued
+
+
+def run_research_docs(db: Session, nse: NSE, symbol: str) -> list[Document]:
+    """Queue and process one company's research documents now (text layer + PageIndex)."""
+    queue_research_docs(db, symbol)
+    todo = db.scalars(select(Document).where(Document.symbol == symbol.upper(), Document.triage_by == "screener",
+                                             Document.status == "new")).all()
+    return [process(db, nse, d, allow_chandra=False) for d in todo]
 
 
 def parse_now(db: Session, nse: NSE, doc_id: str) -> Document:

@@ -2,6 +2,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, View } from 'react-native';
 
+import { DossierView } from '@/components/dossier';
 import { Markdown } from '@/components/markdown';
 import { ResultsTable } from '@/components/results';
 import { Screen } from '@/components/screen';
@@ -92,6 +93,8 @@ export default function Company() {
             </Mono>
           </View>
         )}
+
+        {!page && <DossierView symbol={sym} />}
 
         {card && (
           <View style={{ marginTop: space.xxl }}>

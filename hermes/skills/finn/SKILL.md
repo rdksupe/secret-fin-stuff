@@ -16,6 +16,7 @@ version: 0.1.0
 | `finn_results(symbol)` | Latest quarter vs prev quarter vs year ago, from NSE XBRL, with red flags |
 | `finn_onboard(symbols, weights?)` | Add holdings / create a brain: scaffold, backfill 30 days of filings + results |
 | `finn_filing_text(url)` | Text of an exchange filing PDF |
+| `finn_dossier(symbol)` | Grounded research dossier (builds it if missing): snapshot, trajectory, guidance ledger, promised vs delivered, bull/bear |
 | `finn_enrich(feed_id, summary, …)` | Write enrichment back to a feed item (see `finn-enrich`) |
 
 ## Company brains
@@ -30,11 +31,16 @@ Questions and where to look:
 | "How were the numbers?" | `results/` (newest file first) |
 | "What did they file this week?" | `filings/{YYYY-MM}.md` |
 | "Who is the new CFO?" | `people/` |
-| "What did management promise?" | `guidance-ledger.md`, then `transcripts/` |
+| "What did management promise? Did they deliver?" | `dossier/promised-vs-delivered.md`, `guidance-ledger.md`, then `transcripts/` |
+| Business mix, segments | `dossier/snapshot.md`, then `annual-reports/` (use its `trees/` page to jump to a section) |
+| Multi-year / quarterly direction | `dossier/trajectory.md` |
+| Bull vs bear | `dossier/bull-bear.md` |
 | Business mix, segments, debt, cash flow | `annual-reports/` |
 
-If the needed folder is empty, say so and run `finn-research` for that symbol rather
-than answering from memory.
+For any research question (snapshot, trajectory, guidance, credibility, bull/bear), call
+`finn_dossier(symbol)` first — it fetches the annual report and last four concall
+transcripts if they're missing and builds the dossier pages. Then answer from those
+pages and cite them. Never answer research questions from memory.
 
 ## Answer shape (chat)
 - Mobile screen: ≤ 8 lines unless asked for depth. Tables for numbers.
