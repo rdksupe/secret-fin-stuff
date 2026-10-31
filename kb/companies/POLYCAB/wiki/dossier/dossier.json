@@ -1,0 +1,1290 @@
+{
+ "symbol": "POLYCAB",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Polycab India Limited is India's largest electrical industry company by revenue, manufacturing and selling wires & cables (W&C) and fast-moving electrical goods (FMEG) such as switches, switchgear, solar products, fans and lighting. It also runs an EPC business and an international/export business, executing a five-year strategic plan called Project Spring.",
+  "segments": [
+   {
+    "name": "Wires & Cables (W&C)",
+    "share": "87% of revenue",
+    "note": "Revenue grew 33% YoY to ₹252 billion; EBITDA margin 13.9%; market share ~30-31% in India's organised W&C market"
+   },
+   {
+    "name": "FMEG",
+    "share": "7% of revenue",
+    "note": "Revenue up 25% YoY to ₹20,693 million; includes switches, switchgear, solar (3.5x volume growth), fans; profitable after Q4FY25 breakeven"
+   },
+   {
+    "name": "EPC",
+    "share": "6% of revenue",
+    "note": "Revenue ₹16.7 billion, down 13.2% YoY; EBIT ₹1.7 billion at 9.9% margin; ~₹80 billion BharatNet Phase-III contracts secured"
+   }
+  ],
+  "geographies": "Primarily India (domestic business), with exports of ₹15,695 million contributing 5.4% of consolidated revenue, growing 16.7% YoY; footprint expanded to 94 countries (from 48 in FY19), with strong performance in the Middle East and Latin America; targeting exports >10% of revenue by FY30.",
+  "key_facts": [
+   "Consolidated revenue ₹288,838 million, up 29% YoY; PAT ₹27,084 million, up 32% YoY",
+   "EBITDA grew 35% YoY with margins at 13.9%",
+   "Net cash position of ₹41,940 million; FY26 capex ₹14.8 billion (highest ever); planned capex ₹60–80 billion over five years",
+   "Credit ratings upgraded to CRISIL AAA/Stable and IND AAA/Stable (short-term CRISIL A1+ and IND A1+ reaffirmed)",
+   "Recommended dividend of ₹47 (470%) per ₹10 equity share; Project Spring targets W&C EBITDA margins 11–13% and FMEG margins 8–10%"
+  ],
+  "pages": [
+   7,
+   23,
+   28,
+   29,
+   47,
+   59,
+   134,
+   141,
+   148,
+   212,
+   213,
+   214,
+   215
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 0,
+    "found": 0,
+    "missing": []
+   },
+   {
+    "checked": 6,
+    "found": 6,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4698.03,
+   "ebitda": 583.39,
+   "ebit": 516.26,
+   "pbt": 533.37,
+   "pat": 395.95,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 12.4,
+   "op_margin": 11.0
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 5498.42,
+   "ebitda": 631.55,
+   "ebit": 559.49,
+   "pbt": 590.35,
+   "pat": 439.81,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 11.5,
+   "op_margin": 10.2
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 5226.06,
+   "ebitda": 719.91,
+   "ebit": 641.35,
+   "pbt": 616.57,
+   "pat": 457.56,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 13.8,
+   "op_margin": 12.3
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 6985.8,
+   "ebitda": 1025.39,
+   "ebit": 945.02,
+   "pbt": 960.56,
+   "pat": 726.67,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 14.7,
+   "op_margin": 13.5
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 5905.98,
+   "ebitda": 857.6,
+   "ebit": 771.9,
+   "pbt": 800.59,
+   "pat": 592.12,
+   "is_bank": false,
+   "revenue_yoy": 25.7,
+   "pat_yoy": 49.5,
+   "margin": 14.5,
+   "op_margin": 13.1
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 6477.21,
+   "ebitda": 1020.75,
+   "ebit": 923.97,
+   "pbt": 921.0,
+   "pat": 685.46,
+   "is_bank": false,
+   "revenue_yoy": 17.8,
+   "pat_yoy": 55.9,
+   "margin": 15.8,
+   "op_margin": 14.3
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 7636.13,
+   "ebitda": 966.07,
+   "ebit": 860.48,
+   "pbt": 842.2,
+   "pat": 621.69,
+   "is_bank": false,
+   "revenue_yoy": 46.1,
+   "pat_yoy": 35.9,
+   "margin": 12.7,
+   "op_margin": 11.3
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 8864.48,
+   "ebitda": 1161.31,
+   "ebit": 1063.51,
+   "pbt": 1049.29,
+   "pat": 772.77,
+   "is_bank": false,
+   "revenue_yoy": 26.9,
+   "pat_yoy": 6.3,
+   "margin": 13.1,
+   "op_margin": 12.0
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 8209.73,
+   "ebitda": 1136.2,
+   "ebit": 1033.33,
+   "pbt": 1058.22,
+   "pat": 784.34,
+   "is_bank": false,
+   "revenue_yoy": 39.0,
+   "pat_yoy": 32.5,
+   "margin": 13.8,
+   "op_margin": 12.6
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 9898.9,
+   "ebitda": 1422.5,
+   "ebit": 1311.46,
+   "pbt": 1306.22,
+   "pat": 977.37,
+   "is_bank": false,
+   "revenue_yoy": 52.8,
+   "pat_yoy": 42.6,
+   "margin": 14.4,
+   "op_margin": 13.2
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "working capital",
+     "statement": "Working capital cycle to normalize to long-term steady range",
+     "target": "50 to 55 days",
+     "horizon": "coming quarters",
+     "speaker": "Shashank Yagnick",
+     "quote": "We expect this to normalize to our long-term steady range of 50 to 55 days in the coming quarters.",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Project Spring investment guidance",
+     "target": "₹12 billion to ₹16 billion annually through FY30",
+     "horizon": "through FY30",
+     "speaker": "Shashank Yagnick",
+     "quote": "in-line with our Project Spring guidance of investing ₹ 12 billion to ₹ 16 billion annually through FY30.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "International business growth trajectory to continue backed by healthy order book",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Shashank Yagnick",
+     "quote": "Backed by a healthy order book, we remain confident that this growth trajectory will continue in the coming quarters.",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Solar business momentum to continue",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Shashank Yagnick",
+     "quote": "With favourable support and strong demand visibility, we expect this momentum to continue in the coming quarters.",
+     "page": 7
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FMEG profitability to expand further as business scales",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "As we continue to scale, we expect profitability to expand further, reflecting the leverage in our business model.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG Project Spring targets: 1.5x-2x industry growth and EBITDA margins 8%-10%",
+     "target": "1.5x-2x industry growth; 8%-10% EBITDA margin",
+     "horizon": "FY30",
+     "speaker": "Shashank Yagnick",
+     "quote": "remain on track to achieve our Project Spring targets of 1.5x - 2x industry growth and EBITDA margins in the range of 8% to 10% by FY30",
+     "page": 7
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EPC annual sustainable operating margin expected in high single digits",
+     "target": "high single digits",
+     "horizon": "mid- to long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "the annual sustainable operating margin is expected to remain in the high single digits over mid- to long term.",
+     "page": 7
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Margins may be impacted for a quarter or two but should recover like FY22",
+     "target": "directional",
+     "horizon": "next 1-2 quarters / longer term",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "There can be margin impact for a quarter or two. But if you take a more longer-term view, we should be able to recover some of our margins back.",
+     "page": 9
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Remaining commodity inflation to be passed on during this quarter",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "we've passed on almost 75% to 80% of the commodity inflation... The remaining will happen during this quarter.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Q4 expected to be another good quarter with peak execution",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "So Q4 should be another good quarter for us, and we are quite optimistic on that.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "A&P spend guidance of 3-5% of B2C top-line annually, to be increased gradually",
+     "target": "3% to 5% of B2C top-line",
+     "horizon": "medium term",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "we want to take A&P spends up to 3% to 5% of B2C top-line, and that is something that we'll plan to do gradually",
+     "page": 14
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Q4 margins should be better than Q3 sequentially due to operating leverage and price pass-through",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Shashank Yagnick",
+     "quote": "Yes. I mean it should definitely get better.",
+     "page": 14
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue growth YoY",
+     "target": "46% YoY",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "our Company delivered 46% YoY growth in consolidated revenues",
+     "page": 4
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA grew 34% YoY; margins 12.7% (~13% ex-gratuity one-off of ~₹219 million)",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "EBITDA for the quarter grew by 34% YoY with EBITDA margins at 12.7%.",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "Highest ever Q3 PAT of ₹6.3 billion, up 36% YoY; PAT margin 8.3%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "the Company delivered its highest ever Q3 PAT at ₹ 6.3 billion, reflecting 36% YoY growth.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Net cash position of ₹30.3 billion; working capital cycle 27 days",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "closing the quarter with a net cash position of ₹ 30.3 billion... working capital cycle to be at 27 days",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Q3 capex ₹3.4 billion; 9M FY26 ₹10.9 billion",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "Capital expenditure for the quarter was ₹ 3.4 billion, taking the 9M FY26 total to ₹ 10.9 billion",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "W&C revenue +53% YoY; domestic +59%; domestic volume ~40%; international +5%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "The W&C business delivered very strong performance, recording 53% YoY revenue growth during the quarter.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG +17% YoY; solar grew more than 2x; profitable for fourth consecutive quarter",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "The FMEG segment sustained its impressive growth momentum, delivering a 17% YoY increase in Q3 FY26",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "EPC revenues +4% YoY at ₹4,069 million; margin 6.7%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick",
+     "quote": "During Q3 FY26, EPC revenues grew by 4% YoY, reaching ₹ 4,069 million.",
+     "page": 7
+    },
+    {
+     "metric": "volume",
+     "statement": "Domestic W&C volume growth ~40%; wires revenue +70%, cables +50%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick / Chirayu Upadhyaya",
+     "quote": "For both domestic cables and wires, our volume growth is about 40%.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Capacity utilization in early 80% range; price hikes covered 75-80% of commodity inflation",
+     "target": "",
+     "horizon": "",
+     "speaker": "Shashank Yagnick / Chirayu Upadhyaya",
+     "quote": "our capacity utilization in the quarter was in the early 80% range.",
+     "page": 10
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Domestic C&W grew 59% in the quarter",
+     "target": "",
+     "horizon": "",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "we have mentioned in the PPT that we have grown 59% in domestic C&W",
+     "page": 19
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "C&W margin declined ~300 bps in the quarter",
+     "target": "",
+     "horizon": "",
+     "speaker": "Chirayu Upadhyaya",
+     "quote": "in spite of a 300 bps decrease in our margin profile, we were able to deliver 34% profitability growth in this segment",
+     "page": 19
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "working capital",
+     "statement": "Working capital cycle expected to revert to steady-state range",
+     "target": "45 to 50 days",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "On a normalized basis, we expect the working capital cycle to revert to our steady-state range of 45 to 50 days.",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Planned capex program over next 5 years",
+     "target": "INR 60 billion to INR 80 billion",
+     "horizon": "next 5 years",
+     "speaker": "Shashank Yagnick",
+     "quote": "We remain on track to execute our planned capex program of INR 60 billion to INR 80 billion over the next 5 years",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Dividend payout ratio to reach 30% under Project Spring",
+     "target": "30% payout ratio",
+     "horizon": "FY2030",
+     "speaker": "Shashank Yagnick",
+     "quote": "This represents a step forward towards our Project Spring goal of achieving a 30% payout ratio by financial year 2030.",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FMEG EBITDA margin goal under Project Spring",
+     "target": "8% to 10%",
+     "horizon": "FY2030",
+     "speaker": "Shashank Yagnick",
+     "quote": "in line with our Project Spring trajectory of achieving 8% to 10% EBITDA margins by financial year 2030.",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG to grow at 1.5x to 2x of industry growth while improving margins",
+     "target": "1.5x to 2x of industry growth",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "We are well aligned with our Project Spring objectives of delivering 1.5x to 2x of industry growth while steadily improving our margins.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "EPC annual sustainable operating margin expected in mid- to high single digits",
+     "target": "mid- to high single digits",
+     "horizon": "mid- to long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "the annual sustainable operating margin is expected to remain in the mid- to high single digits over mid- to long term.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Exports to contribute greater than 10% of revenue",
+     "target": ">10% contribution",
+     "horizon": "FY2030",
+     "speaker": "Shashank Yagnick",
+     "quote": "We remain firm on track to achieve our target of greater than 10% contribution from exports by financial year 2030.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Dividend payout to exceed 30% by FY2030",
+     "target": ">30%",
+     "horizon": "FY2030",
+     "speaker": "Shashank Yagnick",
+     "quote": "we move steadily towards our stated objective of exceeding 30% by FY 2030.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Cables & Wires to grow at 1.5x of market growth per Project Spring guidance",
+     "target": "1.5x of market growth",
+     "horizon": "FY27 and beyond",
+     "speaker": "Shashank Yagnick",
+     "quote": "we've committed in Cables & Wires, we will grow at 1.5x of market growth.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Exports contribution to grow beyond current 5.4% of top line",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Shashank Yagnick",
+     "quote": "we should continue to grow beyond 5% and difficult to give a firm number... but it will definitely be higher than where we are today.",
+     "page": 11
+    },
+    {
+     "metric": "volume",
+     "statement": "Deliver 1.5x of market growth; if market grows 12%, company should deliver 18%+",
+     "target": "1.5x market growth",
+     "horizon": "ongoing",
+     "speaker": "Shashank Yagnick",
+     "quote": "If market grows, we will deliver 1.5x of that growth. If we are expecting 12% market growth, then we should deliver 18% and plus.",
+     "page": 13
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Long-term EBITDA margin guidance of 11-13%; near to mid-term 12-14%",
+     "target": "11-13% long term; 12-14% near to mid term",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "Over long term, we should expect 11% to 13% EBITDA margin and in the near to mid term, we may expect 12% to 14% EBITDA.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue grew 27% YoY in Q4",
+     "value": "+27% YoY",
+     "quote": "consolidated revenue growing 27% year-on-year, driven by robust momentum in both cables and wires as well as FMEG segments.",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Q4 EBITDA margin",
+     "value": "13.1%",
+     "quote": "EBITDA for the quarter increased by 13% year-on-year with margins at 13.1%",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "Highest ever quarterly PAT",
+     "value": "INR 7.9 billion, +7% YoY, 8.9% margin",
+     "quote": "the company delivered its highest ever quarterly PAT of INR7.9 billion, reflecting a growth of 7% year-on-year. PAT margins for the quarter stood at 8.9%.",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Q4 capex and full-year capex",
+     "value": "Q4 INR 3.9 billion; FY26 ~INR 14.8 billion",
+     "quote": "Capital expenditure for the quarter stood at INR3.9 billion, taking the total capex for full financial year to approximately INR14.8 billion",
+     "page": 6
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "FY26 revenue crossed INR 285 billion",
+     "value": "+29% YoY, >INR 285 billion",
+     "quote": "Revenue crossed INR 285 billion milestone, growing 29% year-on-year.",
+     "page": 6
+    },
+    {
+     "metric": "market share",
+     "statement": "Domestic wires and cables organized market share",
+     "value": "30-31%, up ~300-400bps from FY25's 26-27%",
+     "quote": "Our domestic wires and cable organized market share has now increased to 30-31% up from 18-19% in financial year 2019.",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Wires & Cables segment Q4 growth",
+     "value": "+30% YoY; volume low single digit; EBIT margin 13.1%",
+     "quote": "The Wires & Cables segment delivered a strong 30% year-on-year growth during the quarter.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG segment Q4 growth",
+     "value": "+47% YoY; EBIT margin 4.1%",
+     "quote": "The FMEG segment delivered an exceptional performance for this quarter, registering a strong 47% year-on-year growth",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "EPC revenues declined in Q4",
+     "value": "-15% YoY, INR 5,098 million; margin 7.6%",
+     "quote": "EPC revenues marginally declined by 15% year-on-year, reaching INR 5,098 million... margin of 7.6%.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Price hikes taken Jan to March",
+     "value": "~18-19% cumulative",
+     "quote": "we've taken approximately 18% to 19% price hike cumulatively from Jan to March.",
+     "page": 9
+    },
+    {
+     "metric": "volume",
+     "statement": "Full year volume growth of 18%, industry leading vs market growth of 11-12%",
+     "quote": "Our volume growth for the full year is 18% which is again industry leading... market has possibly grown at 11-12%, we've delivered 18% volume growth.",
+     "page": 15
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Full year revenue growth of 30%",
+     "quote": "And revenue growth, we've coined it at 30%.",
+     "page": 15
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "working capital",
+     "statement": "Working capital cycle to settle within long-term operating range as LC-related payable effects normalize",
+     "target": "45 to 50 days",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "As these effects normalize, we expect the working capital cycle to settle within our long-term operating range of 45 to 50 days.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Wires & Cables medium- to long-term margin guidance maintained per Project Spring",
+     "target": "11% to 13%",
+     "horizon": "medium to long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "Consistent with our Project Spring roadmap, we continue to maintain our medium- to long-term margin guidance of 11% to 13% for this business.",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FMEG EBITDA margin target under Project Spring",
+     "target": "8% to 10%",
+     "horizon": "FY 2030",
+     "speaker": "Shashank Yagnick",
+     "quote": "we target EBITDA margins of 8% to 10% by FY 2030",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG to grow at 1.5x to 2x of industry growth while progressively enhancing profitability",
+     "target": "1.5x to 2x of industry growth",
+     "horizon": "long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "Our strategic priorities remain unchanged to grow at 1.5x to 2x of the industry growth while progressively enhancing profitability.",
+     "page": 5
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "EPC business sustainable operating margins expected in high single-digit range",
+     "target": "high single-digit",
+     "horizon": "medium to long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "we continue to expect sustainable operating margins for the EPC business to remain in the high single-digit range.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Data centre cable opportunity estimated at INR 20,000-25,000 crores over 6-8 years as capacity scales from 1.6 GW to 8-18 GW",
+     "target": "INR 20,000 to 25,000 crores",
+     "horizon": "6-8 years",
+     "speaker": "Shashank Yagnick",
+     "quote": "Definitely, a INR 20,000 to 25,000 crores market is there, but that's over a period of maybe 6-8 years.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Company to deliver 1.5x of market growth (volume plus value mix)",
+     "target": "1.5x of market growth",
+     "horizon": "next 2-3 quarters / 10-12 months",
+     "speaker": "Shashank Yagnick",
+     "quote": "Over maybe 2-3 next quarters, you will see a trend, and you should definitely see 1.5x of market growth.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Bharat Net project: fibre secured for execution period, so not exposed to high fibre prices; EPC margins expected high single digit long term",
+     "target": "high single digit",
+     "horizon": "long term",
+     "speaker": "Shashank Yagnick",
+     "quote": "we have secured our fibre. Hence, we are not exposed and not impacted... from a long-term perspective, it should be high single digit.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "EPC revenue should not dip materially on a full-year basis despite quarterly lumpiness",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Shashank Yagnick",
+     "quote": "materially, if you see on a full year basis, you will not see hopefully a dip.",
+     "page": 8
+    },
+    {
+     "metric": "market share",
+     "statement": "Structural market share gains to be visible only after 8-10 months and after peers declare results",
+     "target": "directional",
+     "horizon": "8-10 months",
+     "speaker": "Shashank Yagnick",
+     "quote": "It should be at least structural gains, which can again appear only after 8-10 months.",
+     "page": 9
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Wires & cables EBIT margin to operate within Project Spring guidance range of 11-13%",
+     "target": "11% to 13%",
+     "horizon": "medium term",
+     "speaker": "Shashank Yagnick",
+     "quote": "based on our long-term or medium- to long-term guidance of 11% to 13% under Project Spring, we definitely want to operate there",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Sizable pickup expected in U.S. exports and overall exports in coming quarters of this financial year",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Shashank Yagnick",
+     "quote": "in the coming quarters in this financial year, we should see sizable pickup in U.S. export and overall exports also will definitely show a good uptick",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "Consolidated revenue +39% YoY",
+     "quote": "Consolidated revenues grew by 39% year-on-year, supported by sustained momentum across both our wires and cables and FMEG businesses.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "EBITDA +32% YoY, margin 13.8% (~70bps QoQ improvement)",
+     "quote": "EBITDA increased by 32% year-on-year and the margins stood at 13.8%, reflecting an improvement of approximately 70 basis points sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "value": "PAT INR 7,967 million, +33% YoY, margin 9.7%",
+     "quote": "we achieved our highest ever quarterly Profit After Tax of INR 7,967 million, representing a growth of 33% year-on-year.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "value": "Capex INR 3.2 billion in the quarter",
+     "quote": "Capital expenditure during the quarter amounted to INR 3.2 billion",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Wires & Cables +39% YoY; domestic W&C +43% YoY; EBIT margin 13.3%",
+     "quote": "The Wires & Cables segment registered a healthy 39% year-on-year growth... domestic Wires & Cables business delivered an impressive 43% year-on-year growth",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "value": "Domestic W&C volume growth low to mid-single digits YoY (wires high single digit, cables low to mid-single digit)",
+     "quote": "Volume growth for the quarter on a year-on-year basis was low to mid-single digits, which was on top of a very strong base",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "FMEG +71% YoY; solar more than twofold growth; EBIT margin 8%",
+     "quote": "The FMEG segment delivered another outstanding quarter, recording 71% year-on-year growth with strong contributions across all product categories.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "EPC revenue INR 3,077 million, -11% YoY; profit INR 338 million, margin 11%",
+     "quote": "The EPC business reported revenues of INR 3,077 million during the Quarter 1 Financial Year 2027, reflecting a year-on-year decline of 11%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Net cash INR 39.9 billion; working capital cycle 15 days; finance costs INR 800 million; other income INR 1,049 million",
+     "quote": "net cash position of INR 39.9 billion. The average working capital cycle improved significantly to 15 days",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "Exports mix in Q1: North America 45-50%, Europe 18-20%, Middle East 20-24%",
+     "quote": "the contribution from North America was somewhere around 45-50% in our Q1 turnover. And of course, Europe was about 18-20%.",
+     "page": 7
+    },
+    {
+     "metric": "channel stocking",
+     "statement": "Channel stocking below expectation due to plummeting copper/aluminium prices in June",
+     "quote": "the stocking did not happen to the expectation... it was definitely impacted by the plummeting of raw material prices",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Healthy channel stocking benchmark is about 20-25 days",
+     "quote": "typically, a healthy stocking is say maybe about 20-25 days",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Wires and Cables EBITDA margins to be sustained within guided range over medium-to-long term",
+     "target": "11% to 13%",
+     "horizon": "medium-to-long term",
+     "speaker": "Aditya Nathany",
+     "quote": "we remain confident of sustaining medium- to long-term EBITDA margins within our guided range of 11% to 13%",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG to grow at 1.5x to 2x the industry growth rate while steadily enhancing profitability",
+     "target": "1.5x to 2x industry growth",
+     "horizon": "long term",
+     "speaker": "Aditya Nathany",
+     "quote": "Our objective continues to be growing at 1.5x to 2x of the industry growth rate while steadily enhancing profitability",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "EPC business margins to remain sustainable in high single-digit range over medium-to-long term",
+     "target": "high single-digit",
+     "horizon": "medium-to-long term",
+     "speaker": "Aditya Nathany",
+     "quote": "we continue to expect sustainable margins for the EPC business to remain in the high single-digit range",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "FMEG EBITDA margin expected in 8% to 10% range by FY30 under Project Spring",
+     "target": "8% to 10%",
+     "horizon": "FY30",
+     "speaker": "Aditya Nathany",
+     "quote": "over the longer term, I believe we would end up in that kind of a range of 8% to 10% of the EBITDA margin",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Working capital cycle expected to normalize towards long-term operating range as LC benefits fade",
+     "target": "45 to 50 days",
+     "horizon": "medium term",
+     "speaker": "Aditya Nathany",
+     "quote": "we expect the working capital cycle to trend towards our long-term operating range of 45 to 50 days",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Company to maintain Project Spring guidance range till FY30 despite quarterly fluctuations",
+     "target": "directional",
+     "horizon": "FY30",
+     "speaker": "Aditya Nathany",
+     "quote": "we would like to be in that guidance range, I think, till FY30, and that's how we continue to maintain our stance of our guidance",
+     "page": 9
+    },
+    {
+     "metric": "market share",
+     "statement": "Wires market expected to grow to around INR 40,000 to 50,000 crores in next 2-3 years",
+     "target": "INR 40,000 to 50,000 crores",
+     "horizon": "2-3 years",
+     "speaker": "Aditya Nathany",
+     "quote": "the market is also going to grow in the next 2 to 3 years to around maybe INR 40,000 to INR 50,000 crores",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "No adverse or material impact expected from Asier Metals insolvency proceedings",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Niyant Maru",
+     "quote": "We do not expect any adverse or material impact on our financial or business operations arising from the said situation",
+     "page": 5
+    },
+    {
+     "metric": "volume",
+     "statement": "Wires & cables volume growth will be 1.5x of market growth; if market grows ~12-13%, Polycab will do 1.5x of that",
+     "target": "1.5x market growth",
+     "horizon": "long term / 10-12 months",
+     "speaker": "Aditya Nathany",
+     "quote": "whatever the market grows, we will do 1.5x of that in cable and wires",
+     "page": 13
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Exports will pick up from here on the back of a strong order book pipeline",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Aditya Nathany",
+     "quote": "with the kind of order book pipeline that we are having, exports is certainly going to pick up from here",
+     "page": 12
+    },
+    {
+     "metric": "capex",
+     "statement": "EHV plant expected to be commissioned in FY28, possibly April or May",
+     "target": "FY28",
+     "horizon": "FY28",
+     "speaker": "Aditya Nathany",
+     "quote": "we are expecting the EHV plant to now commission somewhere in FY 2028",
+     "page": 17
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Wires & cables margins will normalize to the 11-13% long-term guidance range over time; if all factors align, margins could go north of current levels",
+     "target": "11-13% (normalize); potentially higher if Project Spring factors align",
+     "horizon": "long term",
+     "speaker": "Aditya Nathany",
+     "quote": "if all things come together, definitely we'll see margins going to north of what we are seeing today",
+     "page": 16
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue grew 53% year-on-year",
+     "value": "+53% YoY",
+     "quote": "Consolidated revenue grew by 53% year-on-year, with all business segments contributing meaningfully",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin expanded more than 50 bps sequentially to 14.4%",
+     "value": "14.4%",
+     "quote": "EBITDA margins expanded by more than 50 basis points sequentially to 14.4%",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "Record PAT of INR 9,900 million, up 43% YoY; PAT margin 10.0%",
+     "value": "INR 9,900 million, +43% YoY, 10.0% margin",
+     "quote": "profit after tax reaching a record high of INR 9,900 million, representing a 43% year-over-year increase",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Net cash of INR 45.2 billion; working capital cycle ~11 days",
+     "value": "INR 45.2 billion; ~11 days",
+     "quote": "Net cash stood at INR 45.2 billion as of September 30th, 2026",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "H1 FY27 capital expenditures of INR 6.1 billion",
+     "value": "INR 6.1 billion (H1)",
+     "quote": "During the first half of the year, we incurred capital expenditures of INR 6.1 billion",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "H1 FY27 revenue grew 46% YoY, crossing INR 180 billion; EBITDA margin 14.1%; PAT +38%",
+     "value": "+46% YoY, >INR 180 billion; EBITDA 14.1%; PAT +38%",
+     "quote": "Revenue grew by 46% year-on-year, crossing a significant milestone of INR180 billion",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Wires and Cables revenue grew 47% YoY; domestic business grew 50%; EBIT margin 14.2%",
+     "value": "+47% YoY (domestic +50%); EBIT 14.2%",
+     "quote": "The Wires and Cables segment delivered a strong quarter, recording 47% year-on-year revenue growth",
+     "page": 6
+    },
+    {
+     "metric": "volume",
+     "statement": "Wires and Cables volume growth mid-to-high single digits; wires early double-digit, cables mid-single digit",
+     "value": "mid-to-high single digit",
+     "quote": "overall volumes have grown by mid to high-single digits",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMEG grew 124% YoY; EBIT margin crossed double digits at 10.1%",
+     "value": "+124% YoY; EBIT 10.1%",
+     "quote": "The FMEG segment delivered a breakthrough quarter, registering a remarkable 124% year-on-year growth",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "EPC revenue INR 6,171 million, +53% YoY; EBIT margin 7.2%",
+     "value": "INR 6,171 million, +53% YoY; EBIT 7.2%",
+     "quote": "The EPC segment reported revenues of INR 6,171 million in Q2 FY27, representing a healthy year-on-year growth of 53%",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Exports grew ~85% quarter-over-quarter (Q1 to Q2)",
+     "target": "exports +85% QoQ",
+     "quote": "comparing with Quarter 1 and what we have achieved in Quarter 2, we have gained around 85% increase in our quarter-over-quarter growth",
+     "page": 12
+    },
+    {
+     "metric": "market share",
+     "statement": "Combined cable and wire organized market share is around 30-31%",
+     "target": "market share 30-31%",
+     "quote": "even in the organized market, we have called out in our annual report that our market share is around 30% to 31%",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-10-19-transcript-2119d3.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Management's checkable near-term promises were largely met: Q4 margins improved, price pass-through landed, capex stayed within guidance, and exports rebounded as committed. Deviations were mostly favorable (working capital and W&C margins beat the guided ranges); EPC margins stayed lumpy and long-dated Project Spring targets remain untested.",
+  "score": "high",
+  "rows": [
+   {
+    "call": "Q3 FY26",
+    "promise": "Q4 FY26 margins should improve sequentially on operating leverage and price pass-through",
+    "delivered": "Op margin 12.0% vs 11.3% in Q3; EBITDA margin 13.1% vs 12.7% (Q4 FY26 actuals)",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2026-03-31 vs 2025-12-31",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Remaining ~20-25% of commodity inflation to be passed on during Q4 FY26",
+    "delivered": "~18-19% cumulative price hikes taken January to March, per Q4 FY26 call",
+    "status": "delivered",
+    "cite": "Q4 FY26 call, reported, p.9",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Working capital cycle to normalize to 50-55 days in coming quarters",
+    "delivered": "Cycle fell to 15 days in Q1 FY27 and ~11 days in Q2 FY27 — below range, favorable",
+    "status": "partly",
+    "cite": "Q1 FY27 call reported p.4; Q2 FY27 call reported p.5",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Capex of ₹12-16 billion annually through FY30 under Project Spring",
+    "delivered": "FY26 capex ~₹14.8bn (Q4 FY26 call); H1 FY27 ₹6.1bn — within annual range so far",
+    "status": "delivered",
+    "cite": "Q4 FY26 call reported p.6; Q2 FY27 call reported p.5",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Near- to mid-term EBITDA margin of 12-14%; 11-13% over long term",
+    "delivered": "EBITDA margin 13.1% Q4 FY26, 13.8% Q1 FY27, 14.4% Q2 FY27 — within/above range",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2026-03-31, 2026-06-30, 2026-09-30",
+    "verify": {
+     "checked": 7,
+     "found": 7,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Cables & Wires to grow at 1.5x market growth from FY27 onward",
+    "delivered": "FY26 volume +18% vs market 11-12%; FY27 H1 volume single-digit, market growth not stated",
+    "status": "not measurable",
+    "cite": "Q4 FY26 call reported p.15; Q1/Q2 FY27 calls",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Sizable pickup in U.S. and overall exports in coming quarters of FY27",
+    "delivered": "Exports grew ~85% QoQ in Q2 FY27 on strong order book pipeline",
+    "status": "delivered",
+    "cite": "Q2 FY27 call reported p.12",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Wires & Cables EBIT margin to operate within 11-13% Project Spring range",
+    "delivered": "W&C EBIT margin 13.3% in Q1 FY27 and 14.2% in Q2 FY27 — above range, favorable",
+    "status": "delivered",
+    "cite": "Q1 FY27 call reported p.4; Q2 FY27 call reported p.6",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "EPC sustainable operating margins in high single-digit range",
+    "delivered": "EPC margin 11% Q1 FY27, 7.2% Q2 FY27 (7.6% Q4 FY26) — around range, lumpy",
+    "status": "partly",
+    "cite": "Q1 FY27 call p.5; Q2 FY27 call p.7; Q4 FY26 call p.8",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "W&C margins sustained at 11-13% medium-to-long term; exports to pick up from here",
+    "delivered": "Latest reported quarter; no post-Q2 FY27 filings or calls provided to verify",
+    "status": "too early",
+    "cite": "Q2 FY27 call p.6, p.12; quarterly_actuals end 2026-09-30",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "FY26 revenue ₹288,838m (+29%), PAT ₹27,084m (+32%), EBITDA +35% at 13.9% margin; India’s largest electricals player with ~30-31% organised W&C share.",
+    "cite": "annual-reports/annual-report-2026.md p.7, p.23",
+    "verify": {
+     "checked": 8,
+     "found": 8,
+     "missing": []
+    }
+   },
+   {
+    "point": "Momentum accelerated: Q2 FY27 revenue +52.8% YoY, PAT +42.6%, EBITDA margin 14.4%; Q1/Q2 W&C EBIT margins 13.3%/14.2% beat Project Spring’s 11-13%.",
+    "cite": "quarterly_actuals 2026-09-30; promised_vs_delivered Q1/Q2 FY27",
+    "verify": {
+     "checked": 7,
+     "found": 7,
+     "missing": []
+    }
+   },
+   {
+    "point": "Net cash ₹41,940m, CRISIL/IND AAA upgrades, ₹47 dividend; exports ₹15,695m (+16.7%) across 94 countries, targeting >10% of revenue by FY30.",
+    "cite": "annual-reports/annual-report-2026.md p.7, p.29, p.47",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Concentration is high: W&C is 87% of revenue; EPC fell 13.2% YoY and margins were lumpy at 11% Q1 FY27, 7.2% Q2.",
+    "cite": "annual-reports/annual-report-2026.md p.23, p.28; promised_vs_delivered EPC",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Margin risk: W&C EBIT ran above the 11-13% Project Spring band, while Q4 FY26 PAT grew only 6.3% despite revenue +26.9%.",
+    "cite": "promised_vs_delivered Q1/Q2 FY27; quarterly_actuals 2026-03-31",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Execution load: FY26 capex ₹14.8bn was highest ever within ₹60-80bn five-year plan; exports are 5.4% versus >10% FY30 goal.",
+    "cite": "annual-reports/annual-report-2026.md p.7, p.29, p.47",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3 FY27 W&C EBIT margin versus 11-13% Project Spring range and whether commodity price pass-through holds.",
+   "Exports after Q2 FY27’s ~85% QoQ jump: order-book conversion toward >10% of revenue by FY30.",
+   "EPC margin stability/BharatNet execution and working-capital normalization from 11-15 days toward guided 50-55; no post-Q2 FY27 filings provided."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-19-transcript-2119d3.md",
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-01-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 87,
+  "found": 87
+ }
+}

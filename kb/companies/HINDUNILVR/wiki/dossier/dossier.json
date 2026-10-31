@@ -1,0 +1,1193 @@
+{
+ "symbol": "HINDUNILVR",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Hindustan Unilever Limited (HUL) is India's largest FMCG company, serving consumers for over 90 years with a portfolio of 50 brands across 15 categories spanning Home Care, Beauty & Wellbeing, Personal Care and Foods. It reaches 9 out of 10 Indian households through a distribution network of over 9 million retail outlets, supported by R&D, AI-enabled operations and a large manufacturing footprint.",
+  "segments": [
+   {
+    "name": "Home Care",
+    "share": "₹23,672 Cr revenue (largest segment; ~37% of HUL per p7)",
+    "note": "Fabric wash and household care (Wheel, Surf excel, Vim, Rin, Comfort); 19% segment margin, EBIT ₹4,521 Cr"
+   },
+   {
+    "name": "Beauty & Wellbeing",
+    "share": "₹14,990 Cr revenue (~23% contribution)",
+    "note": "Skin care, colour cosmetics, hair care (Dove, Simple, Minimalist, TRESemmé); 28% segment margin, EBIT ₹4,161 Cr"
+   },
+   {
+    "name": "Foods",
+    "share": "₹14,061 Cr revenue (~22% contribution)",
+    "note": "Beverages, lifestyle nutrition, packaged foods (Horlicks, Bru); 20% segment margin, EBIT ₹2,824 Cr"
+   },
+   {
+    "name": "Personal Care",
+    "share": "₹9,564 Cr revenue (~15% contribution)",
+    "note": "Oral care, deodorants, skin cleansing; 19% segment margin, EBIT ₹1,805 Cr"
+   },
+   {
+    "name": "Others",
+    "share": "₹2,181 Cr revenue",
+    "note": "EBIT ₹410 Cr"
+   }
+  ],
+  "geographies": "India — the report describes operations across urban and rural India (9 Mn+ outlets reached); no international revenue breakdown is stated.",
+  "key_facts": [
+   "Turnover FY 2025-26: ₹63,763 Cr",
+   "Profit After Tax: ₹10,652 Cr; EPS ₹45.25",
+   "EBITDA margin 23.6%; USG 5% driven by 4% UVG",
+   "ROCE (standalone) 110.9%; cash from operations ₹15,839 Cr (₹10,496 Cr standalone per p44)",
+   "Total dividend ₹41 per share, payout ₹9,633 Cr; 97% renewable energy, 58% reduction in factory water use"
+  ],
+  "pages": [
+   6,
+   7,
+   8,
+   13,
+   14,
+   25,
+   26,
+   28,
+   29,
+   43,
+   44,
+   45,
+   46,
+   47
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md"
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 15707.0,
+   "ebitda": 3746.0,
+   "ebit": 3417.0,
+   "pbt": 3531.0,
+   "pat": 2610.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 23.8,
+   "op_margin": 21.8
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 15926.0,
+   "ebitda": 3799.0,
+   "ebit": 3461.0,
+   "pbt": 3548.0,
+   "pat": 2591.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 23.9,
+   "op_margin": 21.7
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 15818.0,
+   "ebitda": 3694.0,
+   "ebit": 3353.0,
+   "pbt": 3981.0,
+   "pat": 2984.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 23.4,
+   "op_margin": 21.2
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 15670.0,
+   "ebitda": 3620.0,
+   "ebit": 3273.0,
+   "pbt": 3363.0,
+   "pat": 2464.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 23.1,
+   "op_margin": 20.9
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16514.0,
+   "ebitda": 3719.0,
+   "ebit": 3358.0,
+   "pbt": 3304.0,
+   "pat": 2756.0,
+   "is_bank": false,
+   "revenue_yoy": 5.1,
+   "pat_yoy": 5.6,
+   "margin": 22.5,
+   "op_margin": 20.3
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16241.0,
+   "ebitda": 3732.0,
+   "ebit": 3374.0,
+   "pbt": 3573.0,
+   "pat": 2685.0,
+   "is_bank": false,
+   "revenue_yoy": 2.0,
+   "pat_yoy": 3.6,
+   "margin": 23.0,
+   "op_margin": 20.8
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16441.0,
+   "ebitda": 3795.0,
+   "ebit": 3458.0,
+   "pbt": 2926.0,
+   "pat": 6607.0,
+   "is_bank": false,
+   "revenue_yoy": 3.9,
+   "pat_yoy": 121.4,
+   "margin": 23.1,
+   "op_margin": 21.0
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16351.0,
+   "ebitda": 3845.0,
+   "ebit": 3497.0,
+   "pbt": 3928.0,
+   "pat": 2992.0,
+   "is_bank": false,
+   "revenue_yoy": 4.3,
+   "pat_yoy": 21.4,
+   "margin": 23.5,
+   "op_margin": 21.4
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 17341.0,
+   "ebitda": 3947.0,
+   "ebit": 3594.0,
+   "pbt": 3632.0,
+   "pat": 2673.0,
+   "is_bank": false,
+   "revenue_yoy": 5.0,
+   "pat_yoy": -3.0,
+   "margin": 22.8,
+   "op_margin": 20.7
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 18226.0,
+   "ebitda": 4089.0,
+   "ebit": 3726.0,
+   "pbt": 3814.0,
+   "pat": 2790.0,
+   "is_bank": false,
+   "revenue_yoy": 12.2,
+   "pat_yoy": 3.9,
+   "margin": 22.4,
+   "op_margin": 20.4
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26 (September quarter 2025)",
+   "items": [
+    {
+     "metric": "revenue growth",
+     "statement": "If commodity prices remain where they are, expects low-single digit price growth",
+     "target": "low-single digit price growth",
+     "horizon": "second half FY26",
+     "speaker": "Ritesh Tiwari",
+     "quote": "If commodity prices remain where they are, we expect a low-single digit price growth.",
+     "page": 11
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Second half growth expected to be better than first half",
+     "target": "directional",
+     "horizon": "H2 FY26",
+     "speaker": "Ritesh Tiwari",
+     "quote": "Overall, we expect growth of second half of this financial year to be better than the first half.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Normal trading conditions expected from early November once prices stabilise, paving way for gradual market recovery",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Ritesh Tiwari",
+     "quote": "We anticipate normal trading conditions starting early November, once prices stabilise, paving the way for a gradual and sustained market recovery",
+     "page": 11
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Ice Cream demerger expected to add 50-60 bps to reported margin; near to mid-term guidance 22-23%",
+     "target": "22-23% (plus 50-60 bps post demerger)",
+     "horizon": "near to mid term",
+     "speaker": "Ritesh Tiwari",
+     "quote": "Our current near to mid-term guidance is 22-23%, hence everything else being equal, Ice Cream demerger adds 50-60 bps to this guidance.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Ice Cream demerger to be completed by December, listing anticipated in Q4 FY26, subject to regulatory approvals",
+     "target": "December completion; Q4 FY26 listing",
+     "horizon": "FY26",
+     "speaker": "Ritesh Tiwari",
+     "quote": "We expect to complete the demerger by December, with the listing anticipated in Quarter 4 of Financial Year 2026, subject to necessary regulatory approvals",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Will radically sharpen consumer segmentation targeting Power Spenders, Premiumisers, and Democratisers",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "we will radically sharpen our consumer segmentation... to target each of these distinct consumer cohorts of Power Spenders, Premiumisers, and Democratisers",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Will modernize core brands and scale premium portfolio via renovations and premium innovations",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "We will reimagine our core brands, making them more modern, contemporary and youthful... with renovations on our core and by driving premium innovations.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Will accelerate social-first demand generation, d-commerce footprint including q-commerce, and allocate more resources to fast-growing channels",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "we are accelerating our footprint in d-commerce including q-commerce and we will continue to allocate more resources to these fast-growing channels",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Will invest disproportionately to take select high-growth demand spaces to scale and develop markets in India",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "Based on market readiness, we will invest disproportionately to take a few of these demand spaces to scale and develop the markets in India.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "GST reforms expected to boost disposable income and act as structural growth enabler; benefits to manifest gradually rather than immediately",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "Priya Nair / Ritesh Tiwari",
+     "quote": "we expect its benefits to manifest gradually in the demand trajectory, rather than through an immediate acceleration.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "GST transition disturbance in trade to end by early November, then prices stabilize and normal trading conditions return",
+     "target": "directional",
+     "horizon": "early November / next quarter",
+     "speaker": "Ritesh Tiwari",
+     "quote": "This is the disturbance that we spoke about will end up being in the trade and in the business till early November. Post that, we expect prices to stabilize",
+     "page": 17
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "No further margin impact expected from GST transition; GST rate reduction is cost neutral",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Ritesh Tiwari",
+     "quote": "Going forward, we don't expect further margin impact, Vivek, coming in from GST transition. Of course, the entire GST rate reduction is cost neutral to us",
+     "page": 18
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Underlying Sales Growth of 2% in the quarter, price led",
+     "value": "USG 2%",
+     "quote": "With a turnover of Rs. 16,061 crores we had a 2% Underlying Sales Growth in the quarter.",
+     "page": 4
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin 23.2%, down 90 bps year on year",
+     "value": "23.2%, -90 bps YoY",
+     "quote": "EBITDA at 23.2% was down 90 basis points year on year, in line with our stated intent to continue investing in the business.",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT before exceptional items down 4%; PAT grew 4%",
+     "value": "PAT bei -4%; PAT +4%",
+     "quote": "PAT before exceptional items was down 4%... Profit after tax grew by 4% primarily driven by a one-off positive impact",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "First half USG of 3% led by 2% UVG; EBITDA 23%, down 110 bps",
+     "value": "H1 USG 3%, UVG 2%, EBITDA 23%",
+     "quote": "we delivered a USG of 3% led by 2% Underlying Volume Growth. EBITDA stood at 23%, down 110 basis points year-on-year",
+     "page": 4
+    },
+    {
+     "metric": "market share",
+     "statement": "Gains in turnover-weighted market shares in the quarter",
+     "value": "gains in turnover-weighted market shares",
+     "quote": "we delivered a competitive performance marked by gains in our turnover-weighted market shares.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home Care delivered mid-single digit volume growth; flat USG due to prior price reductions",
+     "value": "Home Care mid-single digit UVG, flat USG",
+     "quote": "Home Care, our largest segment, delivered a competitive performance, with mid-single digit volume growth on a strong base of high-single digit growth.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Beauty & Wellbeing delivered 5% USG driven by Skin Care and Health & Wellbeing",
+     "value": "Beauty & Wellbeing +5% USG",
+     "quote": "Beauty & Wellbeing delivered 5% USG, driven by Skin Care and Health & Wellbeing.",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Foods delivered 3% USG with low-single digit UVG",
+     "value": "Foods +3% USG",
+     "quote": "Foods delivered a USG of 3% with low-single digit UVG.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Gross margin 50.9%, almost flat YoY, up 130 bps sequentially",
+     "value": "gross margin 50.9%",
+     "quote": "Gross Margin stood at 50.9%, almost flat year-on-year... our gross margin has seen a 130 bps improvement",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Interim dividend of Rs 19 per share declared, total payout Rs 4,464 crores",
+     "value": "Rs 19/share; Rs 4,464 crores",
+     "quote": "the Board of Directors have declared an interim dividend of Rs 19 per share... translating to a total payout of Rs. 4,464 crores.",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA for the quarter declined 90 bps year-on-year",
+     "target": "EBITDA -90 bps YoY",
+     "quote": "at net level, when you saw EBITDA for the quarter declining by 90 bps",
+     "page": 18
+    },
+    {
+     "metric": "gross margin",
+     "statement": "Gross margin improved 130 bps sequentially, used to support trade pipeline liquidation",
+     "target": "gross margin +130 bps QoQ",
+     "quote": "we had improved our gross margin by 130 bps sequentially",
+     "page": 18
+    }
+   ],
+   "source": "transcripts/2025-10-concall.md",
+   "month": "2025-10"
+  },
+  {
+   "call": "Q3 FY26 (quarter ended 31st December 2025)",
+   "items": [
+    {
+     "metric": "revenue growth",
+     "statement": "Growth in FY27 expected to be better than FY26",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we expect growth in financial year'27 to be better than financial year'26",
+     "page": 12
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated EBITDA margin to stay around the guided range as business is invested in to support growth",
+     "target": "around the guided range",
+     "horizon": "FY27 / ongoing",
+     "speaker": "Niranjan Gupta",
+     "quote": "we expect consolidated EBITDA margin to stay around the guided range",
+     "page": 12
+    },
+    {
+     "metric": "volume",
+     "statement": "Quick commerce, currently ~3% of business, expected to scale meaningfully in the near term",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Priya Nair",
+     "quote": "While it contributes around 3% of our business today, we expect it to scale meaningfully in the near term",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Calibrated price increases to be taken where necessary given currency depreciation and commodity inflation, alongside savings delivery",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Priya Nair",
+     "quote": "take calibrated price increases wherever necessary, while continuing to drive strong savings delivery",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Home Care price reductions to be anniversarised by June quarter",
+     "target": "directional",
+     "horizon": "June quarter",
+     "speaker": "Niranjan Gupta",
+     "quote": "continued impact of price reductions, which were taken previously, which would get anniversarised by June quarter",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Kissan chutneys extension seen as a significant opportunity to convert scratch cooking into branded formats, unlocking a large growth runway",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "unlocking a large runway for growth",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Board approved acquisition of remaining 49% stake in OZiva for Rs. 824 crores to strengthen Health & Wellbeing participation",
+     "target": "Rs. 824 crores",
+     "horizon": "announced",
+     "speaker": "Niranjan Gupta",
+     "quote": "Board of Directors has approved the acquisition of remaining 49% stake in OZiva at an investment of Rs, 824 crores",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Divestment of minority stake in Nutritiona lab to USV for Rs. 307 crores",
+     "target": "Rs. 307 crores",
+     "horizon": "announced",
+     "speaker": "Niranjan Gupta",
+     "quote": "selling the stake to USV Private Limited for a consideration of Rs. 307 crores",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "KWIL (Ice Cream) to be listed on 16th February",
+     "target": "16th February",
+     "horizon": "February 2026",
+     "speaker": "Niranjan Gupta",
+     "quote": "The KWIL listing, as you would have seen from the BSE notice will be listed on 16th of February",
+     "page": 12
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Second half of FY26 will be better than first half, and FY27 will be better than FY26",
+     "target": "directional",
+     "horizon": "H2 FY26 and FY27",
+     "speaker": "Priya Nair",
+     "quote": "second half of '26 will be better than the first half '26 and '27 will be better than '26. So that's the guidance",
+     "page": 20
+    },
+    {
+     "metric": "other",
+     "statement": "Low single-digit price increases expected over the year as commodities turn stable to inflationary",
+     "target": "low single-digit",
+     "horizon": "FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "we do expect a low single-digit price increases over the year",
+     "page": 22
+    },
+    {
+     "metric": "operating/EBITDA margin",
+     "statement": "EBITDA margin guidance range of 22-23%, with ice cream demerger adding ~50bps, implying 22.5-23.5%",
+     "target": "22-23% (implied 22.5-23.5%)",
+     "horizon": "ongoing",
+     "speaker": "Niranjan Gupta",
+     "quote": "our guided range has been that 22% to 23%... you will see a benefit of the ice cream demerger to the extent of 50 basis points",
+     "page": 24
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue growth of 6% with USG 5% and UVG 4%",
+     "value": "revenue +6%, USG 5%, UVG 4%",
+     "quote": "a Revenue growth of 6%, which comprises of 5% Underlying Sales Growth and 4% Underlying Volume Growth",
+     "page": 7
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin 23.3%, within guided range, excluding Ice Cream",
+     "value": "EBITDA margin 23.3%",
+     "quote": "EBITDA margin of 23.3% remains within our guided range, excluding Ice Cream",
+     "page": 8
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA at Rs. 3,788 crores, up 3% YoY",
+     "value": "EBITDA Rs. 3,788 crores, +3% YoY",
+     "quote": "EBITDA at Rs. 3,788 crores was up 3% year-on-year",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT before exceptional items Rs. 2,562 crores, up 1% YoY",
+     "value": "PAT BEI Rs. 2,562 crores, +1% YoY",
+     "quote": "Profit After Tax before exceptional items at Rs. 2,562 crores grew by 1% year-on-year",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Reported PAT Rs. 6,603 crores, up 121% YoY, including one-offs from Ice Cream demerger and OZiva fair valuation",
+     "value": "reported PAT Rs. 6,603 crores, +121% YoY",
+     "quote": "Reported Profit After Tax for the period at Rs. 6,603 crores grew 121% year-on-year",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Gross margin 50.8%, up 30 bps YoY",
+     "value": "gross margin 50.8%, +30 bps YoY",
+     "quote": "Gross Margin remained healthy at 50.8%, which was plus 30 basis points year-on-year",
+     "page": 8
+    },
+    {
+     "metric": "market share",
+     "statement": "Gained turnover-weighted market share; Home Care achieved highest ever market share",
+     "value": "turnover-weighted share gains; Home Care highest ever share",
+     "quote": "the segment has continued to gain market share and has achieved its highest ever market share",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Beauty & Wellbeing USG 6%; Personal Care USG 6%; Foods USG 6%; Home Care USG 3%",
+     "value": "B&W +6%, PC +6%, Foods +6%, Home Care +3% USG",
+     "quote": "Beauty & Wellbeing delivered 6% USG",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "A&P at 9.4% of turnover, down 30 bps YoY on phasing; absolute spend Rs. 185 crores higher",
+     "value": "A&P 9.4% of turnover, -30 bps YoY",
+     "quote": "at 9.4% of turnover, on a bps basis it was down 30 bps year-on-year due to phasing",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "UVG of 4% was the highest recorded in the last 12 quarters",
+     "value": "highest UVG in 12 quarters",
+     "quote": "Our UVG for the quarter is the highest UVG that we have recorded in the last 12 quarters",
+     "page": 14
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "6% revenue growth with highest-ever UVG in last 12 quarters",
+     "target": "6% revenue growth",
+     "quote": "we have delivered our highest ever UVG in the last 12 quarters... with 6% revenue growth",
+     "page": 27
+    },
+    {
+     "metric": "operating/EBITDA margin",
+     "statement": "EBITDA margin 23.3%, or 24% after adding back Labor Code impact of Rs 113 crores",
+     "target": "23.3% (24% ex-Labor Code)",
+     "quote": "Our EBITDA margin is 23.3%, which is 24% after charging the Labor Code impact of Rs. 113 crores",
+     "page": 29
+    }
+   ],
+   "source": "transcripts/2026-02-concall.md",
+   "month": "2026-02"
+  },
+  {
+   "call": "Q4 FY26 (quarter and financial year ended 31st March 2026)",
+   "items": [
+    {
+     "metric": "capex",
+     "statement": "Committed capex investment in premium formats of Beauty and Home Care",
+     "target": "Rs. 2,000 crores",
+     "horizon": "recently committed / future",
+     "speaker": "Priya Nair",
+     "quote": "we have recently committed Rs. 2,000 crores of capex investments in premium formats of Beauty and Home Care",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Further price increases may be taken depending on how costs pan out, beyond the 2-5% already taken",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Niranjan Gupta",
+     "quote": "we will be taking further price increases as may be necessary",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Calibrated price increases across Fabric Wash and Household Care in June quarter may cause short-term volume-price rebalancing",
+     "target": "directional",
+     "horizon": "June quarter / short term",
+     "speaker": "Niranjan Gupta",
+     "quote": "we have implemented calibrated price increase across Fabric Wash and Household Care in June quarter as well. This may lead to some rebalancing between volume and price growth",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "FY27 performance expected to be better than FY26",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we expect FY '27 to be better than FY '26",
+     "page": 13
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Mid-term margin guidance to remain around current guided range",
+     "target": "22.5% to 23.5%",
+     "horizon": "medium term",
+     "speaker": "Niranjan Gupta",
+     "quote": "we expect the mid-term margin guidance to remain around our current guided range of 22.5% to 23.5%",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Competitive volume-led growth remains the number one priority",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Niranjan Gupta",
+     "quote": "Competitive volume-led growth is our number one priority",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Will continue actions to increase consumption in Lifestyle Nutrition category",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Priya Nair",
+     "quote": "We will continue to stay the course on these actions and increase consumption in this category",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Will roll out Horlicks Superfoods launch across the country and double down on new segments (RTDs, biscuits, Horlicks Protein)",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "Our focus will be to first roll out the Superfoods launch across the country... And secondly, really double down behind these new segments we have entered.",
+     "page": 17
+    },
+    {
+     "metric": "other",
+     "statement": "No impact expected on H2 rural demand from El Nino unless rainfall falls below 85% of normal",
+     "target": "directional",
+     "horizon": "H2 FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "given the reservoirs, given the grain stocks, and given the MSPs, we don't expect, unless the rainfall is like below 85%, any impact on the rural demand on the H2",
+     "page": 20
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margin guidance retained in a band of 22.5% to 23.5% despite input cost inflation",
+     "target": "22.5% to 23.5%",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we have said a band of 22.5% to 23.5%... we do feel at this point in time confident enough that we will be able to guide with that band",
+     "page": 21
+    },
+    {
+     "metric": "capex",
+     "statement": "Rs. 2,000 crores capital investment towards premium formats (liquids across Home Care, Personal Care, Beauty)",
+     "target": "Rs. 2,000 crores",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "it's a Rs. 2,000 crores capital investment that we are making towards growth of these formats",
+     "page": 22
+    },
+    {
+     "metric": "other",
+     "statement": "Open to bolt-on small acquisitions in white spaces, in line with strategy",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "in line with our strategy, we have always maintained we are open to bolt-on acquisitions, Vivek, and that continues.",
+     "page": 22
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "8% consolidated revenue growth in March quarter",
+     "target": "8%",
+     "horizon": "Q4 FY26",
+     "speaker": "Priya Nair",
+     "quote": "we delivered an 8% Consolidated Revenue Growth. This was supported by 7% Underlying Sales Growth, primarily driven by volumes",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin at 23.7%, higher end of guidance; EBITDA grew 6%",
+     "target": "23.7%",
+     "horizon": "Q4 FY26",
+     "speaker": "Priya Nair",
+     "quote": "EBITDA grew 6% year-on-year with EBITDA margin at 23.7%, coming in at the higher end of our guidance",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT before exceptional items Rs. 2,711 crores, up 4% YoY",
+     "target": "Rs. 2,711 crores, +4%",
+     "horizon": "Q4 FY26",
+     "speaker": "Priya Nair",
+     "quote": "Profit After Tax before exceptional items at Rs. 2,711 crores grew 4% year-on-year",
+     "page": 3
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Full year turnover Rs. 63,763 crores, 5% USG driven by 4% UVG",
+     "target": "Rs. 63,763 crores; 5% USG",
+     "horizon": "FY26",
+     "speaker": "Priya Nair",
+     "quote": "with a turnover of Rs. 63,763 crores, we delivered 5% USG driven by 4% UVG",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home Care delivered 9% USG with high-single digit UVG, strongest in 11 quarters",
+     "target": "9% USG",
+     "horizon": "Q4 FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "Home Care delivered 9% Underlying Sales Growth driven by high-single digit UVG. This marks the segment's strongest performance in 11 quarters",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Beauty & Wellbeing delivered 8% USG with mid-single digit UVG",
+     "target": "8% USG",
+     "horizon": "Q4 FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "Beauty & Wellbeing, this segment delivered 8% USG driven by mid-single digit UVG",
+     "page": 10
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Personal Care delivered 5% USG driven by pricing; Foods delivered 5% USG with high single-digit UVG",
+     "target": "5% USG each",
+     "horizon": "Q4 FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "Personal Care delivered 5% Underlying Sales Growth during the quarter driven by pricing",
+     "page": 10
+    },
+    {
+     "metric": "PAT",
+     "statement": "Full year PAT before exceptional items Rs. 10,324 crores; EBITDA margin 23.6%; EBITDA grew 2%",
+     "target": "Rs. 10,324 crores; 23.6%",
+     "horizon": "FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "EBITDA margin at 23.6% was at the higher end of the guidance. Our overall EBITDA grew by 2%... Profit After Tax before exceptional item was at Rs. 10,324 crores",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Reported PAT grew 20% YoY, including divestment proceeds and OZiva fair valuation impact",
+     "target": "+20% YoY",
+     "horizon": "Q4 FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "the Reported Profit After Tax grew by 20% year-on-year",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Final dividend of Rs. 22 per share declared; total dividend Rs. 41 per share for the year",
+     "target": "Rs. 22 final; Rs. 41 total",
+     "horizon": "FY26",
+     "speaker": "Niranjan Gupta",
+     "quote": "The Board has declared a final dividend of Rs. 22 per share... taking the total dividend for the year to Rs. 41 per share",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Lifestyle Nutrition turned around with double-digit growth in the quarter",
+     "target": "double-digit growth",
+     "quote": "It's quite pleasing to see the turnaround in Lifestyle Nutrition from a revenue perspective, even double-digits current quarter.",
+     "page": 16
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Beauty & Wellbeing grew USG at 8% (excluding Minimalist); underlying double-digit",
+     "target": "USG 8%",
+     "quote": "Our Beauty & Wellbeing business grew USG at 8%. Remember that the USG does not include at this moment Minimalist",
+     "page": 26
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "revenue growth",
+     "statement": "FY27 will be better than FY26, retaining full-year guidance",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we remain confident that FY '27 will be better than FY'26",
+     "page": 8
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin to remain around the current guided range despite commodity and currency pressure",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we, therefore, expect EBITDA Margin to remain around the current guided range",
+     "page": 8
+    },
+    {
+     "metric": "volume",
+     "statement": "Demand expected to remain stable going into the quarter; no quarter-level guidance",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Priya Nair",
+     "quote": "overall, we see demand continuing to be stable going into the quarter",
+     "page": 11
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Even with measured pricing below inflation, EBITDA will be delivered around the guided range",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "we'll be able to deliver EBITDA around the guided range",
+     "page": 12
+    },
+    {
+     "metric": "volume",
+     "statement": "No meaningful impact on growth if monsoon deficit stays between 15-20%",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Niranjan Gupta",
+     "quote": "as long as the deficit remains between 15% to 20%, we do not see any meaningful impact",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Strategy to be shared at Capital Markets Day in September",
+     "target": "directional",
+     "horizon": "September 2026",
+     "speaker": "Priya Nair",
+     "quote": "I really look forward to sharing more of our strategy at our Capital Markets Day in September",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Full year FY27 USG will be better than full year FY26",
+     "target": "FY27 > FY26",
+     "horizon": "FY27",
+     "speaker": "Priya Nair",
+     "quote": "we will keep guiding for the way we have guided, which is full year '27 will be better than full year '26",
+     "page": 16
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Can maintain EBITDA margins within guided range with measured pricing if crude stays in $75-100/bbl range",
+     "target": "within guided range",
+     "horizon": "near term",
+     "speaker": "Niranjan Gupta",
+     "quote": "when we see that kind of economics, which are operating anywhere between $75, $80 to $100, within that, all of that ranges, it's feasible for us to maintain the EBITDA Margins",
+     "page": 22
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Will manage EBITDA margins via pricing and P&L flex with commodities elevated",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Niranjan Gupta",
+     "quote": "we do see the commodities remaining a bit elevated, and we will take measured steps on the pricing. And with that, we should be able to manage the EBITDA Margins",
+     "page": 22
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Will roll out a spate of innovations to keep driving the wellness category (OZiva); growth not expected to be linear",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "We remain extremely bullish on the opportunity in wellness, and we will roll out a spate of innovations as we go forward to keep driving the wellness category",
+     "page": 15
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Quick commerce growth seen continuing; channel structurally attractive, focus on availability, assortment, price-pack architecture",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Niranjan Gupta",
+     "quote": "moving forward, also we see opportunities as far as Q-com is concerned... the channel remains fast growing. It is structurally attractive",
+     "page": 19
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Soaps: will continue to drive volumes sequentially, premiumize via Dove and Pears, and grow Bodywash",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Priya Nair",
+     "quote": "Our focus is to continue to drive sequentially our volumes, continue to premiumize our business through Dove and Pears",
+     "page": 21
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Turnover INR 17,184 crores with USG of 10%, highest growth in 13 quarters",
+     "value": "USG 10%, turnover INR 17,184 crores",
+     "quote": "Turnover for the quarter stood at INR 17,184 crores, with an Underlying Sales Growth of 10%",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "UVG of 5%, growth driven equally by volume and price",
+     "value": "UVG 5%",
+     "quote": "revenue growth of 10%, underpinned by UVG of 5%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA margin 23%, within guided range; absolute EBITDA up 8% to INR 3,947 crores",
+     "value": "EBITDA margin 23%, EBITDA INR 3,947 crores (+8%)",
+     "quote": "delivering EBITDA Margin of 23%, which was within the guided range",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT before exceptionals grew 9% to INR 2,731 crores; reported PAT INR 2,680 crores, down 2%",
+     "value": "PAT (bei) INR 2,731 crores (+9%); reported PAT INR 2,680 crores (-2%)",
+     "quote": "Profit After Tax before exceptional items grew 9% year-on-year to INR 2,731 crores",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "A&P spend INR 1,657 crores, highest in 11 quarters",
+     "value": "A&P INR 1,657 crores",
+     "quote": "we stepped our A&P spends up sequentially to INR1,657 crores, the highest in 11 quarters",
+     "page": 4
+    },
+    {
+     "metric": "market share",
+     "statement": "Continued to gain turnover-weighted market share",
+     "value": "gaining turnover-weighted market share",
+     "quote": "this growth is competitive as we continue to gain turnover weighted market share",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home Care delivered 14% USG with high-single digit UVG, strongest in 3 years",
+     "value": "Home Care +14% USG",
+     "quote": "Home Care delivered 14% USG, driven by high-single digit UVG",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Beauty & Wellbeing delivered 12% USG with high-single digit UVG",
+     "value": "Beauty & Wellbeing +12% USG",
+     "quote": "the segment delivering 12% USG, driven by high-single digit UVG",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Personal Care delivered 4% USG; Foods delivered 7% USG with mid-single digit UVG",
+     "value": "Personal Care +4% USG; Foods +7% USG",
+     "quote": "The segment delivered 4% USG for the quarter, driven by price increases",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Boost crossed INR 1,000 crore annual turnover milestone",
+     "value": "Boost > INR 1,000 crore annual turnover",
+     "quote": "Boost crossed the INR 1,000 crore annual turnover milestone",
+     "page": 7
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Double-digit USG growth with volumes, continued step-up over last few quarters",
+     "value": "double-digit USG growth",
+     "quote": "it's been a double-digit growth with a continued step-up over the last few quarters",
+     "page": 25
+    },
+    {
+     "metric": "PAT",
+     "statement": "Underlying PAT adjusted for last year's one-off credit grew 11%",
+     "value": "underlying PAT +11%",
+     "quote": "our underlying Profit After Tax adjusted for the one-off credit of last year grew by 11%",
+     "page": 25
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Credibility is high: management's H2 FY26 recovery call, Ice Cream demerger timeline, and 22.5-23.5% margin guidance were all met through FY26. Only blemish is Q2 FY27 EBITDA margin of 22.4% (actuals), marginally below the guided band; FY27 growth promises remain unproven but are tracking well.",
+  "score": "high",
+  "rows": [
+   {
+    "call": "Q2 FY26 (Oct 2025)",
+    "promise": "H2 FY26 growth better than H1 (H1 USG 3%)",
+    "delivered": "Q3 FY26 USG 5%, Q4 FY26 USG 7% — clear sequential acceleration (Q3 call p7; Q4 call p3)",
+    "status": "delivered",
+    "cite": "Q2 call p11; Q3 FY26 call p7; Q4 FY26 call p3"
+   },
+   {
+    "call": "Q2 FY26 (Oct 2025)",
+    "promise": "Ice Cream demerger complete by December; listing in Q4 FY26",
+    "delivered": "Demerger one-off in Q3 FY26 PAT; KWIL listed 16 Feb 2026 (Q4 FY26), as announced on Q3 call",
+    "status": "delivered",
+    "cite": "Q2 call p10; Q3 FY26 call p3, p12"
+   },
+   {
+    "call": "Q2 FY26 (Oct 2025)",
+    "promise": "Normal trading from early November; gradual sustained market recovery",
+    "delivered": "Q3 FY26: revenue +6%, USG 5%, UVG 4% — highest UVG in 12 quarters",
+    "status": "delivered",
+    "cite": "Q2 call p11; Q3 FY26 call p7, p14"
+   },
+   {
+    "call": "Q2 FY26 (Oct 2025)",
+    "promise": "EBITDA margin 22-23%, plus 50-60 bps from demerger (implied 22.5-23.5%)",
+    "delivered": "Q3 FY26 23.3% and Q4 FY26 23.7% reported, both within/above implied band; actuals 23.1%/23.5%",
+    "status": "delivered",
+    "cite": "Q2 call p11; Q3 FY26 call p8; Q4 FY26 call p3; quarterly_actuals"
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "FY27 growth better than FY26 (FY26 USG 5%)",
+    "delivered": "FY27 incomplete; tracking well — Q1 FY27 USG 10% (13-quarter high), Q2 FY27 revenue +12.2% YoY",
+    "status": "too early",
+    "cite": "Q3 call p12, p20; Q1 FY27 call p3; quarterly_actuals Sep-2026"
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "Consolidated EBITDA margin to stay around guided range (22.5-23.5%)",
+    "delivered": "Q1 FY27 23% reported (22.8% actuals); Q2 FY27 actuals 22.4% — marginally below band",
+    "status": "partly",
+    "cite": "Q3 call p12, p24; Q1 FY27 call p5; quarterly_actuals Jun/Sep-2026"
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "Acquire remaining 49% of OZiva (Rs 824 cr); divest Nutritiona stake (Rs 307 cr)",
+    "delivered": "Q4 FY26 reported PAT +20% YoY includes divestment proceeds and OZiva fair valuation impact",
+    "status": "delivered",
+    "cite": "Q3 call p12; Q4 FY26 call p9"
+   },
+   {
+    "call": "Q4 FY26 (May 2026)",
+    "promise": "Calibrated June-quarter price hikes in Fabric Wash/Household Care; some volume-price rebalancing",
+    "delivered": "Q1 FY27: USG 10% with UVG 5%; Home Care +14% USG, Personal Care +4% price-led — volumes held",
+    "status": "delivered",
+    "cite": "Q4 call p10; Q1 FY27 call p3, p6-7"
+   },
+   {
+    "call": "Q1 FY27 (Aug 2026)",
+    "promise": "Demand to remain stable going into the quarter; FY27 USG better than FY26",
+    "delivered": "Q2 FY27 revenue +12.2% YoY, EBITDA Rs 4,089 cr (actuals) — demand better than stable; full-year open",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p11, p16; quarterly_actuals Sep-2026"
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Scale and mix: 50 brands, 9M+ outlets, 90% household reach; Home Care ₹23,672 Cr anchors ₹63,763 Cr FY26 turnover.",
+    "cite": "annual-report-2026 p6-7"
+   },
+   {
+    "point": "Profit engine: FY26 EBITDA margin 23.6%, PAT ₹10,652 Cr, ROCE 110.9%, operating cash flow ₹15,839 Cr funding ₹41 dividend.",
+    "cite": "annual-report-2026 p13-14, p44"
+   },
+   {
+    "point": "Momentum/credibility: H2 FY26 recovery delivered; Q2 FY27 revenue +12.2% YoY after Q1 USG 10%, with guidance largely met.",
+    "cite": "promised_vs_delivered; quarterly_actuals 2026-09-30"
+   }
+  ],
+  "bear": [
+   {
+    "point": "Margin slippage: Q2 FY27 EBITDA margin 22.4% actual, below 22.5-23.5% guided band; Q1 was 22.8%.",
+    "cite": "quarterly_actuals Jun/Sep-2026; promised_vs_delivered"
+   },
+   {
+    "point": "PAT quality uneven: Dec-2025 PAT ₹6,607 Cr (+121%) coincided with demerger one-off; Sep-2026 PAT grew only 3.9% despite +12.2% revenue.",
+    "cite": "quarterly_actuals Dec-2025/Sep-2026; promised_vs_delivered"
+   },
+   {
+    "point": "Growth was modest before FY27: FY26 USG 5%; four quarters to Mar-2025 revenue stayed ₹15.7-15.9k Cr as margins eased 23.8%→23.1%.",
+    "cite": "annual-report-2026 p13; quarterly_actuals 2024-06 to 2025-03"
+   }
+  ],
+  "watch": [
+   "Whether Q3 FY27 EBITDA margin returns to the 22.5-23.5% band after Q2's 22.4%.",
+   "If revenue growth stays double-digit with healthy UVG/USG balance after Q1 USG 10% and Q2 revenue +12.2%.",
+   "One-off/demerger effects washing out of PAT and any update on the FY27 'better than FY26' growth promise."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-02-concall.md",
+   "transcripts/2025-10-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ }
+}

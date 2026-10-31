@@ -1,0 +1,337 @@
+{
+ "symbol": "ITC",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "ITC Limited is a public limited company domiciled in India, listed on the NSE and BSE, and is a diversified conglomerate. Its businesses span Fast-Moving Consumer Goods (Cigarettes & Cigars, Foods, Personal Care Products, Education & Stationery Products, Safety Matches and Agarbattis), Paperboards, Paper and Packaging, and Agri Business.",
+  "segments": [
+   {
+    "name": "FMCG (Cigarettes & Cigars, Foods, Personal Care Products, Education & Stationery Products, Safety Matches and Agarbattis)",
+    "share": "not stated",
+    "note": "Listed as a business line in the company information note"
+   },
+   {
+    "name": "Paperboards, Paper and Packaging",
+    "share": "not stated",
+    "note": "Listed as a business line in the company information note"
+   },
+   {
+    "name": "Agri Business",
+    "share": "not stated",
+    "note": "Listed as a business line in the company information note"
+   }
+  ],
+  "geographies": "Registered office in Kolkata, India; shares listed on NSE and BSE. No further geographic breakdown is stated in the provided pages.",
+  "key_facts": [
+   "Standalone profit before tax from continuing operations of ₹26,767.60 crores for FY2026 (p162)",
+   "Consolidated profit before tax from continuing operations of ₹28,033.39 crores for FY2026 (p258)",
+   "Consolidated net cash from operating activities of ₹18,464.31 crores for FY2026 (p258)",
+   "Hotels business was demerged via a Scheme of Demerger in FY2025, with a gain on fair valuation of net assets of ₹15,583.12 crores (consolidated) (p258)",
+   "Consolidated capex (purchase of PP&E, intangibles, ROU assets) of ₹2,182.89 crores in FY2026 (p258)"
+  ],
+  "pages": [
+   10,
+   11,
+   162,
+   164,
+   258,
+   232
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 19446.49,
+   "ebitda": 6622.73,
+   "ebit": 6161.29,
+   "pbt": 6833.97,
+   "pat": 5120.55,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 34.1,
+   "op_margin": 31.7
+  },
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 20029.6,
+   "ebitda": 6740.79,
+   "ebit": 6242.22,
+   "pbt": 6930.43,
+   "pat": 5091.59,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 33.7,
+   "op_margin": 31.2
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 22281.89,
+   "ebitda": 6753.67,
+   "ebit": 6233.3,
+   "pbt": 6839.84,
+   "pat": 4992.87,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 30.3,
+   "op_margin": 28.0
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 20349.96,
+   "ebitda": 6357.8,
+   "ebit": 5941.82,
+   "pbt": 6531.96,
+   "pat": 4934.8,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 31.2,
+   "op_margin": 29.2
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 20376.36,
+   "ebitda": 6420.98,
+   "ebit": 6009.95,
+   "pbt": 6737.71,
+   "pat": 19727.37,
+   "is_bank": false,
+   "revenue_yoy": 4.8,
+   "pat_yoy": 285.3,
+   "margin": 31.5,
+   "op_margin": 29.5
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 23129.35,
+   "ebitda": 6747.71,
+   "ebit": 6324.75,
+   "pbt": 7059.25,
+   "pat": 5244.2,
+   "is_bank": false,
+   "revenue_yoy": 15.5,
+   "pat_yoy": 3.0,
+   "margin": 29.2,
+   "op_margin": 27.3
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 21255.86,
+   "ebitda": 6628.33,
+   "ebit": 6193.53,
+   "pbt": 6912.32,
+   "pat": 5126.11,
+   "is_bank": false,
+   "revenue_yoy": -4.6,
+   "pat_yoy": 2.7,
+   "margin": 31.2,
+   "op_margin": 29.1
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 21706.64,
+   "ebitda": 6780.13,
+   "ebit": 6349.31,
+   "pbt": 6651.69,
+   "pat": 4931.19,
+   "is_bank": false,
+   "revenue_yoy": 6.7,
+   "pat_yoy": -0.1,
+   "margin": 31.2,
+   "op_margin": 29.3
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 23821.48,
+   "ebitda": 6784.66,
+   "ebit": 6362.71,
+   "pbt": 7033.05,
+   "pat": 5387.97,
+   "is_bank": false,
+   "revenue_yoy": 16.9,
+   "pat_yoy": -72.7,
+   "margin": 28.5,
+   "op_margin": 26.7
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 29523.3,
+   "ebitda": 5094.95,
+   "ebit": 4667.22,
+   "pbt": 5774.94,
+   "pat": 4394.13,
+   "is_bank": false,
+   "revenue_yoy": 27.6,
+   "pat_yoy": -16.2,
+   "margin": 17.3,
+   "op_margin": 15.8
+  }
+ ],
+ "guidance": [],
+ "promised_vs_delivered": {},
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "FY2026 continuing operations remained highly profitable: consolidated PBT ₹28,033.39cr and standalone PBT ₹26,767.60cr.",
+    "cite": "annual-reports/annual-report-2026.md p258, p162",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "FY2026 operating cash flow ₹18,464.31cr covered capex ₹2,182.89cr about 8.5x, indicating strong internal funding capacity.",
+    "cite": "annual-reports/annual-report-2026.md p258",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Revenue momentum is strong: quarter ended 2026-06-30 revenue ₹29,523.30cr, +27.6% YoY, after 2026-03-31 ₹23,821.48cr, +16.9% YoY.",
+    "cite": "quarterly_actuals 2026-06-30; 2026-03-31",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Latest quarter shows severe compression: EBITDA margin 17.3% versus 29.2%, op margin 15.8% versus 27.3%; PAT fell 16.2% despite revenue +27.6%.",
+    "cite": "quarterly_actuals 2026-06-30 vs 2025-06-30",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Reported PAT is noisy: FY2025 included ₹15,583.12cr demerger gain; 2025-03-31 PAT ₹19,727.37cr was followed by 2026-03-31 PAT -72.7% YoY.",
+    "cite": "annual-reports/annual-report-2026.md p258; quarterly_actuals 2025-03-31/2026-03-31",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Segment revenue shares and geographic breakdown are not stated, so concentration across cigarettes, foods, paperboards and agri cannot be quantified from the dossier.",
+    "cite": "annual-reports/annual-report-2026.md p10-11",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Whether EBITDA/op margins recover from 17.3%/15.8% toward prior 29-31% levels.",
+   "Whether revenue growth above 20% sustains while PAT stops declining.",
+   "Any disclosure of segment shares, geographic mix, or demerger-adjusted comparables."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 26,
+  "found": 26
+ }
+}

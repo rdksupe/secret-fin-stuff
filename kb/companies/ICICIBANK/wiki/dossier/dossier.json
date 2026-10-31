@@ -1,0 +1,1091 @@
+{
+ "symbol": "ICICIBANK",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "ICICI Bank Limited is a banking company whose fiscal 2026 annual report describes a bank offering retail banking, business banking, corporate banking and treasury services through branches, digital platforms (iMobile, InstaBIZ, DigiEase, Retail Net Banking) and a network of 7,511 business centres. Through subsidiaries and associates it also has life insurance, general insurance, securities, home finance, asset management and other financial services businesses, consolidated in its group results.",
+  "segments": [
+   {
+    "name": "Retail banking",
+    "share": "not stated (segment revenue `1,623,942.0 million of total `3,121,183.6 million in FY2026)",
+    "note": "Includes retail exposures per RBI guidelines plus credit/debit card income and third-party product distribution (p434)"
+   },
+   {
+    "name": "Wholesale banking",
+    "share": "not stated (segment revenue `878,472.8 million)",
+    "note": "Advances to trusts, partnership firms, companies and statutory bodies not included under retail banking (p434)"
+   },
+   {
+    "name": "Treasury",
+    "share": "not stated (segment revenue `1,384,303.6 million)",
+    "note": "Entire investment and derivative portfolio of the Bank (p434)"
+   },
+   {
+    "name": "Other banking business",
+    "share": "not stated (segment revenue `75,167.3 million)",
+    "note": "Leasing operations and banking subsidiaries ICICI Bank UK PLC and ICICI Bank Canada (p434)"
+   },
+   {
+    "name": "Life insurance",
+    "share": "not stated (segment revenue `654,720.5 million)",
+    "note": "Results of ICICI Prudential Life Insurance Company Limited (p434)"
+   },
+   {
+    "name": "General insurance",
+    "share": "not stated (segment revenue `288,906.1 million)",
+    "note": "Results of ICICI Lombard General Insurance Company Limited (p434)"
+   },
+   {
+    "name": "Others",
+    "share": "not stated (segment revenue `199,701.3 million)",
+    "note": "Includes ICICI Home Finance, ICICI Securities, ICICI Prudential Asset Management, ICICI Pension Fund Management and others (p434)"
+   }
+  ],
+  "geographies": "Primarily India, with overseas operations including ICICI Bank UK PLC, ICICI Bank Canada, ICICI Securities Inc. (Singapore) and overseas coverage of India-linked business; loan mix at March 2026 includes an Overseas bucket of `2,679.81 billion (p105, p117, p339).",
+  "key_facts": [
+   "Profit after tax (standalone) of `501.47 billion in fiscal 2026, up 6.2% (p103, p165)",
+   "Total deposits of `17,946.25 billion, up 11.4% year-on-year (p103, p115)",
+   "Loans and advances of `15,538.93 billion, up 15.8% year-on-year (p103, p115)",
+   "Net interest margin of 4.32% in fiscal 2026 (p103, p106)",
+   "Capital adequacy ratio of 17.18% and branch network of 7,511 (528 added during fiscal 2026), of which 3,648 in rural and semi-urban areas (p103)"
+  ],
+  "pages": [
+   103,
+   105,
+   106,
+   115,
+   116,
+   117,
+   165,
+   339,
+   391,
+   434,
+   435,
+   436
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 23460.03,
+   "ebitda": 18077.28,
+   "ebit": null,
+   "pbt": 16761.39,
+   "pat": 11695.84,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 24100.48,
+   "ebitda": 19878.34,
+   "ebit": null,
+   "pbt": 18496.46,
+   "pat": 12947.77,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 24403.71,
+   "ebitda": 19750.88,
+   "ebit": null,
+   "pbt": 18483.02,
+   "pat": 12883.37,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 25339.6,
+   "ebitda": 20052.81,
+   "ebit": null,
+   "pbt": 19112.68,
+   "pat": 13502.22,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 25989.9,
+   "ebitda": 21316.81,
+   "ebit": null,
+   "pbt": 19494.48,
+   "pat": 13557.6,
+   "is_bank": true,
+   "revenue_yoy": 10.8,
+   "pat_yoy": 15.9,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 26163.52,
+   "ebitda": 19973.89,
+   "ebit": null,
+   "pbt": 19064.58,
+   "pat": 13357.06,
+   "is_bank": true,
+   "revenue_yoy": 8.6,
+   "pat_yoy": 3.2,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 26489.52,
+   "ebitda": 20400.58,
+   "ebit": null,
+   "pbt": 17754.06,
+   "pat": 12537.98,
+   "is_bank": true,
+   "revenue_yoy": 8.5,
+   "pat_yoy": -2.7,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 27546.94,
+   "ebitda": 21004.88,
+   "ebit": null,
+   "pbt": 20744.21,
+   "pat": 14755.06,
+   "is_bank": true,
+   "revenue_yoy": 8.7,
+   "pat_yoy": 9.3,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 29177.13,
+   "ebitda": 22604.33,
+   "ebit": null,
+   "pbt": 21307.13,
+   "pat": 15440.06,
+   "is_bank": true,
+   "revenue_yoy": 12.3,
+   "pat_yoy": 13.9,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 30335.64,
+   "ebitda": 24009.97,
+   "ebit": null,
+   "pbt": 23114.76,
+   "pat": 16333.18,
+   "is_bank": true,
+   "revenue_yoy": 15.9,
+   "pat_yoy": 22.3,
+   "margin": null,
+   "op_margin": null
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q3 FY26 (quarter ended December 31, 2025)",
+   "items": [
+    {
+     "metric": "EBITDA margin",
+     "statement": "NIMs expected to remain more or less range bound, reflecting repricing of external benchmarks and competition, offset by retail term repricing",
+     "target": "directional",
+     "horizon": "going forward / near term",
+     "speaker": "Sandeep Batra",
+     "quote": "Looking ahead, we do expect NIMs to remain more or less range bound, reflecting the repricing of the external benchmarks on loans and investments",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "No specific loan growth targets; focus on maximizing PBT in a risk-calibrated fashion",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sandeep Batra",
+     "quote": "we do not give any specific targets of what we are going to be growing. Our focus is to maximize PBT in a risk calibrated fashion",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Bank will work to bring the agriculture PSL portfolio into conformity with regulatory expectations and minimise provisioning impact; provisions may be written back if cured",
+     "target": "directional",
+     "horizon": "until loans repaid or renewed",
+     "speaker": "Sandeep Batra",
+     "quote": "we will work towards repayment and renewal of these loans to make them in conformity with PSL classifications, and our endeavour... is to minimise the impact",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "ECL provisioning will be complied with when regulations come into place; currently an internal assessment",
+     "target": "directional",
+     "horizon": "future",
+     "speaker": "Sandeep Batra",
+     "quote": "ECL is still an internal assessment. Whenever the regulations come into place, we will be compliant with that.",
+     "page": 7
+    },
+    {
+     "metric": "PAT",
+     "statement": "Once the impact of repo rate cuts settles in, profit growth should return to better levels",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Batra",
+     "quote": "Once this settles in, we should be back to a better growth of profits",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "ROA reported at 2.11% for Q3-2026; adjusting for the one-off provision it would be about 2.29% for 9M-2026",
+     "target": "2.11% Q3-2026; ~2.29% 9M-2026",
+     "horizon": "Q3-2026 / 9M-2026",
+     "speaker": "Sandeep Batra",
+     "quote": "Even after adjusting for this, we are going to report 2.11% ROA, in Q3-2026. Taking this one-off, it will move to about 2.29% in 9M-2026",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "No major incremental provisions expected on the agri-PSL book going forward; additional provisions continue until loans are repaid or renewed in conformity with PSL guidelines",
+     "target": "directional",
+     "horizon": "going forward",
+     "speaker": "Sandeep Batra",
+     "quote": "Based on our current assessments, we do not see any major incremental provisions going forward",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "Bank will continue to meet PSL requirements and pursue rural lending opportunities",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sandeep Batra",
+     "quote": "We will continue to work to meeting our PSL requirements and wherever there is a need, and in fact, the rural economy is doing well, and if opportunity is there, we will continue to pursue them",
+     "page": 18
+    },
+    {
+     "metric": "capex",
+     "statement": "Current capital adequacy is sufficient to support further loan growth; no need to raise capital",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sandeep Batra",
+     "quote": "No, this is very much adequate... we are at a total capital adequacy of 17.3%, which is very comfortable",
+     "page": 20
+    },
+    {
+     "metric": "other",
+     "statement": "Bank will continue to invest in ICICI Home Finance and support it with capital as needed",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sandeep Batra",
+     "quote": "We are happy… this, we will continue to invest in this business. So, that is fine. Whenever they will need capital, we will be happy to support them",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Pension fund business acquisition expected to synergize with banking customers in the coming quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sandeep Batra",
+     "quote": "it is essentially about synergizing with the banking set of customers and which we hope to achieve in the coming quarter",
+     "page": 20
+    },
+    {
+     "metric": "other",
+     "statement": "Will work to bring the non-conforming PSL portfolio (Rs 200-250 billion) into conformity with regulatory expectations to minimize provisioning and PSL impact",
+     "target": "Rs 200-250 billion portfolio",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "we will be working to bring this portfolio into conformity with the regulatory expectations and thereby minimize both the provisioning and the PSL impact",
+     "page": 32
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Net interest income grew 7.7% YoY to ₹21,932 crore in Q3-2026",
+     "target": "NII ₹21,932 crore, +7.7% YoY",
+     "quote": "Net interest income increased by 7.7% year-on-year to ₹21,932 crore in Q3-2026",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Net interest margin was 4.30% in Q3-2026, same as Q2-2026",
+     "target": "NIM 4.30%",
+     "quote": "Net interest margin was 4.30% in Q3-2026 compared to 4.30% in Q2-2026",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Fee income grew 6.3% YoY to ₹6,572 crore",
+     "target": "₹6,572 crore, +6.3% YoY",
+     "quote": "Fee income grew by 6.3% year-on-year to ₹6,572 crore in Q3-2026",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Core operating profit grew 6.0% YoY to ₹17,513 crore",
+     "target": "₹17,513 crore, +6.0% YoY",
+     "quote": "Core operating profit grew by 6.0% year-on-year to ₹17,513 crore in Q3-2026",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Profit after tax was ₹11,318 crore; ex-additional provision PAT would have been ₹12,280 crore, +4.1% YoY",
+     "target": "PAT ₹11,318 crore",
+     "quote": "Profit after tax was ₹11,318 crore in Q3-2026",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Provisions (ex-tax) were ₹2,556 crore including ₹1,283 crore RBI-directed standard asset provision on agriculture PSL portfolio",
+     "target": "₹2,556 crore (₹1,273 crore ex-additional provision)",
+     "quote": "Provisions (excluding provision for tax) were ₹2,556 crore in Q3-2026",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Average deposits grew 8.7% YoY; period-end deposits grew 9.2% YoY to ₹16,59,611 crore",
+     "target": "average deposits +8.7% YoY; period-end +9.2% YoY",
+     "quote": "Average deposits increased by 8.7% year-on-year to ₹15,86,088 crore during Q3-2026",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Domestic loan portfolio grew 11.5% YoY; retail +7.2%, business banking +22.8%, domestic corporate +5.6%",
+     "target": "domestic loans +11.5% YoY",
+     "quote": "The domestic loan portfolio grew by 11.5% year-on-year at December 31, 2025",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Net NPA ratio 0.37%; gross NPA additions ₹5,356 crore; PCR 75.4%",
+     "target": "net NPA 0.37%; gross additions ₹5,356 crore; PCR 75.4%",
+     "quote": "Net NPA ratio was 0.37% at December 31, 2025 compared to 0.39% at September 30, 2025",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Treasury loss of ₹157 crore in the quarter vs gain of about ₹220 crore in Q2, primarily mark-to-market movements",
+     "target": "treasury loss ₹157 crore",
+     "quote": "the treasury loss of ₹157 crore against a gain of about ₹220 crore in the Q2 of current year is primarily reflecting the mark-to-market movements",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Core operating profit grew 6.0% YoY to ₹175.13 billion",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Batra",
+     "quote": "The core operating profit increased by 6.0% year-on-year and 2.5% quarter-on-quarter to 175.13 billion Rupees in this quarter",
+     "page": 23
+    },
+    {
+     "metric": "PAT",
+     "statement": "Standalone PAT of ₹113.18 billion vs ₹117.92 billion in Q3 last year",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Batra",
+     "quote": "The profit after tax was 113.18 billion Rupees in this quarter compared to 117.92 billion Rupees in Q3 of last year",
+     "page": 24
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q1 FY2027",
+   "items": [
+    {
+     "metric": "volume",
+     "statement": "Loan growth momentum expected to continue; bank participating in system-wide pickup",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Anindya Banerjee",
+     "quote": "We are sort of participating in that, and we will keep looking at opportunities as they come. And the momentum continues to be pretty good as far as we can see it.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "No FCNR(B) mobilization target; will mobilize as much as possible; will play out over next 8-10 weeks",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Anindya Banerjee",
+     "quote": "we don't really have any target or so on that we put out... it is very early days yet. This is something that will really play out over the next maybe 8-10 weeks or so.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "FCNR(B) all-in cost after hedging around 6.30-6.40%, competitive vs wholesale rates",
+     "target": "6.30-6.40%",
+     "horizon": "near term",
+     "speaker": "Anindya Banerjee",
+     "quote": "If you look at kind of the all-in cost after hedging the coupon, etc., it will be somewhere maybe 6.30-6.40%, which is, of course, lower than wholesale rates",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Agri PSL provision write-back timing not committed; remediation and validation process ongoing, hopefully over next few months",
+     "target": "directional",
+     "horizon": "next few months",
+     "speaker": "Anindya Banerjee",
+     "quote": "We are in the process and will hopefully work it out over the next few months, but I don't want to give a timeline.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Fee income growth partly base effect; will continue to focus on fee income going forward",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "We would continue to focus on the fee income line item as we go forward.",
+     "page": 14
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "NIM expected to remain range bound assuming no policy rate movements, though FCNR mobilization could have some impact",
+     "target": "range bound",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "Based on current conditions and assuming no policy rate movements, I would say it should be range bound... there could be some impact on margins",
+     "page": 14
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FCNR program could impact NIM as international book expands materially, but positive for earnings",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "the best guess we have now is that there could be some impact on the NIM... But from an earnings perspective, it is quite positive.",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Normalized credit cost around 50 bps adjusting for chunky recoveries",
+     "target": "~50 bps",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "a more normalised level, adjusting for chunky recoveries would be around 50 bps, and that is where it stays.",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "ECL transition: no impact on net worth; impact well absorbed by provisioning buffers; Stage 2 provisioning to raise provisions partly offset by lower Stage 3 provisions",
+     "target": "directional",
+     "horizon": "next year",
+     "speaker": "Anindya Banerjee",
+     "quote": "whatever impact is there will be well absorbed by our provisioning buffers... That will result in higher provisions, which will be partly offset by lower provisions on the Stage 3",
+     "page": 16
+    },
+    {
+     "metric": "volume",
+     "statement": "Average loan growth year-on-year will be somewhat lower than the 19.6% reported, with some base effect but strong incremental momentum",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Anindya Banerjee",
+     "quote": "Average loan growth on a year-on-year basis will be somewhat lower... but incremental momentum continues to be pretty strong.",
+     "page": 18
+    },
+    {
+     "metric": "volume",
+     "statement": "Management declined to give an outlook on whether the 4% sequential personal loan growth run-rate is sustainable; will take it as it comes",
+     "target": "directional",
+     "horizon": "next 12-15 months",
+     "speaker": "Anindya Banerjee",
+     "quote": "I don't want to really give an outlook per se... I don't see anything today that will reduce growth, but we will take it as it comes.",
+     "page": 22
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Cards book growth impacted by lower revolver rates; bank will look to optimize this going forward",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anindya Banerjee",
+     "quote": "Cards, the revolver rates are lower. So that is impacting the book growth. But we'll see how to optimize that as we go along.",
+     "page": 21
+    }
+   ],
+   "reported": [
+    {
+     "metric": "PAT",
+     "value": "PAT +15.9% YoY to Rs 148.05 billion",
+     "quote": "The profit after tax grew by 15.9% year-on-year to 148.05 billion Rupees in this quarter.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "PBT ex-treasury +20.9% YoY to Rs 189.75 billion; core operating profit +15.6% YoY to Rs 202.35 billion",
+     "quote": "The profit before tax excluding treasury grew by 20.9% year-on-year to 189.75 billion Rupees in this quarter.",
+     "page": 2
+    },
+    {
+     "metric": "volume",
+     "value": "Total deposits +14.0% YoY, +2.2% QoQ",
+     "quote": "Total deposits grew by 14.0% year-on-year and 2.2% sequentially at June 30, 2026.",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "value": "Loan portfolio +19.6% YoY, +5.0% QoQ; domestic loans +18.8% YoY",
+     "quote": "The overall loan portfolio including the international branches portfolio grew by 19.6% year-on-year and 5.0% sequentially at June 30, 2026.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "Net NPA ratio 0.35%; provisioning coverage ratio 74.7%",
+     "quote": "The net NPA ratio was 0.35% at June 30, 2026 compared to 0.33% at March 31, 2026",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "NIM 4.36% (4.28% ex tax refund benefit)",
+     "quote": "The net interest margin was 4.36% in this quarter compared to 4.32% in the previous quarter and 4.34% in Q1 of last year.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "value": "NII +12.7% YoY to Rs 243.84 billion; fee income +23.5% YoY to Rs 72.86 billion",
+     "quote": "Net interest income increased by 12.7% year-on-year and 6.1% sequentially to 243.84 billion Rupees in this quarter.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "value": "Total provisions Rs 12.60 billion (0.32% of average advances); credit cost reported 32 bps",
+     "quote": "The total provisions during the quarter were 12.60 billion Rupees or 6.2% of core operating profit and 0.32% of average advances",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "CET-1 ratio 16.19%; total capital adequacy 16.84%",
+     "quote": "CET-1 ratio of 16.19% and total capital adequacy ratio of 16.84% at June 30, 2026.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "Consolidated PAT +13.9% YoY to Rs 154.40 billion",
+     "quote": "The consolidated profit after tax grew by 13.9% year-on-year to 154.40 billion Rupees in this quarter.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Fee income increased about Rs. 5 billion sequentially (June quarter over March quarter)",
+     "value": "fee income +~Rs 5bn QoQ",
+     "quote": "If you look at it sequentially, the increase in the fee line June quarter over March quarter is about Rs. 5 billion or so.",
+     "page": 21
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Personal loan book grew 12% year-on-year and 4% sequentially",
+     "value": "PL +12% YoY, +4% QoQ",
+     "quote": "PL has picked up quite a bit actually, 12% year-on-year and 4% sequential growth.",
+     "page": 21
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  },
+  {
+   "call": "Q2 FY27 (quarter ended September 30, 2026)",
+   "items": [
+    {
+     "metric": "EBITDA margin (NIM)",
+     "statement": "Margins expected to start moving up after full FCNR impact reflects in Q3, even at current policy rates",
+     "target": "directional",
+     "horizon": "Q3 FY27 onwards",
+     "speaker": "Sandeep Batra",
+     "quote": "The full impact would largely get reflected in the third quarter, after which we expect the margins to start moving up, even based on the current level of policy rates.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Balance of FCNR(B) funds to be deployed over the next two quarters",
+     "target": "directional",
+     "horizon": "next two quarters",
+     "speaker": "Sandeep Batra",
+     "quote": "The other balance, we would deploy it over the next two quarters.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "IRDAI insurance distribution guideline changes expected to have minimal impact since third-party fee income is less than 1% of total income",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Batra",
+     "quote": "the third-party fee income is less than 1% of our total income. So, I think whatever changes happen will have minimal impact on the Bank.",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Credit card portfolio expected to see profitable growth in the upcoming festive season (Q3)",
+     "target": "directional",
+     "horizon": "Q3 FY27",
+     "speaker": "Sandeep Batra",
+     "quote": "we hope that in the upcoming festive season, Q3, we do expect to drive profitable growth across the segment.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Repo rates expected to rise to 6% with about two more hikes of 25 bps each",
+     "target": "up to 6%, two 25bps hikes",
+     "horizon": "FY27",
+     "speaker": "Sandeep Batra",
+     "quote": "We do expect that our repo rates can go up to 6%, but with probably another two hikes of 25 basis points each.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Agri portfolio provisioning writeback expected after RBI discussion, in the coming quarter or the next",
+     "target": "directional",
+     "horizon": "next one-two quarters",
+     "speaker": "Sandeep Batra",
+     "quote": "once we have a final discussion with the Reserve Bank of India, and if they are comfortable with the provisioning, we will reverse it... probably, that will happen in the coming quarter or the next.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "House view of two more repo rate hikes; repo-linked book reprices faster than deposits",
+     "target": "two more hikes",
+     "horizon": "FY27",
+     "speaker": "Sandeep Batra",
+     "quote": "Our house view is that there will probably be two more rate hikes... the repo-linked hikes happen much faster, which is followed by deposit rate hikes.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "No specific loan or deposit growth targets; will pursue risk-calibrated opportunities across retail, business banking and corporate",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sandeep Batra",
+     "quote": "We really do not have any particular target in terms of loan or deposit growth per se.",
+     "page": 5
+    },
+    {
+     "metric": "NIM",
+     "statement": "Expects marginal decline in NIM in the current quarter, then NIM to start increasing even at current policy rate levels",
+     "target": "directional",
+     "horizon": "next quarter / medium term",
+     "speaker": "Sandeep Batra",
+     "quote": "We do expect a marginal decline in NIM in the current quarter. But after that, we do expect NIM to start increasing even at the current policy rate levels.",
+     "page": 11
+    },
+    {
+     "metric": "NIM",
+     "statement": "Full impact of overseas assets and retail term deposit growth on margins will reflect in Q3, after which margins expected to move back up",
+     "target": "directional",
+     "horizon": "Q3 FY27 onwards",
+     "speaker": "Anindya Banerjee",
+     "quote": "the full impact would reflect in the third quarter, after which we expect the margins to start moving back up, even based on the current level of policy rates.",
+     "page": 27
+    },
+    {
+     "metric": "other",
+     "statement": "Normalized credit cost to advances would be about 50 basis points after adjusting for one-offs",
+     "target": "~50 bps",
+     "horizon": "Q2 FY27 (normalized)",
+     "speaker": "Anindya Banerjee",
+     "quote": "the normalized credit cost to advances would be about 50 basis points.",
+     "page": 27
+    },
+    {
+     "metric": "other",
+     "statement": "Expects moderation in FX volumes due to RBI's foreign exchange risk reserve measures; assessing full impact",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Sandeep Batra",
+     "quote": "Given these measures, we do expect moderation in volumes... we are assessing the full impact of these guidelines.",
+     "page": 15
+    }
+   ],
+   "reported": [
+    {
+     "metric": "NII",
+     "statement": "Net interest income grew 17.7% YoY to ₹25,339 crore",
+     "value": "₹25,339 crore, +17.7% YoY",
+     "quote": "Net interest income grew by 17.7% year-on-year to ₹25,339 crore in Q2-2027",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin (NIM)",
+     "statement": "NIM was 4.18% vs 4.36% in Q1 (4.28% ex tax refund)",
+     "value": "NIM 4.18%",
+     "quote": "Net interest margin was 4.18% in Q2-2027 compared to 4.36% in Q1-2027.",
+     "page": 3
+    },
+    {
+     "metric": "fee income",
+     "statement": "Fee income grew 20.1% YoY to ₹7,795 crore",
+     "value": "₹7,795 crore, +20.1% YoY",
+     "quote": "Fee income grew by 20.1% year-on-year to ₹7,795 crore in Q2-2027",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Profit after tax grew 20.1% YoY to ₹14,843 crore",
+     "value": "₹14,843 crore, +20.1% YoY",
+     "quote": "Profit after tax grew by 20.1% year-on-year to ₹14,843 crore in Q2-2027",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Core operating profit grew 21.8% YoY to ₹20,805 crore",
+     "value": "₹20,805 crore, +21.8% YoY",
+     "quote": "Core operating profit grew by 21.8% year-on-year to ₹20,805 crore in Q2-2027",
+     "page": 3
+    },
+    {
+     "metric": "deposit growth",
+     "statement": "Period-end deposits up 27.1% YoY, 11.8% QoQ; gross FCNR(B) mobilisation ~$18 billion",
+     "value": "deposits +27.1% YoY; FCNR(B) ~$18bn",
+     "quote": "Total period-end deposits increased by 27.1% year-on-year... mobilised gross FCNR (B) deposits of about $18 billion",
+     "page": 3
+    },
+    {
+     "metric": "loan growth",
+     "statement": "Total loan portfolio grew 30% YoY and 12.3% QoQ (24% YoY ex-FCNR leverage)",
+     "value": "+30% YoY, +12.3% QoQ",
+     "quote": "The total loan portfolio grew by 30% year-on-year and 12.3% quarter on-quarter at September 30, 2026",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Net NPA ratio 0.3%; provisioning coverage ratio 75%",
+     "value": "net NPA 0.3%; PCR 75%",
+     "quote": "Net NPA ratio was 0.3% at September 30, 2026... Provisioning coverage ratio on non-performing loans was 75%",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Gross NPA additions of ₹4,833 crore; net additions ₹1,213 crore; recoveries/upgrades ₹3,620 crore",
+     "value": "GNPA additions ₹4,833 crore; net additions ₹1,213 crore",
+     "quote": "Gross NPA additions were ₹4,833 crore in Q2-2027. Recoveries and upgrades of NPAs... were ₹3,620 crore",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "CET-1 ratio 16.01%, total capital adequacy 16.68%; standalone RoE 16.6%",
+     "value": "CET-1 16.01%; CAR 16.68%; RoE 16.6%",
+     "quote": "CET-1 ratio was 16.01%, and total capital adequacy ratio was 16.68% at September 30, 2026",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Profit after tax grew 20.1% YoY to ₹148.43 billion",
+     "target": "₹148.43 bn, +20.1% YoY",
+     "quote": "The profit after tax grew by 20.1% year-on-year to 148.43 billion Rupees in this quarter.",
+     "page": 21
+    },
+    {
+     "metric": "other",
+     "statement": "PBT excluding treasury grew 23.4% YoY to ₹199.54 billion",
+     "target": "₹199.54 bn, +23.4% YoY",
+     "quote": "The profit before tax excluding treasury grew by 23.4% year-on-year to 199.54 billion Rupees in this quarter.",
+     "page": 21
+    }
+   ],
+   "source": "transcripts/2026-10-23-transcript-b76291.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Credibility is high: near-term promises on NIM stability, profit recovery, credit costs and capital were met, with the Q1 FY27 NIM dip occurring under the FCNR caveat management itself flagged. The main open item is the agri-PSL provision write-back, which slipped from 'next few months' to 'coming quarter or next' and remains pending.",
+  "score": "high",
+  "rows": [
+   {
+    "call": "Q3 FY26 (Jan 2026)",
+    "promise": "NIMs to remain more or less range bound near term",
+    "delivered": "Q1 FY27 NIM 4.36% (4.28% ex tax refund) vs 4.30% in Q3 FY26; broadly stable",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p.8; Q3 FY26 reported p.3",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Jan 2026)",
+    "promise": "Profit growth should return to better levels once repo-cut impact settles",
+    "delivered": "PAT +15.9% YoY Q1 FY27, +20.1% Q2 FY27 (reported); filings show Q2 FY27 PAT +22.3% YoY",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.3; Q2 FY27 p.3; quarterly_actuals 2026-09-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Jan 2026)",
+    "promise": "No major incremental provisions on agri-PSL book going forward",
+    "delivered": "Q1 FY27 provisions Rs 12.6bn, credit cost 32bps; no new agri-PSL provision reported",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Jan 2026)",
+    "promise": "Capital adequacy (17.3%) sufficient; no need to raise capital",
+    "delivered": "CAR 16.84% Jun-26 and 16.68% Sep-26; no capital raise reported in later calls",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.4; Q2 FY27 p.3",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27 (Jul 2026)",
+    "promise": "NIM range bound assuming no rate moves; FCNR could have some impact",
+    "delivered": "Q2 FY27 NIM fell to 4.18% from 4.36%; decline tied to FCNR deployment as caveated",
+    "status": "partly",
+    "cite": "Q2 FY27 p.3, p.5",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27 (Jul 2026)",
+    "promise": "Loan growth momentum to continue through FY27",
+    "delivered": "Q2 FY27 loans +30% YoY, +12.3% QoQ (+24% YoY ex-FCNR leverage)",
+    "status": "delivered",
+    "cite": "Q2 FY27 p.3",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27 (Jul 2026)",
+    "promise": "Continued focus on fee income growth",
+    "delivered": "Q2 FY27 fee income +20.1% YoY to Rs 7,795 crore, after +23.5% in Q1",
+    "status": "delivered",
+    "cite": "Q2 FY27 p.3; Q1 FY27 p.7",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27 (Jul 2026)",
+    "promise": "Agri-PSL provision write-back hopefully over next few months, no timeline",
+    "delivered": "Not done by Q2 FY27; timeline pushed to 'coming quarter or the next' pending RBI discussion",
+    "status": "partly",
+    "cite": "Q2 FY27 p.9",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27 (Oct 2026)",
+    "promise": "NIM to start moving up after full FCNR impact reflects in Q3 FY27",
+    "delivered": "Q3 FY27 (Dec 2026) results not yet reported in material provided",
+    "status": "too early",
+    "cite": "Q2 FY27 p.5, p.27",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27 (Oct 2026)",
+    "promise": "Agri-PSL writeback in coming quarter or next; FCNR balance deployed over two quarters",
+    "delivered": "Promised periods (Q3-Q4 FY27) not yet reported in material provided",
+    "status": "too early",
+    "cite": "Q2 FY27 p.6, p.9",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Loan momentum strong: Q2 FY27 advances +30% YoY and +12.3% QoQ (+24% ex-FCNR), building on FY26 loan growth of 15.8% to Rs 15,538.93 billion.",
+    "cite": "transcripts/2026-10-concall p.3; annual-reports/annual-report-2026 p.103",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Profit accelerating: Q2 FY27 PAT +22.3% YoY to Rs 16,333 crore, NII +15.9%, fee income +20.1% to Rs 7,795 crore after +23.5% in Q1.",
+    "cite": "dossier/trajectory; transcripts/2026-10-concall p.3",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Guidance credibility rated high: promises on NIM stability, profit recovery, 32bps credit cost and no capital raise were all delivered.",
+    "cite": "guidance-ledger",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "NIM compressed to 4.18% in Q2 FY27 from 4.36% in Q1 on FCNR deployment; recovery is only a Q3 FY27 promise, not yet delivered.",
+    "cite": "transcripts/2026-10-concall p.3, p.5",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Agri-PSL provision write-back slipped from 'next few months' to 'coming quarter or next', still pending RBI discussion — the main open guidance item.",
+    "cite": "guidance-ledger; transcripts/2026-10-concall p.9",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "point": "Capital adequacy drifting down: 17.18% in FY26 to 16.84% (Jun-26) and 16.68% (Sep-26); earnings showed volatility with PAT -2.7% YoY in Dec-25 quarter.",
+    "cite": "annual-reports/annual-report-2026 p.103; transcripts/2026-10-concall p.3; dossier/trajectory",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3 FY27 NIM print: management promised an uptick once the full FCNR impact is reflected — test whether 4.18% was the trough.",
+   "Agri-PSL provision write-back landing in Q3/Q4 FY27 per the revised timeline, contingent on the RBI discussion.",
+   "Durability of ex-FCNR loan growth (+24% YoY vs +30% headline) and whether CAR stabilises after sliding to 16.68%."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-23-transcript-b76291.md",
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-01-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 51,
+  "found": 51
+ }
+}

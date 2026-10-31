@@ -1,0 +1,22 @@
+# DIXON Investor Presentation 2026-10-30 — structure
+
+Full text: [[presentations/2026-10-30-presentation-ba34c1]]
+
+- coverpage.pdf (p1–4) [[presentations/2026-10-30-presentation-ba34c1#page-1]]
+  - ANNEXURE-A (p3–4) [[presentations/2026-10-30-presentation-ba34c1#page-3]]
+- DTIL Results Q2 2026.pdf (p4–15) [[presentations/2026-10-30-presentation-ba34c1#page-4]]
+  - A. Cash flow from operating activities Profit before tax (p7) [[presentations/2026-10-30-presentation-ba34c1#page-7]]
+  - B. Cash flow from investing activities (p7–13) [[presentations/2026-10-30-presentation-ba34c1#page-7]]
+  - ASSETS (p13–15) [[presentations/2026-10-30-presentation-ba34c1#page-13]]
+    - B. Cash flow from investing activities (p14–15) [[presentations/2026-10-30-presentation-ba34c1#page-14]]
+- Earning Presentation Q2 & H1 FY26-27.pdf (p15–30) [[presentations/2026-10-30-presentation-ba34c1#page-15]]
+  - Q2 & H1 FY26-27 Earnings Presentation (p15–17) [[presentations/2026-10-30-presentation-ba34c1#page-15]]
+  - REVENUE* (p17–23) [[presentations/2026-10-30-presentation-ba34c1#page-17]]
+  - Mobile & Other EMS Division (p23–24) [[presentations/2026-10-30-presentation-ba34c1#page-23]]
+  - Consumer Electronics & Appliances (LED TV & Refrigerator) (p24–25) [[presentations/2026-10-30-presentation-ba34c1#page-24]]
+  - Home Appliances (p25–26) [[presentations/2026-10-30-presentation-ba34c1#page-25]]
+  - Expenditure Analysis (p26–27) [[presentations/2026-10-30-presentation-ba34c1#page-26]]
+  - Balance sheet (p27–28) [[presentations/2026-10-30-presentation-ba34c1#page-27]]
+  - Cash Flow (p28–29) [[presentations/2026-10-30-presentation-ba34c1#page-28]]
+    - Free Cash flow* Particulars (INR Crs) (p28–29) [[presentations/2026-10-30-presentation-ba34c1#page-28]]
+  - Key Financial Ratios & Cash Conversion Cycle (p29–30) [[presentations/2026-10-30-presentation-ba34c1#page-29]]

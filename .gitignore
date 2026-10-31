@@ -13,3 +13,11 @@ app/dist/
 app/.env.local
 .secrets/
 *-sa.json
+# Full-text conversions of public filings: large, regenerable (finn research-docs / cron ingest).
+# Derived pages (dossier, results, guidance ledger, people, PageIndex trees) stay in git.
+kb/companies/*/wiki/annual-reports/*.md
+kb/companies/*/wiki/transcripts/*.md
+kb/companies/*/wiki/presentations/*.md
+kb/companies/*/wiki/results-docs/*.md
+kb/companies/*/wiki/filings/docs/*.md
+data/research

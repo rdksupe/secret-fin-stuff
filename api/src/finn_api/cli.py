@@ -237,6 +237,8 @@ def cmd_export_docs(a: argparse.Namespace) -> int:
 def cmd_import_docs(a: argparse.Namespace) -> int:
     from datetime import datetime as _dt
 
+    from sqlalchemy import select
+
     from finn_api.models import Document
 
     rows = json.loads(open(a.file).read())
@@ -246,7 +248,14 @@ def cmd_import_docs(a: argparse.Namespace) -> int:
             for k in ("filed_at", "created_at", "updated_at"):
                 if r.get(k):
                     r[k] = _dt.fromisoformat(r[k])
-            db.merge(Document(**r))
+            # Upsert by (symbol, url): the target may already know this filing under another id.
+            cur = db.scalar(select(Document).where(Document.symbol == r["symbol"], Document.url == r["url"]))
+            if cur is None:
+                db.add(Document(**r))
+            else:
+                for k, v in r.items():
+                    if k != "id":
+                        setattr(cur, k, v)
             n += 1
         db.commit()
     print(f"imported {n} documents")

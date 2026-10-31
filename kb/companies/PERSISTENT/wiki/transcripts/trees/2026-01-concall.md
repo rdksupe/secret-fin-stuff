@@ -1,0 +1,21 @@
+# PERSISTENT Concall transcript 2026-01 2026-01-01 — structure
+
+Full text: [[transcripts/2026-01-concall]]
+
+- Coming to the details of our geographic performance. (p6) [[transcripts/2026-01-concall#page-6]]
+- Coming to the update on Interim Dividend. (p6) [[transcripts/2026-01-concall#page-6]]
+- Coming to other organizational updates. (p6) [[transcripts/2026-01-concall#page-6]]
+- Vinit Teredesai: (p7) [[transcripts/2026-01-concall#page-7]]
+- Let me now give you a quarter-on-quarter EBIT margin walkthrough. (p7–8) [[transcripts/2026-01-concall#page-7]]
+- Let me now give you some operational updates. (p9) [[transcripts/2026-01-concall#page-9]]
+- Coming to updates on ESG. (p9) [[transcripts/2026-01-concall#page-9]]
+- Debashis Singh: (p9–11) [[transcripts/2026-01-concall#page-9]]
+- Jaideep Dhok: (p11) [[transcripts/2026-01-concall#page-11]]
+- Let me share an example of what SASVA achieves for our clients. (p11–13) [[transcripts/2026-01-concall#page-11]]
+- Starting with our Software Hi-Tech and Emerging Industries vertical: (p13–14) [[transcripts/2026-01-concall#page-13]]
+- Moving on to Banking, Financial services and Insurance. (p14–15) [[transcripts/2026-01-concall#page-14]]
+- Moving next to our healthcare and life sciences vertical: (p15) [[transcripts/2026-01-concall#page-15]]
+- Now coming to the awards and recognitions we received during the quarter: (p15–22) [[transcripts/2026-01-concall#page-15]]
+- Abhishek Pathak (p23–27) [[transcripts/2026-01-concall#page-23]]
+- Moderator (p28) [[transcripts/2026-01-concall#page-28]]
+- (End of transcript) (p28) [[transcripts/2026-01-concall#page-28]]

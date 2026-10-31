@@ -1,0 +1,1327 @@
+{
+ "symbol": "LT",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Larsen & Toubro is a diversified engineering, construction and manufacturing conglomerate that executes large, complex projects and manufactures engineered-to-order equipment, alongside technology, financial services and realty businesses. It positions itself as a tech-driven solutions provider, using digitalisation, AI and IoT across its project life-cycle.",
+  "segments": [
+   {
+    "name": "Infrastructure & Utilities (Infrastructure Projects)",
+    "share": "not stated (FY2025-26 revenue ₹79,785 crore; 57% of order book; 46% of order inflow)",
+    "note": "Largest contributor; spans Buildings & Factories, Transportation Infrastructure, Heavy Civil, Power Transmission & Distribution, Water & Effluent Treatment, Minerals & Metals (p35, p44, p45)"
+   },
+   {
+    "name": "Energy - Conventional",
+    "share": "not stated (Energy Projects segment revenue ₹54,889 crore)",
+    "note": "Hydrocarbon Onshore & Offshore and CarbonLite Solutions; order inflows ₹1,36,921 crore, up 56.4%; 74% international revenue; OPM declined to 6.8% (p35, p84)"
+   },
+   {
+    "name": "Energy - Green",
+    "share": "not stated",
+    "note": "Renewable energy infrastructure including solar, onshore and offshore wind (p35)"
+   },
+   {
+    "name": "Hi-Tech Manufacturing",
+    "share": "not stated (revenue ₹14,489 crore, up 42.3%)",
+    "note": "Heavy Engineering and Precision Engineering & Systems; OPM 16.7% (p35, p95, p96)"
+   },
+   {
+    "name": "Technology, Platforms & Services",
+    "share": "not stated (IT & Technology Services revenue ₹28,353 crore)",
+    "note": "IT services (LTM), Engineering R&D (LTTS), B2B e-commerce (L&T-SuFin), skilling (L&T EduTech), data centers/cloud (Larsen & Toubro Vyoma), semiconductor chip design (LTSCT) (p35, p45)"
+   },
+   {
+    "name": "Financial Services",
+    "share": "not stated (revenue ₹9,471 crore)",
+    "note": "L&T Finance Limited, retail lending NBFC (p35, p45)"
+   },
+   {
+    "name": "Realty",
+    "share": "not stated",
+    "note": "Residential and commercial real estate development (p35)"
+   },
+   {
+    "name": "Development Projects",
+    "share": "not stated (revenue ₹5,488 crore)",
+    "note": "Focus on production of green hydrogen and its derivatives (p35, p45)"
+   }
+  ],
+  "geographies": "Operations span multiple geographies; international revenue was 54% of Group revenue in FY2025-26 (vs 50% prior year) and international orders 52% of the order book, with a large chunk of order wins from GCC countries (p10, p44).",
+  "key_facts": [
+   "Group Revenue of ₹2.86 lakh crore in FY2025-26, up 12% y-o-y (p10)",
+   "Record Order Book of ₹7.40 lakh crore, up 28% y-o-y; international orders 52% (p10)",
+   "Recurring PAT of ₹17,238 crore, up 18% y-o-y (p10)",
+   "Group Net Debt:Equity improved to 0.35:1 in FY2025-26 from 0.6:1 (p10)",
+   "Recommended final dividend of ₹38 per share for FY2025-26 (p11)"
+  ],
+  "pages": [
+   10,
+   11,
+   25,
+   26,
+   30,
+   35,
+   36,
+   44,
+   45,
+   46,
+   47,
+   48,
+   84,
+   85,
+   95,
+   96
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 55119.82,
+   "ebitda": 5610.72,
+   "ebit": 4612.8,
+   "pbt": 4676.65,
+   "pat": 2785.72,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 10.2,
+   "op_margin": 8.4
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 61554.58,
+   "ebitda": 6376.01,
+   "ebit": 5352.17,
+   "pbt": 5555.09,
+   "pat": 3395.29,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 10.4,
+   "op_margin": 8.7
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 64667.78,
+   "ebitda": 6281.92,
+   "ebit": 5234.92,
+   "pbt": 5333.03,
+   "pat": 3358.84,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 9.7,
+   "op_margin": 8.1
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 63678.92,
+   "ebitda": 6325.06,
+   "ebit": 5291.76,
+   "pbt": 5859.53,
+   "pat": 3617.19,
+   "is_bank": false,
+   "revenue_yoy": 15.5,
+   "pat_yoy": 29.8,
+   "margin": 9.9,
+   "op_margin": 8.3
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 67983.53,
+   "ebitda": 6815.49,
+   "ebit": 5723.72,
+   "pbt": 6336.11,
+   "pat": 3926.09,
+   "is_bank": false,
+   "revenue_yoy": 10.4,
+   "pat_yoy": 15.6,
+   "margin": 10.0,
+   "op_margin": 8.4
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 71449.7,
+   "ebitda": 7421.39,
+   "ebit": 6349.65,
+   "pbt": 5369.89,
+   "pat": 3215.11,
+   "is_bank": false,
+   "revenue_yoy": 10.5,
+   "pat_yoy": -4.3,
+   "margin": 10.4,
+   "op_margin": 8.9
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 82762.16,
+   "ebitda": 8794.73,
+   "ebit": 7626.78,
+   "pbt": 8410.28,
+   "pat": 5325.6,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 10.6,
+   "op_margin": 9.2
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 67941.74,
+   "ebitda": 6111.3,
+   "ebit": 5079.02,
+   "pbt": 6922.26,
+   "pat": 4122.85,
+   "is_bank": false,
+   "revenue_yoy": 6.7,
+   "pat_yoy": 14.0,
+   "margin": 9.0,
+   "op_margin": 7.5
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 78749.94,
+   "ebitda": 6810.65,
+   "ebit": 5773.74,
+   "pbt": 7641.06,
+   "pat": 5202.1,
+   "is_bank": false,
+   "revenue_yoy": 15.8,
+   "pat_yoy": 32.5,
+   "margin": 8.6,
+   "op_margin": 7.3
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26",
+   "items": [
+    {
+     "metric": "order book",
+     "statement": "Exceed full year FY26 guidance of 10% growth in group order inflows",
+     "target": ">10% growth",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "We are confident of exceeding our full year FY '26 guidance of 10% growth in group order inflows for the current year.",
+     "page": 9
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Maintain full year revenue growth guidance",
+     "target": "15%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we maintain our full year revenue growth guidance at 15%.",
+     "page": 10
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Achieve full year P&M EBITDA margin target",
+     "target": "8.5%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we are reasonably confident to achieve our full year EBITDA margin target of 8.5%.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Working capital guidance unchanged at around 12% by March 2026",
+     "target": "~12%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "our guidance for working capital for FY '26 remains unchanged at around 12% by March 2026.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Hyderabad Metro SPV takeover transaction expected to be consummated",
+     "target": "directional",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we expect this transaction to get consummated by the end of the current fiscal FY '26.",
+     "page": 4
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Well placed to secure a few ultra-mega opportunities",
+     "target": "directional",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "As we speak, we are also well placed to secure a few ultra-mega opportunities.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Kuwait L1 bids (~$4.5bn) expected to be awarded once additional funding approved",
+     "target": "$4.5 billion",
+     "horizon": "next quarter",
+     "speaker": "Subramanian Sarma",
+     "quote": "that should get done by this quarter or maybe latest by next quarter and hopefully, this should come through.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Details of EMS/electronics expansion and investment potential to be shared with L31 strategic plan",
+     "target": "directional",
+     "horizon": "May 2026",
+     "speaker": "P. Ramakrishnan",
+     "quote": "wait maybe sometime in May '26... we will be in a position to possibly give you a more greater detail of the future business prospects",
+     "page": 11
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Soft margins in Energy segment to persist in near term",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "P. Ramakrishnan",
+     "quote": "We do anticipate soft margins in the segment to persist in the near term.",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Full-year revenue guidance of 15% growth is on track despite slow H1 infra execution",
+     "target": "15%",
+     "horizon": "FY26",
+     "speaker": "P Ramakrishnan",
+     "quote": "the overall revenue guidance that the company has provided for 15% of full year is on track and this we can confirm",
+     "page": 13
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Infra margin improvement is baked into the overall FY26 P&M margin target of 8.5%",
+     "target": "8.5%",
+     "horizon": "FY26",
+     "speaker": "P Ramakrishnan",
+     "quote": "infra margins will be a little northward... this is also baked into our overall FY '26 target of 8.5%",
+     "page": 13
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Energy margin softness is baked into the 8.5% guidance; margins expected to improve in subsequent periods",
+     "target": "8.5% (FY26); improvement thereafter directional",
+     "horizon": "FY26 and beyond",
+     "speaker": "P Ramakrishnan",
+     "quote": "The current southward movement in Energy margins is baked... when we have given the guidance of 8.5%",
+     "page": 17
+    }
+   ],
+   "reported": [
+    {
+     "metric": "order book",
+     "statement": "Order book as of September 2025",
+     "value": "Rs 6.67 trillion, +31% YoY",
+     "quote": "The order book as of September 2025 stands at Rs 6.67 trillion, up by 31% as compared to September '24 last year.",
+     "page": 5
+    },
+    {
+     "metric": "order inflow",
+     "statement": "Group order inflow for Q2 FY26",
+     "value": "Rs 1,158 billion, +45% YoY",
+     "quote": "the group order inflow stood at Rs 1,158 billion, registering a Y-on-Y growth of 45%",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Group revenues for Q2 FY26",
+     "value": "Rs 680 billion, +10% YoY",
+     "quote": "The Group Revenues for Q2 FY '26 at Rs 680 billion registered a Y-on-Y growth of 10%.",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Group EBITDA margin without other income",
+     "value": "10.0% vs 10.3% YoY",
+     "quote": "The Group level EBITDA margin without other income for Q2 FY '26 is 10.0% as compared to 10.3% in Q2 of the previous year.",
+     "page": 6
+    },
+    {
+     "metric": "PAT",
+     "statement": "Consolidated PAT for Q2 FY26",
+     "value": "Rs 39 billion, +16% YoY",
+     "quote": "Our Consolidated PAT for Q2 FY '26 at Rs 39 billion is up by 16% as compared to Q2 of the previous year.",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "P&M portfolio EBITDA margin",
+     "value": "7.8% vs 7.6% YoY",
+     "quote": "Our EBITDA margins in the P&M business portfolio has improved from 7.6% in Q2 FY '25 to 7.8% in Q2 FY '26.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Net working capital to revenue ratio",
+     "value": "10.2%, ~200bps improvement YoY",
+     "quote": "Net Working Capital to Revenue ratio remained healthy at 10.2%, an improvement of almost 200 basis points Y-on-Y.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Trailing 12-month ROE",
+     "value": "17.2%, +110bps YoY",
+     "quote": "the trailing 12-month ROE for Q2 FY '26 is 17.2% as compared to 16.1% in Q2 of the previous year",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy segment revenue growth",
+     "value": "Rs 131 billion, +48% YoY",
+     "quote": "The Q2 FY '26 revenues for the segment at Rs 131 billion registers a robust growth of 48%",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Hi-Tech Manufacturing segment revenue growth",
+     "value": "~Rs 28 billion, +33% YoY",
+     "quote": "The segment revenue at approximately Rs 28 billion registered a strong growth of 33% Y-on-Y",
+     "page": 8
+    },
+    {
+     "metric": "segment margin",
+     "statement": "Infrastructure segment margin expanded 30 bps despite revenue decline",
+     "value": "Infra margin +30 bps QoQ",
+     "quote": "this quarter, despite revenue decline, there has been 30 bps margin expansion in Infrastructure segment",
+     "page": 13
+    },
+    {
+     "metric": "order book",
+     "statement": "Water segment order book around Rs 400 billion, 7% of total order book",
+     "value": "Rs 400 billion (7% of total order book)",
+     "quote": "the order book that we have is around Rs 400 billion... 7% of the total order book",
+     "page": 14
+    }
+   ],
+   "source": "transcripts/2025-10-concall.md",
+   "month": "2025-10"
+  },
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "order book",
+     "statement": "Will exceed the 10% order inflow growth guidance for FY26",
+     "target": ">10% growth",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we will be exceeding the 10% order inflow guidance for FY '26",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Group revenue growth guidance of 15% for FY26 retained, with Q4 execution ramp-up",
+     "target": "15%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "We expect the customary ramp-up in project execution during Q4 and are reasonably confident of achieving our full year revenue growth guidance of 15%",
+     "page": 8
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Projects & Manufacturing EBITDA margin target of 8.5% for full year FY26",
+     "target": "8.5%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our Projects & Manufacturing EBITDA at 7.9% for 9 months of the current year is in line with the target that we have set ourselves at 8.5% for the full year FY '26",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Net working capital to revenue revised target of around 10% by year-end (earlier guided 12%)",
+     "target": "~10%",
+     "horizon": "March FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we expect to close the year with a revised target of around 10%",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "ROE target of 18% under Lakshya plan",
+     "target": "18%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "broadly in line with the target of 18% that we have set ourselves to during this last year, that is FY '26 for the Lakshya plan",
+     "page": 6
+    },
+    {
+     "metric": "order book",
+     "statement": "Kuwait cancelled tenders will be re-tendered and awarded this calendar year; L&T positive on maintaining competitiveness",
+     "target": "directional",
+     "horizon": "calendar 2026",
+     "speaker": "Subramanian Sarma",
+     "quote": "we are very positive that all of these tenders will be out by this calendar year, and they'll get awarded this year",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Hydrocarbon margin to remain soft for next few quarters as cost-overrun projects conclude; factored into FY26 P&M margin guidance",
+     "target": "directional",
+     "horizon": "next few quarters",
+     "speaker": "P. Ramakrishnan",
+     "quote": "these projects are in their terminal execution phase and are expected to conclude over the next few quarters, during which margins will remain soft",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margin guidance of 8.5% remains the effort despite Hydrocarbon margins moving southwards",
+     "target": "8.5%",
+     "horizon": "FY26",
+     "speaker": "P. Ramakrishnan",
+     "quote": "I did emphasize that the margin guidance of 8.5% remains the effort",
+     "page": 11
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Hydrocarbon business expected to come back on full strength",
+     "target": "directional",
+     "horizon": "2-3 quarters",
+     "speaker": "Subramanian Sarma",
+     "quote": "I expect Hydrocarbon business to come back on full strength maybe 2 or 3 quarters from now.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Stressed Hydrocarbon projects to close and margins to move northward after some quarters",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we expect some of these, I would say, stressed projects to get closed in the near term and margin should move northward",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Margin uptick from legacy project completion expected after 2-3 quarters into next year; FY27 guidance to be given in May",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "the margin uptick would be seen sometime maybe after 2 or 3 quarters into the next year... guidance for FY '27 and beyond sometime in May",
+     "page": 12
+    },
+    {
+     "metric": "order book",
+     "statement": "TenneT program has potential for all 6 packages (12 GW); two included in order inflow, third and fourth under discussion",
+     "target": "6 packages of 2 GW each",
+     "horizon": "medium term",
+     "speaker": "Subramanian Sarma",
+     "quote": "we have a potential for all 6, yes... we are in discussion for the third and fourth with the customers",
+     "page": 12
+    }
+   ],
+   "reported": [
+    {
+     "metric": "order book",
+     "statement": "Highest ever quarterly order inflows of Rs 1,356 billion, up 17% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "We witnessed our highest ever quarterly order inflows in Q3 FY '26 of Rs 1,356 billion, recording a 17% growth year-on-year",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Group revenues Rs 714 billion, up 10% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our group revenues for Q3 FY '26 stood at Rs 714 billion, registering a Y-on-Y growth of 10%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Group EBITDA margin (ex-other income) 10.4% vs 9.7% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our group level EBITDA margin, excluding other income for Q3 FY'26 is 10.4% as compared to 9.7% in Q3 of the previous year",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "Recurring PAT Rs 44 billion, up 31% YoY; reported PAT Rs 32 billion, down 4% due to Rs 11.9 billion Labour Codes provision",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our Recurring PAT at Rs 44 billion reported a strong growth of 31% Y-on-Y. The reported PAT for Q3 FY '26 was at Rs 32 billion, down by 4%",
+     "page": 4
+    },
+    {
+     "metric": "order book",
+     "statement": "Order book Rs 7.33 trillion as of December '25, up 30% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The order book is at Rs 7.33 trillion as on December '25 and up 30% as compared to December '24",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Net working capital to revenue improved to 8.2% from 12.7% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our NWC to Sales ratio has improved from 12.7% in December '24 to 8.2% in December '25",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Infrastructure revenue up 5% YoY; EBITDA margin 6.1% vs 5.5%",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The revenue for the quarter for the Infrastructure segment registered a modest growth of 5%... Our EBITDA margin in this segment was at 6.1%",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy segment revenue Rs 127 billion, up 15% YoY; margin 5.9% vs 8.3%",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The Q3 FY '26 for the Energy segment stood at Rs 127 billion, reflecting a steady 15% growth",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Hi-Tech Manufacturing revenue ~Rs 33 billion, up 34% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The segment revenue at approx Rs 33 billion registered a strong growth of 34% Y-on-Y",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Realty recorded highest ever quarterly presales of ~Rs 50 billion",
+     "target": "",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "L&T Realty recording its highest ever presales in a quarter of approx Rs 50 billion",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Infra segment revenue growth of 5% in Q3, dragged by Water",
+     "value": "Infra +5% Q3",
+     "quote": "the revenue growth that we have demonstrated at 5% on a growth",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Infra growth excluding Water would have been 8-9%",
+     "value": "Infra ex-Water ~8-9%",
+     "quote": "would have been actually a little more higher to almost 8% to 9% growth",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "segment growth",
+     "statement": "Water segment collections improved in Q4 and execution momentum should improve into FY27, with delayed approvals/clearances expected to come through",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "We are hopeful that this trend will sustain with the execution momentum improving as we move into FY27.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy segment margin expected to improve after a couple of quarters",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "P. Ramakrishnan",
+     "quote": "As mentioned in the previous quarter, we expect the margin to improve in this segment post a couple of quarters.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Divestments of Nabha Power and Hyderabad Metro expected to close in Q1 FY27",
+     "target": "directional",
+     "horizon": "Q1 FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Both these transactions are expected to achieve closure in Q1 FY27.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Near-term execution impact from Middle East conflict due to supply chain constraints, but no project cancellations expected",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we do anticipate some near-term impact on execution primarily due to supply chain constraints... we do not foresee cancellations of projects in which we are actively participating.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Middle East medium-term growth potential remains intact assuming geopolitical improvement",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "P. Ramakrishnan",
+     "quote": "assuming an improvement in geopolitical conditions and as reform initiatives gather pace, the region's underlying growth potential remains intact.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Lakshya 31 strategic plan for FY27-FY31 to be outlined, with new PP&M segment reporting structure from next financial year",
+     "target": "directional",
+     "horizon": "FY27-FY31",
+     "speaker": "P. Ramakrishnan",
+     "quote": "I will now cover our Strategic Plan for the next five years starting FY '27, ending FY '31, termed as Lakshya 31.",
+     "page": 9
+    },
+    {
+     "metric": "order book",
+     "statement": "Group order inflows expected to grow 10-12% in FY27 based on Rs 17.8 trillion prospects pipeline",
+     "target": "10% to 12%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we expect the group order inflows to grow in the range of 10% to 12% in FY27",
+     "page": 13
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue growth of 10-12% in FY27, softer first half due to supply chain disruptions, pickup in second half",
+     "target": "10% to 12%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we expect growth to be in the range of 10% to 12% for FY27. We do anticipate a softer first half",
+     "page": 13
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "PP&M (reclassified) margins to remain stable at FY26 level of 7.8% in FY27",
+     "target": "7.8%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "the FY26 margins for Projects, Products and Manufacturing was 7.8%, and we expect the same to be stable as well in FY27",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Working capital guided at around 10% of revenue in FY27 as customer advances get utilized",
+     "target": "around 10%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we are guiding the working capital to be around 10% in FY27, which remains well within our targeted range",
+     "page": 13
+    },
+    {
+     "metric": "order book",
+     "statement": "Over Lakshya 31 five-year plan, order inflow CAGR target of 10-12%",
+     "target": "10% to 12%",
+     "horizon": "medium term (5 years)",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we are targeting order inflow growth at a CAGR return of 10% to 12%",
+     "page": 13
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Lakshya 31 revenue growth CAGR target of 12-15% over five years",
+     "target": "12% to 15%",
+     "horizon": "medium term (5 years)",
+     "speaker": "P. Ramakrishnan",
+     "quote": "revenue growth of 12% to 15%, and a Return on Equity in the range of 16% to 17%",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "order book",
+     "statement": "Order book Rs 7.40 trillion as of March 2026, up 28% YoY",
+     "target": "Rs 7.40 trillion, +28% YoY",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "our order book stands at Rs 7.40 trillion as of March 2026, a 28% YoY increase",
+     "page": 5
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Q4 FY26 order inflows Rs 898 billion, broadly in line with Q4 FY25",
+     "target": "Rs 898 billion",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Order inflows in Q4 FY26 stood at Rs 898 billion, broadly in line with Q4 FY25 levels",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Group revenues Q4 FY26 Rs 828 billion, up 11% YoY",
+     "target": "Rs 828 billion, +11% YoY",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "our group revenues for Q4 FY26 was Rs 828 billion and registered a YoY growth of 11%",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Group EBITDA margin (ex-other income) 10.4% vs 11% in Q4 FY25",
+     "target": "10.4%",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "our group -level EBITDA margin, excluding other income, for Q4 FY '26 is 10.4% as compared to 11%",
+     "page": 7
+    },
+    {
+     "metric": "PAT",
+     "statement": "Recurring PAT Rs 53 billion, up 5% YoY; reported PAT Rs 53 billion, down 3% YoY",
+     "target": "Rs 53 billion (+5% recurring; -3% reported)",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "Our Recurring PAT for Q4 FY '26 is at Rs 53 billion, up by 5%... reported PAT... down by 3%",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Projects and Manufacturing margin 9.4%, down 50bps YoY",
+     "target": "9.4%",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The EBITDA margin in the Projects and Manufacturing business for Q4 FY '26 is at 9.4% and has declined by 50 basis points",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "ROE 15.5%, down 80bps YoY; 16.6% excluding Labour Code provision impact",
+     "target": "15.5%",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "the trailing 12 -month ROE for Q4 FY '26 is 15.5% vis-a-vis 16.3% in Q4 FY '25",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Infrastructure: order inflow Rs 435bn (+26%), revenue Rs 397bn (+2%), EBITDA margin 8.8%",
+     "target": "OI Rs 435bn +26%; revenue Rs 397bn +2%; margin 8.8%",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The Infrastructure segment order inflow at Rs 435 billion grew by 26%... Revenue... Rs 397 billion, registering a growth of 2%",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy: order inflow Rs 213bn, revenue Rs 166bn (+36%), margin 6.5% vs 8.2%",
+     "target": "revenue Rs 166bn +36%; margin 6.5%",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "The Q4 FY '26 revenues for the segment was at Rs 166 billion, reflecting a strong 36% growth",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "FY26 order inflow guidance of 10% growth significantly surpassed; revenue growth 12% vs 15% guidance; margin guidance of 20bps improvement missed due to March disruptions",
+     "target": "order inflow >10%; revenue +12% vs 15% guided",
+     "horizon": "",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we have significantly surpassed this guidance... growth for FY26 stood at 12% compared to our guidance of 15%.",
+     "page": 5
+    },
+    {
+     "metric": "order book",
+     "statement": "Order book grew 19%, 22%, 28% in last three years (per analyst, context of strong order inflow)",
+     "value": "order book growth 19%/22%/28% over last three years",
+     "quote": "order book has grown by 19%, 22%, and 28% in the last three years",
+     "page": 14
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue miss in Q4; ~Rs 50 billion revenue lost due to supply chain issues in Middle East T&D, Renewables, and Water",
+     "value": "~Rs 50 billion revenue slippage in Q4",
+     "quote": "we would have lost in terms of revenue almost Rs 50 billion in Q4 just on the course of supply chain issues",
+     "page": 14
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "order book",
+     "statement": "Order inflow growth guidance for the current year",
+     "target": "10% to 12%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we remain confident of achieving our order inflow growth guidance of 10% to 12% band for the current year",
+     "page": 10
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "FY27 revenue growth guidance maintained",
+     "target": "10% to 12%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we remain committed to our FY '27 growth guidance of 10 % to 12% revenue growth guidance",
+     "page": 11
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "PPM portfolio margin target for FY27",
+     "target": "around 7.8%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we continue to target the margin of around 7.8% for FY '27 with respect to the PPM portfolio",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "FY27 working capital guidance maintained",
+     "target": "around 10%",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "we are maintaining our FY '27 working capital guidance of around 10%",
+     "page": 11
+    },
+    {
+     "metric": "order book",
+     "statement": "Project awards in the Middle East expected to pick up",
+     "target": "directional",
+     "horizon": "Q2 FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "tendering and bidding momentum continues to remain robust, and we expect project awards to pick up from Q2",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Some cost increases from time extension and supply chain disruptions will hopefully be compensated by clients later",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Subramanian Sarma",
+     "quote": "hopefully, some part of these cost increases, because of time extension and supply chain disruptions, will get compensated at a later stage.",
+     "page": 12
+    },
+    {
+     "metric": "order book",
+     "statement": "Middle East prospect list holds; new award announcements coming soon, no significant delay expected",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Subramanian Sarma",
+     "quote": "very soon, you will see some announcements coming from our side with respect to new awards in the Middle East.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "ECL provision bump-up was a Q1 effect; not expected in balance three quarters; some reversals will happen as collections come in",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "P. Ramakrishnan",
+     "quote": "I do not think is going to happen in the balance three quarters of the year.",
+     "page": 13
+    },
+    {
+     "metric": "order book",
+     "statement": "Prospect pipeline of Rs 15.07 trillion is based on current pricing; pipeline gets reset periodically",
+     "target": "Rs 15.07 trillion at current pricing",
+     "horizon": "current",
+     "speaker": "P. Ramakrishnan",
+     "quote": "when I talked about the 15.07 trillion of order prospects, it is basis the current pricing.",
+     "page": 13
+    },
+    {
+     "metric": "order book",
+     "statement": "Offshore wind order book of ~8 GW (~Rs 57,000-60,000 crore) to be executed over four to five years; margins better than Middle East EPC business",
+     "target": "Rs 57,000-60,000 crore; margin better than Middle East EPC",
+     "horizon": "4-5 years",
+     "speaker": "Subramanian Sarma",
+     "quote": "close to 8 gigawatt of offshore wind and adding up to almost close to Rs. 57,000-60,000 crores of order book... executed over a four to five years period.",
+     "page": 15
+    },
+    {
+     "metric": "order book",
+     "statement": "Domestic order inflow guidance remains consistent with earlier indication; domestic prospects ~50% share, private sector share rising",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Subramanian Sarma / P. Ramakrishnan",
+     "quote": "overall guidance given by PR is still very much consistent with what we had indicated earlier.",
+     "page": 15
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Large offshore megaprojects ready for dispatch from Oman yard in Q1 of next calendar year; conflict extension beyond that would be a problem",
+     "target": "Q1 CY27",
+     "horizon": "next calendar year",
+     "speaker": "Subramanian Sarma",
+     "quote": "the large megaprojects in Offshore, they will be ready for dispatch from our Oman yard sometime in first quarter of next calendar year.",
+     "page": 16
+    }
+   ],
+   "reported": [
+    {
+     "metric": "order book",
+     "statement": "Group order inflows",
+     "value": "Rs. 1,080 billion, +14% YoY",
+     "quote": "the group order inflows at Rs. 1,080 billion, registered a 14% Y-on-Y growth",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Group revenues",
+     "value": "Rs. 679 billion, +7% YoY",
+     "quote": "the group revenues for Q1 FY '27 stood at Rs. 679 billion, registering a 7% Y-on-Y growth",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Group EBITDA margin excluding other income",
+     "value": "9.0%",
+     "quote": "Our group level EBITDA margin excluding other income for Q1 FY '27 is 9.0%",
+     "page": 6
+    },
+    {
+     "metric": "PAT",
+     "statement": "Group PAT",
+     "value": "Rs. 41 billion, +14% YoY",
+     "quote": "Our group PAT for Q1 FY '27 at Rs. 41 billion as up by 14% Y-on-Y basis",
+     "page": 6
+    },
+    {
+     "metric": "order book",
+     "statement": "Total order book",
+     "value": "Rs. 7.79 trillion, +27% YoY",
+     "quote": "The total order book stood at Rs. 7.79 trillion as of June '26, up by 27%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "PPM business EBITDA margin",
+     "value": "7%, down 20 bps YoY",
+     "quote": "Our PPM business EBITDA margin for Q1 FY '27 was at 7% and declined by 20 basis points",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Infrastructure and Utilities order inflows",
+     "value": "Rs. 444 billion, more than doubled YoY",
+     "quote": "The order inflows for the segment more than doubled year-on-year to Rs. 444 billion",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy – Green order inflows",
+     "value": "Rs. 330 billion, +58% YoY",
+     "quote": "order inflows for the segment at Rs. 330 billion in Q1 current year, registering a strong growth of 58% Y-on-Y",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Realty order inflows (pre-sales share)",
+     "value": "Rs. 13 billion, +32% YoY",
+     "quote": "The order inflows for Q1 FY '27, which mainly represents L&T's share of pre-sales stood at Rs. 13 billion, registering a strong Y-on-Y growth of 32%",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Trailing 12-month ROE",
+     "value": "16.1%",
+     "quote": "the trailing 12-month ROE for Q1 FY '27 stood at 16.1% vis-a-vis 17% in Q1 FY '26",
+     "page": 7
+    },
+    {
+     "metric": "order book",
+     "statement": "Secured additional 4 GW European offshore wind this quarter, extension of framework (4 GW secured last year, ~8 GW total)",
+     "quote": "this quarter, we have secured additional four. So, it is an extension of that.",
+     "page": 14
+    },
+    {
+     "metric": "order book",
+     "statement": "Prospect pipeline Rs 15.07 trillion, domestic Rs 7.45 trillion (49%), private sector ~45% of domestic",
+     "quote": "out of Rs. 15.07 trillion, the domestic order prospects is Rs. 7.45 trillion, which is 49%. And the share of private sector will be around 45%.",
+     "page": 20
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Mixed credibility: management beat its FY26 order inflow guidance and gave accurate directional margin warnings, but missed its headline FY26 revenue (12% vs 15%), P&M margin (8.5% target) and ROE (15.5% vs 18%) commitments. To its credit, management explicitly acknowledged the revenue and margin misses on the Q4 FY26 call rather than obscuring them.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q2 FY26",
+    "promise": "Exceed 10% FY26 group order inflow growth guidance",
+    "delivered": "Q4 FY26 call: FY26 order inflow guidance 'significantly surpassed'; order book Rs 7.40 trillion, +28% YoY",
+    "status": "delivered",
+    "cite": "Q4 FY26 call p.5",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "FY26 revenue growth of 15%, confirmed on track",
+    "delivered": "Q4 FY26 call: FY26 growth 12% vs 15% guidance; ~Rs 50bn Q4 revenue lost to Middle East supply-chain issues",
+    "status": "missed",
+    "cite": "Q4 FY26 call p.5, p.14",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "FY26 P&M EBITDA margin target of 8.5%",
+    "delivered": "Q4 FY26 call: margin guidance missed due to March disruptions; reclassified FY26 PP&M margin stated at 7.8%",
+    "status": "missed",
+    "cite": "Q4 FY26 call p.5, p.13",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Hyderabad Metro SPV takeover to be consummated by end FY26",
+    "delivered": "Q4 FY26 call: Hyderabad Metro and Nabha Power divestments now expected to close in Q1 FY27",
+    "status": "missed",
+    "cite": "Q4 FY26 call p.4",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Kuwait L1 bids (~$4.5bn) awarded by this or next quarter",
+    "delivered": "Q3 FY26 call: Kuwait tenders cancelled; re-tendering and awards now expected during calendar 2026",
+    "status": "missed",
+    "cite": "Q3 FY26 call p.9",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "ROE of 18% for FY26 under Lakshya plan",
+    "delivered": "Q4 FY26: trailing ROE 15.5%, down 80bps YoY; 16.6% excluding Labour Code provision impact",
+    "status": "missed",
+    "cite": "Q4 FY26 call p.7",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Hydrocarbon/Energy margins to remain soft for next few quarters",
+    "delivered": "Energy margin 6.5% vs 8.2% in Q4 FY26; PPM margin 7.0%, down 20bps YoY in Q1 FY27",
+    "status": "delivered",
+    "cite": "Q4 FY26 p.8; Q1 FY27 p.6",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Nabha Power and Hyderabad Metro divestments to close in Q1 FY27",
+    "delivered": "Q1 FY27 call material provided does not mention closure of either transaction",
+    "status": "not measurable",
+    "cite": "Q1 FY27 call (no reference)",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "FY27 revenue growth of 10-12%, with softer first half",
+    "delivered": "Q1 FY27 revenue +7% YoY, consistent with flagged soft H1; full-year period not yet reported",
+    "status": "too early",
+    "cite": "Q1 FY27 call p.6",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "FY27 order inflow growth of 10-12%",
+    "delivered": "Q1 FY27 order inflows Rs 1,080 billion, +14% YoY; full-year period not yet reported",
+    "status": "too early",
+    "cite": "Q1 FY27 call p.4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Record ₹7.40 lakh crore order book, up 28% YoY with 52% international orders, gives strong multi-year execution visibility.",
+    "cite": "annual-reports/annual-report-2026.md p10, p44",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "FY26 delivered ₹2.86 lakh crore revenue (+12%), recurring PAT ₹17,238 crore (+18%), and net debt/equity improved to 0.35:1 from 0.6:1.",
+    "cite": "annual-reports/annual-report-2026.md p10",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "FY27 started with order inflows of ₹1,080 billion, up 14% YoY, while Q1 revenue rose 7% and PAT rose 14%.",
+    "cite": "Q1 FY27 call p.4, p.6; quarterly_actuals 2026-06-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Management missed FY26 revenue (12% vs 15%), P&M margin (7.8% vs 8.5%) and ROE (15.5% vs 18%) commitments.",
+    "cite": "Q4 FY26 call p.5, p.7, p.13",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Margins remain pressured: Energy margin fell to 6.5% vs 8.2%, PPM margin was 7.0% in Q1 FY27, and latest quarterly operating margin is 7.3%.",
+    "cite": "Q4 FY26 call p.8; Q1 FY27 call p.6; quarterly_actuals 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Execution risk is visible: ₹50 billion Q4 revenue lost to Middle East supply-chain issues, Kuwait $4.5 billion tenders cancelled, divestments slipped.",
+    "cite": "Q4 FY26 call p.14; Q3 FY26 call p.9; Q4 FY26 call p.4",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Whether FY27 revenue stays within 10-12% guidance after the flagged soft first half.",
+   "P&M and Energy margin recovery toward the missed 8.5% FY26 P&M target.",
+   "Closure of Nabha Power and Hyderabad Metro divestments, plus Kuwait re-tender awards during calendar 2026."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-01-concall.md",
+   "transcripts/2025-10-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 61,
+  "found": 61
+ }
+}

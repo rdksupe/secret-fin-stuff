@@ -1,0 +1,1271 @@
+{
+ "symbol": "BAJFINANCE",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Bajaj Finance Limited (BFL) is a listed Indian financial services company whose annual report is for FY2026 (year ended 31 March 2026). The provided pages are the AGM notice and related shareholder communications; they indicate the company is a lender that borrows from banks, financial institutions and via debentures/bonds/commercial papers and fixed/corporate deposits, and that Bajaj Housing Finance Limited is its subsidiary.",
+  "segments": [
+   {
+    "name": "Business segments",
+    "share": "not stated",
+    "note": "The provided pages do not describe any operating or reportable segments."
+   }
+  ],
+  "geographies": "India (registered and corporate offices in Pune, Maharashtra; listed on BSE and NSE). No other geographies are stated.",
+  "key_facts": [
+   "Recommended dividend of ₹6 per equity share of face value ₹1 for FY2026, including a special payout of ₹0.60 per share from an exceptional gain on sale of shares of subsidiary Bajaj Housing Finance Limited (p11)",
+   "Borrowing powers proposed to be increased to ₹550,000 crore (p3)",
+   "Charge/security creation on assets proposed up to ₹550,000 crore (p4)",
+   "Material related party transactions with Bajaj Housing Finance Limited approved up to ₹18,152 crore for the RPT period (p3)",
+   "39th AGM to be held on 30 July 2026 via VC/OAVM; Rajiv Bajaj to retire and not seek re-appointment; Pramit Jhaveri proposed for re-appointment as Independent Director for a second five-year term from 1 August 2026 (p2-3)"
+  ],
+  "pages": [
+   1,
+   2,
+   3,
+   4,
+   11,
+   14
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 5262.83,
+   "pat": 3955.28,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 5398.03,
+   "pat": 3999.73,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 5762.4,
+   "pat": 4246.54,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 5638.56,
+   "pat": 4479.57,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 6366.84,
+   "pat": 4699.61,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": 18.8,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 6604.83,
+   "pat": 4875.36,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": 21.9,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 5428.89,
+   "pat": 3977.85,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": -6.3,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 7399.63,
+   "pat": 5464.57,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": 22.0,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 8143.89,
+   "pat": 5985.75,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": 27.4,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": null,
+   "ebitda": null,
+   "ebit": null,
+   "pbt": 8533.47,
+   "pat": 6266.2,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": 28.5,
+   "margin": null,
+   "op_margin": null
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Gold loan portfolio to cross ~5% of total AUM",
+     "target": "~5% of AUM",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We foresee gold loan portfolio to probably cross 5-odd percent of total AUM by FY'27.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME to return to double-digit growth",
+     "target": "double-digit growth",
+     "horizon": "Q2-Q3 FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We expect that it should come back to double-digit growth or the company growth momentum between Q2 and Q3 of FY'27.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "2W/3W captive book to wind down to below ~INR 1,500 crores, improving GNPA and lowering credit cost",
+     "target": "< INR 1,500 crores",
+     "horizon": "by September 2026",
+     "speaker": "Rajeev Jain",
+     "quote": "This book will principally just wind down to less than INR 1,500-odd crores by September '26... should result in lower credit cost for FY27.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "AI unit headcount to expand to ~363 resources",
+     "target": "363-odd resources",
+     "horizon": "by June 2027",
+     "speaker": "Rajeev Jain",
+     "quote": "We are expanding that to 363-odd resources by June'27.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "All customer engagement to move to bot interface",
+     "target": "directional",
+     "horizon": "by June 2026",
+     "speaker": "Rajeev Jain",
+     "quote": "By June'26, any communication across any channel by us as a firm... would have a text AI BOT in it.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Deploy 600-plus autonomous agents across operations, DMS, HR, technology and risk",
+     "target": "600-plus agents",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "In FY27, we expect to deploy 600-plus autonomous agents and across operations, DMS, HR, technology and risk.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Cross 5 million-plus loans in a single month",
+     "target": "5 million+ loans",
+     "horizon": "near term (FY27 start)",
+     "speaker": "Rajeev Jain",
+     "quote": "It's very likely we'll cross 5 million-plus loans in the month.",
+     "page": 6
+    },
+    {
+     "metric": "volume",
+     "statement": "Add 15-17 million new customers in FY27",
+     "target": "15-17 million",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We continue to be confident of adding 15-17 million new customers in FY27.",
+     "page": 6
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "AUM growth guidance of 20-24%",
+     "target": "20% to 24%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "In terms of AUM, we're confident of a 20% to 24% AUM growth, aided by new businesses.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Credit cost (revised metric) to trend down to 145-160 bps; opex/NTI improvement 25-40 bps; ROA 4.4-4.6%; ROE 19-20%; NIM marginal moderation",
+     "target": "credit cost 145-160 bps; opex/NTI -25 to -40 bps; ROA 4.4-4.6%; ROE 19-20%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We expect this to continue to trend down... We continue to guide for 4.4% to 4.6% [ROA]... we continue to guide for 19% to 20% [ROE].",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "AI voice agents to replace 30% of outbound call center agents at one-third the cost",
+     "target": "30% of agents, one-third cost",
+     "horizon": "ongoing",
+     "speaker": "Rajeev Jain",
+     "quote": "30% of them are now AI voice agents. That's one-third of the cost, straight, line by line.",
+     "page": 12
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex figures will not be published; will invest whatever it takes in AI",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Rajeev Jain / Sandeep Jain",
+     "quote": "We are not pulling back any stops in investing whatever it takes in being front of the seat and center.",
+     "page": 12
+    }
+   ],
+   "reported": [
+    {
+     "metric": "AUM growth",
+     "statement": "AUM crossed INR 5 lakh crores, ended at ~INR 510,000 crores; Q4 AUM growth 22.4%",
+     "value": "AUM ~INR 510,000 crores, +22.4%",
+     "quote": "The company crossed the milestone of INR 5 lakh crores AUM... In Q4, AUM grew by 22.4%.",
+     "page": 2
+    },
+    {
+     "metric": "PAT",
+     "statement": "Q4 PAT grew 26.7%",
+     "value": "PAT +26.7%",
+     "quote": "In Q4, AUM grew by 22.4% and PAT grew by 26.7%.",
+     "page": 2
+    },
+    {
+     "metric": "volume",
+     "statement": "Booked 12.9 million loans and added 3.93 million new customers in Q4",
+     "value": "12.9 million loans; 3.93 million new customers",
+     "quote": "We booked 12.9 million loans and added 3.93 million new customers to the franchise.",
+     "page": 2
+    },
+    {
+     "metric": "other",
+     "statement": "Gold loan portfolio grew 115%, now 3.5% of AUM",
+     "value": "gold loan +115%, 3.5% of AUM",
+     "quote": "The gold loan portfolio continued to witness strong momentum. It grew by 115%.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME grew only 6% due to proactive risk actions",
+     "value": "MSME +6%",
+     "quote": "MSME continue to see muted growth. It grew by 6% only on account of a set of proactive risk actions.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Cost of funds improved 4 bps to 7.41%; deposit book INR 68,533 crores (16% of borrowings)",
+     "value": "cost of funds 7.41%; deposits INR 68,533 crores",
+     "quote": "Cost of funds improved by 4 basis points in Q4 and came in at 7.41%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Opex to NTI at 33.8% (new basis), 33.2% old basis, 10 bps improvement YoY",
+     "value": "opex/NTI 33.8% (new basis)",
+     "quote": "Opex to NTI... came in at 33.8% in Q4 as against 33.6%. These are new numbers.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Loan loss to average AUM 1.75% (old basis) vs 1.97% last year; revised metric 1.65%; GNPA 1.01%, NNPA 41 bps, PCR 60%",
+     "value": "credit cost 1.75% (old)/1.65% (new); GNPA 1.01%; NNPA 41 bps; PCR 60%",
+     "quote": "Loan loss to average AUM... came in at 175 basis points... GNPA, NNPA came in at 1.01% and NNPA came in at 41 basis points.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Q4 ROA 4.6%, ROE 20%",
+     "value": "ROA 4.6%; ROE 20%",
+     "quote": "ROA came in as of fourth quarter at 4.6%... Return on equity came in at 20% in the current quarter.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Board recommended dividend of INR 6 per share (600%)",
+     "value": "dividend INR 6/share",
+     "quote": "The Board of Directors have recommended a dividend to shareholders of INR 6 per equity share.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Deployed close to 2,700 cameras across service branches and in-stores",
+     "target": "~2,700 cameras",
+     "quote": "We will deploy close to 2,700 cameras, customer identification, reduce friction, which means faster turnaround, which means lower cost.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Reduced outbound voice agents from 5,000; 30% now AI voice agents at one-third cost",
+     "target": "5,000 reduced; 30% AI",
+     "quote": "We, at a point in time, had 5,000 outbound voice agents... 30% of them are now AI voice agents.",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-04-concall.md",
+   "month": "2026-04"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Gold loan portfolio to cross ~5% of total AUM",
+     "target": "~5% of AUM",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We foresee gold loan portfolio to probably cross 5-odd percent of total AUM by FY'27.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME to return to double-digit growth",
+     "target": "double-digit growth",
+     "horizon": "Q2-Q3 FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We expect that it should come back to double-digit growth or the company growth momentum between Q2 and Q3 of FY'27.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Captive 2W/3W book to wind down to below ~INR 1,500 crores, improving GNPA and lowering credit cost",
+     "target": "< INR 1,500 crores",
+     "horizon": "by September 2026",
+     "speaker": "Rajeev Jain",
+     "quote": "This book will principally just wind down to less than INR 1,500-odd crores by September '26... should result in lower credit cost for FY27.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "AI unit headcount to expand to ~363 resources",
+     "target": "363-odd resources",
+     "horizon": "by June 2027",
+     "speaker": "Rajeev Jain",
+     "quote": "We are expanding that to 363-odd resources by June'27.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Deploy 600-plus autonomous agents across operations, DMS, HR, technology and risk",
+     "target": "600-plus agents",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "In FY27, we expect to deploy 600-plus autonomous agents and across operations, DMS, HR, technology and risk.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "All customer engagement to move to BOT interface",
+     "target": "directional",
+     "horizon": "by June 2026",
+     "speaker": "Rajeev Jain",
+     "quote": "By June'26, any communication across any channel by us as a firm... would have a text AI BOT in it.",
+     "page": 5
+    },
+    {
+     "metric": "volume",
+     "statement": "Likely to cross 5 million loans in a single month",
+     "target": "5 million-plus loans",
+     "horizon": "near term (FY27 start)",
+     "speaker": "Rajeev Jain",
+     "quote": "It's very likely we'll cross 5 million-plus loans in the month.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Add 15-17 million new customers in FY27",
+     "target": "15-17 million",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We continue to be confident of adding 15-17 million new customers in FY27.",
+     "page": 7
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "AUM growth guidance of 20-24%",
+     "target": "20% to 24%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "In terms of AUM, we're confident of a 20% to 24% AUM growth, aided by new businesses.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Credit cost (revised metric) to trend down to 145-160 bps; opex/NTI improvement 25-40 bps; ROA 4.4-4.6%; ROE 19-20%; NIM marginal moderation",
+     "target": "credit cost 145-160 bps; opex/NTI -25 to -40 bps; ROA 4.4-4.6%; ROE 19-20%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We expect this to continue to trend down... We continue to guide for 4.4% to 4.6% [ROA]... we continue to guide for 19% to 20% [ROE].",
+     "page": 7
+    },
+    {
+     "metric": "other (AI call center cost)",
+     "statement": "AI voice agents cost one-third of human outbound voice agents; 30% of agents now AI",
+     "target": "AI agents at one-third the cost; 30% of voice agents AI",
+     "horizon": "current year",
+     "speaker": "Rajeev Jain",
+     "quote": "AI call center agent is one-third of the cost, straight... 30% of them are now AI voice agents.",
+     "page": 13
+    },
+    {
+     "metric": "other (AI deployment)",
+     "statement": "Deploy ~2,700 cameras across branches/stores for customer identification, faster turnaround, lower cost",
+     "target": "close to 2,700 cameras",
+     "horizon": "current year",
+     "speaker": "Rajeev Jain",
+     "quote": "we will deploy close to 2,700 cameras, customer identification, reduce friction, which means faster turnaround, which means lower cost.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "AUM growth",
+     "statement": "AUM crossed INR 5 lakh crores, ended ~INR 510,000 crores; Q4 AUM growth 22.4%",
+     "value": "AUM ~INR 510,000 crores, +22.4% YoY",
+     "quote": "During the quarter, the company crossed the milestone of INR 5 lakh crores AUM... In Q4, AUM grew by 22.4%.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Q4 PAT grew 26.7%",
+     "value": "PAT +26.7% YoY",
+     "quote": "In Q4, AUM grew by 22.4% and PAT grew by 26.7%.",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "Booked 12.9 million loans in Q4; 3.93 million new customers; franchise 119.3 million",
+     "value": "12.9 million loans; 3.93 million new customers",
+     "quote": "We booked 12.9 million loans and added 3.93 million new customers to the franchise.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Gold loan portfolio grew 115%, now 3.5% of AUM",
+     "value": "gold loan +115%",
+     "quote": "The gold loan portfolio continued to witness strong momentum. It grew by 115%.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME grew only 6% due to proactive risk actions",
+     "value": "MSME +6%",
+     "quote": "MSME continue to see muted growth. It grew by 6% only on account of a set of proactive risk actions.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Cost of funds improved 4 bps to 7.41%; deposits INR 68,533 crores (16% of borrowings)",
+     "value": "cost of funds 7.41%; deposits INR 68,533 crores",
+     "quote": "Cost of funds improved by 4 basis points in Q4 and came in at 7.41%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Opex to NTI at 33.8% (new basis) vs 33.6% prior quarter",
+     "value": "opex/NTI 33.8%",
+     "quote": "Opex to NTI... came in at 33.8% in Q4 as against 33.6%.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Loan loss to average AUM 1.75% (old basis) / 1.65% (new basis); GNPA 1.01%, NNPA 41 bps; PCR 60%",
+     "value": "credit cost 1.75%/1.65%; GNPA 1.01%; NNPA 41 bps; PCR 60%",
+     "quote": "GNPA, NNPA came in at 1.01% and NNPA came in at 41 basis points. Provision coverage ratio was at 60%.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "ROA 4.6% and ROE 20% in Q4",
+     "value": "ROA 4.6%; ROE 20%",
+     "quote": "ROA came in as of fourth quarter at 4.6%... Return on equity came in at 20% in the current quarter.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Board recommended dividend of INR 6 per share (600%)",
+     "value": "dividend INR 6/share",
+     "quote": "The Board of Directors have recommended a dividend to shareholders of INR 6 per equity share.",
+     "page": 6
+    },
+    {
+     "metric": "other (AR financing volumes)",
+     "statement": "INR450-500 crores of monthly volumes from ETV financing customers",
+     "target": "INR450-500 crores/month",
+     "quote": "INR450 crores to INR500 crores of volumes we do every month comes from ETV",
+     "page": 12
+    },
+    {
+     "metric": "market share",
+     "statement": "Personal loan market share 8.5%-9%; 35% of new/used car finance from 120 million franchise",
+     "target": "PL share 8.5%-9%",
+     "quote": "Personal loan, our market share is between 8.5% and 9%.",
+     "page": 13
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Gold loan branch count and AUM target by year-end",
+     "target": "2,700-2,800 branches (maybe 3,000); AUM INR29,000-31,000 crores",
+     "horizon": "FY27 year-end",
+     "speaker": "Rajeev Jain",
+     "quote": "By year-end we foresee 2,700 to 2,800 branches, all goes well, maybe 3,000 branches and AUM of between INR29,000 crores and INR31,000 crores, all organic.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME to return to growth momentum",
+     "target": "directional",
+     "horizon": "Q3 FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "It should come back into growth momentum by Q3 or so.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Opex to NTI improvement for FY27",
+     "target": "25-40 bps improvement",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "Overall, we are confident of delivering 25 to 40 basis points improvement for FY '27 in opex to NTI.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Continued improvement in new Stage 2 and Stage 3 contribution",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Rajeev Jain",
+     "quote": "We expect continued improvement at this juncture on this metric over the coming quarters.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Digital platform to deliver business volume this year",
+     "target": "INR50,000 crores",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "I mean this year the digital platform will deliver INR50,000 crores of business.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Target volume via customer centricity, AI and digital transformation next year",
+     "target": "INR100,000 crores",
+     "horizon": "FY28",
+     "speaker": "Rajeev Jain",
+     "quote": "I am targeting that next year we should be delivering INR100,000 crores volume between customer centricity, AI and tech transformation and digital transformation.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "AI voice and text bot disbursements for full year",
+     "target": "INR11,000-12,000 crores",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "On disbursements, AI, voice and text bots did INR2,500 crores, we will do INR11,000 crores INR12,000 in the full year this year.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Custom AI model go-live for B2B in Q2, B2C by October-November",
+     "target": "directional",
+     "horizon": "Q2 FY27 / Oct-Nov 2026",
+     "speaker": "Rajeev Jain",
+     "quote": "Custom AI model, which is on track to go live in Q2... B2C business that will go live by October, November.",
+     "page": 5
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "NIM moderation guidance for FY27",
+     "target": "10-15 bps moderation",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "Whatever Sandeep has guided for or what we've said, I think that moderation 10 - 15 basis points is what we foresee at this juncture, give us a quarter.",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Decision on term extension / capital raise by December '27-January '28; BHFL dilution to 75% first",
+     "target": "directional",
+     "horizon": "Dec '27-Jan '28",
+     "speaker": "Rajeev Jain",
+     "quote": "We'll make a decision by December '27 - January '28... First protocol most likely will be BHFL dilution.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Gold loan AUM expected to be delivered in the current year",
+     "target": "INR29,000-31,000 crores",
+     "horizon": "current year (FY27)",
+     "speaker": "Rajeev Jain",
+     "quote": "We think in the current year, we'll deliver between INR29,000 crores to INR31,000 crores AUM.",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Gold loan branch network to reach 2,700-2,800 branches, implying ~INR37,000-38,000 crores peak capacity at INR14 crores per branch",
+     "target": "2,700-2,800 branches",
+     "horizon": "at maturity / medium term",
+     "speaker": "Rajeev Jain",
+     "quote": "should take us to 2,700 - 2,800 branches. 2,800 branches should mean... a INR37,000 crores, INR38,000 crores capacity.",
+     "page": 16
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "New customers added in Q1",
+     "value": "5 million",
+     "quote": "We added 5 million new customers.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "AUM added in the quarter",
+     "value": "record INR37,000 crores",
+     "quote": "AUM, we added a record INR37,000 crores of AUM in a quarter.",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "Profit growth",
+     "value": "28%",
+     "quote": "Profit growth was strong at 28% and ROE crossed 20%.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "ROA and ROE",
+     "value": "ROA 4.7%, ROE 20.4%",
+     "quote": "ROA came in at 4.7% and ROE at 20.4%.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Opex to NTI",
+     "value": "33.4%",
+     "quote": "Opex to NTI came in at 33.4%, marginally higher than last year.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Gold loan growth",
+     "value": "+112%",
+     "quote": "Gold loan business sustained its strong momentum, grew by 112%. Business is now 4% of AUM.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Rural and urban consumer finance growth",
+     "value": "+49% and +38%",
+     "quote": "Rural consumer finance and urban consumer finance grew by 49% and 38%.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Loan loss to average AUF",
+     "value": "1.54% (1.31% ex-overlay)",
+     "quote": "Loan loss to average AUF in the new frame... improving to 1.54%... would have been 1.31%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "GNPA / NNPA / provision coverage",
+     "value": "0.96% / 0.39% / 60%",
+     "quote": "GNPA and NNPA came in line, 0.96% and 0.39%. Provision coverage is at 60%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "BHFL performance",
+     "value": "Disbursements +33%, AUM +24%, PAT/PBT +23%, ROE 12.5%",
+     "quote": "Disbursements grew 33%. AUM grew 24%... both their PAT and PBT grew by 23%. ROE improved to 12.5%.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Consumer leverage (consumer debt to GDP) stabilized; grew ~1% last year vs 2% a year prior; ~40% of GDP as of March 31",
+     "target": "",
+     "horizon": "",
+     "speaker": "Rajeev Jain",
+     "quote": "The number as of March 31, number is looking to be 40%.",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Gold loan book built to ~INR20,000 crores; 25% of gold loan business comes through digital platform; app mix 70% ETB / 30% NTB",
+     "target": "",
+     "horizon": "",
+     "speaker": "Rajeev Jain",
+     "quote": "25% of the business comes through digital platform. That's our principal moat",
+     "page": 16
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "volume",
+     "statement": "Deliver 60-62 million new loans in FY27",
+     "target": "60-62 million",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We are well on track to deliver between 60 million to 62 million new loans in FY27.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Add 18-20 million new customers in FY27",
+     "target": "18-20 million",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We are clear about adding between 18 MM to 20 MM customers to the franchise in FY27.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Improve opex-to-NTI by 25-40 bps in FY27 despite investments",
+     "target": "25-40 bps improvement",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We remain pretty comfortable place to deliver a 25 to 40 basis point improvement in FY27 on opex-to-NTI.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME to return to double-digit growth momentum in second half",
+     "target": "double-digit",
+     "horizon": "H2 FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We should start to see as we get in the second half, a double-digit kind of growth momentum in the business.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "End the year with close to 2,800 standalone gold loan branches",
+     "target": "~2,800 branches",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We remain quite clear about ending the year with close to 2,800 on stand-alone gold branches.",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "FY27 AUM growth expected at 26-27% for full year",
+     "target": "26-27%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "Probably between 26%, 27% growth we should deliver now on a full year basis.",
+     "page": 11
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Medium-term AUM growth guidance maintained at 20-25%",
+     "target": "20-25%",
+     "horizon": "medium term",
+     "speaker": "Rajeev Jain",
+     "quote": "Medium term, we maintain a guidance of 20% to 25% on a year lower here and a year higher there.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Reduce 3PL origination metric to 3.5% within 6 months",
+     "target": "3.5%",
+     "horizon": "6 months",
+     "speaker": "Rajeev Jain",
+     "quote": "My mandate to the team is to bring that down to 3.5% in the 6 months' time.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Deliver ~180 agentic applications and ~600 agents for the year",
+     "target": "~180 applications, ~600 agents",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "We are well on track to deliver 180-odd agentic applications and 600-odd agents for the year.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Reach INR11 lakh crores AUM by FY30",
+     "target": "INR11 lakh crores",
+     "horizon": "FY30",
+     "speaker": "Sandeep Jain",
+     "quote": "Continue to grow from there on and get to as per last as I say INR11 lakh crores number by FY30.",
+     "page": 11
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "NIM compression guidance of 10-15 bps for the year carries a marginal additional headwind as repo rate rises in Q3/Q4",
+     "target": "10-15 bps compression plus marginal headwind",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "I had given a guidance of 10 to 15 basis point compression in the current year. I would say carry a marginal headwind to that number",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Fee income growth guidance of 16-18% for the year; H1 running at 20%",
+     "target": "16-18%",
+     "horizon": "FY27",
+     "speaker": "Rajeev Jain",
+     "quote": "the H1 non-interest income has grown by 20%... In general, our guidance of 16% to 18%",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "AUM growth",
+     "statement": "AUM grew 26.5% to INR 5,84,624 crores; net AUM addition ~INR 38,000 crores",
+     "target": "AUM +26.5% to INR 5,84,624 crores",
+     "quote": "AUM, as you can see, grew by 26.5% to INR 5,84,624 crores, delivering net AUM addition of close to INR 38,000 crores in the quarter.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT grew 29% to INR 6,367 crores; 34% to INR 6,619 crores before macro overlay",
+     "target": "PAT INR 6,367 crores (+29%)",
+     "quote": "PAT grew by 29% to INR6,367 crores. Before macro overlay provision, it grew by 34% to INR6,619 crores.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "PBT grew 29% to INR 8,537 crores; 34% to INR 8,874 crores including macro provision of INR 337 crores",
+     "target": "PBT INR 8,537 crores (+29%)",
+     "quote": "PBT grew by 29% to INR 8,537 crores in Q2. This is before the macroeconomic provision that we've created of another INR 337 crores.",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "New loans grew 11% to 13.5 million; 4.42 million new customers added",
+     "target": "New loans 13.5 million (+11%)",
+     "quote": "New loans grew 11% to 13.5 million... We added, as I said, 4.42 million new customers during the quarter.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "ROA 4.6%, ROE 20.6%, opex to total income 33%, net NPA 42 bps",
+     "target": "ROA 4.6%, ROE 20.6%",
+     "quote": "ROA for the quarter came in at 4.6% and ROE came in at 20.6%. Opex to total income was 33% and net NPA came in at 42 basis points.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Urban consumer finance +43%, rural +63%, MFI +54%, CV & tractor +89%, LAS +42%, MSME +3%",
+     "target": "Urban +43%, rural +63%, MFI +54%",
+     "quote": "Urban consumer finance grew by 43%, rural consumer finance by 63%. MFI grew on a low base, grew 54%, CV and Tractor on low base grew 89%.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Loan losses to average AUM improved to 1.56% from 1.88%; GNPA 1.06%, NNPA 42 bps, PCR 60%",
+     "target": "Credit cost 1.56%",
+     "quote": "Loan loss to average AUF improved to 1.56% from 1.88% last year... GNPA and NNPA came in at 1.06 and 42 basis points.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Cost of funds down 9 bps sequentially to 7.31%; liquidity buffer just below INR 20,000 crores",
+     "target": "CoF 7.31%",
+     "quote": "Cost of funds came down sequentially by 9 basis points and came in at 7.31%.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Gold loan book at ~INR 24,000 crores (4.1% of balance sheet); 320 branches added, network at 2,022",
+     "target": "Gold loan book ~INR 24,000 crores",
+     "quote": "Gold loan book portfolio continued to grow, it's now 4.1% of balance sheet. It was just a tad above INR24,000 crores as of Q2.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "BHFL disbursements and AUM grew 25%, PAT +18%, ROE 12.7%; BFSL PAT +36%, added 121,000 customers",
+     "target": "BHFL PAT +18%, BFSL PAT +36%",
+     "quote": "Their disbursements in AUM grew 25%... the PAT grew 18%... BFSL had a good quarter. PAT grew 36%. It added 121,000 customers.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "NIM down 5 bps in H1 vs beginning of year",
+     "target": "",
+     "horizon": "",
+     "speaker": "",
+     "quote": "So far, we are 5 basis points down over the beginning of the year on a first half basis",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "H1 non-interest income grew 20%",
+     "target": "",
+     "horizon": "",
+     "speaker": "",
+     "quote": "the H1 non-interest income has grown by 20%",
+     "page": 13
+    }
+   ],
+   "source": "transcripts/2026-10-23-transcript-60d403.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Credibility looks strong so far: H1 FY27 actuals met or beat guidance on credit cost, ROA/ROE, AUM and customer adds, with AUM and customer guidance raised. The one clear miss is MSME, still at +3% in Q2 FY27 versus a promised return to double-digit growth; most full-year FY27 targets are not yet reported.",
+  "score": "high",
+  "rows": [
+   {
+    "call": "Q4 FY26",
+    "promise": "MSME back to double-digit growth between Q2-Q3 FY27",
+    "delivered": "Q2 FY27 call: MSME grew only +3%; Q4 FY26 was +6%",
+    "status": "missed",
+    "cite": "transcripts/2026-04-concall.md p3; transcripts/2026-10-23 p3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "FY27 credit cost 145-160 bps; ROA 4.4-4.6%; ROE 19-20%",
+    "delivered": "Q1 FY27: 1.54%, ROA 4.7%, ROE 20.4%; Q2 FY27: 1.56%, ROA 4.6%, ROE 20.6%",
+    "status": "delivered",
+    "cite": "transcripts/2026-04-concall.md p7; 2026-08 p4-5; 2026-10-23 p3-4",
+    "verify": {
+     "checked": 11,
+     "found": 11,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "AUM growth 20-24% in FY27",
+    "delivered": "Q2 FY27 AUM +26.5% to INR5,84,624 cr; guidance raised to 26-27% (Q2 call)",
+    "status": "too early",
+    "cite": "transcripts/2026-04-concall.md p6; transcripts/2026-10-23 p3, p11",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Add 15-17 million new customers in FY27",
+    "delivered": "H1 FY27: 9.42 mn added (5.0 mn Q1, 4.42 mn Q2); Q2 call raised target to 18-20 mn",
+    "status": "too early",
+    "cite": "transcripts/2026-04-concall.md p6; 2026-08 p4; 2026-10-23 p4",
+    "verify": {
+     "checked": 7,
+     "found": 7,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Gold loan portfolio to cross ~5% of AUM by FY27",
+    "delivered": "4.0% of AUM in Q1 FY27; 4.1% (~INR24,000 cr) in Q2 FY27; trending toward target",
+    "status": "too early",
+    "cite": "transcripts/2026-04-concall.md p3; 2026-08 p4; 2026-10-23 p4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "2W/3W captive book to wind down below INR1,500 cr by Sep 2026",
+    "delivered": "Not stated in Q1 or Q2 FY27 calls; no figure reported",
+    "status": "not measurable",
+    "cite": "transcripts/2026-04-concall.md p4",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Gold loan AUM INR29,000-31,000 cr and 2,700-2,800 branches by FY27-end",
+    "delivered": "Q2 FY27: book ~INR24,000 cr, network 2,022 branches (320 added in Q2)",
+    "status": "too early",
+    "cite": "transcripts/2026-08-concall.md p4, p16; 2026-10-23 p4",
+    "verify": {
+     "checked": 7,
+     "found": 7,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Opex-to-NTI improvement of 25-40 bps in FY27",
+    "delivered": "Q1: 33.4%, 'marginally higher than last year'; Q2: opex/total income 33%; no improvement yet",
+    "status": "too early",
+    "cite": "transcripts/2026-08-concall.md p4; 2026-10-23 p3-4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Deliver 60-62 million new loans in FY27",
+    "delivered": "Q2 FY27 new loans 13.5 mn (+11%); full-year period not reported",
+    "status": "too early",
+    "cite": "transcripts/2026-10-23 p4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Fee income growth 16-18% in FY27; NIM compression 10-15 bps",
+    "delivered": "H1 FY27 non-interest income +20%; NIM down 5 bps vs year-start; tracking within/above guidance",
+    "status": "too early",
+    "cite": "transcripts/2026-10-23 p13",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Profit momentum is strong: Q2 FY27 PAT ₹6,266 cr, +28.5% YoY after Q1 +27.4%; FY26 Q4 was +22.0%.",
+    "cite": "quarterly_actuals",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Execution credibility high: H1 FY27 credit cost 1.54-1.56%, ROA 4.6-4.7%, ROE 20.4-20.6% met/beat FY27 guidance ranges.",
+    "cite": "transcripts/2026-10-23 p3-4; promised_vs_delivered",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Growth raised: Q2 FY27 AUM +26.5% to ₹5,84,624 cr; FY27 AUM guidance lifted to 26-27%, customer target to 18-20 mn.",
+    "cite": "transcripts/2026-10-23 p3, p4, p11",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "MSME is the clear miss: promised double-digit growth by Q2-Q3 FY27, but Q2 FY27 grew only +3% after Q4 FY26 +6%.",
+    "cite": "transcripts/2026-04-concall.md p3; transcripts/2026-10-23 p3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Earnings are not linear: Q3 FY26 PAT fell 6.3% YoY to ₹3,978 cr, showing downside despite the FY27 rebound.",
+    "cite": "quarterly_actuals",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Balance-sheet reliance is heavy: borrowing/security powers proposed to ₹550,000 cr, plus Bajaj Housing Finance RPTs approved up to ₹18,152 cr.",
+    "cite": "annual-reports/annual-report-2026.md p3-4",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "MSME growth: whether it moves from +3% in Q2 FY27 back to the promised double-digit trajectory.",
+   "Full-year FY27 delivery versus credit cost 145-160 bps, ROA 4.4-4.6%, ROE 19-20%, and raised AUM/customer guidance.",
+   "Gold loan scale-up toward ~5% of AUM and ₹29,000-31,000 cr, plus evidence of 25-40 bps opex-to-NTI improvement."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-23-transcript-60d403.md",
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-04-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 82,
+  "found": 82
+ }
+}

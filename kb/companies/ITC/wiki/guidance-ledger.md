@@ -1,3 +1,3 @@
 # ITC guidance ledger
 
-What management explicitly guided, per quarter, quoted from concall transcripts — and what was delivered.
+What management said it would do, quoted from its own concall transcripts.

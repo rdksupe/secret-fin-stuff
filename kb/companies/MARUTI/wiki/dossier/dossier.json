@@ -1,0 +1,629 @@
+{
+ "symbol": "MARUTI",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Maruti Suzuki India Limited (MSIL) is primarily in the business of manufacturing, purchase and sale of motor vehicles, components and spare parts, with other activities including engineering and ancillary services, pre-owned car sales facilitation, fleet management and car financing. It offers a wide passenger vehicle portfolio in India (hatchbacks, sedans, SUVs, MPVs, vans) across petrol, mild hybrid, strong hybrid, CNG and battery-electric powertrains, and is a major exporter supported by Suzuki Motor Corporation's global network.",
+  "segments": [
+   {
+    "name": "Single reportable segment (automobiles)",
+    "share": "not stated",
+    "note": "The Group is evaluated as a single unit by the CODM; therefore there is no reportable segment. Other activities (engineering/ancillary services, pre-owned cars, fleet management, car financing) are not material in financial terms (p254)."
+   }
+  ],
+  "geographies": "Operations are India-centric with significant exports: FY 2025-26 revenue from operations was ₹1,477,985 million domestic and ₹355,175 million overseas (p255). Overseas sales are primarily to a single customer based in Japan contributing more than 10% of total revenue (p255). Exports were a record 447,774 units, supported by Suzuki Motor Corporation's network in over 120 export markets (p144).",
+  "key_facts": [
+   "Total income FY 2025-26: ₹1,876,580 million, up 18.82% from ₹1,579,326 million (p114)",
+   "Profit after tax: ₹144,454 million, up 1.03%; PBT ₹188,629 million, down 2.83% (p114)",
+   "Total sales at all-time high of 2,422,713 units; exports 447,774 units (up 34.63%); domestic sales 1,974,939 units (up 3.85%) (p114, p144)",
+   "Retail market share about 40%; SUVs over 56% of India PV sales; recommended dividend of ₹140 per share amounting to ₹44,016 million (p114, p143-144)",
+   "Operating margin moderated to 8.4% from 10.0%; new Kharkhoda and Hansalpur plants (250,000 units each annually) to commence production in FY 2026-27 (p144)"
+  ],
+  "pages": [
+   25,
+   26,
+   27,
+   28,
+   114,
+   143,
+   144,
+   254,
+   255
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 5,
+    "found": 5,
+    "missing": []
+   },
+   {
+    "checked": 5,
+    "found": 5,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 35779.4,
+   "ebitda": 5049.0,
+   "ebit": 3717.3,
+   "pbt": 4778.1,
+   "pat": 3759.7,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 14.1,
+   "op_margin": 10.4
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 37449.2,
+   "ebitda": 4951.5,
+   "ebit": 3565.8,
+   "pbt": 5093.3,
+   "pat": 3102.5,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 13.2,
+   "op_margin": 9.5
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 38764.3,
+   "ebitda": 5009.4,
+   "ebit": 3580.4,
+   "pbt": 4658.9,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 12.9,
+   "op_margin": 9.2
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 40920.1,
+   "ebitda": 4772.1,
+   "ebit": 3310.3,
+   "pbt": 4845.8,
+   "pat": 3911.1,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 11.7,
+   "op_margin": 8.1
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 38605.2,
+   "ebitda": 4587.1,
+   "ebit": 3031.1,
+   "pbt": 4908.0,
+   "pat": 3792.4,
+   "is_bank": false,
+   "revenue_yoy": 7.9,
+   "pat_yoy": 0.9,
+   "margin": 11.9,
+   "op_margin": 7.9
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 42344.2,
+   "ebitda": 5018.7,
+   "ebit": 3315.7,
+   "pbt": 4272.0,
+   "pat": 3349.0,
+   "is_bank": false,
+   "revenue_yoy": 13.1,
+   "pat_yoy": 7.9,
+   "margin": 11.9,
+   "op_margin": 7.8
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 49904.1,
+   "ebitda": 5487.7,
+   "ebit": 3753.1,
+   "pbt": 4831.9,
+   "pat": 3879.1,
+   "is_bank": false,
+   "revenue_yoy": 28.7,
+   "pat_yoy": null,
+   "margin": 11.0,
+   "op_margin": 7.5
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 52462.5,
+   "ebitda": 6061.0,
+   "ebit": 4312.9,
+   "pbt": 4821.1,
+   "pat": 3659.0,
+   "is_bank": false,
+   "revenue_yoy": 28.2,
+   "pat_yoy": -6.4,
+   "margin": 11.6,
+   "op_margin": 8.2
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 52469.8,
+   "ebitda": 4215.6,
+   "ebit": 2435.3,
+   "pbt": 4343.5,
+   "pat": 3446.9,
+   "is_bank": false,
+   "revenue_yoy": 35.9,
+   "pat_yoy": -9.1,
+   "margin": 8.0,
+   "op_margin": 4.6
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 53355.5,
+   "ebitda": 4695.1,
+   "ebit": 2735.2,
+   "pbt": 3150.1,
+   "pat": 2466.1,
+   "is_bank": false,
+   "revenue_yoy": 26.0,
+   "pat_yoy": -26.4,
+   "margin": 8.8,
+   "op_margin": 5.1
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "capacity",
+     "statement": "Second Kharkhoda plant and fourth Hansalpur (Gujarat) line to become operational this fiscal year, each adding 250,000 units annual capacity",
+     "target": "500,000 units combined",
+     "horizon": "FY27",
+     "speaker": "Rahul Bharti",
+     "quote": "The second plant at the Kharkhoda facility and the fourth production line at the Hansalpur facility in Gujarat is set to become operational within this financial year.",
+     "page": 4
+    },
+    {
+     "metric": "capacity",
+     "statement": "Plans to increase production capacity to 4 million units per annum",
+     "target": "4 million units per annum",
+     "horizon": "medium term",
+     "speaker": "Rahul Bharti",
+     "quote": "the company has put plans in place to increase the production capacity to 4 million units per annum in the medium term.",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Company sales volume growth expected over 10% this year, with about 250,000 additional cars available from new plants",
+     "target": ">10%",
+     "horizon": "FY27",
+     "speaker": "Rahul Bharti",
+     "quote": "Effectively, one can expect that we'll have an additional volume of about 250,000 cars available this year... growth of over 10% this year as compared to the last year.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Aim to enable a network of over 1 lakh charging points across India",
+     "target": "100,000+ charging points",
+     "horizon": "by 2030",
+     "speaker": "Rahul Bharti",
+     "quote": "our aim is to enable a network of over 1 lakh charging points across India by 2030, along with our dealers and charge point operators.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "7 more SUVs plus other models planned through end of the decade",
+     "target": "7 SUVs",
+     "horizon": "by 2030",
+     "speaker": "Rahul Bharti",
+     "quote": "We have spoken about 7 more SUVs all the way through the end of the decade.",
+     "page": 10
+    },
+    {
+     "metric": "EBIT margin",
+     "statement": "Start-up/ramp-up costs from Kharkhoda Phase 2 not expected to be significant; economies of scale should broadly take care of them",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Arnab Roy",
+     "quote": "There will be some ramp-up definitely for the Kharkhoda Phase 2 plant, but we do not expect anything significant.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Mark-to-market hit of ~INR750 crore this quarter; roughly 35% already reversed as of yesterday, remainder to move with bond yields",
+     "target": "~35% reversed",
+     "horizon": "next quarter",
+     "speaker": "Arnab Roy",
+     "quote": "Roughly about 35% of this is already reversed, and this is an everyday moving number.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Flex-fuel volumes will be minimal now, becoming meaningful only 5-10 years out; no impact on current cost structure",
+     "target": "directional",
+     "horizon": "5-10 years",
+     "speaker": "Rahul Bharti",
+     "quote": "It will grow, say, 5 years to 10 years from now, it will become a meaningful volume, nothing immediately. So it does not affect our cost structure.",
+     "page": 8
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margin expansion trajectory toward ~10% EBIT margin by 2030 once Middle East conflict headwinds pass and price increases are taken",
+     "target": "directional (~10% EBIT margin by 2030)",
+     "horizon": "medium term (by 2030)",
+     "speaker": "Analyst (Rahul Bharti response)",
+     "quote": "in a quarter or 2, we should get back on a trajectory of margin expansion and potentially in the direction of 10% EBIT margin, which we have targeted to reach by 2030",
+     "page": 12
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Confident of returning to a healthy margin trajectory after war, commodity and energy price headwinds subside",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Rahul Bharti",
+     "quote": "we are very confident and optimistic that subject to these headwinds of the war, the commodities and the energy prices, after that is over, we'll come back to a healthy trajectory",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Further headroom for ASP increase, aided by upper segment models and EVs becoming costlier",
+     "target": "directional",
+     "horizon": "future quarters",
+     "speaker": "Rahul Bharti",
+     "quote": "We do believe that there is still headroom for ASP because of the upper segment models... EVs have to increase in the future. So that will help ASPs",
+     "page": 12
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex plan for FY26-27",
+     "target": "INR 14,000 crores for the full year",
+     "horizon": "FY27",
+     "speaker": "Arnab Roy",
+     "quote": "Overall, on the capex for FY 26-27, we are looking at a INR 14,000 crores capex for the full year",
+     "page": 12
+    }
+   ],
+   "reported": [
+    {
+     "metric": "volume",
+     "statement": "Highest ever quarterly sales of 676,209 units, up 11.8% YoY; domestic 538,994, exports 137,215",
+     "target": "676,209 units, +11.8% YoY",
+     "quote": "The company recorded its highest ever quarterly sales of 676,209 units, up 11.8% from quarter 4 of the previous financial year.",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Record net sales of about INR500.79 billion vs INR388.39 billion a year ago",
+     "target": "INR500.79 billion",
+     "quote": "the company achieved record net sales of about INR 500.79 billion compared to about INR388.39 billion in the same period a year ago.",
+     "page": 5
+    },
+    {
+     "metric": "EBIT margin",
+     "statement": "EBIT up 30.4% YoY to over INR44 billion; sequentially EBIT margin expanded to 8.8% of net sales from 8.1%",
+     "target": "EBIT >INR44 billion; margin 8.8%",
+     "quote": "Operating profit, EBIT for quarter 4 of this year increased by 30.4%... reaching an all-time high of over INR44 billion.",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "Net profit declined 6.9% YoY to nearly INR36 billion due to mark-to-market impact",
+     "target": "~INR36 billion, -6.9% YoY",
+     "quote": "net profit declined by 6.9% year-on-year to nearly INR36 billion, primarily due to mark-to-market impact.",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Full-year record net sales over INR1.74 trillion, growth of 20.2%",
+     "target": "INR1.74 trillion, +20.2%",
+     "quote": "The company registered record net sales of over INR1.74 trillion in financial year '25-26, a growth of 20.2% over the previous year.",
+     "page": 6
+    },
+    {
+     "metric": "PAT",
+     "statement": "All-time high full-year net profit of over INR144.4 billion vs INR142.9 billion prior year",
+     "target": "INR144.4 billion",
+     "quote": "The company achieved its all-time high net profit of over INR144.4 billion in financial year '25-26.",
+     "page": 6
+    },
+    {
+     "metric": "volume",
+     "statement": "Highest ever annual sales of 2.42 million vehicles including record exports of 447,000",
+     "target": "2,422,713 units; exports 447,000",
+     "quote": "the company recorded its highest ever annual sales of 2.42 million vehicles, which includes the highest ever export of 447,000 vehicles.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Pending customer orders of ~190,000 at fiscal year end, of which ~130,000 small cars in 18% GST bracket; dealer inventory ~12 days",
+     "target": "190,000 orders; 12 days inventory",
+     "quote": "around 190,000 customer orders remained unserved... near 130,000 of these pending orders were in the small car segment.",
+     "page": 2
+    },
+    {
+     "metric": "volume",
+     "statement": "Q4 retail sales ~468,700 units, up 12.9% YoY",
+     "target": "468,700 units, +12.9% YoY",
+     "quote": "This year, fourth quarter was 468,700 units approximately. So, there's a 12.9% year-on-year growth in the quarter in retail sales.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "First-time buyer share rose to 51% in Q4 FY26 from 42% in H1 and 48% in Q3",
+     "target": "51% first-time buyers",
+     "quote": "H1FY26 was about 42%. Q3FY26 was at 48% and Q4FY26 at 51%.",
+     "page": 10
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Q4 FY26 EBIT margin was in line with estimate",
+     "target": "in line with estimate",
+     "quote": "the quarter 4 FY26 EBIT margin was in line with estimate",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-04-concall.md",
+   "month": "2026-04"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Only one call (Q4 FY26) carries promises, mostly long-dated (FY27 capacity, 2030 goals) and not yet testable. The one near-term checkable claim, margin expansion within a quarter or two, missed sharply as operating margin roughly halved.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q4 FY26",
+    "promise": "Second Kharkhoda plant and fourth Hansalpur line operational in FY27, adding 500,000 units capacity",
+    "delivered": "FY27 still underway; no later call or filing in material confirms commissioning",
+    "status": "too early",
+    "cite": "Q4 FY26 transcript p.4",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "FY27 sales volume growth over 10%, aided by ~250,000 extra cars from new plants",
+    "delivered": "Only Q1/Q2 FY27 financials available; quarterly_actuals contain no volume data to verify",
+    "status": "too early",
+    "cite": "Q4 FY26 transcript p.8",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Return to margin expansion trajectory in a quarter or two, toward ~10% EBIT margin by 2030",
+    "delivered": "Op margin fell to 4.6% (Q1 FY27) and 5.1% (Q2 FY27) from 8.2% in Q4 FY26",
+    "status": "missed",
+    "cite": "quarterly_actuals 2026-06-30, 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Kharkhoda Phase 2 ramp-up costs not significant; scale economies should broadly offset them",
+    "delivered": "Q1/Q2 FY27 op margin halved, but filings do not attribute cause to ramp-up",
+    "status": "not measurable",
+    "cite": "quarterly_actuals 2026-06-30; transcript p.8",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "~35% of ~INR750 crore mark-to-market hit already reversed; rest moves with bond yields",
+    "delivered": "No mark-to-market line item in quarterly filings provided to verify reversal",
+    "status": "not measurable",
+    "cite": "Q4 FY26 transcript p.9",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "FY27 capex of INR 14,000 crore for the full year",
+    "delivered": "FY27 incomplete; no capex figure in quarterly_actuals or later calls provided",
+    "status": "too early",
+    "cite": "Q4 FY26 transcript p.12",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Raise production capacity to 4 million units per annum in the medium term",
+    "delivered": "Medium-term horizon extends beyond all reported periods in material",
+    "status": "too early",
+    "cite": "Q4 FY26 transcript p.4",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Enable 1 lakh+ charging points and launch 7 more SUVs by 2030",
+    "delivered": "2030 deadline not yet reached; no progress data in material provided",
+    "status": "too early",
+    "cite": "Q4 FY26 transcript pp.4,10",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Scale and demand remain strong: FY26 sales hit record 2,422,713 units, domestic +3.85%, exports +34.63%, retail share ~40%.",
+    "cite": "annual-reports/annual-report-2026.md p114, p143-144",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Revenue momentum is robust: total income rose 18.82% to ₹1,876,580m; recent quarterly revenue growth reached 26-36% YoY.",
+    "cite": "annual-reports/annual-report-2026.md p114; quarterly_actuals 2025-12-31 to 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Capacity expansion supports growth: Kharkhoda and Hansalpur add 500,000 units annually from FY27; recommended dividend ₹140/share totaling ₹44,016m.",
+    "cite": "annual-reports/annual-report-2026.md p114, p144; Q4 FY26 transcript p.4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Profit quality lagged revenue: FY26 PAT rose only 1.03% while PBT fell 2.83%; operating margin compressed to 8.4% from 10.0%.",
+    "cite": "annual-reports/annual-report-2026.md p114, p144",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "FY27 deterioration is sharp: op margin fell to 4.6% in Q1 and 5.1% in Q2; Q2 PAT dropped 26.4% YoY.",
+    "cite": "quarterly_actuals 2026-06-30, 2026-09-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Management’s near-term margin promise missed: expansion within a quarter or two was followed by margins roughly halving; overseas revenue depends on one Japan customer >10%.",
+    "cite": "promised_vs_delivered Q4 FY26; annual-reports/annual-report-2026.md p255",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3 FY27 operating margin: recovery toward 8%+ versus continued 4-5% would validate or break the margin-expansion claim.",
+   "Evidence that Kharkhoda/Hansalpur 500,000-unit capacity is commissioned and FY27 volume growth is tracking above 10%.",
+   "Disclosure on ₹750 crore MTM reversal, FY27 capex of ₹14,000 crore, and export/Japan single-customer concentration."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-04-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 53,
+  "found": 53
+ }
+}

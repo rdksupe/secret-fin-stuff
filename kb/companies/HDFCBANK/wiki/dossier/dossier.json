@@ -1,0 +1,973 @@
+{
+ "symbol": "HDFCBANK",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "HDFC Bank Limited is a bank delivering financial solutions to large corporates, mid-market companies, MSMEs and retail customers, combining a strong portfolio with customer insights. Its offerings span loans and deposits, investment banking, and other banking products and services such as cash management, trade finance, treasury, forex and derivatives.",
+  "segments": [
+   {
+    "name": "Wholesale Banking",
+    "share": "not stated",
+    "note": "Services large corporates, multinationals, government entities, public sector enterprises, emerging corporates and business banking/SME customers; products include working capital facilities, term lending, project and infrastructure finance, supply chain and export finance, debt/equity capital markets, M&A, loan syndication, forex & derivatives, custodial services, letters of credit and guarantees (p71)."
+   },
+   {
+    "name": "Retail / MSME",
+    "share": "not stated",
+    "note": "The report states the Bank serves mid-market companies, MSMEs and retail customers; a dedicated retail segment description is not provided in the material (p71)."
+   }
+  ],
+  "geographies": "Primarily India (report is an Indian bank's Integrated Annual Report; per-share data sourced from NSE). Overseas operations exist: overseas total assets of ₹86,595.81 crore, NPAs of ₹90.48 crore and revenue of ₹4,755.94 crore as at/for the year ended March 31, 2026 (p426).",
+  "key_facts": [
+   "Net revenues of ₹1,91,218.60 crore and profit after tax of ₹74,671.30 crore in FY 2025-26 (p259)",
+   "Deposits of ₹31,05,250.47 crore and loans of ₹29,37,166.27 crore as at March 31, 2026 (p259)",
+   "Total capital ratio 19.71% and Tier 1 capital ratio 17.73% as at March 31, 2026 (p259)",
+   "Gross NPAs of ₹34,061.19 crore, 1.15% of gross advances of ₹29,60,018.17 crore as at March 31, 2026 (p426)",
+   "98% of all financial transactions are digital and 99% of personal loans originated digitally; 2,11,178 total employees (p33)"
+  ],
+  "pages": [
+   33,
+   71,
+   259,
+   426
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 36966.7,
+   "ebitda": 25870.46,
+   "ebit": null,
+   "pbt": 22727.37,
+   "pat": 16474.85,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 37587.51,
+   "ebitda": 27237.29,
+   "ebit": null,
+   "pbt": 23166.89,
+   "pat": 17825.91,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 38125.89,
+   "ebitda": 27930.16,
+   "ebit": null,
+   "pbt": 23972.87,
+   "pat": 17656.61,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 39793.13,
+   "ebitda": 29378.75,
+   "ebit": null,
+   "pbt": 25123.7,
+   "pat": 18385.19,
+   "is_bank": true,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 39663.36,
+   "ebitda": 36163.46,
+   "ebit": null,
+   "pbt": 20849.83,
+   "pat": 16257.91,
+   "is_bank": true,
+   "revenue_yoy": 7.3,
+   "pat_yoy": -1.3,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 40252.98,
+   "ebitda": 30940.72,
+   "ebit": null,
+   "pbt": 25905.79,
+   "pat": 19610.67,
+   "is_bank": true,
+   "revenue_yoy": 7.1,
+   "pat_yoy": 10.0,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 41245.52,
+   "ebitda": 30581.81,
+   "ebit": null,
+   "pbt": 26961.1,
+   "pat": 19806.63,
+   "is_bank": true,
+   "revenue_yoy": 8.2,
+   "pat_yoy": 12.2,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 41962.06,
+   "ebitda": 31111.68,
+   "ebit": null,
+   "pbt": 26948.17,
+   "pat": 20350.76,
+   "is_bank": true,
+   "revenue_yoy": 5.5,
+   "pat_yoy": 10.7,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 42949.7,
+   "ebitda": 30996.0,
+   "ebit": null,
+   "pbt": 27193.16,
+   "pat": 19244.71,
+   "is_bank": true,
+   "revenue_yoy": 8.3,
+   "pat_yoy": 18.4,
+   "margin": null,
+   "op_margin": null
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "NII",
+    "PPOP",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 44464.2,
+   "ebitda": 32871.54,
+   "ebit": null,
+   "pbt": 27825.48,
+   "pat": 20700.03,
+   "is_bank": true,
+   "revenue_yoy": 10.5,
+   "pat_yoy": 5.6,
+   "margin": null,
+   "op_margin": null
+  }
+ ],
+ "guidance": [
+  {
+   "call": null,
+   "items": [
+    {
+     "metric": "other",
+     "statement": "RBI has approved Keki Mistry as Interim Part-Time Chairman for a fixed period",
+     "target": "3 months",
+     "horizon": "3 months from March 2026",
+     "speaker": "Keki Mistry",
+     "quote": "The Reserve Bank of India has approved my appointment as the Interim Part-Time Chairman for a period of 3 months.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Nomination and remuneration committee will consider MD & CEO reappointment in due course; process unchanged",
+     "target": "directional",
+     "horizon": "next few months (term due in ~7 months)",
+     "speaker": "Keki Mistry",
+     "quote": "It is something that will be considered by the nomination and remuneration committee. There is still time to do that.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Board will meet soon and decide on seeking explanation from the outgoing chairman and on next steps",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Keki Mistry",
+     "quote": "Obviously, the board will meet soon, and we will take a call on what to do.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "New chairman and replacement independent director will be decided within the interim period, in consultation with RBI and SEBI",
+     "target": "directional",
+     "horizon": "within 3 months",
+     "speaker": "Keki Mistry",
+     "quote": "There is a full 3-month period during which the Board will meet, take a call on who should be the Chairman.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Deputy Managing Director will get more responsibilities going forward",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "In fact, he will only get more responsibilities as we move forward.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Growth plans and operational commitments remain unchanged despite the chairman's resignation",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Keki Mistry",
+     "quote": "What happened yesterday has nothing whatsoever to do with operational profitability of the bank... the bank will commit to do whatever it has said in its calls that it would do.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Fruits of the merger will start to play out and bank is positioned to deliver as committed; technology expected to surprise over next couple of years",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "The fruits of the merger will start to play out... We have technology which is going to surprise us over the next couple of years.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Organization structure will be re-examined and new responsibilities for Kaizad announced after board approval, post financial year closure (not before March end)",
+     "target": "directional",
+     "horizon": "post FY26 closure",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "we will sort of re-examine our organization structure and with the consent and the advice of the board, we will announce it at the appropriate time",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Bank expects return to pre-merger growth trajectory",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "I think you will see the kind of growth that we have used to pre-merger coming back",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Technology to be a differentiator and a surprise over the next year or two",
+     "target": "directional",
+     "horizon": "1-2 years",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "Technology is going to be differentiator, and you will see it more happening over the year and two. And that is going to be kind of a surprise",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Bank's performance in coming months and years will reflect strong governance",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Keki Mistry",
+     "quote": "we will in the coming years and coming months, the performance of the bank will also reflect that",
+     "page": 13
+    }
+   ],
+   "reported": [],
+   "source": "transcripts/2026-03-concall.md",
+   "month": "2026-03"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Growth to be picked up in mid-market segment via ECLGS scheme 5.0",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "The ECLGS scheme 5.0 is also a very good opportunity and you will see a fair amount of growth that we will pick up in the mid-market segment.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "GenAI lighthouse programs to go into production during the year",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "we do have a fair amount of lighthouse programs that will go into production during the course of the year.",
+     "page": 4
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Margins may not have bottomed out quarter-to-quarter, but on a full-year basis the bank is well positioned to be better",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "we have to wait for the year to see, but we do think that on a full-year basis, we are well positioned... to be better.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Cost of funds could improve by 40-50 basis points but not quickly",
+     "target": "40-50 bps",
+     "horizon": "medium term",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "there can be 40, 50 basis points change, but it is not going to change in a hurry.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Borrowing mix at 11% expected to come down via maturities and growth, not to 8-9% immediately",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "the borrowing mix which is at 11%, we don't expect that it will just settle at 8% or 9%... the maturity should take care of that to some extent.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Retail mix to move from 52% toward ~60% over time",
+     "target": "~60%",
+     "horizon": "long term",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "Today we are at a 52% retail mix... we were at about 60% or so... that's where we want to be as far as the retail mix is concerned.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Significant FCNR(B) market share targeted; milestones in July-September, no number disclosed",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "you will see in the month of July, August, September, we have certain milestones... endeavor to ensure that we are reasonably strong and significant market share.",
+     "page": 8
+    },
+    {
+     "metric": "volume",
+     "statement": "Step-up in customer acquisition numbers and value expected over next nine months",
+     "target": "directional",
+     "horizon": "next 9 months",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "maybe over the next nine months we hope to see a fair amount of change in the acquisition numbers and hence value.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "CASA ratio vision to reach near pre-merger levels of ~38%",
+     "target": "~38%",
+     "horizon": "long term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "the endeavor and our vision is to reach to somewhere near the pre-merger levels or just around the time of the merger, which was around 38.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Healthy savings account growth expected over one to three years; efficiencies and better cost-to-income over next two-three years",
+     "target": "directional",
+     "horizon": "1-3 years",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "you should see reasonably healthy growth over a one, two, three-year period in the savings account as well.",
+     "page": 7
+    },
+    {
+     "metric": "market share",
+     "statement": "Gain market share within existing customer base and from new-to-bank acquisitions",
+     "target": "directional",
+     "horizon": "next two-three years",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "Gain market share within our existing base itself or even from a new-to-bank acquisitions as well. So that's going to be our next two, three-year journey",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Wallet share increase expected in wholesale corporate and capital markets segment as new technologies are implemented",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "even on that with the implementation of new technologies over a period of time... that will also sort of see a kind of a change in terms of the wallet share increase",
+     "page": 10
+    }
+   ],
+   "reported": [
+    {
+     "metric": "deposit growth",
+     "statement": "Deposit growth better than historical Q1 trends; market share gains on incremental and stock basis",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "the deposit growth continues to be relatively better than the historical Q1 trends. We continue to gain market share both on an incremental basis and on a stock basis",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Advances have done very well over the last three-four quarters",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "the advances have done very well over the last three, four quarters and that trajectory continues.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Per-branch productivity at INR 330 crores vs INR 266 crores in FY23; ~40% of branches less than 5 years old",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "we are about INR 330 crores per branch currently. And if you go back to the FY'23 time period, we were INR 266 crores per branch.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "CASA grew 9.5-10% in year to March 2026, gaining market share",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "for the year that went by, for example, March 26... while we grew between 9.5% - 10% or so, we still gained market share on that",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Borrowing mix currently about 11% of funding",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "the borrowing mix has not come off yet. We still remain at about 11%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Retail mix of assets currently 52%",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "Today we are at a 52% retail mix.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Wholesale/non-retail deposits share risen from 17% to 20%",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Seshadri Sen (analyst, acknowledged by management)",
+     "quote": "the share of wholesale deposits rise albeit not by a large amount, but it's gone up from 17% to 20%.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Customer base a little more than 100 million",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "we are today little more than 100 million customers",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Branch network at about 9,700 branches",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "depending on the capacity of the overall 9,700 branches",
+     "page": 7
+    },
+    {
+     "metric": "PAT",
+     "statement": "Reported profit growth of 5%; adjusted for one-timers (HDB gains, floating provision, contingent provisions) profit growth was 9.8%",
+     "quote": "adjusted for that, I think in one of our reports that we filed, it shows 9.8% profit growth",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Balance sheet growth was well upwards of 13-14%",
+     "quote": "Balance sheet growth is well upwards of 13%, 14%",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "CASA ratio at 34%",
+     "quote": "sharp decline in CASA down to 34%",
+     "page": 11
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "other (liabilities engine / deposit momentum)",
+     "statement": "Building new and deepening existing relationships will enable the liabilities engine to step up further in coming days",
+     "target": "directional",
+     "horizon": "coming days",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "Building on these new acquired relationships and deepening our existing relationships will enable the liabilities engine to step up further in the coming days",
+     "page": 3
+    },
+    {
+     "metric": "other (retail deposit proportion)",
+     "statement": "Proportion of retail deposits will become larger as balance sheet is restructured with non-deposit strategies",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "we probably will have the proportion of retail becoming larger and larger, and it will have a kind of a downstream impact on multiple metrics",
+     "page": 7
+    },
+    {
+     "metric": "other (strategy unveiling)",
+     "statement": "New CEO will unveil his strategy in about a month's time",
+     "target": "directional",
+     "horizon": "next month",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "Anup, in his next weeks or a couple of months' time will unveil his strategy... in probably a month's time or so",
+     "page": 7
+    },
+    {
+     "metric": "other (strategy perspective)",
+     "statement": "New CEO will soon present a perspective on growth, margins, quality and productivity",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Anup Bagchi",
+     "quote": "I will soon present a perspective on growth, margins, quality and productivity built on disciplined capital deployment and a strong execution culture",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin / NIM",
+     "statement": "Margin trajectory is at the bottom; net of FCNR headwind and rate tailwind, margins can be neutral to positive going forward",
+     "target": "directional",
+     "horizon": "next quarter onwards",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "net of that, we still think that there can be neutral to positive on the margin as we go forward... from a trajectory point of view, it is at the bottom",
+     "page": 10
+    },
+    {
+     "metric": "EBITDA margin / NIM",
+     "statement": "Margin trajectory will be upward from the next quarter onwards",
+     "target": "directional",
+     "horizon": "Q3 FY27 onwards",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "The trajectory will be upward from the next quarter onwards.",
+     "page": 10
+    },
+    {
+     "metric": "EBITDA margin / NIM",
+     "statement": "Across the next 2 quarters, back book effect will change and margins will improve as retail and MSME volumes grow",
+     "target": "directional",
+     "horizon": "next 2 quarters",
+     "speaker": "Kaizad Bharucha",
+     "quote": "going forward, across the next 2 quarters, you will see that change coming through as we also grow the volumes in retail and MSME",
+     "page": 9
+    },
+    {
+     "metric": "other (NIM reversal)",
+     "statement": "NIMs, which bore the brunt of faster asset repricing, are positioned for reversal as the bank enters an upward rate cycle",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "net interest margins... in a down rate cycle is also positioned for a reversal as we enter the upward rate cycle",
+     "page": 5
+    },
+    {
+     "metric": "other (loan mix)",
+     "statement": "Proportion of retail and MSME assets will outweigh corporate and home loans over a period of time",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sashidhar Jagdishan",
+     "quote": "This will get further enhanced as the proportion of retail and MSME assets outweigh the proportion of corporate and home loans over a period of time",
+     "page": 5
+    },
+    {
+     "metric": "other (NIM/margin trajectory)",
+     "statement": "From Q3 onwards there will be an uptick versus Q2, with full-quarter headwinds from Q2 items",
+     "target": "directional",
+     "horizon": "Q3 FY27 onwards",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "These are the items that are in play, positives, and the headwinds will be some full-quarter impact of whatever has come through in Q2.",
+     "page": 11
+    },
+    {
+     "metric": "other (loan mix/market share)",
+     "statement": "Bank will come back with more vigor in retail assets and MSME, gaining calibrated market share in higher-yield products",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Kaizad Bharucha",
+     "quote": "You will see us having certainly come back with more vigor on our retail assets and MSME space.",
+     "page": 11
+    },
+    {
+     "metric": "other (deposit market share)",
+     "statement": "Opportunity to raise deposit market share in over 54% of 765 districts where share is 2-3 points below average",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Srinivasan Vaidyanathan",
+     "quote": "More than 54% of the districts, significant opportunity exists because we are 2 to 3 percentage points lower than our average market share.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "deposits growth",
+     "statement": "Deposits grew 18.8% YoY reported, including ~4pp lift from special FCNR(B) window",
+     "quote": "Deposits increased 18.8% year-on-year on a reported basis, including a 4 percentage point lift from special FCNR (B) window",
+     "page": 3
+    },
+    {
+     "metric": "CASA growth",
+     "statement": "CASA grew ~10.8%; retail CASA grew ~11.2% YoY vs 9% a year ago",
+     "quote": "CASA grew at about 10.8% on an overall basis. And within this, retail CASA growth was about 11.2% year-on-year compared to 9% a year ago",
+     "page": 3
+    },
+    {
+     "metric": "AUM growth",
+     "statement": "Total AUM grew 15.3% YoY including 1.9% FCNR(B) leverage impact",
+     "quote": "Total AUM grew 15.3% year-on-year, including a 1.9% impact of FCNR (B) leverage, with SME and retail assets leading the charge",
+     "page": 3
+    },
+    {
+     "metric": "volume (retail disbursements)",
+     "statement": "Retail disbursements crossed Rs 90,000 crores in Q2 vs Rs 76,000 crores in Q1",
+     "quote": "The pace of retail disbursements is accelerating and has crossed Rs 90,000 crores during Q2 FY27 as against Rs 76,000 crores in Q1",
+     "page": 3
+    },
+    {
+     "metric": "other (liability relationships)",
+     "statement": "Added ~1.7 million liability relationships in Q2, 25% higher than Q1 and 33% higher than Q4 last year",
+     "quote": "We added about 1.7 million liability relationships in the second quarter, which is 25% higher than Q1 and 33% higher than the fourth quarter of last year",
+     "page": 3
+    },
+    {
+     "metric": "other (credit cards)",
+     "statement": "New credit card issuances at 1.4 million, up nearly 19% QoQ",
+     "quote": "New credit card issuances at 1.4 million have grown by nearly 19% quarter-on-quarter",
+     "page": 4
+    },
+    {
+     "metric": "asset quality (GNPA)",
+     "statement": "GNPA at 1.11%, 13 bps lower YoY; credit costs 44 bps; risk weights to total assets 69%",
+     "quote": "Our asset quality remains pristine, with GNPA at 1.11%, 13 basis points lower than year-on-year. Credit costs remain low at 44 basis points",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "Quarterly PAT of Rs 19.5 billion, ~12.7% growth excluding trading gains; ROA 1.8%",
+     "quote": "ROA of 1.8%... and quarterly PAT of Rs 19.5 billion, which is a growth of 12.7% approximately if you exclude the trading gains",
+     "page": 4
+    },
+    {
+     "metric": "EBITDA margin / NIM",
+     "statement": "NIM at 3.32%; cost of funds flat QoQ at ~4.4%",
+     "quote": "our cost of funds is flat quarter-to-quarter, at about 4.4% last quarter to this quarter",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "MSME EOP loan growth 23.5% YoY; business banking +28% YoY; corporate +2.8% QoQ / ~16.4% YoY; retail ex-agri +11.2% YoY",
+     "quote": "September'26 EOP loan growth has grown 23.5% year-on-year compared to 17% to 18% year-on-year growth levels seen in the last few quarters",
+     "page": 4
+    },
+    {
+     "metric": "other (cost of assets)",
+     "value": "cost to assets ~1.73-1.74%",
+     "quote": "Our cost to assets is at about 1.74, 1.73 thereabouts, which again is low.",
+     "page": 12
+    },
+    {
+     "metric": "other (MCLR-linked book)",
+     "value": "single-digit % of book priced to MCLR",
+     "quote": "The proportion of our book that is priced to MCLR is minuscule, single digit.",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-10-23-transcript-07c340.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Management delivered on its checkable near-term promises — customer acquisition, MSME/mid-market growth, deposit momentum — with strong Q2 FY27 numbers, and operations held steady through the chairman's exit. However, most strategic pledges (margins, CASA, pre-merger growth) are long-dated and untested, and the material does not confirm chairman succession or the CEO strategy unveil.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Mar 2026 (unlabeled)",
+    "promise": "Growth plans and operational commitments unchanged despite chairman's resignation",
+    "delivered": "PAT +10.7% Q4FY26, +18.4% Q1FY27, +5.6% Q2FY27; revenue YoY rose 5.5%→10.5%; Q2 deposits +18.8%",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2026-03/06/09; Q2 FY27 reported p.3",
+    "verify": {
+     "checked": 8,
+     "found": 8,
+     "missing": []
+    }
+   },
+   {
+    "call": "Mar 2026 (unlabeled)",
+    "promise": "Return to pre-merger growth trajectory (medium term)",
+    "delivered": "Pre-merger growth rate not stated; early signs positive: Q2 AUM +15.3% YoY, deposits +18.8% YoY",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Mar 2026 (unlabeled)",
+    "promise": "New chairman and replacement independent director decided within 3-month interim period",
+    "delivered": "Material does not state whether a permanent chairman was appointed within the window",
+    "status": "not measurable",
+    "cite": "not stated in provided material",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Step-up in customer acquisition numbers and value over next nine months",
+    "delivered": "Q2: 1.7M liability relationships (+25% vs Q1, +33% vs Q4); new credit cards 1.4M, +19% QoQ",
+    "status": "delivered",
+    "cite": "Q2 FY27 reported p.3-4",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Growth pickup in mid-market segment via ECLGS scheme 5.0",
+    "delivered": "Q2 MSME EOP loans +23.5% YoY vs 17-18% in prior quarters; business banking +28% YoY",
+    "status": "delivered",
+    "cite": "Q2 FY27 reported p.4",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Significant FCNR(B) market share; milestones in July-September",
+    "delivered": "Q2 deposits +18.8% incl ~4pp FCNR(B) lift; AUM +15.3% incl 1.9% FCNR impact; market share not quantified",
+    "status": "partly",
+    "cite": "Q2 FY27 reported p.3",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "FY27 full-year margins positioned to be better",
+    "delivered": "FY27 incomplete; Q2 NIM 3.32%, cost of funds flat QoQ at ~4.4%",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.7",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "CASA ratio vision toward pre-merger ~38% (long term)",
+    "delivered": "CASA ratio 34% in Q1; Q2 CASA grew 10.8%, retail CASA +11.2%; ratio not restated",
+    "status": "too early",
+    "cite": "Q1 FY27 reported p.11; Q2 FY27 reported p.3",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Margin trajectory upward from Q3 FY27 onwards",
+    "delivered": "Q3 FY27 not yet reported; latest actuals end Sep-2026",
+    "status": "too early",
+    "cite": "quarterly_actuals (latest 2026-09-30)",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "New CEO to unveil his strategy in about a month",
+    "delivered": "Material does not state whether the strategy was unveiled",
+    "status": "not measurable",
+    "cite": "not stated in provided material",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Profit engine is large and accelerating: FY26 PAT ₹74,671 crore; Q2FY27 revenue +10.5% YoY, deposits +18.8%, AUM +15.3%.",
+    "cite": "annual-reports/annual-report-2026.md p259; promised_vs_delivered Q2 FY27 reported p.3",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Near-term promises landed: 1.7M new liability relationships (+25% vs Q1), MSME loans +23.5% YoY, business banking +28%.",
+    "cite": "promised_vs_delivered; Q2 FY27 reported p.3-4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Resilient balance sheet: GNPA 1.15%, total capital 19.71%, Tier 1 17.73%; 98% digital transactions aid efficiency.",
+    "cite": "annual-reports/annual-report-2026.md p426, p259, p33",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Earnings quality is uneven: Q1FY27 PAT fell 1.3% YoY; Q2FY27 PAT growth slowed to 5.6% despite revenue +10.5%.",
+    "cite": "quarterly_actuals 2025-06-30, 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Core strategic pledges remain untested: pre-merger growth, FY27 margin improvement, CASA toward 38%, and Q3FY27 margin upturn are all 'too early'.",
+    "cite": "promised_vs_delivered; Q1 FY27 reported p.11; Q2 FY27 reported p.7",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Governance visibility is incomplete: material does not confirm permanent chairman succession within three months or the new CEO's strategy unveil.",
+    "cite": "promised_vs_delivered rows marked not measurable",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3FY27 NIM and cost-of-funds trend versus promised margin upturn from Q3 FY27.",
+   "Whether CASA ratio is restated and moves from 34% toward the ~38% pre-merger vision.",
+   "Confirmation of permanent chairman, CEO strategy unveil, and measurable pre-merger growth trajectory."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-23-transcript-07c340.md",
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-03-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 64,
+  "found": 64
+ }
+}

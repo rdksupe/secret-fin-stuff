@@ -1,0 +1,1263 @@
+{
+ "symbol": "PERSISTENT",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Persistent Systems Limited is a global provider of digital engineering and enterprise modernisation services, specialising in AI-driven solutions and software product engineering for industries such as BFSI, Healthcare and Hi-Tech. It builds software products from conception to deployment, modernises core platforms and embeds AI across operations, supported by proprietary platforms such as SASVA, GenAI Hub, Agent Studio and iAURA.",
+  "segments": [
+   {
+    "name": "Business segments",
+    "share": "not stated",
+    "note": "The provided pages do not break out revenue by service line or segment; industries mentioned include BFSI, Healthcare and Hi-Tech."
+   }
+  ],
+  "geographies": "Operations span 21 countries with 27,502 employees; major tax jurisdictions are India and the United States, with offices/locations in India, USA, France, Mexico, Malaysia, Costa Rica and Sri Lanka (per certification scope).",
+  "key_facts": [
+   "FY26 revenue of $1,654.4M, up 17.4% YoY (INR 147,484.49 million, +23.53%)",
+   "FY26 PAT of INR 18,651.20 million, up 33.21% YoY; PAT margin 12.65%",
+   "FY26 Annual Contract Value of $1,780.1M; Q4 ACV booking of $445.1M",
+   "27,502 employees across 21 countries with 86.99% employee retention in FY26",
+   "Market capitalisation of $8.1B; ROCE of 29.27% in FY26"
+  ],
+  "pages": [
+   10,
+   12,
+   72,
+   262,
+   263,
+   265
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 2737.17,
+   "ebitda": 455.21,
+   "ebit": 384.02,
+   "pbt": 400.54,
+   "pat": 306.42,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 16.6,
+   "op_margin": 14.0
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 2897.15,
+   "ebitda": 480.73,
+   "ebit": 406.23,
+   "pbt": 434.52,
+   "pat": 325.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 16.6,
+   "op_margin": 14.0
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 3062.28,
+   "ebitda": 537.84,
+   "ebit": 455.73,
+   "pbt": 482.04,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 17.6,
+   "op_margin": 14.9
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 3242.11,
+   "ebitda": 584.41,
+   "ebit": 505.31,
+   "pbt": 505.21,
+   "pat": 395.76,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 18.0,
+   "op_margin": 15.6
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 3333.59,
+   "ebitda": 611.59,
+   "ebit": 517.81,
+   "pbt": 555.41,
+   "pat": 448.25,
+   "is_bank": false,
+   "revenue_yoy": 21.8,
+   "pat_yoy": 46.3,
+   "margin": 18.3,
+   "op_margin": 15.5
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 3580.72,
+   "ebitda": 683.08,
+   "ebit": 583.03,
+   "pbt": 616.83,
+   "pat": 471.47,
+   "is_bank": false,
+   "revenue_yoy": 23.6,
+   "pat_yoy": 45.1,
+   "margin": 19.1,
+   "op_margin": 16.3
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 3778.2,
+   "ebitda": 733.07,
+   "ebit": 632.49,
+   "pbt": 564.99,
+   "pat": 439.45,
+   "is_bank": false,
+   "revenue_yoy": 23.4,
+   "pat_yoy": null,
+   "margin": 19.4,
+   "op_margin": 16.7
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4055.94,
+   "ebitda": 767.7,
+   "ebit": 659.16,
+   "pbt": 673.98,
+   "pat": 529.26,
+   "is_bank": false,
+   "revenue_yoy": 25.1,
+   "pat_yoy": 33.7,
+   "margin": 18.9,
+   "op_margin": 16.3
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4303.23,
+   "ebitda": 696.89,
+   "ebit": 581.61,
+   "pbt": 623.1,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 29.1,
+   "pat_yoy": -100.0,
+   "margin": 16.2,
+   "op_margin": 13.5
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4663.9,
+   "ebitda": 633.48,
+   "ebit": 466.81,
+   "pbt": 453.68,
+   "pat": 351.51,
+   "is_bank": false,
+   "revenue_yoy": 30.3,
+   "pat_yoy": -25.4,
+   "margin": 13.6,
+   "op_margin": 10.0
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Remain on track towards $2 billion annual revenue aspiration by March 2027",
+     "target": "$2 billion by March 2027",
+     "horizon": "FY27",
+     "speaker": "Sandeep Kalra",
+     "quote": "we remain firmly on track, advancing confidently towards our aspiration of $2 billion by March 2027 and laying the foundation of $5 billion by March 2031",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Long-term aspiration of $5 billion in annual revenue by FY31",
+     "target": "$5 billion by March 2031",
+     "horizon": "FY31",
+     "speaker": "Sandeep Kalra",
+     "quote": "assessed our progress towards our long-term aspiration of reaching $5 billion in annual revenue by FY31",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Effective tax rate for FY26 expected in a range",
+     "target": "20%-24%",
+     "horizon": "FY26",
+     "speaker": "Vinit Teredesai",
+     "quote": "ETR for FY26 will be in the range of 20%-24%",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Going forward, provisioning for gratuity and leave encashment will be in accordance with New Labour Codes",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Vinit Teredesai",
+     "quote": "Going ahead, our provisioning will be in accordance with the New Labour Codes",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Endeavor to maintain a consistent dividend payout ratio while augmenting growth through acquisitions",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "It is our endeavor to maintain a consistent dividend payout ratio while we augment our growth through capability-led acquisitions",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Intangible asset capitalization growth will slow as AI platforms (SASVA, iAURA) have matured",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Vinit Teredesai",
+     "quote": "they are now at a pretty good amount of maturity level whereby the growth in these intangibles will not be at the same level as what you have seen in the past",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "IP and services revenue lines will blur/get clubbed together over time",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "over a period of time, the IP and services will get clubbed together and these lines will blur",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "Investments in data, cloud, digital engineering and IP should lead to good growth over 12-18 months",
+     "target": "directional",
+     "horizon": "12-18 months",
+     "speaker": "Sandeep Kalra",
+     "quote": "We are confident this should lead to good growth as we move along",
+     "page": 19
+    },
+    {
+     "metric": "other",
+     "statement": "ESOP/RSU cost will reduce further in FY27 after reduction in FY26",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Vinit Teredesai",
+     "quote": "This is a reduction in cost that is happening in FY26. There will be a further reduction in cost that will happen in FY27",
+     "page": 21
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Not aspiring to push margins up another 200 bps; will reinvest and focus on growth instead",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we are not aspiring now to take it another 200 basis points up. We are happy where we are reaching... make sure that we are a growth engine",
+     "page": 21
+    },
+    {
+     "metric": "other",
+     "statement": "Revenue per employee expected to improve as tools break the linear revenue-headcount correlation",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "This is going to mature over a period of time, and I'm hopeful that it will move in the right direction",
+     "page": 22
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Healthcare vertical should do well with time given broad-based, forward-looking wins",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Sandeep Kalra",
+     "quote": "it's pretty heartening, and I'm pretty hopeful healthcare should do well with time",
+     "page": 24
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "4.0% QoQ, 17.3% YoY; $422.5 million",
+     "quote": "We achieved a healthy revenue growth of 4.0% quarter-on-quarter and 17.3% year-on-year, delivering $422.5 million in Q3 of fiscal 2026",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "value": "4.1% QoQ in constant currency",
+     "quote": "In constant currency terms, the growth for the quarter was 4.1% quarter-on-quarter",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "14.4% (16.7% excluding labour code impact)",
+     "quote": "the EBIT for the quarter came in at 14%",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "value": "PAT margin 11.6%; ₹4,394.5 million, +17.8% YoY",
+     "quote": "Profit After Tax was ₹4,394.5 million, a growth of 17.8% year-on-year. This translates to a PAT margin of 11.6%",
+     "page": 7
+    },
+    {
+     "metric": "order book",
+     "value": "TCV $674.5 million; new bookings TCV $369.1 million; ACV $501.9 million",
+     "quote": "The Total Contract Value for the quarter stood at USD 674.5 million with the Total Contract Value of new bookings coming in at USD 369.1 million",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "value": "BFSI +29.3% YoY; Software Hi-Tech +14.7%; HLS +7.4%",
+     "quote": "this quarter's growth was led by BFSI vertical with 29.3% growth followed by Software Hi-Tech and Emerging Industries and Healthcare, Life Sciences which grew by 14.7% and 7.4%",
+     "page": 5
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "$100 million TCV deal with Tier-I US bank (25% new TCV)",
+     "quote": "we won a total of $100 million TCV deal this quarter, which included 25% new TCV component",
+     "page": 14
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "$50 million plus engagement over five years in pathology/lab automation",
+     "quote": "This is a $50 million plus engagement over five years, and it's one of the largest deals that we have signed in the pathology and laboratory automation domain",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "value": "Interim dividend of ₹22 per share",
+     "quote": "the Board of Directors has declared an interim dividend of ₹22 per share on face value of ₹5 per share",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Headcount 26,711; TTM attrition 13.5%",
+     "quote": "our total headcount stood at 26,711, an increase of 487 from the previous quarter. Trailing Twelve Months attrition this quarter came in at 13.5%",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "150 bps EBIT margin improvement this quarter from tool-driven pricing across multiple deals",
+     "target": "150 bps",
+     "quote": "this 150 basis points increment that you're seeing, it's not on account of one deal",
+     "page": 20
+    },
+    {
+     "metric": "other",
+     "statement": "Software license revenue up 40% QoQ; services revenue up 2.6% (analyst-cited figures)",
+     "target": "license +40% QoQ; services +2.6%",
+     "quote": "in this quarter it has gone up by 40% q-on-q... services revenue has gone up by 2.6%",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Company will host an AI Investor Day in early June at Pune offices to showcase AI capabilities, partnerships and customer case studies, including a hands-on AI hackathon with investors",
+     "target": "directional",
+     "horizon": "early June",
+     "speaker": "Sandeep Kalra",
+     "quote": "We also intend to host our AI Investor Day in early June timeframe at our offices in Pune to showcase our AI capabilities, our AI partnerships as well as some of the marquee customer case studies.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "OCF to PAT decline expected to normalize in the next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Vinit Teredesai",
+     "quote": "This decline in Operational Cash Flow to PAT was primarily on account of higher proportion of unbilled revenue in this quarter, which we expect to normalize in the next quarter.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Pace of AI adoption among tech companies and enterprises expected to accelerate significantly in coming quarters, with tech companies leading",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Sandeep Kalra",
+     "quote": "We do expect the pace of adoption in both the tech companies and enterprises to accelerate significantly in the coming quarters, with tech companies leading the way.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Final dividend of ₹18 per share recommended, subject to shareholder approval at the AGM",
+     "target": "₹18 per share",
+     "horizon": "FY26 (subject to AGM approval)",
+     "speaker": "Sandeep Kalra",
+     "quote": "the Board of Directors has recommended a final dividend of ₹18 per share on face value of ₹5 per share... subject to approval at the ensuing Annual General Meeting.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Annual flagship hackathon Semicolons to be conducted across the entire employee base, focused on building AI-native solutions",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we are now conducting our annual flagship hackathon, Semicolons, involving our entire employee base. The focus of this would be on building AI-native solutions",
+     "page": 6
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Company marching steadily toward $2 billion annual revenue run rate by FY27, within plus/minus a quarter",
+     "target": "$2 billion run rate by FY27",
+     "horizon": "FY27",
+     "speaker": "Sandeep Kalra",
+     "quote": "the $2 billion by FY27, that's a run rate. We are marching towards it steadily... we'll get there plus minus a quarter at worst",
+     "page": 19
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "FY27 Q4 exit quarterly run rate expected around $500 million",
+     "target": "~$500 million quarterly run rate",
+     "horizon": "Q4 FY27",
+     "speaker": "Sandeep Kalra",
+     "quote": "FY’27, Q4 exit is where we are looking at the run rate being in the range of $500 million or so",
+     "page": 20
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Margin aspiration of 16-17%, not guidance; growth and investment prioritized over margins",
+     "target": "16-17%",
+     "horizon": "medium term",
+     "speaker": "Vinit Teredesai",
+     "quote": "Our aspiration continues to be in the 16 to 17% range. But remember in this environment our first priority is growth",
+     "page": 26
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Next year growth pecking order: healthcare/life sciences and BFSI at top, followed by tech (directional, not guidance)",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Sandeep Kalra",
+     "quote": "between one and two will be healthcare life sciences, BFSI followed by tech... This is no guidance",
+     "page": 25
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Europe is an area where the company wants to double down despite recent declines",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "As far as Europe is concerned, that's an area where we want to double down",
+     "page": 21
+    },
+    {
+     "metric": "segment growth",
+     "statement": "India revenue strength was an aberration from an INR-billed GCC renewal and will correct next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sandeep Kalra",
+     "quote": "it will get corrected in the next quarter and we will see it",
+     "page": 21
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Use of third-party AI platforms expected to be margin neutral or accretive, not dilutive",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "most of these things should be margin neutral or accretive... It will be the same or better as we use more of this technology",
+     "page": 24
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "USD 436 million, +3.2% QoQ, +16.2% YoY; +3.4% QoQ CC",
+     "quote": "We achieved a healthy revenue growth of 3.2% quarter-on-quarter and 16.2% year-on-year, delivering USD 436 million in Q4 FY26.",
+     "page": 3
+    },
+    {
+     "metric": "EBIT margin",
+     "value": "16.3% (EBIT growth 30.4% YoY)",
+     "quote": "The EBIT margin for the quarter came in at 16.3%, translating to an EBIT growth of 21.4% and 30.4% QoQ and YoY respectively.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "value": "PAT margin 13.1%; PAT growth 20.4% QoQ, 33.7% YoY (₹5,292.6 million)",
+     "quote": "The Profit After Tax for the quarter came in at 13.1%, translating to a PAT growth of 20.4% QoQ and 33.7% YoY.",
+     "page": 3
+    },
+    {
+     "metric": "order book",
+     "value": "TCV $600.8 million; new bookings TCV $428.9 million; ACV $445.1 million (new bookings ACV $272.7 million)",
+     "quote": "The Total Contract Value for the quarter stood at USD 600.8 million, with Total Contract Value of the new bookings coming in at USD 428.9 million.",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "value": "FY26 revenue USD 1.65 billion, +17.4% YoY; EBIT margin 15.6%",
+     "quote": "FY26 revenue came in at USD 1.65 billion, translating into 17.4% YoY.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "value": "BFSI +24.3% YoY in Q4 (28.4% FY26); Healthcare/Life Sciences +14.1%; High-tech & Emerging +11.2%",
+     "quote": "This quarter's growth was led by Banking Financial Services vertical with 24.3% growth year-on-year followed by Healthcare, Life Sciences and Software, High-tech and Emerging verticals.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Final dividend ₹18 per share; total FY26 dividend ₹40 vs ₹35 in FY25",
+     "quote": "the Board of Directors has recommended a final dividend of ₹18 per share... This brings the total dividend for FY26 at ₹40",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Headcount 27,502 (+791 QoQ); utilization 88%; attrition 13%",
+     "quote": "our total headcount stood at 27,502, an increase of 791 from the previous quarter. Utilization in this quarter remained flattish at 88%.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "value": "OCF to PAT 77% in Q4; FY26 OCF to PAT 93.6%",
+     "quote": "OCF to PAT came in at 77% in Q4 of FY26 compared to 91% in the previous quarter.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "value": "EPS ₹33.80 in Q4 FY26 vs ₹28.20 previous quarter; RoCE 45.2%",
+     "quote": "Earnings Per Share was ₹33.80 per share in Q4 of FY26 compared to ₹28.20 per share in the previous quarter.",
+     "page": 9
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Net new SAP services deal with Japan-headquartered industrial technology leader",
+     "value": ">$50 million TCV",
+     "quote": "more than $50 million in TCV with a marquee net new customer and is one of the largest SAP services deals for us",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "iAURA deployment for large European bank reduced documentation cycle",
+     "value": "~70% reduction; 25,000+ lines of legacy code validated",
+     "quote": "documentation cycle reduced by roughly 70% with AI decoding and validating over 25,000 lines of legacy code",
+     "page": 16
+    }
+   ],
+   "source": "transcripts/2026-04-concall.md",
+   "month": "2026-04"
+  },
+  {
+   "call": null,
+   "items": [
+    {
+     "metric": "deal wins/TCV",
+     "statement": "New strategic agreement with an existing US-headquartered global technology leader will add roughly $125 million+ annually",
+     "target": "$125 million+ per year",
+     "horizon": "annual, over contract term",
+     "speaker": "Sandeep Kalra",
+     "quote": "This is a net new deal which will add roughly about $125 million plus on an annual basis",
+     "page": 4
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Total contract value of the new agreement over its full period",
+     "target": "$650 million+ over 6.5 years",
+     "horizon": "6.5 years",
+     "speaker": "Sandeep Kalra",
+     "quote": "overall for the period of the contract it will be roughly about $650 million plus over 6.5 years",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "The deal should continue Persistent's streak of consecutive quarters of growth",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "should cement the growth that we have seen in Persistent for the last several years and should continue our 24 quarter streak of growth for times to come",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Persistent shareholders will see long-term benefits from the scaled combined company",
+     "target": "directional",
+     "horizon": "next few years",
+     "speaker": "Anand Deshpande",
+     "quote": "as we build a scalable and a scaled company over the next few years, Persistent shareholders will also see long-term benefits",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Combined Persistent-Nagarro group will have 46,000+ employees across 40+ countries and revenue of $2.9 billion+",
+     "target": "$2.9 billion+ revenue; 46,000+ people; 40+ countries",
+     "horizon": "post-completion",
+     "speaker": "Sandeep Kalra",
+     "quote": "we will be 46,000+ team members globally spread across 40+ countries. It will be a 2.9 billion dollar+ powerhouse",
+     "page": 4
+    },
+    {
+     "metric": "market share",
+     "statement": "Combination aspires to be the 2nd largest digital engineering player globally and 7th largest India-listed technology services company",
+     "target": "directional",
+     "horizon": "post-completion",
+     "speaker": "Sandeep Kalra",
+     "quote": "We would, as a combination, look to be the 2nd largest digital engineering player globally, 7th largest in terms of technology services company from an India listed landscape",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Combination achieves the long-held ambition of Europe at 15%+ of revenues, actually reaching 22%",
+     "target": "22% of revenues from Europe",
+     "horizon": "post-completion",
+     "speaker": "Sandeep Kalra",
+     "quote": "we live to our dream of having European business at 15% plus. In fact, it's a very nice combination which gets us to 22% in Europe",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Leverage (net debt/combined EBITDA) of 1.9x-2.5x depending on open offer acceptance, expected to reduce to 1x by FY2030",
+     "target": "1.9x-2.5x, reducing to 1x",
+     "horizon": "FY2030",
+     "speaker": "Vinit Teredesai",
+     "quote": "The leverage, that is the Net Debt over the combined EBITDA, is going to be 1.9 times-2.5 times... expected to reduce down to 1X by FY2030",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Transaction expected to be Cash EPS accretive and Reported EPS accretive in Year 1, excluding first-year transaction expenses",
+     "target": "directional",
+     "horizon": "Year 1 post-close",
+     "speaker": "Vinit Teredesai",
+     "quote": "The transaction is expected to be Cash EPS accretive as well as Reported EPS accretive in Year 1 if you remove the transaction expenses",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Transaction expected to close around Q4 of Calendar Year 2026, subject to regulatory approvals; BaFin filing within 4 weeks",
+     "target": "Q4 CY2026 close",
+     "horizon": "Q4 CY2026",
+     "speaker": "Vinit Teredesai",
+     "quote": "we expect this transaction to close sometime towards the Q4 of Calendar Year 2026",
+     "page": 12
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Combined entity will sustain the same revenue growth momentum for times to come",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "creating the company which will be sustaining the same revenue growth momentum for times to come",
+     "page": 13
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Nagarro growth to be brought back to industry-leading levels with focused management",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we are very confident of bringing this back to an industry leading growth",
+     "page": 17
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Persistent FY26 revenue roughly $1.654 billion; run rate more than $1.7 billion",
+     "value": "$1.654 billion FY26; $1.7 billion+ run rate",
+     "quote": "Persistent today is roughly a $1.654 billion entity from a FY26 perspective. From a run rate perspective, we are more than $1.7 billion",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Persistent margins stand at roughly 15.6% and PAT margin at about 12.6%",
+     "value": "EBITDA margin ~15.6%; PAT margin ~12.6%",
+     "quote": "Today, our margins stand at roughly 15.6% and the PAT margin stands at about 12.6%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Persistent 5-year revenue CAGR of roughly 23.9%; grown at 17%+ CAGR since IPO",
+     "value": "5-year CAGR ~23.9%",
+     "quote": "We have grown at roughly about 23.9% for the last 5 years from a compounded annual growth rate perspective",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Persistent market cap about $8.1 billion; 27,500 team members across 21 countries",
+     "value": "$8.1 billion market cap; 27,500 employees",
+     "quote": "Today, we stand at about $8.1 billion in terms of market cap. All of this is backed up by 27,500 of our team members across 21 countries",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Persistent revenue mix: North America ~81%+, Europe ~8-8.5%",
+     "value": "North America ~81%+; Europe ~8-8.5%",
+     "quote": "significant amount of our revenue comes from the US/North America - roughly 81%+. Europe has been roughly about 8%-8.5% of our revenues",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Nagarro trailing 12-month revenue roughly €1 billion (~$1.14 billion), 5-year CAGR 18.4%, EBITDA margin 13.9%",
+     "value": "€1 billion (~$1.14bn) TTM revenue; 18.4% 5-yr CAGR; 13.9% EBITDA margin",
+     "quote": "Nagarro today is roughly a billion Euro organization which translates into roughly $1.14 billion from a Trailing 12-month perspective",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Persistent has secured 21% stake in Nagarro via share purchase agreement from the major shareholder",
+     "value": "21% stake secured",
+     "quote": "It has already secured 21% stake in Nagarro via share purchase agreement from the major shareholder",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Agreed to acquire 100% of Nagarro at enterprise value of €1.27 billion, €81 per share in cash",
+     "value": "€1.27 billion EV; €81/share; 140% premium to undisturbed price",
+     "quote": "Persistent has agreed to acquire 100% of the Nagarro shares at an enterprise value of €1.27 billion based on an €81 per share in cash",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Committed bridge financing of €1.4 billion from Barclays at Euribor plus 175-250 bps (~4.1%-4.8%)",
+     "value": "€1.4 billion bridge facility; ~4.1%-4.8% interest",
+     "quote": "This will be completely funded through a committed bridge financing from Barclays. The interest rate is going to be Euribor plus a margin of 175-250 basis point",
+     "page": 12
+    },
+    {
+     "metric": "EBIT margin (Nagarro)",
+     "statement": "Nagarro EBIT margin for CY25",
+     "value": "10.9%",
+     "quote": "the EBIT for CY25 for Nagarro is 10.9%",
+     "page": 23
+    },
+    {
+     "metric": "EBIT margin (Nagarro)",
+     "statement": "Nagarro EBIT margin for Q1 CY26",
+     "value": "12.1%",
+     "quote": "For Q1 CY26, it is 12.1%",
+     "page": 23
+    },
+    {
+     "metric": "revenue growth (Nagarro)",
+     "statement": "Nagarro constant currency growth",
+     "value": "more than 5% CC",
+     "quote": "they have on a constant currency grown more than 5% even in these environments",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Expect remaining merger control approvals (Austria, Spain) for Nagarro acquisition in coming weeks",
+     "target": "directional",
+     "horizon": "next several weeks",
+     "speaker": "Sandeep Kalra",
+     "quote": "We are confident of getting these approvals in over the next several weeks.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Nagarro deal closure expected by Q4-CY26 or Q1-CY27",
+     "target": "Q4-CY26 or Q1-CY27",
+     "horizon": "Q4-CY26/Q1-CY27",
+     "speaker": "Sandeep Kalra",
+     "quote": "We expect the deal closure by Q4-CY26 or Q1-CY27.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "One-time Nagarro transaction expenses of ~$50 million spread over three to four quarters",
+     "target": "~$50 million",
+     "horizon": "three to four quarters",
+     "speaker": "Sandeep Kalra",
+     "quote": "we are expecting one-time expenses to the tune of approximately $50 million spread over three to four quarters.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Raising USD 1.25 billion via debt and equity to replace the Euro 1.4 billion bridge loan; USD 450 million via QIP/equity-linked instruments",
+     "target": "USD 1.25 billion (USD 450 million equity)",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we will be raising USD 1.25 billion in terms of both debt and equity. Out of this, USD 450 million will be raised through equity, qualified institutional placement or equity-linked instruments",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Incremental Nagarro transaction costs of USD 25-30 million over next two quarters",
+     "target": "USD 25-30 million",
+     "horizon": "next two quarters",
+     "speaker": "Vinit Teredesai",
+     "quote": "Over the next two quarters, we expect an incremental amount ranging between USD 25 to 30 million to be incurred towards the Nagarro transaction.",
+     "page": 9
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margin impact from large-deal third-party tools/licenses will gradually reduce as spend is optimized and revenue scales",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Vinit Teredesai",
+     "quote": "As we optimize the spend and our revenue scales in future, the impact on our margins will gradually reduce.",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Software Reinvention offering will drive growth across the business and create a significant moat over the next several years",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we are confident that this offering will drive growth across the business creating a significant mode for us over the next several years.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Board may seek shareholder approval to treat one-time Nagarro transaction expenses as exception to ESOP vesting conditions (12% revenue and EPS growth)",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Sandeep Kalra",
+     "quote": "the Board may seek shareholders' approval to treat these one-time transaction related expenses as an exception when assessing the ESOP vesting conditions.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Intend to squeeze out remaining Nagarro minority shareholders upon closing",
+     "target": "directional",
+     "horizon": "upon closing",
+     "speaker": "Sandeep Kalra",
+     "quote": "we intend doing a squeeze out of the remaining minority shareholders of Nagarro upon closing.",
+     "page": 6
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Aspirational goal to be in the 16-17% margin range",
+     "target": "16-17%",
+     "horizon": "medium term",
+     "speaker": "Sandeep Kalra",
+     "quote": "we have said we want to be in the 16 to 17 % range, that is our aspiration... Please take this as an aspirational goal.",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "90bps large-deal ramp-up margin impact will gradually come down as costs are optimized and revenue grows",
+     "target": "directional",
+     "horizon": "next two to three quarters",
+     "speaker": "Vinit Teredesai",
+     "quote": "as we optimize some of the cost as well as increase our revenue also increases, this will gradually come down.",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Nagarro acquisition approvals expected in 4-6 weeks (max 8), then merger squeeze-out and ~5-6 months to integrate",
+     "target": "4-6 weeks (max 8); 5-6 months integration",
+     "horizon": "next few months",
+     "speaker": "Sandeep Kalra",
+     "quote": "We expect in the next 4 to 6 weeks, max, let's say 8 weeks, that's our hope and expectation.",
+     "page": 19
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Q2 FY27 revenue USD 487.6 million, +7.8% QoQ, +20% YoY (+7.8% QoQ, +20.8% YoY CC)",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "We achieved a healthy revenue growth of 7.8% quarter-on-quarter and 20% year-on-year delivering USD 487.6 million in Q2 FY27.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "EBIT margin 15%, EBIT growth 1.6% QoQ and 19.5% YoY",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "The EBIT margin for the quarter came in at 15%, translating to an EBIT growth of 1.6% quarter-on-quarter and 19.5% year-on-year.",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "Reported PAT margin 7.5% (Rs. 3,515.1 million, -25.4% YoY); operating PAT margin 10.6%; Nagarro costs impacted reported PAT by ~3.1%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "The reported profit after tax for the quarter came in at 7.5%... includes exceptional one-time expenses as part of Nagarro acquisition... approximately 3.1% impact.",
+     "page": 4
+    },
+    {
+     "metric": "order book",
+     "statement": "TCV USD 633.5 million; new bookings TCV USD 367.1 million; ACV USD 481 million (new bookings ACV USD 262.3 million)",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "the total contract value for the quarter stood at USD 633.5 million, with total contract value of new bookings coming in at USD 367.1 million.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Secured ~94.04% of Nagarro share capital (ex-treasury), exceeding 50%+1 minimum threshold",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "We have secured approximately 94.04% of Nagarro share capital excluding treasury shares at the expiry of the additional acceptance period.",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "YoY growth: Software/High-Tech/Emerging 28.5%, BFSI 16.2%, Healthcare & Lifesciences 12%; North America +22.5%, Europe -8.5%, India +19.4%, RoW +67%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "led by Software, High-Tech and Emerging verticals coming in at 28.5% followed by Banking, Financial Services and Insurance at 16.2% and Healthcare and Lifesciences vertical at 12%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Headcount 29,598 (+958 QoQ); utilization 85.8%; attrition 11.9% TTM",
+     "target": "",
+     "horizon": "",
+     "speaker": "Vinit Teredesai",
+     "quote": "our total headcount stood at 29,598, an increase of 958 from previous the quarter. Utilization stood at 85.8%... attrition stood at 11.9%",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Cash and investments Rs. 29,996.7 million (~$315 million); billed DSO 50 days; OCF/PAT TTM 96.6%; RoCE 45.6%",
+     "target": "",
+     "horizon": "",
+     "speaker": "Vinit Teredesai",
+     "quote": "Total cash and investments stood at Rs. 29,996.7 million, around $315 million as of September 30, 2026.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Transaction costs of Rs. 1,853.4 million incurred toward Nagarro acquisition in the quarter",
+     "target": "",
+     "horizon": "",
+     "speaker": "Vinit Teredesai",
+     "quote": "We incurred transaction costs worth Rs. 1,853.4 million towards the Nagarro acquisition in this quarter.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Client bucket YoY growth: top 5 +38.9%, top 10 +29.9%, top 20 +25%, top 50 +24%, top 100 +21.6%; USD 1mn+ clients up from 191 to 280",
+     "target": "",
+     "horizon": "",
+     "speaker": "Sandeep Kalra",
+     "quote": "Our top 5 customers' revenue grew by 38.9%, top 10 by 29.9%, top 20 by 25%, top 50 by 24% and top 100 by 21.6%.",
+     "page": 5
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Q2 ACV $481 million; TCV $633.5 million",
+     "value": "ACV $481m, TCV $633.5m",
+     "quote": "this quarter, the ACV of $481 million and TCV of $633.5 million is a reasonably good clip.",
+     "page": 19
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Q1 FY27 ACV was $536.8 million and TCV $1,146.2 million including the $650m large deal",
+     "value": "ACV $536.8m, TCV $1,146.2m",
+     "quote": "ACV reported in Q1 FY27 was $536.8 million, and the TCV was $1,146.2 million.",
+     "page": 19
+    }
+   ],
+   "source": "transcripts/2026-10-23-transcript-ef0001.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Near-term financial promises (FY26 tax rate, margin stance, healthcare recovery) were met with numbers matching filings, but the biggest commitments—$2bn revenue, Nagarro close and synergies—remain unproven, and the deal-close timeline has already slipped once. Credibility is decent on operational calls, untested on the transformational Nagarro claims.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q3 FY26",
+    "promise": "FY26 effective tax rate in 20%-24% range",
+    "delivered": "FY26 ETR ~21.7% (PAT ₹1,888cr vs PBT ₹2,411cr across FY26 quarters)",
+    "status": "delivered",
+    "cite": "quarterly_actuals FY26; transcript p.7",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Not pushing margins up another 200bps; happy at current level, prioritise growth",
+    "delivered": "Op margin held: 16.7% Q3 FY26, 16.3% Q4 FY26 per actuals; growth 25.1% YoY Q4",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2025-12, 2026-03; p.21",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Healthcare vertical should do well with time",
+    "delivered": "HLS growth rose to +14.1% YoY in Q4 FY26 (from +7.4% in Q3); +12% in Q2 FY27",
+    "status": "delivered",
+    "cite": "Q4 FY26 reported p.5; Q2 FY27 reported p.5",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "$2 billion annual revenue by March 2027",
+    "delivered": "Q2 FY27 revenue $487.6M (~$1.95bn annualised); FY27 still in progress",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.4; transcript p.5",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "OCF-to-PAT decline (77% in Q4) to normalise next quarter",
+    "delivered": "Q1 FY27 OCF/PAT not disclosed in material; only TTM 96.6% at Q2 FY27",
+    "status": "not measurable",
+    "cite": "Q2 FY27 reported p.9; transcript p.9",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "~$500M quarterly run rate at Q4 FY27 exit; $2bn run rate ±a quarter",
+    "delivered": "Q2 FY27 quarterly revenue $487.6M; Q4 FY27 not yet reported",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.4; transcript p.19-20",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Aug 2026 (Nagarro)",
+    "promise": "Transaction to close around Q4 CY2026",
+    "delivered": "Timeline extended to Q4-CY26/Q1-CY27 at Q2 FY27 call; 94.04% shares secured, Austria/Spain approvals pending",
+    "status": "partly",
+    "cite": "Q2 FY27 transcript p.6-7",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Aug 2026 (Nagarro)",
+    "promise": "New tech-client deal adds ~$125M+ annually ($650M+ over 6.5 years)",
+    "delivered": "Deal in Q1 FY27 TCV ($1,146.2M incl. $650M); annual revenue contribution not yet reported",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.19; transcript p.4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Remaining merger approvals in 4-6 weeks (max 8), then ~5-6 months integration",
+    "delivered": "No later call in material to confirm approvals or closure",
+    "status": "too early",
+    "cite": "transcript p.19",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Aspirational 16-17% margin range; 90bps large-deal drag to fade over 2-3 quarters",
+    "delivered": "Q2 FY27 EBIT 15% per management; 10.0% op margin per actuals including Nagarro one-time costs",
+    "status": "too early",
+    "cite": "Q2 FY27 reported p.4; quarterly_actuals 2026-09; p.16,18",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "FY26 revenue $1,654.4M (+17.4% YoY) and PAT ₹18,651.2M (+33.21%) with 12.65% margin and 29.27% ROCE show profitable scale.",
+    "cite": "annual-report-2026 pp.10,12,72",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Growth accelerated: revenue YoY rose from 21.8% (Jun-25) to 30.3% (Sep-26); Q2 FY27 $487.6M annualises near $1.95bn, close to $2bn target.",
+    "cite": "quarterly_actuals; promised_vs_delivered",
+    "verify": {
+     "checked": 7,
+     "found": 7,
+     "missing": []
+    }
+   },
+   {
+    "point": "Demand indicators are solid: FY26 ACV $1,780.1M, Q4 ACV $445.1M, 86.99% retention, plus AI platforms SASVA, GenAI Hub, Agent Studio and iAURA.",
+    "cite": "annual-report-2026 pp.262-265",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Margins deteriorated fast: op margin fell 16.3% (Mar-26) to 10.0% (Sep-26), EBITDA margin 18.9% to 13.6%, and PAT turned -25.4% YoY.",
+    "cite": "quarterly_actuals 2026-03/2026-09",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Nagarro is the swing risk: close slipped from Q4 CY26 to Q4-CY26/Q1-CY27, Austria/Spain approvals pending, with 5-6 months integration and synergies still unproven.",
+    "cite": "promised_vs_delivered; transcript pp.6-7,19",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Management’s 16-17% margin aspiration and fading 90bps large-deal drag remain unproven against Q2 FY27 EBIT 15% and reported 10.0% op margin.",
+    "cite": "promised_vs_delivered pp.16,18; quarterly_actuals 2026-09",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Nagarro approvals, close timing, integration costs and first measurable revenue/synergy contribution.",
+   "Whether op margin recovers from 10.0% toward 15-17% as the 90bps large-deal drag fades and PAT growth turns positive.",
+   "Quarterly run-rate versus ~$500M Q4 FY27 exit / $2bn ±a quarter, backed by ACV/TCV conversion."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-23-transcript-ef0001.md",
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-04-concall.md",
+   "transcripts/2026-01-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 76,
+  "found": 76
+ }
+}

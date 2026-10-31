@@ -1,0 +1,1171 @@
+{
+ "symbol": "IRCTC",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "IRCTC is a Navratna Central Public Sector Enterprise under the Ministry of Railways, Government of India, serving as the hospitality, tourism and online ticketing arm of Indian Railways. It integrates digital ticketing, catering, tourism and packaged drinking water (Rail Neer) into a comprehensive travel ecosystem for rail passengers.",
+  "segments": [
+   {
+    "name": "Internet Ticketing",
+    "share": "not stated",
+    "note": "Digital gateway for rail reservations; 88.74% of reserved tickets booked online (Q2 FY26); 5,304.65 lakh e-tickets booked in FY 2025-26; ₹74,834.62 crore ticket fare collected"
+   },
+   {
+    "name": "Catering and Hospitality",
+    "share": "not stated",
+    "note": "Mobile, static and e-catering across 1,450+ trains, 420+ stations under e-Catering, 800+ AI-monitored kitchens"
+   },
+   {
+    "name": "Travel and Tourism",
+    "share": "not stated",
+    "note": "Leisure, pilgrimage, luxury (Maharajas' Express with 43 luxury cabins) and international tourism; tourism portal gross revenue ₹699.55 crore in FY 2025-26"
+   },
+   {
+    "name": "Rail Neer (Packaged Drinking Water)",
+    "share": "not stated",
+    "note": "20 plants, average sales of 12.80 lakh bottles per day"
+   }
+  ],
+  "geographies": "India (nationwide rail network coverage); some international tourism offerings and participation in global travel exhibitions (ITB Berlin 2026, IMEX America 2025, WTM London, Luxperience Sydney). Listed on BSE & NSE since 14.10.2019.",
+  "key_facts": [
+   "Revenue from operations ₹5,214.86 crore; EBITDA ₹1,926.12 crore; PAT ₹1,393.37 crore; market capitalisation ₹39,552.00 crore as on 31st March 2026",
+   "Total income grew from ₹1,598.71 crore (FY 2016-17) to ₹5,474.97 crore (FY 2025-26); PAT from ₹214.69 crore to ₹1,393.37 crore",
+   "88.74% share of reserved ticket booking on Indian Railways online; 5,304.65 lakh e-tickets booked (+4.68% YoY); 9,308.14 lakh passengers (+4.46%)",
+   "Revenue share paid to Ministry of Railways: ₹858.01 crore in FY 2025-26 vs ₹638.50 crore in FY 2024-25",
+   "Total dividend declared ₹720 crore in FY 2025-26; EPS ₹17.42; net worth ₹4,308.38 crore"
+  ],
+  "pages": [
+   5,
+   6,
+   12,
+   13,
+   15,
+   16,
+   28,
+   31,
+   44,
+   49,
+   50,
+   52,
+   53,
+   55,
+   77,
+   78
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 5,
+    "found": 5,
+    "missing": []
+   },
+   {
+    "checked": 6,
+    "found": 6,
+    "missing": []
+   },
+   {
+    "checked": 5,
+    "found": 5,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1154.77,
+   "ebitda": 362.44,
+   "ebit": 346.82,
+   "pbt": 381.99,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 31.4,
+   "op_margin": 30.0
+  },
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1120.15,
+   "ebitda": 374.93,
+   "ebit": 361.05,
+   "pbt": 411.85,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 33.5,
+   "op_margin": 32.2
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1064.0,
+   "ebitda": 372.8,
+   "ebit": 359.69,
+   "pbt": 416.58,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 35.0,
+   "op_margin": 33.8
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1224.66,
+   "ebitda": 416.57,
+   "ebit": 403.22,
+   "pbt": 456.55,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 34.0,
+   "op_margin": 32.9
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1268.53,
+   "ebitda": 385.49,
+   "ebit": 373.24,
+   "pbt": 472.31,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 9.9,
+   "pat_yoy": null,
+   "margin": 30.4,
+   "op_margin": 29.4
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1159.68,
+   "ebitda": 397.27,
+   "ebit": 385.4,
+   "pbt": 442.13,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 3.5,
+   "pat_yoy": null,
+   "margin": 34.3,
+   "op_margin": 33.2
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1145.99,
+   "ebitda": 404.23,
+   "ebit": 392.81,
+   "pbt": 457.21,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 7.7,
+   "pat_yoy": null,
+   "margin": 35.3,
+   "op_margin": 34.3
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1449.47,
+   "ebitda": 465.44,
+   "ebit": 453.14,
+   "pbt": 529.2,
+   "pat": 394.33,
+   "is_bank": false,
+   "revenue_yoy": 18.4,
+   "pat_yoy": null,
+   "margin": 32.1,
+   "op_margin": 31.3
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1459.72,
+   "ebitda": 398.87,
+   "ebit": 384.86,
+   "pbt": 446.67,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 15.1,
+   "pat_yoy": null,
+   "margin": 27.3,
+   "op_margin": 26.4
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 1369.53,
+   "ebitda": 386.68,
+   "ebit": 374.29,
+   "pbt": 441.68,
+   "pat": 0.0,
+   "is_bank": false,
+   "revenue_yoy": 18.1,
+   "pat_yoy": null,
+   "margin": 28.2,
+   "op_margin": 27.3
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Payment aggregator license application to be submitted by end of January after RBI in-principle approval",
+     "target": "directional",
+     "horizon": "by end of January",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we have been given six months' time to submit our proposal application for acquiring license finally. So, that we will be able to submit by the end of January.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Unified travel portal to be built for cross-selling with improved UI/UX and AI/ML",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we will improve our UI/UX, will use AI/ML and Agentic AI and we will facilitate the passengers.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Pre-paid catering model on Amrit Bharat trains to be rolled out as policy is out",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "At the moment none of the Amrit Bharat trains we are running on pre-paid model but yes, the policy is out... we are putting our system in place to take up this work.",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Bilaspur Rail Neer plant to restart, adding 72,000 bottles per day",
+     "target": "72,000 bottles per day",
+     "horizon": "near term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we will be very soon starting the Bilaspur plant. So, that will add capacity of 72,000 bottles per day.",
+     "page": 8
+    },
+    {
+     "metric": "capex",
+     "statement": "Danapur and Ambernath Rail Neer plant capacity to be enhanced from 1 lakh to 3 lakh bottles",
+     "target": "from 1 lakh to 3 lakh bottles",
+     "horizon": "next 12 months",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we are in the process of enhancing the capacity of our Danapur and Ambernath plant from 1 lakh bottles to 3 lakh bottles",
+     "page": 8
+    },
+    {
+     "metric": "capex",
+     "statement": "Four more Rail Neer plants to be installed across India, likely next fiscal",
+     "target": "4 plants",
+     "horizon": "next fiscal",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we are also hoping to install four more plants across India.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "MICE business to be organized in five clusters of ministries/state governments with PPP partners, targeting minimum 8% margin",
+     "target": "minimum margin of 8%",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we will divide all the ministries and the state government in five clusters... a minimum margin of 8% will keep.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "HST-linked billing automation to be piloted and rolled out fully by end of next financial year to reduce debtor days",
+     "target": "directional",
+     "horizon": "end of next financial year",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "We'll first do it on a pilot basis. And if it is getting through, then we'll be going all on by the end of next financial year.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "I-Pay payment business to expand from ~20% of transaction GMV (~13,000 crore) toward ~70,000 crore potential",
+     "target": "from ~13,000 crore toward ~70,000 crore GMV",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "presently we are doing with our I-Pay only 20% of the total transaction GMP value, which we have a scope of around going up to 100%.",
+     "page": 10
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Non-convenience fee revenue in internet ticketing to be increased further to sustain segment growth",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we have like improved our non-convenience fee by 13% and we are very hopeful to increase it further",
+     "page": 10
+    }
+   ],
+   "reported": [
+    {
+     "metric": "PAT",
+     "value": "Rs. 342 crores, +11% YoY",
+     "quote": "The Company reported a profit after tax of Rs. 342 crores, reflecting a year-on-year growth of 11%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "35.25% vs 35.05% in Q2 FY25",
+     "quote": "EBITDA margin of 35.25% compared to 35.05% in Q2 FY '25.",
+     "page": 3
+    },
+    {
+     "metric": "revenue growth",
+     "value": "Rs. 1,146 crores, +7.71% YoY",
+     "quote": "Revenue from operations for Q2 FY '26 stood at Rs. 1,146 crores, up by 7.71% from Rs. 1,064 crores.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "value": "Internet ticketing revenue Rs. 386 crores, +4% YoY; EBITDA margin 85%",
+     "quote": "Revenue from this segment stood at Rs. 386 crores, marking a 4% growth on a year-on-year basis.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Catering revenue Rs. 520 crores, +8% YoY; EBITDA margin ~13%",
+     "quote": "Revenue from catering segment stood at Rs. 520 crores, showing an 8% increase on a year-on-year basis.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Rail Neer revenue Rs. 91 crores, +4.6% YoY; EBITDA margin ~10%",
+     "quote": "Rail needs segment reported revenue of Rs. 91 crores, representing a 4.6% growth on a year-on-year basis.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "value": "Tourism revenue Rs. 150 crores, +20.97% YoY; EBITDA margin ~7%",
+     "quote": "The touring segment has delivered a very robust performance with a revenue of Rs. 150 crores. It is 20.97% up year-on-year basis.",
+     "page": 5
+    },
+    {
+     "metric": "volume",
+     "value": "13.55 crores tickets booked; UPI share 49.81%; convenience fee Rs. 252 crores",
+     "quote": "Total tickets during this quarter booked is 13.55 crores and UPI share is 49.81% and convenience fee share is Rs. 252 crores.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "value": "Tejas Express revenue Rs. 37.31 crores, profit Rs. 3.38 crores; occupancy Ahmedabad 87%, Lucknow 56%",
+     "quote": "Total Tejas revenue is Rs. 37.31 crores out of which Rs. 3.38 crores is our profit.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "value": "Exceptional item of Rs. 5.8 crores from haulage charge discount on Tejas Express",
+     "quote": "this exceptional item is because of the discount we got from Indian Railways on the haulage charges of Tejas Express. This is 5.8 crores.",
+     "page": 8
+    }
+   ],
+   "source": "transcripts/2025-11-concall.md",
+   "month": "2025-11"
+  },
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "segment growth",
+     "statement": "260 Vande Bharat train sets to be introduced by Rail Ministry, adding good catering business for IRCTC",
+     "target": "260 train sets",
+     "horizon": "FY27-FY28 (multi-year)",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "they are going to introduce 260 Vande Bharat train sets. So these trains are already in the pipeline, and that is certainly going to add good business for IRCTC catering.",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Doubling capacity at Danapur and Ambernath plants plus 4 new Rail Neer plants at Mysore, Prayagraj, Bhagalpur and Ranchi",
+     "target": "25%-30% capacity addition",
+     "horizon": "1.5 years",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "our Board has already sanctioned for installation of 4 new plants at Mysore, Prayagraj, Bhagalpur and Ranchi. So we'll be adding around 25% to 30% capacity in say -- in 1.5 years.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Payment aggregator license documents to be submitted to RBI at the earliest; deadline extended to August",
+     "target": "directional",
+     "horizon": "by August 2026",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "our document submission date has been extended by RBI till August this year. And we have already engaged our technology service provider. So most likely we'll be submitting the documents at the earliest.",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Targeting 15% sustainable growth this year",
+     "target": "15%",
+     "horizon": "FY26",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "all of our segments have shown a very good increase and we are targeting to achieve 15% sustainable growth this year.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Labor code impact not major; any added cost will be compensated by increasing volume and revenue",
+     "target": "directional",
+     "horizon": "Q4/medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "whatever the impact of that will be adding to our cost. But that we will compensate by increasing the volume and revenue of the business.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Unified portal planned to cross-sell products using available data, in compliance with DPDP guidelines",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we have planned to introduce our unified portal and taking use of data available with us to cross-sell our products, but this will be in compliance to DPDP guidelines.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Considering tie-ups with other brands for Rail Neer; discussions ongoing, nothing finalized",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "thinking we are thinking to tie up with certain other brands also. Discussion is going on, but not fructified anything at the moment.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Payment gateway revenue to grow arithmetically, not geometrically, until license is obtained; focus on non-convenience fee revenue",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "Payment Gateway will be announcing in arithmetical mode only, not in a geometric progression more until we get a license.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "No dip in tourism momentum expected in Q4; Maharaja Express running and one new Bharat Gaurav train added",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "I don't see any dip in the -- because you see Maharaja Express is also running in this Q4... we have added 1 train, Bharat Gaurav train. So that will add to our revenue.",
+     "page": 9
+    }
+   ],
+   "reported": [
+    {
+     "metric": "PAT",
+     "value": "INR 394 crores, +15.5% YoY",
+     "quote": "PAT stood at INR 394 crores, registering a healthy year-on-year growth of 15.5%",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "EBITDA INR 465 crores, +11.5% YoY; margin 32.1%",
+     "quote": "EBITDA rose to INR465 crores with a healthy EBITDA margin of 32.1%",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "value": "INR 1,449 crores, +18.2% YoY",
+     "quote": "Revenue from operations increased to INR 1,449 crores from INR 1,225 crores... reflecting a growth of 18.2%",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "value": "Internet ticketing revenue INR 401 crores, +13.2% YoY; EBITDA margin 85%; ~89% online share",
+     "quote": "Revenue stood at INR 401 crores, up 13.2% year-on-year... The segment delivered an impressive EBITDA margin of 85%",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Catering revenue INR 661 crores, +19.1% YoY",
+     "quote": "Catering recorded revenue of INR661 crores, achieving a robust growth of 19.1% year-on-year.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Rail Neer revenue INR 98 crores, +6.5% YoY",
+     "quote": "Rail Neer generated revenue of INR98 crores, registering a 6.5% year-on-year growth.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Tourism revenue INR 289 crores, +29% YoY; EBITDA margin 19%",
+     "quote": "Tourism delivered an excellent performance with revenue of INR 289 crores, marking a 29% year-on-year growth... EBITDA margins improved to 19%",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "value": "Average daily ticket booking 14.64 lakh vs 13.59 lakh last year; UPI share 50.18%",
+     "quote": "average daily ticket booking in lakhs is around INR14.64 lakh per day as against INR 13.59 lakhs last year",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Convenience revenue INR 251 crores; non-convenience revenue INR 150 crores (+26%)",
+     "quote": "Our convenience revenue is INR 251 crores and non-convenience revenue is INR150 crores during this quarter.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Vande Bharat billing up INR 70 crores YoY; 40 additional trains introduced (19 Vande Bharat)",
+     "quote": "our revenue from Vande Bharat train this time, the billing has increased by INR70 crores... introduction of additional 40 trains during the period.",
+     "page": 5
+    }
+   ],
+   "source": "transcripts/2026-02-concall.md",
+   "month": "2026-02"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Maintain EBITDA margin at 30% (aspiring, not mid-30s)",
+     "target": "30%",
+     "horizon": "medium term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we will maintain 30%. Now, if you go to the financial year, the margin comes to around 31.95%",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Catering revenue to continue growing around 15%",
+     "target": "~15%",
+     "horizon": "next few years",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "revenue-wise primary growth I see in catering it will continue to maintain around 15%",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Tourism revenue growth to continue around 20%",
+     "target": "~20%",
+     "horizon": "this year / next few years",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "tourism we are eyeing to continue with around this year we are looking to 19% should continue to be around 20%",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "IT business growth around 7%, with non-convenience fee revenue around 10% via unified portal and iPay",
+     "target": "7% growth; ~10% non-convenience fee",
+     "horizon": "next few years",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "IT business is 7%. We want to increase the non-convenience fee... unified portal and iPay. So, that will be around 10%",
+     "page": 12
+    },
+    {
+     "metric": "capex",
+     "statement": "Invest in e-ticketing platform infrastructure and security; plan four additional Rail Neer plants, expansion of two existing plants, and entry into hotel business",
+     "target": "directional",
+     "horizon": "next few years",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "planning to have four additional Rail Neer plans, expansion of existing two Rail Neer plans, and we are also trying to go in hotel business",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "No plan to announce any change in convenience fee structure at the moment",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "At the moment, we are not planning to announce anything. But, of course, when it will pinch us, we'll think about it",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Hopeful of increased domestic tourism activity in the April-June quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "You want me to comment on a thing which I should not, because it's a listed company, but yes, we are very hopeful",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Ticketing license extension will be secured by the August '26 deadline; partner already engaged",
+     "target": "directional",
+     "horizon": "by August 2026",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "August is the deadline and I am happy to tell that we will be able to do it by that time. And we have already engaged our partner.",
+     "page": 13
+    },
+    {
+     "metric": "capex",
+     "statement": "Rail Neer Ambernath plant capacity expansion from 2 lakh to 3 lakh bottles per day, tendered with partner engaged",
+     "target": "2 lakh to 3 lakh bottles/day",
+     "horizon": "ongoing",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we have already tendered our expansion plan for Ambernath from 2 lakh bottles per day to 3 lakh bottles... we have already tied up with the partner.",
+     "page": 13
+    },
+    {
+     "metric": "capex",
+     "statement": "Rail Neer Danapur plant capacity expansion from 1 lakh to 2 lakh bottles per day, work ongoing",
+     "target": "1 lakh to 2 lakh bottles/day",
+     "horizon": "ongoing",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "similarly for Danapur Railway plant from 1 lakh to 2 lakh bottles. So, we have already tied up with the partner. The work is going on.",
+     "page": 13
+    },
+    {
+     "metric": "capex",
+     "statement": "Four greenfield Rail Neer plants: land secured at Mysore and Prayagraj; Bhagalpur land being re-represented; Ranchi/Barpali allotment awaiting formal communication",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "we have already got land at Mysore and Prayagraj. Bhagalpur, one land which was given was not that good... in Ranchi, Barpali, they have already told that it is allotted to you but we have not got any formal communication.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Tie-ups with beverage/channel partners to bridge the demand-supply gap are under discussion, though experience so far is not encouraging",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Sanjay Kumar Jain",
+     "quote": "As regards engaging with other partners, channel partners, the discussion is going on. Our experience till date is not very encouraging but we are trying to find out a good partner.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "FY26 revenue from operations Rs. 5,215 crores, up ~12% YoY",
+     "quote": "revenue from operations of IRCTC stood at Rs. 5, 215 crores, registering an increase of around 12%",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FY26 EBITDA Rs. 1,666 crores, up ~7.48% YoY",
+     "quote": "the EBITDA grew from Rs. 1,550 crores in FY 2024-25 to Rs. 1,666 crores in FY 2025-26 registering a growth of 7.48%",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "FY26 PAT Rs. 1,393 crores, up ~6% YoY",
+     "quote": "PAT stood at Rs. 1,393 crores, registering an increase of approximately 6% from previous year",
+     "page": 3
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Q4 revenue from operations Rs. 1,460 crores, up 15.05% YoY",
+     "quote": "total revenue from operations stood at Rs. 1,460 crores in Q4... registering a growth of 15.05%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Q4 EBITDA Rs. 399 crores with EBITDA margin of 27.33%",
+     "quote": "EBITDA for the quarter stood at Rs. 399 crores with a healthy EBITDA margin of 27.33%",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Q4 catering revenue Rs. 671 crores, up 26.84% YoY",
+     "quote": "Catering segment recorded a revenue of Rs. 671 crores... achieving an impressive growth of 26.84% year-on-year",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Q4 tourism revenue Rs. 304 crores, up 10.95% YoY; EBITDA margin improved to 16%",
+     "quote": "tourism segment delivered an excellent performance in Q4 grossing an overall revenue of Rs. 304 crores... growth of 10.95%",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Q4 internet ticketing revenue Rs. 390 crores, up 4.56% YoY; 89% share of reserved tickets; EBITDA margin 76%",
+     "quote": "we command 89% share of reserved railway tickets... EBITDA margin of 76%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Q4 tickets booked: 6.85 crores AC, 6.54 crores non-AC, total 13.39 crores; UPI share 51.7%; convenience fee income Rs. 247 crores",
+     "quote": "Number of tickets booked in AC class is 6.85 crores and non-AC class 6.54 crores. Total 13.39 crores",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Q4 exceptional items: legacy item Rs. 48 crores (prior year), CSR Rs. 31 crores vs Rs. 7 crores, ECL Rs. 16 crores vs Rs. 8 crores; election special revenue Rs. 2.38 crores in Q4",
+     "quote": "the legacy item which was booked in March '25 was around Rs. 48 crores... ECL of around Rs. 16 crores",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "value": "FY26 revenue grew 12% through operations",
+     "quote": "In Financial Year 2025-2026, our revenue has grown by 12% through operations.",
+     "page": 13
+    },
+    {
+     "metric": "PAT",
+     "value": "FY26 PAT grew 6%",
+     "quote": "And our PAT has grown by 6%.",
+     "page": 13
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Augment Rail Neer capacity at Ambernath from 2 lakh to 3 lakh bottles/day and Danapur from 1 lakh to 2 lakh bottles/day",
+     "target": "Ambernath 2→3 lakh, Danapur 1→2 lakh bottles/day",
+     "horizon": "this financial year (FY27)",
+     "speaker": "Management",
+     "quote": "by this financial year we have augmentation of two plants will be should be finalized... Ambernath from 2 lakh bottles to 3 lakh bottles and Danapur from 1 lakh to 2 lakh bottles",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Set up four new Rail Neer plants at Prayagraj, Mysore, Ranchi and Bhagalpur; land allotted (Ranchi confirmation just received)",
+     "target": "directional",
+     "horizon": "may spill over to next financial year, focus on Prayagraj, Mysore, Ranchi first",
+     "speaker": "Management",
+     "quote": "we are coming with upcoming four new plants, Prayagraj, Mysore, Ranchi, and Bhagalpur. In which, in Prayagraj and Mysore, the land has been allotted",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Possible additional Rail Neer plants at Varanasi, Pune and other places",
+     "target": "directional",
+     "horizon": "beyond FY27",
+     "speaker": "Management",
+     "quote": "we may have plants in Varanasi, Pune, and other places also. Depending upon – we have a radius of around 250 kilometers",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Expand e-pantry concept from 50+ trains to around 100 trains",
+     "target": "~100 trains",
+     "horizon": "not stated",
+     "speaker": "Management",
+     "quote": "E-pantry we are reaching around more than 50 plus trains... which may reach around 100 trains",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Bring branded players into catering ecosystem to improve quality via competition; policy formulation ongoing",
+     "target": "directional",
+     "horizon": "may take some time",
+     "speaker": "Management",
+     "quote": "we are also thinking in a guided by ministry of bringing in branded players... this exercise may take some time, but this is the need of the hour",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Reduce complaint ratio (currently 0.0008%)",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Management",
+     "quote": "we have a complaint ratio of .0008%. Our aim is to reduce it",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Include catering KPIs in investor presentations from next quarter onwards",
+     "target": "directional",
+     "horizon": "next quarter onwards",
+     "speaker": "Management",
+     "quote": "We take note of your suggestion. We will go for the implementation",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "RBI to respond on iPay payment aggregator license; once licensed, expand across IRCTC, railways services (TMS, FOIS, GeM, pension), and private market",
+     "target": "directional",
+     "horizon": "this financial year (RBI response)",
+     "speaker": "Management",
+     "quote": "It should take this financial year for RBI to respond... we can expand like any other payment aggregator, like Razorpay or PhonePe",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "NGET infra refresh to raise booking capacity from ~37,000 tickets/minute to more than 1 lakh tickets/minute; ~INR150 crores infused",
+     "target": ">1 lakh tickets/minute; ~INR150 crores",
+     "horizon": "not stated",
+     "speaker": "Management",
+     "quote": "we have reached around 37,000 tickets per minute. This may increase to more than 1 lakh... around INR150 crores has been infused into it",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Active-active disaster recovery for e-ticketing coming up at Secunderabad; will impact Q2–Q4 of the financial year",
+     "target": "directional",
+     "horizon": "second, third or fourth quarter of FY27",
+     "speaker": "Management",
+     "quote": "very soon, which will impact the second, third, or fourth quarter of the financial year, will be the disaster recovery... most probably coming up at Secunderabad",
+     "page": 10
+    },
+    {
+     "metric": "segment growth (catering margin)",
+     "statement": "Catering margin traditionally 10-12%; company will try to maintain that as POC impact and one-time HR costs fade",
+     "target": "10% to 12%",
+     "horizon": "medium term",
+     "speaker": "Management",
+     "quote": "the catering margin traditionally have been between 10 % to 12%. So we will try to maintain that.",
+     "page": 13
+    },
+    {
+     "metric": "other (one-time HR cost)",
+     "statement": "INR10 crore HR cost booked in catering this quarter will not repeat next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Management",
+     "quote": "This thing will not be repeated for the next quarter, because it has already been taken care of in this quarter.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "PAT",
+     "value": "INR330 crores",
+     "quote": "profit after tax stood at INR330 crores, supported by healthy performance across our Catering, Tourism, and Internet Ticketing segments",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "EBITDA INR386 crores, margin 28.17%, down 2.77% YoY",
+     "quote": "EBITDA stood at INR386 crores with a healthy EBITDA margin of 28.17%, although there is a slight decline in the margins due to changes in revenue mix",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "value": "INR1,370 crores, +18.10% YoY (vs INR1,160 crores)",
+     "quote": "revenue from operations increased to INR1,370 crores from INR1,160 crores... representing a robust year-on-year growth of 18.10%",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "value": "Internet Ticketing revenue INR361 crores, +0.5%; segment EBITDA >80%; ~89% of reserved tickets booked online",
+     "quote": "Internet Ticketing revenue stood at INR361 crores, up by about 0.5%, and nearly 89% of the reserved railway tickets in India are now booked through our online platform",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Catering revenue INR732 crores, +33.82% YoY",
+     "quote": "Catering recorded revenue of INR732 crores, achieving a robust growth of 33.82% year-on-year",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Rail Neer revenue INR109 crores, +2.83% YoY, margin ~10%",
+     "quote": "Rail Neer, generated revenue of INR109 crores, registering a 2.83% year-on-year growth with a margin of about 10%",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Tourism revenue INR168 crores, +13.5% YoY; EBITDA margin 11.31% vs 8.78%",
+     "quote": "Tourism delivered positive performance with revenue of INR168 crores, marking an increase in revenue with 13.5% year-on-year... EBITDA margins improved to 11.31% from 8.78%",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "value": "E-catering grew from ~1.25 lakh to more than 1.6 lakh meals/day",
+     "quote": "e-catering, which has grown from around 1.25 lakh meals to more than 1.6 lakh meals per day",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "value": "Catering delta INR185 crores YoY; onboard sales INR301→413 crores; mobile train license fee INR192→224 crores; static units INR20→33 crores; e-catering license fee INR9→22 crores; election specials INR5→41 crores",
+     "quote": "onboard sales from prepaid trains rose from INR301 crores to INR413 crores... election specials grew from INR5 crores to INR41 crores",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "value": "Convenience fee revenue INR236→248 crores; non-convenience fee INR123→113 crores",
+     "quote": "in convenience fee, I will start with, we had INR236 to INR248 revenue increase. But in non-convenience fee, where we went from INR123 to INR113",
+     "page": 10
+    },
+    {
+     "metric": "revenue growth",
+     "value": "operating revenue +18.10% YoY to INR1,370 crore",
+     "quote": "our operating revenue grew by 18.10% year-on-year to INR137 crore, and our PAT stood at INR333 crore.",
+     "page": 18
+    },
+    {
+     "metric": "PAT",
+     "value": "INR333 crore",
+     "quote": "our PAT stood at INR333 crore.",
+     "page": 18
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Mixed credibility: management delivered on catering growth, Rail Neer plant sanctioning, and the RBI license submission, but overpromised on FY26 revenue growth (12% vs 15% target) and margins, which fell below 30% in Q1 FY27. Tourism and ticketing growth also ran below the ~20% and ~7% targets set on the Q4 FY26 call.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q2 FY26",
+    "promise": "Submit payment aggregator license application by end-January 2026 after RBI in-principle approval.",
+    "delivered": "Not submitted by January; Q3 FY26 call says RBI extended deadline to August, documents still being prepared.",
+    "status": "missed",
+    "cite": "Q3 FY26 call, p5",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Enhance Danapur and Ambernath Rail Neer capacity from 1 lakh to 3 lakh bottles within 12 months.",
+    "delivered": "Still ongoing: Q4 FY26—Ambernath 2→3 lakh tendered, Danapur 1→2 lakh underway; Q1 FY27 targets FY27 completion.",
+    "status": "partly",
+    "cite": "Q4 FY26 p13; Q1 FY27 p6",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Install four more Rail Neer plants across India, likely next fiscal.",
+    "delivered": "Board sanctioned four plants (Mysore, Prayagraj, Bhagalpur, Ranchi); land secured at Mysore and Prayagraj; not yet installed.",
+    "status": "partly",
+    "cite": "Q3 FY26 p6; Q4 FY26 p13",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Achieve 15% sustainable revenue growth in FY26.",
+    "delivered": "FY26 revenue grew ~12% to Rs.5,215 crores, below the 15% target.",
+    "status": "missed",
+    "cite": "Q4 FY26 call p3/p13",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Submit payment aggregator license documents to RBI by extended August 2026 deadline.",
+    "delivered": "Q1 FY27 call: application now with RBI; response expected this financial year, implying submission made.",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p9",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "No dip in tourism momentum in Q4 FY26; new Bharat Gaurav train to add revenue.",
+    "delivered": "Q4 tourism grew 10.95% YoY to Rs.304 crores—positive but sharply slower than Q3's 29%.",
+    "status": "partly",
+    "cite": "Q4 FY26 call p5",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Maintain EBITDA margin at 30% over the medium term.",
+    "delivered": "Q1 FY27 EBITDA margin fell to 28.17% (actuals 28.2%), below the 30% commitment.",
+    "status": "missed",
+    "cite": "Q1 FY27 p4; actuals 2026-06-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Catering revenue to keep growing around 15%.",
+    "delivered": "Q1 FY27 catering revenue grew 33.82% YoY to INR732 crores, well above target.",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Tourism revenue growth to continue around 20%.",
+    "delivered": "Q1 FY27 tourism grew 13.5% YoY to INR168 crores, below the ~20% target.",
+    "status": "missed",
+    "cite": "Q1 FY27 call p4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Finalize Ambernath and Danapur Rail Neer capacity augmentation this financial year (FY27).",
+    "delivered": "FY27 still underway; no later call or filing in material to confirm completion.",
+    "status": "too early",
+    "cite": "Q1 FY27 call p6",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Online rail ticketing dominance: 88.74% reserved tickets online; 5,304.65 lakh e-tickets +4.68%, 9,308.14 lakh passengers +4.46%.",
+    "cite": "annual-reports/annual-report-2026.md p12",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "FY26 revenue ₹5,214.86 crore, EBITDA ₹1,926.12 crore, PAT ₹1,393.37 crore; dividend ₹720 crore, EPS ₹17.42.",
+    "cite": "annual-reports/annual-report-2026.md p5",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Catering accelerated Q1 FY27 +33.82% YoY to ₹732 crore versus ~15% target.",
+    "cite": "transcripts/Q1-FY27-concall p4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Guidance credibility mixed: FY26 revenue grew ~12% versus 15% target; Q1 FY27 EBITDA margin 28.2% versus 30% commitment.",
+    "cite": "guidance-ledger: Q4 FY26 p3/p13; Q1 FY27 p4",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Margin pressure: EBITDA margin 35.3% Q2 FY26 to 27.3% Q4 FY26, 28.2% Q1 FY27.",
+    "cite": "dossier/trajectory",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Rising revenue share to Ministry ₹858.01 crore FY26 vs ₹638.50 crore FY25; tourism/ticketing below targets.",
+    "cite": "annual-reports/annual-report-2026.md p5; transcripts/Q1-FY27-concall p4",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "RBI payment-aggregator response expected this financial year; approval or delay changes payments optionality.",
+   "Whether EBITDA margin recovers toward 30% after 28.2% in Q1 FY27.",
+   "Execution on Ambernath/Danapur capacity and four sanctioned Rail Neer plants; tourism growth versus ~20% target."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-02-concall.md",
+   "transcripts/2025-11-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 65,
+  "found": 65
+ }
+}

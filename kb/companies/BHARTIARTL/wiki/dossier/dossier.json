@@ -1,0 +1,1241 @@
+{
+ "symbol": "BHARTIARTL",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Bharti Airtel is the world's second-largest telecom operator by customer base, serving nearly 666 million customers globally through an integrated digital network and a diversified portfolio of services. Its integrated portfolio brings together mobility, broadband, digital TV, and enterprise solutions including data centres, cloud, cyber-security and digital platforms.",
+  "segments": [
+   {
+    "name": "Mobile (India)",
+    "share": "not stated",
+    "note": "Integrated mobile services with pan-India coverage (prepaid/postpaid, international roaming, 5G); revenue ₹1,129,954 Mn, up 12.7% Y-o-Y; EBITDA ₹680,346 Mn, up 17.5% Y-o-Y"
+   },
+   {
+    "name": "Homes (India)",
+    "share": "not stated",
+    "note": "Broadband (fibre and FWA, up to 1 Gbps) and fixed-line voice in 1,635 cities; FWA in 3,300+ cities; revenue ₹77,747 Mn, up 31.7% Y-o-Y; EBITDA ₹38,952 Mn, up 32.1% Y-o-Y"
+   }
+  ],
+  "geographies": "Presence in 17 countries (including Bangladesh and Sri Lanka through associate entities); #1 integrated communications service provider in India and #2 mobile operator in Africa; the Airtel Africa Foundation operates across 14 countries.",
+  "key_facts": [
+   "~666 million customers globally",
+   "17 countries of presence; 2 Bn+ population covered",
+   "28,730 employees globally",
+   "India network: 345,912 towers, 1,187,894 mobile broadband base stations, 532,388 route km of optical fibre",
+   "Distribution footprint of ~0.9 million outlets reaching 97%+ of India's population"
+  ],
+  "pages": [
+   7,
+   9,
+   33,
+   35,
+   40,
+   41,
+   45
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 37599.1,
+   "ebitda": 18534.5,
+   "ebit": 8459.3,
+   "pbt": 1947.7,
+   "pat": 2071.6,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 49.3,
+   "op_margin": 22.5
+  },
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 38506.4,
+   "ebitda": 18795.9,
+   "ebit": 8255.8,
+   "pbt": 5113.6,
+   "pat": 4159.9,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 48.8,
+   "op_margin": 21.4
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 41473.3,
+   "ebitda": 20772.3,
+   "ebit": 9772.3,
+   "pbt": 4823.5,
+   "pat": 3593.2,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 50.1,
+   "op_margin": 23.6
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 45129.3,
+   "ebitda": 22936.9,
+   "ebit": 11232.7,
+   "pbt": 15232.2,
+   "pat": 14781.2,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 50.8,
+   "op_margin": 24.9
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 47876.2,
+   "ebitda": 26951.1,
+   "ebit": 14625.1,
+   "pbt": 9526.2,
+   "pat": 11021.8,
+   "is_bank": false,
+   "revenue_yoy": 27.3,
+   "pat_yoy": 432.0,
+   "margin": 56.3,
+   "op_margin": 30.5
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 49462.6,
+   "ebitda": 27755.9,
+   "ebit": 15290.8,
+   "pbt": 10421.6,
+   "pat": 5947.9,
+   "is_bank": false,
+   "revenue_yoy": 28.5,
+   "pat_yoy": 43.0,
+   "margin": 56.1,
+   "op_margin": 30.9
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 52145.4,
+   "ebitda": 29480.4,
+   "ebit": 16298.3,
+   "pbt": 12241.3,
+   "pat": 6791.7,
+   "is_bank": false,
+   "revenue_yoy": 25.7,
+   "pat_yoy": 89.0,
+   "margin": 56.5,
+   "op_margin": 31.3
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 53981.6,
+   "ebitda": 30666.5,
+   "ebit": 17246.4,
+   "pbt": 12185.0,
+   "pat": 6630.5,
+   "is_bank": false,
+   "revenue_yoy": 19.6,
+   "pat_yoy": -55.1,
+   "margin": 56.8,
+   "op_margin": 31.9
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 55383.2,
+   "ebitda": 31407.2,
+   "ebit": 17763.7,
+   "pbt": 9960.3,
+   "pat": 7325.1,
+   "is_bank": false,
+   "revenue_yoy": 15.7,
+   "pat_yoy": -33.5,
+   "margin": 56.7,
+   "op_margin": 32.1
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 58539.1,
+   "ebitda": 33194.6,
+   "ebit": 18959.6,
+   "pbt": 13664.6,
+   "pat": 8167.4,
+   "is_bank": false,
+   "revenue_yoy": 18.4,
+   "pat_yoy": 37.3,
+   "margin": 56.7,
+   "op_margin": 32.4
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26 (quarter ended September 30, 2025)",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Nxtra aims for AI-driven improvements in equipment performance, operational productivity and non-IT energy reduction",
+     "target": "15% equipment performance, 25% productivity, 10% energy reduction",
+     "horizon": "not stated",
+     "speaker": "Gopal Vittal",
+     "quote": "At Nxtra, we aim to achieve 15% improvement in equipment performance, a 25% boost in the operational productivity, and a 10% reduction in non-IT energy consumption",
+     "page": 3
+    },
+    {
+     "metric": "market share",
+     "statement": "Industry home broadband market seen growing to about 100 million homes over medium term",
+     "target": "100 million homes",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "we see the industry growing to about 100 million over the medium term, from currently over 50 million connected homes",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "Home pass deployment run rate to reach 2.5 million homes per quarter",
+     "target": "2.5 million homes per quarter",
+     "horizon": "ongoing",
+     "speaker": "Gopal Vittal",
+     "quote": "we have stepped up our home pass, to reach 2.5 million homes per quarter run rate",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Nxtra capacity visibility to exceed 1 gigawatt in next few years, a four-fold increase",
+     "target": "over 1 GW (4x current capacity)",
+     "horizon": "next few years",
+     "speaker": "Gopal Vittal",
+     "quote": "gives us a clear visibility to get to over 1 gigawatt in the next few years. This is a four-fold increase from our operating capacity currently",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Nxtra investment to step up from current ~Rs.1500 Crores a year; will do whatever it takes to raise data center market share",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Gopal Vittal",
+     "quote": "we will step up from where we are today and we will do whatever this business needs to make sure that it really builds competitiveness",
+     "page": 6
+    },
+    {
+     "metric": "market share",
+     "statement": "Nxtra to step up data center market share from current 10-12%",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Gopal Vittal",
+     "quote": "we operate at a market share of about 10%-12%, we are not satisfied with the level of market share... we need to step up our market share",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Airtel Cloud to sign several more deals beyond the six already signed; in talks with 70+ customers and several PSUs",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Gopal Vittal",
+     "quote": "We have already signed about six deals across manufacturing and distribution as well as BFSI and we are in the process of signing on several more",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Elevated capex expected in near future due to accelerated home pass rollout and 5G FWA deployment",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Soumen Ray",
+     "quote": "You will see some amount of elevated capex in the near future",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "5G dual-mode (NSA plus SA) network to be made commercial in coming months as 5G traffic grows",
+     "target": "directional",
+     "horizon": "coming months",
+     "speaker": "Gopal Vittal",
+     "quote": "pilots are underway for the 5G dual mode in a couple of circles, and we plan to make it commercial in the coming months",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Company to reach out to government on AGR reassessment over coming days",
+     "target": "directional",
+     "horizon": "coming days",
+     "speaker": "Gopal Vittal",
+     "quote": "first, we are going to reach out to the government, and that is something that the Company will do over the course of the coming days",
+     "page": 7
+    },
+    {
+     "metric": "capex",
+     "statement": "Will invest whatever is required in data centers to step up Nxtra growth; analyst's $25-30bn per GW estimate is much higher than their own view",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "whatever is required to be invested, we will make the investment... we will do what it takes to step up the growth of Nxtra",
+     "page": 7
+    },
+    {
+     "metric": "capex",
+     "statement": "Overall capex guidance to moderate in the medium term unchanged; homes capex built into it; 5G SA capex is tiny (software-led); only data centers could cause some bump-up",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "On homes capex, it is all built into our overall guidance of moderating on capex... it will not be a very meaningful change",
+     "page": 9
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "Consolidated revenues ~Rs.52,000 Crores; annualized run rate over Rs.200,000 Crores",
+     "quote": "Consolidated revenues came in at about 52,000 Crores with an annualized run rate of over Rs.200,000 Crores",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "India EBITDAaL margin excluding passive infra 51.5%",
+     "quote": "India revenues, excluding Indus, came in at Rs.34,900 Crores and the EBITDAaL margin excluding the passive infra side came in at 51.5%",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "value": "Capex ~Rs.7,200 Crores; operating free cash flow ~Rs.10,750 Crores",
+     "quote": "The operating free cash flow... was strong, at about Rs.10,750 Crores. Capex for the quarter was about Rs.7200 Crores",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "India net debt to EBITDAaL 1.32",
+     "quote": "India net debt to EBITDAaL now stands at 1.32",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "value": "Mobile: 1.4mn revenue-earning customer adds, 5.1mn smartphone data users, ~1mn postpaid net adds, ARPU Rs.256",
+     "quote": "we added 1.4 million revenue earning customers... Postpaid net adds were about 1 million... ARPU, at 256",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "value": "Broadband net adds 951,000; FWA base crossed 2.3 million",
+     "quote": "we delivered another solid quarter with net adds of 951,000... FWA, with the customer base crossing 2.3 million",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Airtel Business revenue Rs.5,275 Crores, +4.3% QoQ; digital revenues +24% YoY",
+     "quote": "we reported revenues of about Rs.5,275 Crores, growing 4.3% sequentially",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "value": "Africa: CC revenue +7.1% QoQ, reported +10.7% QoQ; EBITDAaL margin 38.8%; net debt/EBITDAaL 0.7",
+     "quote": "constant currency revenue growth of 7.1% sequentially... reported revenue growth of 10.7%... EBITDAaL was over Rs.5,300 Crores with a margin of 38.8%",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "Payments bank: 104mn+ monthly transacting users; run rate Rs.3,200 Crores +19% YoY; deposits ~Rs.4,000 Crores +35% YoY",
+     "quote": "our monthly transacting users crossed 100 million and now stands at over 104 million",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "Digital TV lost 340,000 customers; 5G users 167 million; 5G sites handle over 40% of network traffic",
+     "quote": "we lost 340,000 customers during the quarter... We ended the quarter with 167 million 5G users",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Live standalone 5G network operating for FWA in 13 circles, with better time-on-technology and improved uplink performance",
+     "quote": "in 13 circles, we already have a live standalone network that is operating for fixed wireless access",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "40% of traffic carried is on 5G networks",
+     "quote": "given that 40% of the traffic that we carry is on 5G networks",
+     "page": 8
+    }
+   ],
+   "source": "transcripts/2025-11-concall.md",
+   "month": "2025-11"
+  },
+  {
+   "call": "Q3 FY26 (quarter ended December 31, 2025)",
+   "items": [
+    {
+     "metric": "capex",
+     "statement": "Nxtra data center capacity plan to reach 1 gigawatt",
+     "target": "1 GW",
+     "horizon": "next 3-4 years",
+     "speaker": "Shashwat Sharma",
+     "quote": "Our plan is to reach 1 gigawatt capacity in the next three to four years and grow significantly ahead of the market.",
+     "page": 5
+    },
+    {
+     "metric": "market share",
+     "statement": "Data center market share to rise to about 25% with ~1 GW capacity",
+     "target": "~25% share",
+     "horizon": "next 3-4 years",
+     "speaker": "Gopal Vittal",
+     "quote": "in the next three to four years, we will have about a gigawatt capacity, which will give us about 25% share",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Will invest more behind data centers; no capex guidance given",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "I cannot give you a capex guidance, but clearly you will see us investing more and more behind Data Centers",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Progressive dividend policy will continue",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Gopal Vittal",
+     "quote": "we will see a progressive dividend policy... You will continue to see that play out",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Awaiting DoT response on AGR parity request before deciding next steps",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Gopal Vittal",
+     "quote": "We are yet to hear from the DoT. Once we hear from the DoT, we will then decide what our next steps are",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Rights issue funds to be deployed for long-term value creation",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "Gopal Vittal",
+     "quote": "The deployment of these funds will clearly be done to ensure long-term value creation",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Will continue to sweat ARPU growth via premiumization levers in absence of tariff repair",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Shashwat Sharma",
+     "quote": "in the absence of tariff repair, we will continue to sweat ARPU growth leveraging feature phone to smartphone upgrades, prepaid to postpaid upgrades, data monetization",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Broadband market potential of 100 million connected homes over medium term",
+     "target": "100 million homes",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "We continue to see large opportunity ahead of us in this market with a potential of 100 million connected homes over the medium term.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Strategy to upgrade 90 million credit-scored customers to postpaid",
+     "target": "90 million customers",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "Our strategy is to upgrade 90 million credit scored customers to our postpaid services.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "More features to be added to AI Anti-Spam solution",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Shashwat Sharma",
+     "quote": "We continue to add features to our Anti-Spam solution, and you will hear more on this in the quarters to come.",
+     "page": 5
+    },
+    {
+     "metric": "other (5G network slicing / differentiated services)",
+     "statement": "5G capabilities like slicing and network-on-demand will play out in India in coming quarters",
+     "target": "directional",
+     "horizon": "next few quarters",
+     "speaker": "Shashwat Sharma",
+     "quote": "you will see this move playout in the next few quarters",
+     "page": 8
+    },
+    {
+     "metric": "segment growth (B2B)",
+     "statement": "Underlying B2B growth of ~10% (ex low-margin business) should show up in coming quarters",
+     "target": "10%",
+     "horizon": "coming quarters",
+     "speaker": "Gopal Vittal",
+     "quote": "the underlying business is growing at 10%, which should show up in coming quarters if we do well",
+     "page": 10
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue ~Rs.54,000 crores, +3.5% QoQ",
+     "quote": "Consolidated revenue came in at about Rs.54,000 crores, growing 3.5% sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated EBITDAaL over Rs.27,700 crores, +4.2%; margin 51.3%",
+     "quote": "Our EBITDAaL margin stood at 51.3%, which is about 30 basis points improvement sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "Consolidated capex ~Rs.11,800 crores; operating FCF Rs.15,900 crores",
+     "quote": "Capex for the quarter was about Rs.11,800 crores.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Africa constant currency revenue growth 5.8%; India ex-passive infra +2.1% QoQ",
+     "quote": "Africa maintained its trajectory of solid performance with constant currency revenue growth of 5.8%.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Net debt to EBITDAaL 1.02 consolidated, 1.38 India",
+     "quote": "Our consolidated net debt to EBITDAaL improved to 1.02 with India now at 1.38.",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "Mobility: 4.4 million revenue-earning customer adds; ARPU Rs.259; 0.6 million postpaid adds",
+     "quote": "we added 4.4 million revenue earning customers... ARPU came in at Rs.259",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Broadband highest-ever quarterly net adds of 1.2 million; crossed 13 million connected homes; FWA base over 3 million",
+     "quote": "our highest ever quarterly net adds of 1.2 million customers. We have crossed 13 million installed connected homes",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Airtel Business revenue Rs.5,350 crores, +1.5% QoQ; digital portfolio +39% YoY",
+     "quote": "its revenues came in at Rs.5,350 crores, growing 1.5% sequentially",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Payments Bank annualized revenue run-rate crossed Rs.3,250 crores; deposits ~Rs.4,300 crores, +28% YoY",
+     "quote": "annualized revenue run rate has now crossed Rs.3250 crores... Deposits remain strong at about Rs.4,300 crores, growing 28%",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "181 million 5G customers; 11,000 5G sites added; 74% population 5G coverage",
+     "quote": "We ended the quarter at 181 million 5G customers.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth (B2B)",
+     "statement": "B2B business at double digit growth this quarter; underlying ~10% excluding low-margin business base effect",
+     "target": "double digit; ~10% underlying",
+     "quote": "if you take this year, this quarter, we are at double digit growth on the B2B business... the underlying business is growing at 10%",
+     "page": 10
+    },
+    {
+     "metric": "volume (4G/5G net adds)",
+     "statement": "20 million plus 4G/5G net adds on a YoY basis",
+     "target": "20 million+ YoY",
+     "quote": "it is one of the best in class when you look at in the industry at 20 million plus on a YoY basis",
+     "page": 11
+    }
+   ],
+   "source": "transcripts/2026-02-concall.md",
+   "month": "2026-02"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other (data center capacity)",
+     "statement": "Build 1 gigawatt of data center capacity",
+     "target": "1 GW",
+     "horizon": "next few years",
+     "speaker": "Soumen Ray / Gopal Vittal",
+     "quote": "steady progress against our ambition of building 1 gigawatt capacity over the next few years",
+     "page": 4
+    },
+    {
+     "metric": "other (dividend policy)",
+     "statement": "Progressive increase in dividend payouts",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Soumen Ray",
+     "quote": "This is in line with our stated philosophy of progressive increase in payouts.",
+     "page": 3
+    },
+    {
+     "metric": "other (ARPU)",
+     "statement": "Accelerate ARPU growth by doubling down on all levers, especially postpaid upgradation",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "we are now determined to doubling down on all our levers on ARPU and growing and accelerating the space",
+     "page": 5
+    },
+    {
+     "metric": "other (homes market potential)",
+     "statement": "Homes market potential of ~100 million connected homes in India",
+     "target": "~100 million homes",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "we see a large opportunity with market potential of nearly 100 million connected homes over the medium-term in India",
+     "page": 5
+    },
+    {
+     "metric": "other (fiber rollout)",
+     "statement": "Continue rapid fiber/home pass expansion; pace of fiber deployment should continue",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Shashwat Sharma",
+     "quote": "we believe the pace of deployment should continue to address the growing customer needs",
+     "page": 5
+    },
+    {
+     "metric": "other (convergence)",
+     "statement": "Scale converged fixed-mobile base via One Airtel plans; convergence cuts churn ~50%",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "We are determined to leveraging our existing relationships with high value customers and scale our converged base.",
+     "page": 5
+    },
+    {
+     "metric": "other (Airtel Money NBFC)",
+     "statement": "Progress towards commercial launch of Airtel Money NBFC after RBI approval",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Soumen Ray",
+     "quote": "We are now progressing towards commercial launch.",
+     "page": 4
+    },
+    {
+     "metric": "other (Africa stake)",
+     "statement": "Acquire additional 16.3% in Airtel Africa via no-cash share swap; potential value unlock via Airtel Money listing",
+     "target": "16.3% additional stake",
+     "horizon": "announced",
+     "speaker": "Soumen Ray",
+     "quote": "The Board yesterday approved a share swap transaction between Airtel and ICIL to acquire additional 16.3% in Airtel Africa.",
+     "page": 4
+    },
+    {
+     "metric": "other (data center market share)",
+     "statement": "Step up data center game from current 10-12% share; demand concentrated in Mumbai",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "we are only at about 10% to 12% share... we really need to step up our game in data centers",
+     "page": 6
+    },
+    {
+     "metric": "other (war on waste)",
+     "statement": "Mitigate cost pressures (servers, memory, diesel, energy) via war on waste initiatives",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Shashwat Sharma",
+     "quote": "Significant steps to re-engineer and redesign are underway in the organization to mitigate these pressures.",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex for the coming year will be in the ballpark of this year, give or take a little",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Gopal Vittal",
+     "quote": "while we do not give guidance typically, our sense is that we will be in the ballpark of this year, give or take a little bit",
+     "page": 8
+    },
+    {
+     "metric": "capex",
+     "statement": "Building 56 world-class edge data centers over the next 18 to 24 months",
+     "target": "56 edge data centers",
+     "horizon": "18-24 months",
+     "speaker": "Gopal Vittal",
+     "quote": "building in the next 18 to 24 months - 56 world class edge data centers",
+     "page": 8
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "",
+     "value": "Consolidated FY26 revenue ~Rs.2,11,000 Cr; Q4 revenue ~Rs.55,400 Cr, +2.6% QoQ",
+     "quote": "Consolidated revenues came in at about Rs.55,400 Crores, a growth of 2.6% sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "",
+     "value": "FY26 EBITDAaL ~Rs.1,08,000 Cr, margin 51.2%; India EBITDAaL margin 51.7% (+3.1 pts)",
+     "quote": "EBITDAaL came in at about Rs.1,08,000 Crores with a margin of 51.2%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "",
+     "value": "Q4 India EBITDAaL margin ~52%, +20 bps",
+     "quote": "EBITDAaL margins came in at about 52%, an improvement of 20 basis points.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "",
+     "value": "FY26 India capex ex-passive ~Rs.31,000 Cr; operating FCF Rs.41,500 Cr+",
+     "quote": "Capex for FY 2026 for India excluding passive was around Rs.31,000 Crores.",
+     "page": 3
+    },
+    {
+     "metric": "other (leverage)",
+     "statement": "",
+     "value": "Net debt to EBITDAaL 1.1",
+     "quote": "Net debt to EBITDAaL now stands at 1.1.",
+     "page": 3
+    },
+    {
+     "metric": "other (ARPU)",
+     "statement": "",
+     "value": "Q4 mobile ARPU Rs.257, +Rs.3 QoQ EDB basis; 4.7M net adds, 5.8M smartphone adds",
+     "quote": "Our ARPU for the quarter came in at Rs.257, which on an EDB basis was an increase of Rs.3",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "",
+     "value": "Homes net adds 1.1M in Q4; FY26 adds 4.2M; home passes crossed 45 million",
+     "quote": "our net ads came in at 1.1 million",
+     "page": 5
+    },
+    {
+     "metric": "other (order book)",
+     "statement": "",
+     "value": "B2B order book growth 17% in FY26; digital businesses revenue +27% FY26",
+     "quote": "we ended the year with a strong order book growth of 17% in FY2026",
+     "page": 5
+    },
+    {
+     "metric": "other (Airtel Cloud)",
+     "statement": "",
+     "value": "24 cloud deals secured in FY26",
+     "quote": "We ended the year with securing 24 deals",
+     "page": 4
+    },
+    {
+     "metric": "other (dividend)",
+     "statement": "",
+     "value": "Board recommended dividend of Rs.24/share vs Rs.16 last year",
+     "quote": "The Board recommended a dividend of Rs.24 per share",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "ARPU up 5% year-on-year despite being lighter than expected",
+     "target": "",
+     "horizon": "",
+     "speaker": "Ankur Rudra (question, acknowledged by management)",
+     "quote": "ARPU coming a bit lighter than you were expecting, but it is still sort of up 5%",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "India business generating mid-teens returns on capital",
+     "target": "",
+     "horizon": "",
+     "speaker": "Manish Adukia (question)",
+     "quote": "you are now generating like decent returns on capital in the India business at about mid-teens",
+     "page": 7
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27 (quarter ended June 30, 2026)",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Airtel Money is preparing for a London listing",
+     "target": "second half of 2026",
+     "horizon": "H2 2026",
+     "speaker": "Gopal Vittal",
+     "quote": "Airtel Money is now preparing for a London listing in the second half of 2026.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Ambition to build one gigawatt of data center capacity",
+     "target": "1 GW",
+     "horizon": "next few years",
+     "speaker": "Gopal Vittal",
+     "quote": "We are working towards our ambition to build one gigawatt in the next few years. Many of those contracts have been stitched up.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "More progress updates on data center land acquisitions and landmark deals expected",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Gopal Vittal",
+     "quote": "in the coming quarters, as we finalize some of these landmark deals, you will hear more progress update from us.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Stepping up significant investments in Airtel Cloud to scale it",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Gopal Vittal",
+     "quote": "We are stepping up significant investments to continue to invest behind this in order to scale this.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Mid-term ARPU momentum sustainable via upgrades, postpaid and data consumption; long-term requires industry pricing repair (charging for data)",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "We see reasonable headroom in front of us to continue this momentum in the mid-term. Long term... the pricing architecture will have to repair with charging for data.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Homes strategy: accelerate fiber and deploy FWA with sharper precision where economics and customer quality are compelling",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Shashwat Sharma",
+     "quote": "Our conviction in sustainable growth in homes is to accelerate fiber and deploy FWA with sharper precision where the economics and customer quality are compelling.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Visibility on sustained B2B growth in coming quarters",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Shashwat Sharma",
+     "quote": "we have a visibility on sustained growth in the quarters to come on B2B.",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "Annual capex likely around $4 billion ballpark (analyst framing, management did not dispute in provided text)",
+     "target": "$4 billion",
+     "horizon": "annual",
+     "speaker": "Vivekanand Subbaraman (analyst)",
+     "quote": "I understand that your annual capex is likely to be in the $4 billion ballpark.",
+     "page": 6
+    },
+    {
+     "metric": "capex",
+     "statement": "Data center capacity to scale from 120-130 MW to 1 GW over the next few years, implying a period of rapid capex spend",
+     "target": "1 GW over next few years",
+     "horizon": "next few years",
+     "speaker": "Gopal Vittal",
+     "quote": "we will now continue to rapidly sort of scale up our data center portfolio as we are building out from the 120 to 130 megawatts, all the way to 1 gigawatt over the next few years",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "B2B margins may trend slightly downwards as digital portfolio steps up; focus is faster revenue growth",
+     "target": "directional",
+     "horizon": "longer term",
+     "speaker": "Gopal Vittal",
+     "quote": "as the portfolio retools, we think the margins will be in this ballpark, maybe sort of trend slightly downwards as we see the step up in the digital portfolio",
+     "page": 8
+    },
+    {
+     "metric": "capex",
+     "statement": "Nxtra will need to lever up (equity and debt) to fund data center build-out",
+     "target": "directional",
+     "horizon": "next few years",
+     "speaker": "Gopal Vittal",
+     "quote": "the fact is that Nxtra will need to lever up in order to build out what is required over the next few years",
+     "page": 9
+    },
+    {
+     "metric": "capex",
+     "statement": "Data center build will be lumpy and show up in capex over coming quarters; cloud investment is modular",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Gopal Vittal",
+     "quote": "The data center will be lumpy as the build or large tracts of land are required. So, that will, sort of, show up over the coming quarters",
+     "page": 10
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue Rs.58,500 Crores, up ~5.7% sequentially",
+     "quote": "Our consolidated revenue was Rs.58,500 Crores, growing at about 5.7% sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated EBITDAaL Rs.29,800 Crores, up 4.2%, margin 51%",
+     "quote": "Our consolidated EBITDAaL was at Rs.29,800 Crores, this is a growth of 4.2% and the margin stood at 51%.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex for the quarter about Rs.13,390 Crores; operating free cash flow over Rs.16,450 Crores",
+     "quote": "Capex for the quarter was about Rs.13,390 Crores",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Net debt to EBITDAaL improved to 0.7x; India ex-passive infra below 1x",
+     "quote": "Our consolidated net debt to EBITDAaL improved to 0.7% and India without passive infra is now lower than 1%.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Africa constant currency revenue growth 5.7%; India ex-passive infra 3.6% sequentially",
+     "quote": "Africa maintained its strong growth trajectory with a constant revenue growth of 5.7%. India excluding the passive infra growth was equally strong at 3.6% sequentially.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Africa annualized EBITDA over Rs.35,000 Crores; stake increased to over 79% via share swap",
+     "quote": "Airtel's Africa operations today, generate an annualized EBITDA of over Rs.35,000 Crores",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Airtel Money Q1 revenue over $400 million, +26% YoY constant currency",
+     "quote": "Airtel Money has now achieved meaningful scale with a Q1 revenue of over $400 million growing at 26% year-on-year in constant currency terms",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Mobile: 3.3 million revenue earning customers added; 1 million postpaid adds (highest ever); ARPU Rs.264",
+     "quote": "we added 3.3 million revenue earning customers... We added 1 million postpaid customers this quarter, which is the highest ever addition in any quarter",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Homes net adds 473,000; Digital TV added 6,000 customers",
+     "quote": "Homes, we delivered a net adds of 473,000 which is a moderation over our previous few quarters' trajectory.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Airtel Business revenue Rs.5,670 Crores, +3.2% QoQ, ~12% YoY; digital businesses +~6% QoQ",
+     "quote": "Airtel business revenue came in at about Rs.5670 Crores, growing 3.2% sequentially and nearly 12% over last year.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Raised $1 billion at Nxtra to accelerate data center investments",
+     "target": "$1 billion",
+     "quote": "we saw that you raised a $1billion at Nxtra to accelerate the investments in that business",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Data center Google contract signed and included in the 1 GW scaling plan",
+     "quote": "the data center is a simple answer. Yes, the Google one is also included",
+     "page": 9,
+     "value": "Google contract included in DC pipeline"
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Management delivered on every near-term checkable promise: cloud deals, elevated capex, dividend progression, B2B growth, ARPU gains and the Africa stake swap. The large data center targets (1 GW, 25% share, 56 edge sites) and Airtel Money listing remain untested, and Nxtra's AI efficiency targets were never revisited.",
+  "score": "high",
+  "rows": [
+   {
+    "call": "Q2 FY26 (Nov 2025)",
+    "promise": "Airtel Cloud to sign several more deals beyond the six already signed",
+    "delivered": "Q4 FY26 call reported 24 cloud deals secured in FY26",
+    "status": "delivered",
+    "cite": "Q4 FY26 transcript p.4",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26 (Nov 2025)",
+    "promise": "Elevated capex in near future on home pass rollout and 5G FWA",
+    "delivered": "Capex rose to ~Rs.11,800 Cr in Q3 FY26 (from Rs.7,200 Cr) and Rs.13,390 Cr in Q1 FY27",
+    "status": "delivered",
+    "cite": "Q3 FY26 p.3; Q1 FY27 p.3",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26 (Nov 2025)",
+    "promise": "Nxtra AI gains: 15% equipment performance, 25% productivity, 10% non-IT energy cut",
+    "delivered": "No later call reports these metrics",
+    "status": "not measurable",
+    "cite": "Q3 FY26-Q1 FY27 transcripts",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26 (Nov 2025)",
+    "promise": "Step up Nxtra investment and data center market share from 10-12%",
+    "delivered": "$1bn raised at Nxtra and Google contract signed by Q1 FY27; market share not disclosed",
+    "status": "partly",
+    "cite": "Q1 FY27 p.8-9",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "Progressive dividend policy will continue",
+    "delivered": "Q4 FY26 dividend recommended at Rs.24/share vs Rs.16 prior year",
+    "status": "delivered",
+    "cite": "Q4 FY26 p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "Underlying B2B growth of ~10% should show up in coming quarters",
+    "delivered": "Airtel Business grew ~12% YoY in Q1 FY27 to Rs.5,670 Cr",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26 (Feb 2026)",
+    "promise": "Keep sweating ARPU growth via upgrades and premiumization levers",
+    "delivered": "ARPU Rs.264 in Q1 FY27 vs Rs.259 in Q3; record 1mn postpaid adds",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.4",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26 (May 2026)",
+    "promise": "Acquire additional 16.3% in Airtel Africa via no-cash share swap",
+    "delivered": "Q1 FY27 reported Africa stake increased to over 79% via share swap",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26 (May 2026)",
+    "promise": "Build 56 world-class edge data centers over next 18-24 months",
+    "delivered": "Period not yet reported; no later progress disclosed",
+    "status": "too early",
+    "cite": "No later call",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27 (Aug 2026)",
+    "promise": "Airtel Money London listing in second half of 2026",
+    "delivered": "Period not yet reported in provided material",
+    "status": "too early",
+    "cite": "No later call",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Revenue reached 58,539.1 in Q1 FY27, up 18.4% YoY, with EBITDA margin 56.7% and operating margin 32.4%.",
+    "cite": "quarterly_actuals/2026-06-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Execution score high: 24 FY26 cloud deals, dividend ₹24 vs ₹16, Africa stake above 79%, B2B up 12%, ARPU ₹264.",
+    "cite": "promised_vs_delivered; Q1 FY27 p.3-4",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Homes is scaling fast: revenue ₹77,747 Mn up 31.7% YoY, EBITDA up 32.1%, FWA across 3,300+ cities.",
+    "cite": "annual-reports/annual-report-2026.md p.40",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Profit is volatile despite growth: PAT fell 55.1% YoY in Q3 FY26 and 33.5% in Q4 FY26, while PBT slipped to 9,960.3.",
+    "cite": "quarterly_actuals/2025-12-31; 2026-03-31",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Capex nearly doubled to ₹13,390 Cr in Q1 FY27 from ₹7,200 Cr; free-cash-flow impact is not stated.",
+    "cite": "Q3 FY26 p.3; Q1 FY27 p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Big optionality remains unproven: 1 GW, 25% data-center share, 56 edge sites and Airtel Money listing lack later progress; Nxtra AI metrics unrevisited.",
+    "cite": "promised_vs_delivered",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q2 FY27 revenue/PAT: whether 15-28% revenue growth converts to positive PAT after two negative-YoY quarters.",
+   "Capex versus cash generation as home-pass/5G FWA rollout stays elevated; FCF not stated.",
+   "Concrete Nxtra/edge data-center, Google cloud and Airtel Money listing milestones versus stated timelines."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-02-concall.md",
+   "transcripts/2025-11-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 52,
+  "found": 52
+ }
+}

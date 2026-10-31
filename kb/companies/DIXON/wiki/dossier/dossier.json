@@ -1,0 +1,1252 @@
+{
+ "symbol": "DIXON",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "The provided pages do not describe the company's business activities; they contain only a stock-exchange filing and AGM notice for Dixon Technologies (India) Limited for FY 2025-26. What the company does is not stated in the material provided.",
+  "segments": [],
+  "geographies": "Not stated. The company is registered in Noida, Uttar Pradesh, India (pages 1, 4), and has subsidiaries including Padget Electronics Private Limited, IsmartU India Private Limited, Kunshan Q Tech Microelectronics (India) Private Limited, Dixon Electro Appliances Private Limited, and Dixtel Infocom Private Limited (pages 5-8), but no geographic revenue breakdown is given.",
+  "key_facts": [
+   "33rd AGM scheduled for Monday, 28th September 2026 at 11:00 A.M. IST via VC/OAVM (page 1)",
+   "Proposed final dividend of Rs. 10 per equity share of face value Rs. 2 for FY 2025-26 (page 4)",
+   "Record date for dividend and e-voting cut-off date: 21st September 2026; book closure 22nd-28th September 2026 (page 1)",
+   "Cost auditor (M/s. Satija & Associates) remuneration of Rs. 3,75,000 per annum plus taxes proposed for FY 2026-27 (page 5)",
+   "Re-appointment of Mr. Sunil Vachani as Whole-Time Director and Mr. Atul B. Lall as Managing Director proposed for 5-year terms from 5th May 2027 to 4th May 2032 (pages 9-10)"
+  ],
+  "pages": [
+   1,
+   4,
+   5,
+   9,
+   10
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 6579.8,
+   "ebitda": 240.46,
+   "ebit": 185.95,
+   "pbt": 172.28,
+   "pat": 133.68,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 3.7,
+   "op_margin": 2.8
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 11534.08,
+   "ebitda": 423.77,
+   "ebit": 357.77,
+   "pbt": 526.32,
+   "pat": 389.85,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 3.7,
+   "op_margin": 3.1
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 10453.68,
+   "ebitda": 386.94,
+   "ebit": 312.34,
+   "pbt": 281.55,
+   "pat": 171.19,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 3.7,
+   "op_margin": 3.0
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 10292.54,
+   "ebitda": 439.03,
+   "ebit": 353.12,
+   "pbt": 572.27,
+   "pat": 400.82,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 4.3,
+   "op_margin": 3.4
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 12835.66,
+   "ebitda": 475.61,
+   "ebit": 382.91,
+   "pbt": 358.76,
+   "pat": 224.97,
+   "is_bank": false,
+   "revenue_yoy": 95.1,
+   "pat_yoy": 68.3,
+   "margin": 3.7,
+   "op_margin": 3.0
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 14855.04,
+   "ebitda": 560.18,
+   "ebit": 463.9,
+   "pbt": 922.44,
+   "pat": 670.0,
+   "is_bank": false,
+   "revenue_yoy": 28.8,
+   "pat_yoy": 71.9,
+   "margin": 3.8,
+   "op_margin": 3.1
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 10671.59,
+   "ebitda": 406.63,
+   "ebit": 307.6,
+   "pbt": 403.87,
+   "pat": 287.26,
+   "is_bank": false,
+   "revenue_yoy": 2.1,
+   "pat_yoy": 67.8,
+   "margin": 3.8,
+   "op_margin": 2.9
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 10510.51,
+   "ebitda": 402.65,
+   "ebit": 297.68,
+   "pbt": 364.04,
+   "pat": 256.41,
+   "is_bank": false,
+   "revenue_yoy": 2.1,
+   "pat_yoy": -36.0,
+   "margin": 3.8,
+   "op_margin": 2.8
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 15547.66,
+   "ebitda": 454.48,
+   "ebit": 347.53,
+   "pbt": 860.34,
+   "pat": 663.42,
+   "is_bank": false,
+   "revenue_yoy": 21.1,
+   "pat_yoy": 194.9,
+   "margin": 2.9,
+   "op_margin": 2.2
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 21793.64,
+   "ebitda": 594.01,
+   "ebit": 483.95,
+   "pbt": 529.54,
+   "pat": 343.66,
+   "is_bank": false,
+   "revenue_yoy": 46.7,
+   "pat_yoy": -48.7,
+   "margin": 2.7,
+   "op_margin": 2.2
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Phase 1 of HKC display module JV will create capacity of 24 million smartphones and 2 million notebooks per annum, 76% captive consumption",
+     "target": "24 Mn smartphones, 2 Mn notebooks p.a.",
+     "horizon": "not stated",
+     "speaker": "Atul Lall",
+     "quote": "In the first phase of a 74:26 JV with HKC for display modules, we are creating a capacity of 24 million per annum for smartphones and 2 million units per annum for notebooks",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Phase 2 of HKC JV will scale to 60 million smartphones p.a., plus LED TV (2 Mn) and automotive (1 Mn) display capacity, with higher double-digit margins",
+     "target": "60 Mn smartphones; margins in higher double digits",
+     "horizon": "not stated",
+     "speaker": "Atul Lall",
+     "quote": "In the second phase, we will enhance this capacity to 60 million units per annum for smartphones... The margins in this segment will be in higher double digits.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Q Tech camera module volumes to rise from 40 Mn to 190-200 Mn units p.a. with revenue of INR 6,000-7,000 crores and sub-10% EBITDA margins in 2-3 years",
+     "target": "190-200 Mn units; INR 6,000-7,000 cr revenue; sub-10% EBITDA margin",
+     "horizon": "next two to three years",
+     "speaker": "Atul Lall",
+     "quote": "190 to 200 million units per annum with the revenue closer to INR 6,000 crores to INR 7,000 crores and sub-10% EBITDA margins in the next two to three years.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "ECMS component applications (display, camera modules, batteries, etc.) with investment commitment of ~INR 3,000 crores over next three years",
+     "target": "~INR 3,000 crores",
+     "horizon": "next three years",
+     "speaker": "Atul Lall",
+     "quote": "mechanical enclosures with investment commitment of approximately INR 3,000 crores over the next three years.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Longcheer JV facility expected operational by April '26; Vivo and HKC JV approvals expected in coming weeks",
+     "target": "April '26; approvals in coming weeks",
+     "horizon": "FY26",
+     "speaker": "Atul Lall",
+     "quote": "finalized a new 400,000 square feet facility for the JV, which is expected to be operational by April '26",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "New ODM smartphone manufacturing to start by Q4 FY26 with expected volumes ~0.5 million per month",
+     "target": "~0.5 Mn/month",
+     "horizon": "Q4 FY26",
+     "speaker": "Atul Lall",
+     "quote": "this business should start by end of Q4 of this fiscal or early Q1 of next fiscal. The expected volumes are in the range of around 0.5 million per month.",
+     "page": 7
+    },
+    {
+     "metric": "volume",
+     "statement": "Mobile volumes this year seen at 40-42 million; next year 55-60 million (with upside to 60-65 million)",
+     "target": "40-42 Mn FY26; 55-60 Mn FY27",
+     "horizon": "FY26 and FY27",
+     "speaker": "Atul Lall",
+     "quote": "this year numbers are going to be similar, 40 million, 42 million... next year, we feel that we should be somewhere between 55 to 60 million.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Telecom business (radios) to reach close to $1 billion in a couple of years; exports to start by Q2-Q3 next fiscal",
+     "target": "~$1 billion",
+     "horizon": "couple of years",
+     "speaker": "Atul Lall",
+     "quote": "in couple of years, this business should be somewhere around close to $1 billion.",
+     "page": 7
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex run rate of ~INR 550 crores per half-year to continue for next 6 months",
+     "target": "~INR 550 crores per 6 months",
+     "horizon": "next 6 months",
+     "speaker": "Saurabh Gupta",
+     "quote": "we have done a CAPEX of 550-odd crores in the first 6months. Broadly, that should be the going run rate for the next 6 months as well.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Longcheer JV operational by Q1 next fiscal with 8-10 million volumes next fiscal, part of 60-65 million total",
+     "target": "8-10 Mn units",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "the JV should become operational by first quarter of next fiscal... the volumes in this JV for the next fiscal should be somewhere around 8 to 10 million",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Possible margin pressure for a couple of quarters in FY27 if mobile PLI expires 31 March '26, until display and camera integration benefits kick in",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "there can be some pressure for a couple of quarters in '27",
+     "page": 12
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "IT hardware business targeted at INR 1,200-1,300 crore revenue this year",
+     "target": "INR 1,200-1,300 crore",
+     "horizon": "FY26",
+     "speaker": "Atul Lall",
+     "quote": "this year, we are targeting revenues of almost INR 1,200 crores to Rs. 1,300 crores in this business",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated adjusted revenue INR 14,858 crores, +29% YoY",
+     "value": "INR 14,858 cr, +29% YoY",
+     "quote": "Consolidated adjusted revenues for the quarter ended September 30, 2025, was INR 14,858 crores... a growth of 29%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated adjusted EBITDA INR 564 crores, +34% YoY",
+     "value": "INR 564 cr, +34% YoY",
+     "quote": "Consolidated adjusted EBITDA for the quarter was INR 564 crores against INR 420 crores... a growth of 34%.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Consolidated adjusted PAT INR 323 crores, +27% YoY",
+     "value": "INR 323 cr, +27% YoY",
+     "quote": "Consolidated adjusted PAT for the quarter was INR 323 crores against INR 236 crores... growth of 27%.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Mobile business revenue INR 13,361 crores (+41% YoY), operating profit INR 472 crores (+53%)",
+     "value": "INR 13,361 cr revenue; OP INR 472 cr",
+     "quote": "Revenue for the quarter for mobile business was INR 13,361 crores, with a growth of 41% year-on-year and operating profit of INR 472 crores, a growth of 53%.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom segment revenue INR 1,635 crores, +148% YoY",
+     "value": "INR 1,635 cr, +148% YoY",
+     "quote": "This segment witnessed a strong growth with revenues of INR 1,635 crores as against INR 661 crores in the same period last year, growth of 148%.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Laptops/tablets/IT hardware revenue INR 331 crores, +481% YoY",
+     "value": "INR 331 cr, +481% YoY",
+     "quote": "The segment saw a healthy uptick in revenues of INR 331 crores against INR 57 crores in the same period last year, which is a growth of 481%.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Home appliances revenue INR 429 crores, operating profit INR 50 crores, margin 11.7%",
+     "value": "INR 429 cr revenue; 11.7% margin",
+     "quote": "Revenue for the quarter was INR 429 crores. Operating profit was INR 50 crores with an operating margin of 11.7%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Working capital cycle negative 6 days; net debt INR 203 crores; ROCE 49.1%; ROE 34.3%",
+     "value": "-6 days; INR 203 cr net debt; ROCE 49.1%; ROE 34.3%",
+     "quote": "we efficiently manage our working capital cycle at negative 6 days... net debt position of INR 203 crores... return on capital employed of 49.1% and return on equity at 34.3%",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "PLI income booked in Q2 across four PLIs ~INR 150 crores; H1 ~INR 290 crores",
+     "value": "~INR 150 cr Q2; ~INR 290 cr H1",
+     "quote": "this four PLIs put together, we have an income which has been booked up closer to Rs. 150-odd crores... First half is closer to Rs. 290-odd crores.",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "LED TV ODM share increased to 65% of volumes",
+     "value": "65% ODM share",
+     "quote": "In this quarter, we have increased our ODM share up to 65% of the volumes",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "PLI incentive of INR 150 crore recognized in 2Q (company's share), plus INR 290 crore one-off",
+     "target": "INR 150 crore in 2Q; INR 290 crore one-off",
+     "quote": "that is broadly our number only. It is our share",
+     "page": 12
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue growth this quarter was approximately 28% year-on-year, versus ~100% average in prior quarters",
+     "target": "~28% YoY",
+     "quote": "this time, I think it was approximately 28%... Yes. Absolutely right. On a large base we can't",
+     "page": 19
+    }
+   ],
+   "source": "transcripts/2025-10-concall.md",
+   "month": "2025-10"
+  },
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "capex",
+     "statement": "New 4,000 sq ft facility for 74:26 JV smartphone manufacturing to start operations",
+     "target": "Q2 FY27",
+     "horizon": "Q2 FY27",
+     "speaker": "Atul Lall",
+     "quote": "Our new 4,000 square feet facility for 74:26 launch at JV for manufacturing of smartphones and other electronic devices is expected to start operations by Q2 of '26-'27.",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "1 million sq ft Noida facility construction to complete, mass production to start",
+     "target": "Q1 FY27 completion; production Q2 FY27",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "Construction of a 1 million square feet facility in Noida with higher capacities for our anchor customers is expected to be completed by Q1 of financial year '26-'27 and mass production to start by Q2 of '26-'27.",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "Display module JV phase 1 capacity 24 million smartphones and 2 million notebooks p.a., trials by Q2 next fiscal; phase 2 to 55 million units",
+     "target": "24m/2m phase 1; 55m phase 2",
+     "horizon": "Q2 FY27 (trials)",
+     "speaker": "Atul Lall",
+     "quote": "In the first phase, we are creating a capacity of 24 million per annum for smartphones and 2 million units per annum for notebooks... trial should commence by Q2 of next fiscal.",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Expand smartphone camera module volumes from 40 million units this fiscal",
+     "target": "190-200 million units per annum",
+     "horizon": "FY28",
+     "speaker": "Atul Lall",
+     "quote": "target to expand volumes of smartphone camera modules from 40 million units in this fiscal to 190 million to 200 million units per annum.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "PN3 approval for Vivo JV expected soon",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Atul Lall",
+     "quote": "We remain confident of getting the PN3 approval for our Vivo JV soon.",
+     "page": 5
+    },
+    {
+     "metric": "volume",
+     "statement": "Q4 smartphone volumes expected",
+     "target": "7-7.5 million",
+     "horizon": "Q4 FY26",
+     "speaker": "Atul Lall",
+     "quote": "Q4 volumes are expected to be somewhere between 7 million to 7.5 million.",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Mobile business margins expected at 2.8%-3.2% even without PLI, rising with backward integration",
+     "target": "2.8%-3.2%",
+     "horizon": "next 12 months / FY28",
+     "speaker": "Atul Lall",
+     "quote": "We still feel that we should be able to have a margin of somewhere between 2.8% to 3.1%, 3.2% in our mobile phone business.",
+     "page": 9
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margin expansion from component/backward integration play, with ~70-80% of business integrated into components",
+     "target": "directional",
+     "horizon": "FY28",
+     "speaker": "Atul Lall",
+     "quote": "almost 70%, 80% of our business would be integrated into the component landscape by '27-'28, which will lead to an overall expansion of margins.",
+     "page": 9
+    },
+    {
+     "metric": "volume",
+     "statement": "Conservative mobile business volume base of 60-65 million units supporting component play (160-170m camera modules, 40-50m displays)",
+     "target": "60-65 million units",
+     "horizon": "FY28",
+     "speaker": "Atul Lall",
+     "quote": "we should be even a conservative basis, somewhere around 60 million, 65 million units... I'm looking at 160 million, 170 million of camera modules.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "New global ODM customer deal expected to be concluded",
+     "target": "directional",
+     "horizon": "Q1 FY27",
+     "speaker": "Atul Lall",
+     "quote": "the discussions with a new customer are on. We feel confident that we should be able to conclude it by Q1 of the forthcoming fiscal.",
+     "page": 11
+    },
+    {
+     "metric": "other (mobile phone exports)",
+     "statement": "Mobile phone exports to close at INR5,500-6,000 crores this fiscal, and this will be the run rate next fiscal",
+     "target": "INR5,500-6,000 crores",
+     "horizon": "current fiscal and next fiscal",
+     "speaker": "Atul Lall",
+     "quote": "We feel we should be closing at almost INR5,500 crores, INR6,000 crores in the current fiscal. We feel that this is going to be the run rate in the forthcoming fiscal.",
+     "page": 11
+    },
+    {
+     "metric": "other (Q Tech revenue run rate)",
+     "statement": "Q Tech to run at around INR2,000 crores per quarter",
+     "target": "INR2,000 crores",
+     "horizon": "ongoing",
+     "speaker": "Saurabh Gupta",
+     "quote": "broadly, we are looking at a similar run rate of INR2,000 crores for Q Tech",
+     "page": 12
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated operating revenues Q3 FY26",
+     "value": "INR10,678 crores vs INR10,461 crores YoY",
+     "quote": "Consolidated operating revenues for the quarter ended December 31, 2025, was INR10,678 crores against INR10,461 crores in the same period last year",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated operating EBITDA Q3 FY26",
+     "value": "INR421 crores vs INR398 crores YoY",
+     "quote": "consolidated operating EBITDA for the quarter was INR421 crores against INR398 crores in the same period last year.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Consolidated operating PAT Q3 FY26",
+     "value": "INR214 crores vs INR217 crores YoY",
+     "quote": "Consolidated operating PAT for the quarter was INR214 crores against INR217 crores in the same period last year.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Working capital cycle, ROCE, ROE, net debt as of Dec 31, 2025",
+     "value": "negative 7 days; ROCE 45.1%; ROE 32%; net debt INR246 crores",
+     "quote": "Our working capital cycle remains at negative 7 days... ROCE at 45.1% and ROE at 32% as on December 31, 2025",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Mobile and EMS segment revenue and operating profit",
+     "value": "revenue INR9,750 crores; operating profit INR1,050 crores",
+     "quote": "Revenue for the quarter for Mobile and EMS business was INR9,750 crores and operating profit of INR1,050 crores.",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Q3 smartphone volumes and 9-month volumes",
+     "value": "~6.9 million in Q3; ~27 million in 9 months",
+     "quote": "the smartphone volumes for Q3 was around 6.9 million. And overall, in 9 months, we have done a volume of closer to 27 million.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Consumer electronics (LED TVs and refrigerators) revenue and operating profit",
+     "value": "revenue INR567 crores; operating profit INR24 crores",
+     "quote": "LED TVs and refrigerators revenue for the quarter was INR567 crores with an operating profit of INR24 crores.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home appliances revenue, operating profit and margin",
+     "value": "revenue INR355 crores; operating profit INR41 crores; margin 11.5%",
+     "quote": "Revenue for the quarter was INR355 crores. Operating profit was INR41 crores with an operating margin of 11.5%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "ECMS beneficiary selection for camera modules and optical transceivers",
+     "value": "selected",
+     "quote": "Dixon has been selected as an ECMS beneficiary for camera modules and optical transceivers, marking an important milestone in our expansion into components manufacturing",
+     "page": 4
+    },
+    {
+     "metric": "market share",
+     "statement": "Indian smartphone market declined in Q3",
+     "value": "-7% YoY",
+     "quote": "As per industry reports, Indian smartphone market in Q3 fell by 7% year-on-year.",
+     "page": 4
+    },
+    {
+     "metric": "other (mobile exports)",
+     "statement": "Exports of almost INR4,000-4,500 crores in first 9 months",
+     "quote": "We have done exports of almost INR4,000 crores, INR4,500 crores in the first 9 months.",
+     "page": 11
+    },
+    {
+     "metric": "segment revenue (Q Tech)",
+     "statement": "Q Tech Q3 revenue was around INR400-odd crores",
+     "quote": "Q Tech numbers for quarter 3 was closer to INR400-odd crores.",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-02-concall.md",
+   "month": "2026-02"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "volume",
+     "statement": "Camera module (Q Tech) capacity expansion from 70 million units annually to ~180-190 million units over next 15-18 months",
+     "target": "180-190 million units",
+     "horizon": "next 15-18 months",
+     "speaker": "Atul Lall",
+     "quote": "expanding the capacities of camera module and a subsidiary Q Tech... from 70 million units annually to around 180 million units to 190 million units annually over the next 15 to 18 months",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Display module JV with HKC: trials from beginning of Q3, mass production from end of Q3/beginning of Q4 this fiscal",
+     "target": "directional",
+     "horizon": "FY27 (Q3-Q4)",
+     "speaker": "Atul Lall",
+     "quote": "The trials will start from beginning of Q3 and mass production will commence from end of Q3, beginning of Q4 this fiscal",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "High double-digit QoQ growth in smartphone volumes along with 12-15% growth in selling prices, expected to sustain for balance of fiscal year",
+     "target": "high double-digit QoQ volume growth; prices +12-15%",
+     "horizon": "current quarter/FY27",
+     "speaker": "Atul Lall",
+     "quote": "we expect a high-double-digit growth quarter-on-quarter in the smartphones volume along with growth in selling prices by 12% to 15%",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Longcheer JV 400,000 sq ft smartphone facility to start operations by Q3",
+     "target": "directional",
+     "horizon": "Q3 FY27",
+     "speaker": "Atul Lall",
+     "quote": "Our 400,000-square-foot facility for 74:26 Longcheer JV... is expected to start operations by Q3",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom and networking vertical to deliver high double-digit revenue growth in current fiscal",
+     "target": "high double-digit growth",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "We expect this vertical to deliver high double-digit revenue growth in the current fiscal",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "IT hardware revenues expected to grow 3x vs last year in current fiscal",
+     "target": "3x growth",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "we expect 3x growth in the revenues in the current fiscal against last year with a huge uptake in order books from all customers",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Lighting JV with Signify revenues expected to grow almost 2x in current fiscal",
+     "target": "~2x",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "the JV with Signify continues to deliver strong revenue growth, and we expect the revenues to grow almost to 2x in the current fiscal",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Mobile volumes without Vivo expected roughly flat at ~32 million; Vivo could add 20-22 million annualized; Ismartu exports could take total to ~50 million; PLI 2 could add another 4-5 million",
+     "target": "~32M flat; +20-22M (Vivo); ~50M with Ismartu; +4-5M (PLI 2)",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "the overall volumes without Vivo is going to be almost similar... Another 20 million, 22 million units can be added on an annualized basis",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "IT hardware revenue this fiscal to exceed INR4,000 crores",
+     "target": ">INR4,000 crores",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "we feel that our revenue in this fiscal is going to be more than INR4,000 crores",
+     "page": 9
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Camera module revenue target ~INR2,500 crores (vs INR1,700 crores last year); telecom targeting INR7,500-8,000 crores; lighting target ~INR1,700 crores; specialty EMS opportunities scalable to INR3,000-4,000 crores",
+     "target": "INR2,500cr; INR7,500-8,000cr; INR1,700cr; INR3,000-4,000cr",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "We are targeting a revenue of almost INR2,500 crores in that business... We are targeting almost INR7,500 crores, INR8,000 crores in '26, '27",
+     "page": 9
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "IT hardware business to touch INR4,000 crores revenue in the current fiscal despite commodity cost increases",
+     "target": "INR4,000 crores",
+     "horizon": "current fiscal (FY27)",
+     "speaker": "Atul Lall",
+     "quote": "we are confident of touching this revenue figure of INR4,000 crores in the current fiscal",
+     "page": 12
+    },
+    {
+     "metric": "market share",
+     "statement": "Will strive to gain further market share in the domestic mobile market",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Atul Lall",
+     "quote": "We will definitely strive for it.",
+     "page": 12
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Q4 revenue INR10,520 crores; full year revenue INR48,893 crores, +26% YoY",
+     "value": "Q4 INR10,520cr; FY26 INR48,893cr (+26%)",
+     "quote": "Revenues for the year ended March 31, 2026, were INR48,893 crores... That's a growth of 26%",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "FY26 EBITDA (ex-exceptional) INR1,887 crores, +23% YoY",
+     "value": "INR1,887cr (+23%)",
+     "quote": "EBITDA excluding exceptional gain for the year was INR1,887 crores against INR1,528 crores... which is a growth of 23%",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "FY26 PAT after minority interest (ex-exceptional) INR845 crores, +20% YoY",
+     "value": "INR845cr (+20%)",
+     "quote": "PAT after minority interest, excluding exceptional gain for the year was INR845 crores against INR706 crores... a growth of 20%",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "ROCE 44.8%, ROE 28.1%, working capital cycle negative 8 days",
+     "value": "ROCE 44.8%; ROE 28.1%; WC cycle -8 days",
+     "quote": "healthy ROCE and ROE of 44.8% and 28.1%, respectively... working capital cycle of negative 8 days",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Mobile and other EMS Q4 revenue INR9,485 crores, operating profit INR337 crores",
+     "value": "INR9,485cr revenue; INR337cr OP",
+     "quote": "Revenue for the quarter for mobile and other EMS business was INR9,485 crores and operating profit of INR337 crores",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex of ~INR1,058 crores with free cash generation of INR700+ crores",
+     "value": "capex INR1,058cr; FCF INR700+cr",
+     "quote": "after doing a capex of almost INR1,058 crores, a free cash of INR700-plus crores",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom business grew from INR3,600 crores to INR5,000 crores in current fiscal; lighting did INR800-850 crores",
+     "value": "telecom INR5,000cr; lighting INR800-850cr",
+     "quote": "We have grown from INR3,600 crores to INR5,000 crores in the current fiscal",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Exports in FY26 approximately INR5,375 crores",
+     "value": "~INR5,375cr",
+     "quote": "in the last fiscal, the exports was approximately INR5,375 crores",
+     "page": 11
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home appliances Q4 revenue INR329 crores, operating profit INR31 crores; consumer electronics Q4 revenue INR697 crores, operating profit INR40 crores",
+     "value": "home appliances INR329cr/INR31cr; CE INR697cr/INR40cr",
+     "quote": "Home appliances, revenue for the quarter was INR329 crores and operating profit was INR31 crores",
+     "page": 6
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "FY26 revenue closed at almost INR48,800 crores excluding Vivo numbers",
+     "target": "INR48,800-odd crores",
+     "quote": "Without the Vivo numbers, this year, we closed at almost INR48,000 crores -- INR48,800-odd crores.",
+     "page": 15
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom products grew from INR700 crores in '23-'24 to INR3,600 crores, then INR5,000 crores, and this year to INR8,000 crores",
+     "target": "INR8,000 crores",
+     "quote": "we were at INR700 crores, we have grown to INR3,600 crores and last year INR5,000 crores and this year to INR8,000 crores.",
+     "page": 14
+    },
+    {
+     "metric": "volume",
+     "statement": "FY26 smartphone volumes were 33 million units including exports of around 4-4.5 million; Q4 run rate closer to 5.6 million",
+     "target": "33 million units (incl. ~4.5 million exports)",
+     "quote": "33 million smartphones, and that includes a smartphone -- that includes export.",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-05-concall.md",
+   "month": "2026-05"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "volume",
+     "statement": "Mobile volumes expected to grow 20-25% QoQ in Q2 as demand strengthens, backed by strong order book",
+     "target": "20-25% QoQ",
+     "horizon": "Q2 FY27",
+     "speaker": "Atul Lall / Saurabh Gupta",
+     "quote": "we expect 20% to 25% volume growth quarter-on-quarter growth as consumer demand strengthens and we have a strong order book",
+     "page": 3
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Operating margins to be restored from FY28 via backward integration, Mobile PLI 2 and ECMS participation",
+     "target": "directional",
+     "horizon": "FY28",
+     "speaker": "Atul Lall",
+     "quote": "positions the company to drive absolute profit growth and restore operating margins from the next fiscal of '27, '28",
+     "page": 2
+    },
+    {
+     "metric": "other",
+     "statement": "Vivo JV to commence operations and reflect in revenues from Q3 FY27",
+     "target": "directional",
+     "horizon": "Q3 FY27",
+     "speaker": "Atul Lall",
+     "quote": "We expect the JV to commence operations and start reflecting in our revenues from Q3 of the current fiscal",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "New 1 million sq ft Noida facility for anchor customer to start operations in Q3 FY27",
+     "target": "directional",
+     "horizon": "Q3 FY27",
+     "speaker": "Atul Lall",
+     "quote": "We expect the operations to commence from Q3 of this fiscal",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "Camera module capacity at Q Tech to expand from 70 million to 180-190 million units annually over 15-18 months",
+     "target": "70mn to 180-190mn units",
+     "horizon": "15-18 months",
+     "speaker": "Atul Lall",
+     "quote": "from 70 million annually to 180 million to 190 million annually over the next 15 to 18 months",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Display facility trials from beginning of Q3; mass production from end of Q3/beginning of Q4 FY27",
+     "target": "directional",
+     "horizon": "Q3-Q4 FY27",
+     "speaker": "Atul Lall",
+     "quote": "the trial will start from the beginning of Q3 and mass production to commence from end of Q3 and beginning of Q4 this fiscal year",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Inventec JV facility in Chennai expected operational by end of Q3/early Q4 FY27",
+     "target": "directional",
+     "horizon": "Q3-Q4 FY27",
+     "speaker": "Atul Lall",
+     "quote": "this factory should become operational by end of Q3 or early Q4 of the current fiscal",
+     "page": 9
+    },
+    {
+     "metric": "volume",
+     "statement": "Mobile volumes for FY27 expected close to last year's 32-33 million (excluding Vivo)",
+     "target": "~32-33 million",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "Our last year numbers were around 32 million, 33 million. We feel we should be somewhere close to that number",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Exports with two anchor customers to add 15-20 million units and INR18,000-20,000 crores revenue in a couple of years",
+     "target": "INR18,000-20,000 crores",
+     "horizon": "couple of years",
+     "speaker": "Atul Lall",
+     "quote": "that can add almost 15 million to 20 million to our numbers... an addition of almost INR18,000 crores to INR20,000 crores of revenue",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Dishwashers, microwave ovens, front-load washing machines and SSD manufacturing to start in Q3 FY27; exports of backhaul radios and lighting exports to US/Germany in Q2-Q3 FY27",
+     "target": "directional",
+     "horizon": "Q2-Q3 FY27",
+     "speaker": "Atul Lall",
+     "quote": "on track to start production of dishwashers and microwave ovens in Q3 of this fiscal",
+     "page": 5
+    },
+    {
+     "metric": "volume",
+     "statement": "Mobile volumes expected to close first half at ~16-16.5 million; full year similar to last year's ~32 million with strong second half",
+     "target": "16-16.5 million in H1; ~32 million FY",
+     "horizon": "H1 FY27",
+     "speaker": "Atul Lall",
+     "quote": "We will be closing at almost 16 million, 16.5 million.",
+     "page": 17
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom revenue expected at INR6,700-7,000 crores this fiscal with decent growth next year",
+     "target": "INR6,700-7,000 crores",
+     "horizon": "FY27",
+     "speaker": "Atul Lall",
+     "quote": "we're going to be somewhere between INR6,700 crores to INR7,000 crores in this fiscal. And there's going to be a decent growth next year.",
+     "page": 20
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Q1 FY27 revenue",
+     "value": "INR15,557 crores",
+     "quote": "Revenues for the quarter ended June 30, 2026, was INR15,557 crores",
+     "page": 2
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "EBITDA excluding fair value gain on Dixon Aditya Infotech stake",
+     "value": "INR472 crores",
+     "quote": "EBITDA, excluding fair value gain on the stake held by Dixon Aditya Infotech Limited for the quarter was INR472 crores",
+     "page": 2
+    },
+    {
+     "metric": "PAT",
+     "statement": "PAT after minority interest, excluding fair value gain",
+     "value": "INR218 crores",
+     "quote": "PAT after minority interest and excluding fair value gain... for the quarter is INR218 crores",
+     "page": 2
+    },
+    {
+     "metric": "other",
+     "statement": "Mobile and other EMS segment revenue and operating profit",
+     "value": "INR14,179 crores; OP INR373 crores",
+     "quote": "Revenue for the quarter for mobile and other EMS business was INR14,179 crores with operating profit of INR373 crores",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Home appliances revenue and operating profit",
+     "value": "INR382 crores; OP INR32 crores",
+     "quote": "Home appliances, the revenue for the quarter was INR382 crores and operating profit of INR32 crores",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Consumer electronics (LED TVs and refrigerators) revenue and operating profit",
+     "value": "INR987 crores; OP INR58 crores",
+     "quote": "Consumer electronics, LED TVs and refrigerators revenues for the quarter under review was INR987 crores with an operating profit of INR58 crores",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "ROCE and ROE",
+     "value": "34.1% and 23.4%; working capital cycle negative 5 days",
+     "quote": "return on capital employed and return on equity at 34.1% and 23.4%, respectively... working capital cycle of negative five days",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "Smartphone volumes in Q1",
+     "value": "~7.5 million units, of which exports 0.6-0.7 million",
+     "quote": "We did around 7.5 million volumes for smartphone",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Telecom and IT hardware segment revenues",
+     "value": "Telecom ~INR2,100 crores; IT hardware ~INR1,350 crores",
+     "quote": "Revenue for telecom was around closer to INR2,100-odd crores and IT hardware is somewhere around INR1,350-odd crores",
+     "page": 9
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex during the quarter",
+     "value": "INR335 crores",
+     "quote": "our capex has been to the tune of INR335 crores",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "value": "Telecom revenue grew from INR700 crores to INR3,600 crores to INR5,000 crores; Q1 telecom operating margin 5.1%",
+     "quote": "our margins on telecom side in this quarter was almost 5.1% of operating margin.",
+     "page": 20
+    },
+    {
+     "metric": "segment growth",
+     "value": "IT hardware Q1 revenue ~INR1,300-odd crores, equal to full last-year revenue",
+     "quote": "in the first quarter, IT hardware numbers are approximately INR1,300-odd crores which we did in the whole year last year.",
+     "page": 20
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Mixed credibility: segment financial targets (IT hardware, capex, Q1 FY27 volume rebound) were met, but core smartphone volume guidance was repeatedly missed and later revised down. FY26 volumes guided at 40-42M closed at 33M, Q4 guided 7-7.5M came in ~5.6-6M, Q Tech's INR2,000 cr/quarter run rate was far off, and telecom FY27 guidance was cut within one quarter.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q2 FY26",
+    "promise": "Mobile volumes 40-42 million in FY26",
+    "delivered": "FY26 smartphone volumes 33 million (Q4 FY26 call); ~22% below guidance",
+    "status": "missed",
+    "cite": "Q2 FY26 p.8; Q4 FY26 p.17",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "IT hardware revenue INR1,200-1,300 crore in FY26",
+    "delivered": "FY26 IT hardware ~INR1,300 cr, implied by Q1 FY27 matching full prior year (Q1 FY27 call)",
+    "status": "delivered",
+    "cite": "Q2 FY26 p.13; Q1 FY27 p.20",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Capex ~INR550 crores in next 6 months (H2 FY26)",
+    "delivered": "FY26 capex INR1,058 cr less H1 INR550 cr implies H2 ~INR508 cr (Q4 FY26 call)",
+    "status": "delivered",
+    "cite": "Q2 FY26 p.10; Q4 FY26 p.8",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Longcheer JV facility operational by April 2026",
+    "delivered": "Timeline slipped; Q4 FY26 call (May 2026) says operations expected by Q3 FY27",
+    "status": "missed",
+    "cite": "Q2 FY26 p.4; Q4 FY26 p.5",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Q4 FY26 smartphone volumes 7-7.5 million",
+    "delivered": "Q4 run rate ~5.6 million; FY26 33M vs 27M in 9M implies ~6M (Q4 FY26 call)",
+    "status": "missed",
+    "cite": "Q3 FY26 p.7; Q4 FY26 p.17",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Mobile exports INR5,500-6,000 crores in FY26",
+    "delivered": "FY26 exports ~INR5,375 crores, just below guided range (Q4 FY26 call)",
+    "status": "partly",
+    "cite": "Q3 FY26 p.11; Q4 FY26 p.11",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Q Tech to run at ~INR2,000 crores per quarter",
+    "delivered": "FY26 camera module revenue INR1,700 cr total (~INR425 cr/qtr); Q3 itself ~INR400 cr (Q4 FY26 call)",
+    "status": "missed",
+    "cite": "Q3 FY26 p.12; Q4 FY26 p.9",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "High double-digit QoQ smartphone volume growth in Q1 FY27",
+    "delivered": "Q1 FY27 volumes ~7.5M vs Q4 ~5.6M, ~+34% QoQ (Q1 FY27 call)",
+    "status": "delivered",
+    "cite": "Q4 FY26 p.4; Q1 FY27 p.9",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Telecom revenue INR7,500-8,000 crores in FY27",
+    "delivered": "Guidance cut to INR6,700-7,000 cr one quarter later; Q1 FY27 telecom ~INR2,100 cr (Q1 FY27 call)",
+    "status": "partly",
+    "cite": "Q4 FY26 p.9; Q1 FY27 p.20",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Vivo JV to commence operations and reflect in revenues from Q3 FY27",
+    "delivered": "Q3 FY27 (Oct-Dec 2026) not yet reported in material provided",
+    "status": "too early",
+    "cite": "Q1 FY27 p.3",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Revenue scaled to INR21,793.64 cr in Q2 FY27, +46.7% YoY, after Q1 FY27 +21.1% YoY.",
+    "cite": "quarterly_actuals/2026-09-30; quarterly_actuals/2026-06-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Q1 FY27 PAT rose 194.9% YoY to INR663.42 cr on INR15,547.66 cr revenue.",
+    "cite": "quarterly_actuals/2026-06-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Some targets landed: FY26 IT hardware ~INR1,300 cr, H2 capex ~INR508 cr vs ~INR550 cr guide, Q1 FY27 volumes +34% QoQ.",
+    "cite": "guidance-ledger/Q2 FY26 p.13, p.10; Q4 FY26 p.4; Q1 FY27 p.9, p.20",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Smartphone guidance missed: FY26 volumes 33M vs 40-42M guide, ~22% below; Q4 ~5.6-6M vs 7-7.5M.",
+    "cite": "guidance-ledger/Q2 FY26 p.8; Q3 FY26 p.7; Q4 FY26 p.17",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "PAT swung from +194.9% YoY in Q1 FY27 to -48.7% in Q2 FY27; Q2 margin fell to 2.7%.",
+    "cite": "quarterly_actuals/2026-06-30; quarterly_actuals/2026-09-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Q Tech ran ~INR425 cr/qtr versus INR2,000 cr/qtr promise; Longcheer slipped to Q3 FY27; telecom FY27 guide was cut within one quarter.",
+    "cite": "guidance-ledger/Q3 FY26 p.12; Q4 FY26 p.9, p.5; Q1 FY27 p.20",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Vivo JV: whether operations commence and reflect in revenues from Q3 FY27 as promised.",
+   "Longcheer JV: whether revised Q3 FY27 operational timeline holds after April 2026 slip.",
+   "Telecom/smartphones: run-rate versus revised INR6,700-7,000 cr FY27 telecom guide and sustained volume recovery after 33M FY26 miss."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-05-concall.md",
+   "transcripts/2026-02-concall.md",
+   "transcripts/2025-10-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 60,
+  "found": 60
+ }
+}

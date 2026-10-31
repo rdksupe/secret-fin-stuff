@@ -1,0 +1,1257 @@
+{
+ "symbol": "TCS",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Tata Consultancy Services (TCS), founded in 1968 and part of the Tata Group, is an IT services, consulting and business solutions organisation that partners with many of the world's largest businesses on transformation journeys, offering application development and management, digital transformation, AI, data and cloud services, engineering services, cognitive business operations, cyber security, and products & platforms. With over 580,000 consultants across 56 countries and 194 service delivery centres, it has set an aspiration to become the world's largest AI-led technology services company, positioning itself as a full-stack AI services player from infrastructure to intelligence, and generated consolidated revenues of US$30 billion (₹267,021 crore) in fiscal 2026.",
+  "segments": [
+   {
+    "name": "Banking, Financial Services and Insurance (BFSI)",
+    "share": "not stated",
+    "note": "Largest vertical by revenue; standalone FY2026 revenue ₹81,157 crore (p293)"
+   },
+   {
+    "name": "Consumer Business",
+    "share": "not stated",
+    "note": "Standalone FY2026 revenue ₹36,589 crore (p293)"
+   },
+   {
+    "name": "Communication, Media and Technology (CMT)",
+    "share": "not stated",
+    "note": "Standalone FY2026 revenue ₹34,484 crore (p293)"
+   },
+   {
+    "name": "Life Sciences and Healthcare",
+    "share": "not stated",
+    "note": "Standalone FY2026 revenue ₹24,744 crore (p293)"
+   },
+   {
+    "name": "Others (incl. Energy, Resources and Utilities, Public Services and Products)",
+    "share": "not stated",
+    "note": "Standalone FY2026 revenue ₹23,091 crore (p293)"
+   },
+   {
+    "name": "Manufacturing",
+    "share": "not stated",
+    "note": "Standalone FY2026 revenue ₹20,873 crore (p293)"
+   }
+  ],
+  "geographies": "TCS has an extensive footprint spanning North America, Latin America, the United Kingdom, Continental Europe, Asia Pacific, India and Middle East Africa (p55). Standalone FY2026 revenue by customer location: Americas ₹1,21,267 crore (including US ₹1,16,393 crore), Europe ₹64,648 crore (including UK ₹40,613 crore), India ₹15,101 crore, Others ₹19,922 crore (p293).",
+  "key_facts": [
+   "Consolidated FY2026 revenue of ₹267,021 crore (US$30 billion), growth of 4.6% over the previous year (p9, p36)",
+   "Operating margin of 25.0% and net margin of 19.8%, both the highest in the last four years; net income ₹52,820 crore, up 8.8% (p9)",
+   "Total contract value of US$40.7 billion, with 5 mega deals signed during the year (p6, p9)",
+   "Annualised revenues of US$2.3 billion in AI services and US$11.5 billion in new-age services (Cloud, Data, Enterprise Solutions, Cyber Security) (p9)",
+   "Total dividend of ₹110 per share for FY2026, including a recommended final dividend of ₹31 per share (p9)"
+  ],
+  "pages": [
+   6,
+   9,
+   10,
+   36,
+   55,
+   56,
+   57,
+   293,
+   307
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 62613.0,
+   "ebitda": 16662.0,
+   "ebit": 15442.0,
+   "pbt": 16231.0,
+   "pat": 12040.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 26.6,
+   "op_margin": 24.7
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 64259.0,
+   "ebitda": 16731.0,
+   "ebit": 15465.0,
+   "pbt": 16032.0,
+   "pat": 11909.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 26.0,
+   "op_margin": 24.1
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 63973.0,
+   "ebitda": 17034.0,
+   "ebit": 15657.0,
+   "pbt": 16666.0,
+   "pat": 12380.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 26.6,
+   "op_margin": 24.5
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 64479.0,
+   "ebitda": 16980.0,
+   "ebit": 15601.0,
+   "pbt": 16402.0,
+   "pat": 12224.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 26.3,
+   "op_margin": 24.2
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 63437.0,
+   "ebitda": 16875.0,
+   "ebit": 15514.0,
+   "pbt": 16979.0,
+   "pat": 12760.0,
+   "is_bank": false,
+   "revenue_yoy": 1.3,
+   "pat_yoy": 6.0,
+   "margin": 26.6,
+   "op_margin": 24.5
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 65799.0,
+   "ebitda": 17978.0,
+   "ebit": 16565.0,
+   "pbt": 16068.0,
+   "pat": 12075.0,
+   "is_bank": false,
+   "revenue_yoy": 2.4,
+   "pat_yoy": 1.4,
+   "margin": 27.3,
+   "op_margin": 25.2
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 67087.0,
+   "ebitda": 18269.0,
+   "ebit": 16889.0,
+   "pbt": 14078.0,
+   "pat": 10657.0,
+   "is_bank": false,
+   "revenue_yoy": 4.9,
+   "pat_yoy": -13.9,
+   "margin": 27.2,
+   "op_margin": 25.2
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 70698.0,
+   "ebitda": 19276.0,
+   "ebit": 17870.0,
+   "pbt": 18362.0,
+   "pat": 13718.0,
+   "is_bank": false,
+   "revenue_yoy": 9.6,
+   "pat_yoy": 12.2,
+   "margin": 27.3,
+   "op_margin": 25.3
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 72275.0,
+   "ebitda": 18556.0,
+   "ebit": 17317.0,
+   "pbt": 17944.0,
+   "pat": 13349.0,
+   "is_bank": false,
+   "revenue_yoy": 13.9,
+   "pat_yoy": 4.6,
+   "margin": 25.7,
+   "op_margin": 24.0
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 73188.0,
+   "ebitda": 18815.0,
+   "ebit": 17553.0,
+   "pbt": 18638.0,
+   "pat": 13884.0,
+   "is_bank": false,
+   "revenue_yoy": 11.2,
+   "pat_yoy": 15.0,
+   "margin": 25.7,
+   "op_margin": 24.0
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Confident of good calendar year 2026 based on client conversations, deal momentum and AI leadership",
+     "target": "directional",
+     "horizon": "CY2026",
+     "speaker": "K Krithivasan",
+     "quote": "Based on client conversation, strong deal momentum and the leadership we are gaining in AI, we are confident of a good CY2026.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Ambition to become the world's largest AI-led technology services company via five-pillar strategy",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "K Krithivasan",
+     "quote": "We remain steadfast in our ambition to become the world's largest AI-led technology services company, guided by a comprehensive five-pillar strategy.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Short-cycle project decision-making is faster based on ROI, with steady increase across industry segments",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "the short-cycle project side, the decision-making is faster based on the ROI. We see a steady increase",
+     "page": 20
+    },
+    {
+     "metric": "other",
+     "statement": "Capital allocation policy unchanged: substantial free cash flow to be returned to shareholders",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Samir Seksaria",
+     "quote": "Our capital allocation policy remains unchanged, i.e. to give substantial free cash flow back to shareholders.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "US$1 billion equity partnership with TPG to support GW-scale AI data center build-out; discussions with prospective clients progressing",
+     "target": "US$1 billion",
+     "horizon": "ongoing",
+     "speaker": "K Krithivasan",
+     "quote": "we announced a US$1 billion equity partnership with TPG... to support the growth of our GW-scale AI data center infrastructure build out.",
+     "page": 19
+    },
+    {
+     "metric": "other",
+     "statement": "Coastal Cloud acquisition to strengthen Salesforce and AI consulting; pending regulatory approval",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "K Krithivasan",
+     "quote": "The acquisition of Coastal Cloud is pending regulatory approval.",
+     "page": 19
+    },
+    {
+     "metric": "other",
+     "statement": "BFSI TCV and pipeline expected to remain robust even excluding mega deals",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "Even on exclusion of the mega deals, BFSI TCV and pipeline continues to be robust.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Will continue two-pronged customer engagement: 'Get AI ready' and 'Lead with AI'",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Aarthi Subramanian",
+     "quote": "Going forward, we will continue to engage with our customers with a two-pronged focus: 'Get AI ready'... 'Lead with AI'.",
+     "page": 10
+    },
+    {
+     "metric": "segment growth",
+     "statement": "BFSI will return to growth and that should continue",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "K Krithivasan",
+     "quote": "the growth we saw in the accounts, gives us the confidence that BFSI will return to growth... and that should continue",
+     "page": 22
+    },
+    {
+     "metric": "segment growth",
+     "statement": "International/developed markets revenue in FY26 to be better than FY25",
+     "target": "directional",
+     "horizon": "FY26",
+     "speaker": "K Krithivasan",
+     "quote": "We are taking every step to ensure that we grow better than FY '25 in FY '26 in the international market",
+     "page": 23
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margins to inch closer to the 26%-28% aspiration band",
+     "target": "26%-28%",
+     "horizon": "coming quarters",
+     "speaker": "Samir Seksaria",
+     "quote": "we want to inch closer to our 26% to 28% band and we'll make all efforts to climb towards 26%",
+     "page": 23
+    },
+    {
+     "metric": "other",
+     "statement": "Ongoing labor code impact of ~10-15 bps on EBITDA margin; no more one-offs expected",
+     "target": "10-15 bps",
+     "horizon": "Q4 FY26 onwards",
+     "speaker": "Samir Seksaria",
+     "quote": "We expect the ongoing impact to be minimal, around 10 to 15 basis points",
+     "page": 24
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "₹67,087 crore; +2.0% QoQ, +4.9% YoY reported; +0.8% QoQ CC",
+     "quote": "In reported currency, our revenue grew by 2.0% sequentially and 4.9% YoY. In constant currency, our revenue grew 0.8% sequentially.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "25.2%, stable sequentially, excluding one-offs",
+     "quote": "Our Q3 operating margins stood at 25.2%, remaining stable sequentially. This excludes one-offs.",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "value": "net income margin 20%; EPS +8.5% YoY",
+     "quote": "Our net income margin was at 20%, and our EPS grew 8.5% Y-o-Y.",
+     "page": 5
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "TCV US$9.3 billion; BFSI US$3.8bn, Consumer US$1.4bn, North America US$4.9bn",
+     "quote": "We achieved an overall TCV of US$9.3 billion. BFSI TCV was at US$3.8 billion.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "AI services annualized revenue US$1.8 billion, +17.3% QoQ CC",
+     "quote": "Our AI services now generate US$1.8 billion in annualized revenue and is growing at 17.3% QoQ in constant currency.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "Net cash from operations US$1.6bn (130.4% of net income); FCF US$1.4bn; DSO 76 days",
+     "quote": "Net cash from operations was US$1.6 billion, which is 130.4% of net income. Free cash flows were at US$1.4 billion.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "value": "Interim dividend ₹11/share and special dividend ₹46/share recommended",
+     "quote": "The Board has recommended an interim dividend of ₹11 per share and a special dividend of ₹46 per share.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "value": "Headcount 582,163; LTM IT services attrition 13.5%, up 20bps QoQ",
+     "quote": "our global headcount stands at 582,163... LTM voluntary attrition in IT Services stands at 13.5%, up by 20 basis points sequentially.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "value": "Gained 2 clients >$100M, 8 >$20M, 23 >$1M on LTM basis",
+     "quote": "we gained 2 additional clients generating more than US$100 million in revenue, 8 clients exceeding US$20M, and 23 clients bringing in over US$1M each.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "217,000+ employees with higher-order AI skills, 3X increase over last year",
+     "quote": "We now have 217,000+ employees with higher order skills in AI, which is a 3X increase over last year.",
+     "page": 11
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue grew 0.8% QoQ in constant currency in Q3 FY26",
+     "value": "+0.8% QoQ CC",
+     "quote": "In Q3 FY26, our Revenue grew 0.8% sequentially in constant currency",
+     "page": 32
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Operating margin of 25.2%",
+     "value": "25.2%",
+     "quote": "with an operating margin of 25.2% and a net margin of 20%",
+     "page": 32
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "HyperVault progressing toward building 1 GW of AI/data center capacity",
+     "target": "1 GW",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "HyperVault Business – which has made significant progress this quarter on its journey to build out 1 GW of capacity",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Aspire to be the world's largest AI-led tech services company",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "K Krithivasan",
+     "quote": "With AI, TCS aspires to be the World's largest AI led Tech Services company",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Continue investments to maximise growth while optimizing margins and cash conversion",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Samir Seksaria",
+     "quote": "Going forward, we will continue our investments to maximise growth. Our operational rigor will continue to focus on optimizing margins, robust cash conversion",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Committed to returning substantial free cash flow via consistent dividend policy",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Samir Seksaria",
+     "quote": "We remain firmly committed to returning substantial free cash flow to shareholders through a consistent and shareholder friendly dividend policy",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Accelerate deployment of five-pillar AI strategy in FY27",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Aarthi Subramanian",
+     "quote": "As we move into FY27, we will continue to accelerate deployment of our five-pillar AI strategy",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "HyperVault demand converging around large anchor AI workloads of 100–200 MW per customer",
+     "target": "100–200 MW per customer",
+     "horizon": "medium term",
+     "speaker": "Aarthi Subramanian",
+     "quote": "We see the demand converging around large, anchor AI workloads in the 100–200 MW range per customer",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "OpenAI partnership to build 100 MW capacity with option to scale to 1 GW",
+     "target": "100 MW, scalable to 1 GW",
+     "horizon": "medium term",
+     "speaker": "Aarthi Subramanian",
+     "quote": "We have partnered with Open AI to build 100 MW capacity, with an option to scale to 1 GW",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Promising signs of rebound in IT spending in CMI",
+     "target": "directional",
+     "horizon": "next quarters",
+     "speaker": "K Krithivasan",
+     "quote": "CMI saw a modest decline this quarter, but we are witnessing promising signs of a rebound in IT spending in CMI",
+     "page": 18
+    },
+    {
+     "metric": "other",
+     "statement": "Annual salary increments announced for eligible associates, top performers getting double-digit increases",
+     "target": "double-digit for top performers",
+     "horizon": "effective April 1, 2026",
+     "speaker": "Sudeep Kunnumal",
+     "quote": "We have announced Annual increments to all eligible employees across grades, effective April 1, with top performers getting double digit increase",
+     "page": 13
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Positive about FY27 growth and international growth, but declined to give a number",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "K Krithivasan",
+     "quote": "I don't want to put a number, but I would say that... we are quite positive about FY27, quite positive about the international growth.",
+     "page": 21
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Aim to move margins towards 26% on a longer-term basis, keeping margins in a tighter range despite FY27 headwinds like wage hikes",
+     "target": "towards 26%",
+     "horizon": "longer term",
+     "speaker": "Samir Seksaria",
+     "quote": "We'd like to move towards 26%, but on a longer-term basis.",
+     "page": 26
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Annual increment impact on margins expected to be similar to past cycles",
+     "target": "150-200 bps",
+     "horizon": "next quarter",
+     "speaker": "Samir Seksaria",
+     "quote": "On the wage increments, you should expect a similar impact on what we have seen in the past annual increment cycle, which had been in the range of 150 to 200 basis points.",
+     "page": 30
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "Q4 +1.2% QoQ CC; $7.621bn, +1.5% QoQ; ₹70,698 crore, +5.4% QoQ",
+     "quote": "In constant currency, we had a sequential revenue growth of 1.2%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "value": "operating margin 25.3% Q4, +10 bps QoQ",
+     "quote": "Our Q4 operating margin stood at 25.3%, a sequential increase of 10 basis points",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "value": "net margin 19.4% Q4; EPS +12.2% YoY",
+     "quote": "Net margins for Q4 were 19.4%, and our EPS grew 12.2% YoY",
+     "page": 6
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "TCV $12bn in Q4, including 3 mega deals",
+     "quote": "Our order book performance was also very strong in Q4, with $12 billion in TCV including three mega deal wins",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "value": "North America +1.4% QoQ, UK +2.4% QoQ, Europe +1.0% QoQ CC",
+     "quote": "North America growing 1.4% QoQ, UK growing 2.4% QoQ and Europe growing 1.0% QoQ in CC",
+     "page": 3
+    },
+    {
+     "metric": "revenue growth",
+     "value": "FY26 revenue -2.4% YoY CC; $30.017bn, -0.5%; ₹267,021 crore, +4.6%",
+     "quote": "In Constant currency terms, revenue declined 2.4% YoY",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "FY26 operating margin 25%, +70 bps, 4-year high",
+     "quote": "For FY26, our operating margin was 25%, an expansion of 70 basis points over the prior year, and at a 4-year high",
+     "page": 7
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "FY26 TCV $40.7bn including 5 mega deals",
+     "quote": "we delivered a strong $40.7B in TCV including 5 mega deals",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "value": "annualized AI revenues $2.3bn",
+     "quote": "In Q4, our annualized AI revenues surpassed $2.3 billion",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "value": "final dividend ₹31/share; total FY26 dividend ₹110",
+     "quote": "The Board has recommended a final dividend of ₹31 per share, taking the total dividend for the year to ₹110",
+     "page": 7
+    },
+    {
+     "metric": "revenue growth",
+     "value": "Q4 revenue +1.2% QoQ CC",
+     "quote": "In Q4, our Revenue grew by 1.2% QoQ in constant currency.",
+     "page": 34
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "operating margin 25.3%",
+     "quote": "With an operating margin of 25.3% and a net margin of 19.4%.",
+     "page": 34
+    }
+   ],
+   "source": "transcripts/2026-04-concall.md",
+   "month": "2026-04"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Expects demand to improve/resume sometime in Q2 due to pent-up technology backlog",
+     "target": "directional",
+     "horizon": "Q2 FY27",
+     "speaker": "K Krithivasan",
+     "quote": "we are still optimistic that the demand will resume at some time in Q2... I expect the demand to improve sometime in Q2",
+     "page": 11
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Life Sciences and Healthcare recovery expected soon; expects the vertical to do better",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "K Krithivasan",
+     "quote": "core demand for AI transformation, automation and compliance initiatives is intact. Recovery is expected soon.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Positive outlook on manufacturing based on net new deal wins",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "our outlook remains positive for manufacturing based on multiple net new deal wins signed this quarter",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Positive on ERU growth prospects on AI infrastructure build-out, electrification, renewables, energy security",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "we are positive on the growth prospects of this segment on the back of AI infrastructure build-out, electriﬁcation, renewables",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Optimistic about sustained growth in BFSI segment",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "we also are quite optimistic about the sustained growth in BFSI segment",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Productivity gains passed on to clients typically in 10-15% range",
+     "target": "10% to 15%",
+     "horizon": "ongoing",
+     "speaker": "K Krithivasan",
+     "quote": "in most places, the productivity gain passed on is around 10% to 15% range",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Targets at least 1% of employee base working in the new FDE operating model",
+     "target": "at least 1% of employee base",
+     "horizon": "medium term",
+     "speaker": "Aarthi Subramanian",
+     "quote": "target to have at least 1% of our employee base, to work in the new operating model",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Share of lateral hires with next-generation skills expected to increase",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sudeep Kunnumal",
+     "quote": "Over 50% of the lateral hires already possess next-generation skills and we expect this share to increase",
+     "page": 8
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Consumer Business Group large signed projects should start yielding revenue and drive growth as quarters move along",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "K Krithivasan",
+     "quote": "as they start yielding revenue, we'll start seeing growth",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Committed to returning substantial free cash flows to shareholders",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Samir Seksaria",
+     "quote": "we remain committed to returning substantial free cash ﬂows to our shareholders",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Manufacturing expected to turn around in Q2",
+     "target": "directional",
+     "horizon": "Q2",
+     "speaker": "K Krithivasan",
+     "quote": "Manufacturing, we believe will turn around in Q2, life sciences could turn around in Q2, tech services will continue to grow.",
+     "page": 17
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Life sciences could turn around in Q2",
+     "target": "directional",
+     "horizon": "Q2",
+     "speaker": "K Krithivasan",
+     "quote": "life sciences could turn around in Q2, tech services will continue to grow. We are quite optimistic about these.",
+     "page": 17
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "value": "₹72,275 crore, +2.2% QoQ, +13.9% YoY; $7,624mn flat QoQ, +2.7% YoY; CC +40bps QoQ, +3.2% YoY",
+     "quote": "Our Q1 revenue stood at ₹72,275 crore, growing 2.2% sequentially and 13.9% year-on-year",
+     "page": 3
+    },
+    {
+     "metric": "deal wins/TCV",
+     "value": "TCV $9.5 billion, including $800mn SKF mega deal",
+     "quote": "We delivered a TCV of $9.5 billion, including net new AI-led business transformation deals",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "AI services annualized revenue $2.6 billion, up 13.6% QoQ",
+     "quote": "it stands at $2.6 billion in annualized revenue, which is up 13.6% QoQ",
+     "page": 3
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "24%, down 130 bps QoQ (wage hikes impacted 170 bps)",
+     "quote": "our operating margins stood at 24%, down 130 bps sequentially, primarily due to wage hikes",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "value": "Net margin 19.2%",
+     "quote": "Net margin for the quarter was 19.2%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Cash conversion 93% of net income; DSO 74 days; invested funds $5.3 billion",
+     "quote": "Our cash conversion remained strong at 93% of net income. Invested funds... stood at $5.3 billion",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "value": "Workforce 593,798; 14.6 million learning hours; 1.3 million competencies gained",
+     "quote": "Our workforce at the end of quarter stood at 593,798",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "value": "Fourth consecutive quarter of growth",
+     "quote": "This is the fourth consecutive quarter of growth",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "value": "Two very large net new IT services deals enabled via HyperVault partnerships",
+     "quote": "In Q1 FY27, these partnerships enabled two very large IT services deals which were net new for us",
+     "page": 4
+    },
+    {
+     "metric": "revenue growth",
+     "value": "+0.4% QoQ constant currency",
+     "quote": "In Q1, our Revenue grew by 0.4% QoQ in constant currency",
+     "page": 24
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "value": "24%",
+     "quote": "with an operating margin of 24% and a net margin of 19.2%",
+     "page": 24
+    },
+    {
+     "metric": "PAT",
+     "value": "net margin 19.2%",
+     "quote": "an operating margin of 24% and a net margin of 19.2%",
+     "page": 24
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "revenue growth",
+     "statement": "Growth momentum in international/core markets will continue on a medium-term basis based on TCV, pipeline and client conversations",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "K Krithivasan",
+     "quote": "on a medium-term basis, looking at the TCV, looking at the pipeline and the client conversations that we are having, we're confident that growth momentum will continue",
+     "page": 12
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Long-term margin aspiration remains 26-28%, with subcon costs, investment payoffs and traditional levers helping move toward 26%",
+     "target": "26% to 28%",
+     "horizon": "long term",
+     "speaker": "Samir Seksaria",
+     "quote": "Overall, our long-term aspiration remains unchanged, continues to be 26% to 28%... towards getting to 26%, these would definitely play a role",
+     "page": 14
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Company will endeavor to inch up margins in H2 despite headwinds, in context of earlier commitment to exit FY27 at 25%+ EBIT margin",
+     "target": "25%+ exit margin (FY27)",
+     "horizon": "H2 FY27",
+     "speaker": "Samir Seksaria",
+     "quote": "While it's an uphill task, we'll continue to endeavor to inch up on our margins",
+     "page": 16
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "MHP acquisition-related dilution will impact margins by about 50 basis points depending on closure timing and integration start",
+     "target": "~50 bps impact",
+     "horizon": "H2 FY27",
+     "speaker": "Samir Seksaria",
+     "quote": "The acquisition-related dilution, particularly in MHP, is likely to impact by about 50 basis points depending on the timing of closure",
+     "page": 16
+    },
+    {
+     "metric": "segment growth",
+     "statement": "BSNL deal can provide a cushion for regional markets revenue over the next couple of quarters, though regional markets will remain volatile",
+     "target": "directional",
+     "horizon": "next couple of quarters",
+     "speaker": "K Krithivasan",
+     "quote": "BSNL can provide a cushion for the next couple of quarters. But the fact is regional markets will be volatile",
+     "page": 16
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Deferred India projects are expected to be delivered in subsequent quarters once reinstated; no structural issue",
+     "target": "directional",
+     "horizon": "subsequent quarters",
+     "speaker": "K Krithivasan",
+     "quote": "we are hoping to deliver these projects in subsequent quarters once the projects are reinstated. We don't see any major concern there",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "In an S/4HANA transformation spanning 27 sites and 70+ legal entities, AI-supported approach targets 25-30% faster implementation",
+     "target": "25% to 30% faster",
+     "horizon": "ongoing engagement",
+     "speaker": "Aarthi Subramanian",
+     "quote": "Our approach, supported by TCS' agentic platform, targets 25% to 30% faster implementation",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "For a North American energy resources company, transforming global HR operations to double operational efficiency and raise self-serve adoption from under 10% to 30%",
+     "target": "2x efficiency; self-serve 10% to 30%",
+     "horizon": "engagement duration not stated",
+     "speaker": "Aarthi Subramanian",
+     "quote": "transforming their global HR operations to double operational efficiency and increase self-serve adoption from less than 10% to 30%",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "For a global industrial manufacturer, AI-native approach compressing lead-to-quote time from 4.7 days to under an hour, achieved within a quarter; next step is improving lead-to-conversion",
+     "target": "under an hour (from 4.7 days)",
+     "horizon": "achieved within a quarter",
+     "speaker": "Aarthi Subramanian",
+     "quote": "compressing lead-to-quote time from 4.7 days to under an hour. We achieved this within a quarter",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Company will continue investing in targeted acquisitions, partnership ecosystems, high-growth services, talent, and new growth engines like data center services, GCC and mid-market offerings",
+     "target": "directional",
+     "horizon": "ongoing",
+     "speaker": "Samir Seksaria",
+     "quote": "Our priority remains clear: convert investments into sustainable growth while preserving the discipline that has consistently underpinned our profitability",
+     "page": 6
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Margins to inch up from current levels while prioritizing investments for growth",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Samir Seksaria",
+     "quote": "we want to inch up, but the primary near-term focus has been on prioritizing the investments",
+     "page": 17
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Some current investments should start delivering results and growth should help margins",
+     "target": "directional",
+     "horizon": "coming few quarters",
+     "speaker": "Samir Seksaria",
+     "quote": "I would expect some of them to start delivering results, and growth, being an important margin lever should also help",
+     "page": 17
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Revenue ₹73,188 crore, +1.3% QoQ and +11.2% YoY; $7,642 million, +20 bps QoQ and +2.4% YoY; constant currency +0.5% QoQ and +2.8% YoY",
+     "value": "₹73,188 crore; CC +0.5% QoQ, +2.8% YoY",
+     "quote": "Our quarterly revenue was ₹73,188 crore, a growth of 1.3% sequentially and 11.2% on a year-on-year basis",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Operating margin stable sequentially at 24%",
+     "value": "24%",
+     "quote": "Our operating margins remained stable sequentially at 24%",
+     "page": 5
+    },
+    {
+     "metric": "PAT",
+     "statement": "Net margins for the quarter were 19%",
+     "value": "19%",
+     "quote": "Our net margins for the quarter were 19%",
+     "page": 5
+    },
+    {
+     "metric": "deal wins/TCV",
+     "statement": "Order TCV for the quarter was US$9.6 billion, excluding the Porsche and Best Buy deals",
+     "value": "$9.6 billion",
+     "quote": "TCV for the quarter was US$9.6 billion. This excludes the Porsche and Best Buy deals",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Annualized AI revenue reached $3.1 billion, crossing 10% of overall revenue",
+     "value": "$3.1 billion annualized (>10% of revenue)",
+     "quote": "Annualized AI revenue reached $3.1 billion and crossed 10% of our overall revenue",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "BFSI grew 2.5% sequentially and 3.9% YoY in constant currency; Manufacturing and Technology & Services each grew 3.1% QoQ",
+     "value": "BFSI +2.5% QoQ CC, +3.9% YoY",
+     "quote": "BFSI grew 2.5% sequentially in constant currency, while Manufacturing and Technology and Services each grew 3.1%",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Cash conversion was 102.2% of net income; funds invested stood at $5.98 billion; DSO at 74 days",
+     "value": "102.2% cash conversion; $5.98bn funds invested",
+     "quote": "Our cash conversion remains strong at 102.2% of net income and funds invested at the end of the period stood at $5.98 billion",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "LTM attrition in IT services reduced 30 bps sequentially to 13.3%; workforce at 598,056; learning hours up 17% QoQ to 17.1 million",
+     "value": "attrition 13.3%; headcount 598,056",
+     "quote": "LTM attrition in IT services reduced by 30 basis points sequentially to 13.3%",
+     "page": 10
+    },
+    {
+     "metric": "market share",
+     "statement": "TCS ranked #1 Salesforce Services partner by leading analysts",
+     "value": "#1 Salesforce Services partner",
+     "quote": "Recently, leading analysts have recognized this progress, ranking TCS as the #1 Salesforce Services partner",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "International revenue grew 1.2% sequentially in constant currency; UK led at 3.5%, North America and Continental Europe at 0.4% each; India revenue grew 6% YoY",
+     "value": "International +1.2% QoQ CC; UK +3.5%",
+     "quote": "International revenue grew 1.2% sequentially in constant currency... led by the United Kingdom at 3.5%",
+     "page": 3
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Q2 revenue grew 0.5% QoQ in constant currency",
+     "value": "revenue +0.5% QoQ CC",
+     "quote": "In Q2, our revenue grew 0.5% QoQ in constant currency",
+     "page": 28
+    },
+    {
+     "metric": "segment growth",
+     "statement": "International markets grew 1.2% in Q2",
+     "value": "international +1.2% QoQ",
+     "quote": "international markets growing strongly at 1.2%",
+     "page": 28
+    }
+   ],
+   "source": "transcripts/2026-10-14-transcript-13033c.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Mixed credibility: segment and cash-return promises (BFSI, manufacturing, dividends, wage-hike impact) were kept, but the repeated march toward the 26-28% margin band went backwards to 24% and FY26 constant-currency growth declined. Directional optimism on growth proved accurate; margin aspirations did not.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q3 FY26",
+    "promise": "BFSI will return to growth and continue",
+    "delivered": "Q2 FY27 call: BFSI grew 2.5% QoQ, 3.9% YoY in constant currency",
+    "status": "delivered",
+    "cite": "Q2 FY27 call p.3",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "FY26 international/developed market growth better than FY25",
+    "delivered": "Q4 FY26 call: FY26 constant-currency revenue declined 2.4% YoY; only reported-currency grew (+4.6%)",
+    "status": "missed",
+    "cite": "Q4 FY26 call p.7",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Margins to inch closer to 26%-28% aspiration band",
+    "delivered": "Op margin 25.2% Q3, 25.3% Q4 FY26, then fell to 24.0% in Q1 and Q2 FY27 (actuals)",
+    "status": "missed",
+    "cite": "quarterly_actuals 2026-06-30, 2026-09-30",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Return substantial free cash flow to shareholders; policy unchanged",
+    "delivered": "₹11 interim + ₹46 special dividend in Q3; FY26 total dividend ₹110/share (Q4 FY26 call)",
+    "status": "delivered",
+    "cite": "Q3 FY26 p.6; Q4 FY26 p.7",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Wage increment margin impact similar to past cycles, 150-200 bps, next quarter",
+    "delivered": "Q1 FY27: wage hikes impacted 170 bps; op margin down 130 bps QoQ to 24%",
+    "status": "delivered",
+    "cite": "Q1 FY27 call p.3",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Positive about FY27 growth and international growth (no number given)",
+    "delivered": "Q1 +0.4% QoQ CC, Q2 +0.5% QoQ CC; reported YoY +13.9% and +11.2%; international +1.2% QoQ in Q2",
+    "status": "delivered",
+    "cite": "Q1 FY27 p.24; Q2 FY27 p.3,28",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Manufacturing expected to turn around in Q2",
+    "delivered": "Q2 FY27: Manufacturing grew 3.1% QoQ in constant currency",
+    "status": "delivered",
+    "cite": "Q2 FY27 call p.3",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Optimistic about sustained BFSI growth",
+    "delivered": "Q2 FY27: BFSI +2.5% QoQ, +3.9% YoY CC; BFSI TCV robust earlier ($3.8bn Q3 FY26)",
+    "status": "delivered",
+    "cite": "Q2 FY27 call p.3",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Life sciences could turn around in Q2",
+    "delivered": "Q2 FY27 reported items do not mention life sciences performance",
+    "status": "not measurable",
+    "cite": "Q2 FY27 call reported list",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Inch margins up in H2; exit FY27 at 25%+ EBIT margin; 26-28% long-term",
+    "delivered": "H2 FY27 (Q3, Q4) not yet reported; Q2 op margin flat at 24%",
+    "status": "too early",
+    "cite": "quarterly_actuals 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Revenue momentum improved: Q4 FY26 ₹70,698cr (+9.6% YoY), Q1 FY27 +13.9%, Q2 +11.2%; FY26 TCV US$40.7bn with 5 mega deals.",
+    "cite": "snapshot p9; quarterly_actuals 2026-03-31, 2026-06-30, 2026-09-30",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Profitability and cash returns remain strong: FY26 operating margin 25.0%, net margin 19.8%, net income ₹52,820cr (+8.8%), dividend ₹110/share.",
+    "cite": "snapshot p9",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "AI optionality is real: US$2.3bn annualised AI services and US$11.5bn new-age services, backed by 580,000 consultants across 56 countries.",
+    "cite": "snapshot p9; snapshot what_it_does",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Underlying demand weaker than reported: FY26 constant-currency revenue fell 2.4% YoY while reported grew 4.6%; developed-market growth promise was missed.",
+    "cite": "promised_vs_delivered Q4 FY26 p7; snapshot p9",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "point": "Margin credibility strained: op margin slid from 25.3% Q4 FY26 to 24.0% in Q1/Q2 FY27; wage hikes cut 170bps, 26-28% band unmet.",
+    "cite": "quarterly_actuals 2026-03-31, 2026-06-30, 2026-09-30; promised_vs_delivered Q1 FY27 p3",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Earnings quality uneven: Q3 FY26 PAT fell 13.9% YoY despite +4.9% revenue; Q2 FY27 PAT rose 15% but margin stayed 24%.",
+    "cite": "quarterly_actuals 2025-12-31, 2026-09-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3 FY27 operating margin: whether H2 inch-up and FY27 25%+ EBIT exit promise starts delivering.",
+   "Constant-currency international growth, especially BFSI and manufacturing sustaining Q2 FY27 momentum.",
+   "TCV/mega-deal conversion into revenue and evidence AI annualised revenue is scaling beyond US$2.3bn."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-14-transcript-13033c.md",
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-04-concall.md",
+   "transcripts/2026-01-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 67,
+  "found": 67
+ }
+}

@@ -1,0 +1,1069 @@
+{
+ "symbol": "ETERNAL",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Eternal Limited (formerly Zomato Limited) is one of the first home-grown new-age tech companies listed in India, operating through four key business segments: food delivery, quick commerce, going-out, and B2B supplies. Its platforms connect end users, restaurant partners, and delivery partners, and include the Blinkit quick-commerce platform, Hyperpure B2B supplies, and dining-out/entertainment ticketing services.",
+  "segments": [
+   {
+    "name": "India food ordering and delivery",
+    "share": "not stated",
+    "note": "FY26 external revenue INR 10,159 crore; segment result INR 2,079 crore"
+   },
+   {
+    "name": "Quick Commerce (Blinkit)",
+    "share": "not stated",
+    "note": "FY26 external revenue INR 37,779 crore; segment result INR 430 crore; transitioned to a combination of marketplace and inventory-led model during the quarter ended June 30, 2025"
+   },
+   {
+    "name": "Hyperpure supplies (B2B business)",
+    "share": "not stated",
+    "note": "FY26 external revenue INR 5,366 crore; segment result INR 16 crore"
+   },
+   {
+    "name": "Going Out",
+    "share": "not stated",
+    "note": "FY26 external revenue INR 973 crore; segment result INR (292) crore"
+   },
+   {
+    "name": "All other segments (residual)",
+    "share": "not stated",
+    "note": "FY26 external revenue INR 87 crore; segment result INR (206) crore"
+   }
+  ],
+  "geographies": "Operations are overwhelmingly India-based; revenue from geographies outside India was INR 65 crore in FY26 (FY25: INR 51 crore), with non-current assets outside India of INR 4 crore. Subsidiaries are incorporated in India, Dubai, Ireland, and Sri Lanka.",
+  "key_facts": [
+   "Consolidated total income of INR 55,760 crore in FY26 (FY25: INR 21,320 crore)",
+   "Consolidated profit for the year of INR 366 crore in FY26 (FY25: INR 527 crore); standalone profit INR 2,655 crore",
+   "Consolidated revenue from operations INR 54,364 crore (services INR 18,809 crore; goods INR 35,555 crore)",
+   "Total segment results INR 2,027 crore in FY26 (FY25: INR 1,435 crore)",
+   "No single customer represented 10% or more of total revenue in FY26"
+  ],
+  "pages": [
+   55,
+   220,
+   248,
+   278,
+   279,
+   280,
+   361,
+   394
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 1,
+    "found": 1,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4206.0,
+   "ebitda": 177.0,
+   "ebit": 28.0,
+   "pbt": 239.0,
+   "pat": 253.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 4.2,
+   "op_margin": 0.7
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 4799.0,
+   "ebitda": 226.0,
+   "ebit": 46.0,
+   "pbt": 237.0,
+   "pat": 176.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 4.7,
+   "op_margin": 1.0
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 5405.0,
+   "ebitda": 162.0,
+   "ebit": -85.0,
+   "pbt": 124.0,
+   "pat": 59.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 3.0,
+   "op_margin": -1.6
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 5833.0,
+   "ebitda": 72.0,
+   "ebit": -215.0,
+   "pbt": 97.0,
+   "pat": 39.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 1.2,
+   "op_margin": -3.7
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 7167.0,
+   "ebitda": 115.0,
+   "ebit": -199.0,
+   "pbt": 88.0,
+   "pat": 25.0,
+   "is_bank": false,
+   "revenue_yoy": 70.4,
+   "pat_yoy": -90.1,
+   "margin": 1.6,
+   "op_margin": -2.8
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 13590.0,
+   "ebitda": 239.0,
+   "ebit": -137.0,
+   "pbt": 129.0,
+   "pat": 65.0,
+   "is_bank": false,
+   "revenue_yoy": 183.2,
+   "pat_yoy": -63.1,
+   "margin": 1.8,
+   "op_margin": -1.0
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16315.0,
+   "ebitda": 368.0,
+   "ebit": -71.0,
+   "pbt": 170.0,
+   "pat": 102.0,
+   "is_bank": false,
+   "revenue_yoy": 201.9,
+   "pat_yoy": 72.9,
+   "margin": 2.3,
+   "op_margin": -0.4
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 17292.0,
+   "ebitda": 486.0,
+   "ebit": 18.0,
+   "pbt": 228.0,
+   "pat": 174.0,
+   "is_bank": false,
+   "revenue_yoy": 196.5,
+   "pat_yoy": 346.2,
+   "margin": 2.8,
+   "op_margin": 0.1
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 20211.0,
+   "ebitda": 594.0,
+   "ebit": 48.0,
+   "pbt": 272.0,
+   "pat": 92.0,
+   "is_bank": false,
+   "revenue_yoy": 182.0,
+   "pat_yoy": 268.0,
+   "margin": 2.9,
+   "op_margin": 0.2
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 24138.0,
+   "ebitda": 752.0,
+   "ebit": 127.0,
+   "pbt": 323.0,
+   "pat": 125.0,
+   "is_bank": false,
+   "revenue_yoy": 77.6,
+   "pat_yoy": 92.3,
+   "margin": 3.1,
+   "op_margin": 0.5
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "EBITDA margin",
+     "statement": "Quick commerce margins should expand directionally, but the pace of expansion may not match last quarter's; short-term margin trajectory is unpredictable",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Akshant Goyal",
+     "quote": "directionally we say that margin should expand, but we're not able to confidently say that the pace of margin expansion will be the same as what happened in the last quarter",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "100% YoY growth and opening 3,500-4,000 stores is contingent on competition not staying irrational",
+     "target": "100% YoY growth; 3,500-4,000 stores",
+     "horizon": "next one to two years",
+     "speaker": "Albinder Singh Dhindsa",
+     "quote": "But what you've said is broadly correct.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "District/going-out business to reach $3 billion NOV by FY30, implying 30%+ CAGR, driven largely by market share gains",
+     "target": "$3 billion NOV by FY30; 30%+ CAGR",
+     "horizon": "FY30",
+     "speaker": "Akshant Goyal",
+     "quote": "For us to deliver 30% CAGR over the next three to four years, it doesn't necessarily mean that the industry has to grow that much. Lot of it can also come from market share gains",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "NOV per day per store will continue to grow despite the recent dip from assortment expansion",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "We should bounce back and NOV per day per store we believe will continue to grow.",
+     "page": 5
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex per store will go up over the next few quarters due to automation, but net working capital will stay within 18 days and ROCE should remain north of 40%",
+     "target": "NWC within 18 days; ROCE >40%",
+     "horizon": "next few quarters / medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "we don't expect net working capital to be beyond those 18 days... the ROCE outcome should still be north of 40%",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Long-term confidence in quick commerce margins reaching 5-6% of NOV remains high; short-term tactical margin hits possible",
+     "target": "5-6% of NOV",
+     "horizon": "long term",
+     "speaker": "Akshant Goyal",
+     "quote": "our confidence on margins going to 5% to 6% of NOV remains high, and we've shared data on a couple of cities... where we are already at 5% Adjusted EBITDA margin",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "New labor codes do not impact long-term margin guidance; social security costs will be absorbed or passed on to customers",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "Akshant Goyal",
+     "quote": "the new labor codes do not impact our long-term margin guidance. That doesn't change.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Going-out (District) losses to come down sequentially from here towards breakeven in the next four to six quarters",
+     "target": "breakeven in 4-6 quarters",
+     "horizon": "next four to six quarters",
+     "speaker": "Akshant Goyal",
+     "quote": "we now expect the losses to come down sequentially from here towards breakeven in the next four to six quarters.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Full benefit of the shift to inventory model (up to 1% accretion) should accrue in the next six to nine months and will not exceed 1%",
+     "target": "up to 1%",
+     "horizon": "next six to nine months",
+     "speaker": "Akshant Goyal",
+     "quote": "the full benefit should accrue in the next six to nine months, and the benefit will not be more than 1%.",
+     "page": 11
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Food delivery YoY growth expected to slowly trend up towards 20% YoY",
+     "target": "~20% YoY",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "we expect year-on-year growth to continue slowly trending up towards 20% YoY, is what our current sense on the market is.",
+     "page": 11
+    },
+    {
+     "metric": "other (Bistro expansion)",
+     "statement": "Plan is to continue investing in Bistro cautiously; may accelerate expansion if it becomes clearly profit-making with high margin visibility, like Blinkit",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "our plan is to continue investing in this business in a cautious way and at some point, like Blinkit... then we may accelerate expansion as well",
+     "page": 14
+    },
+    {
+     "metric": "other (ESOP dilution)",
+     "statement": "No need for further ESOP dilution in the near future given the enlarged pool",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Akshant Goyal",
+     "quote": "We don't think we need any dilution in the near future at this point.",
+     "page": 15
+    }
+   ],
+   "reported": [
+    {
+     "metric": "EBITDA margin",
+     "statement": "Quick commerce business achieved EBITDA breakeven this quarter",
+     "value": "breakeven",
+     "quote": "congratulations on the breakeven there",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Blinkit contribution margin expanded 90bps and EBITDA expanded ~130bps QoQ despite ~20bps take rate decline",
+     "value": "contribution margin +90bps; EBITDA +130bps",
+     "quote": "your contribution margin expanded 90 basis points, EBITDA expanded about 130 basis points",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "Store throughput declined about 6% QoQ",
+     "value": "down ~6% QoQ",
+     "quote": "your store throughput was down about 6% or 7%",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Like-for-like growth of 130% YoY in quick commerce",
+     "value": "130% YoY like-for-like",
+     "quote": "you said like for like 130% YoY and you're expanding margins",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "District losses jumped this quarter due to launch of District Pass membership program",
+     "value": "losses up QoQ (District Pass launch)",
+     "quote": "a large part of the increase in losses is on account of rolling that out",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "90% of the business has shifted to the inventory model",
+     "value": "90% on inventory model",
+     "quote": "90% of your business has shifted to inventory",
+     "page": 10
+    },
+    {
+     "metric": "market share",
+     "statement": "Largely maintained share of NOV in most Tier 1/metro markets despite competition",
+     "value": "share maintained in metros",
+     "quote": "in most of the Tier 1 markets, which is the metros, we have largely maintained our share of NOV",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Delivery charges were dropped in some markets last week after seeing competitive impact",
+     "value": "delivery charges cut in some markets",
+     "quote": "last week, we did drop our delivery charges in some markets because we saw some impact",
+     "page": 4
+    },
+    {
+     "metric": "other (Blinkit store additions)",
+     "statement": "211 net store additions in the quarter; closure rate very low",
+     "target": "211 net store additions",
+     "quote": "this quarter you had 211 net store additions",
+     "page": 15
+    },
+    {
+     "metric": "other (profitability)",
+     "statement": "Blinkit and Hyperpure achieved break-even",
+     "target": "break-even",
+     "quote": "congratulations on achieving break even in Blinkit and Hyperpure",
+     "page": 16
+    },
+    {
+     "metric": "other (store size)",
+     "statement": "Store size is going up across the board, including mature cities",
+     "target": "directional",
+     "quote": "yes, the store size is going up across the board",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "EBITDA margin",
+     "statement": "Long-term quick commerce margin guidance raised; now expect to end at the higher end of the earlier 5-6% range, i.e. 6%",
+     "target": "6% (adjusted EBITDA margin, long term)",
+     "horizon": "long term",
+     "speaker": "Akshant Goyal",
+     "quote": "we now have higher visibility on margins and we think at this point we're likely to end at the higher end of the range that we had guided earlier",
+     "page": 2
+    },
+    {
+     "metric": "EBIT margin",
+     "statement": "Long-term quick commerce GAAP EBIT margin of 4%, including ESOP expenses and depreciation",
+     "target": "4%",
+     "horizon": "long term",
+     "speaker": "Akshant Goyal",
+     "quote": "Yes, there are ESOP expenses and there is depreciation. We are accounting for both of them... Right.",
+     "page": 9
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex per store of around INR 2.5 crore; over longer periods capex per store expected to be lower than that due to lumpy warehousing investment",
+     "target": "INR 2.5 crore per store (lower over longer periods)",
+     "horizon": "medium/long term",
+     "speaker": "Akshant Goyal",
+     "quote": "you will find it is lower than INR 2.5 crore. We expect that to continue going forward.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Blinkit NAOV expected to remain broadly flat in the same range; may climb in Q3 due to seasonality but no meaningful move up",
+     "target": "directional",
+     "horizon": "next few quarters",
+     "speaker": "Akshant Goyal",
+     "quote": "we broadly expect NAOVs to remain in the same range. In Q3, they might climb up again because of seasonality",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Net working capital expected to improve from current 14 days to a steady-state 12 days, driven by lower inventory days",
+     "target": "12 days (from 14 days currently)",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "The 12 days that we are saying here is a steady-state estimate right now. Currently... we are at 14 days.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Bistro adding about 10 kitchens per quarter; expansion to accelerate once the business becomes more profitable",
+     "target": "~10 kitchens per quarter",
+     "horizon": "ongoing",
+     "speaker": "Akshant Goyal",
+     "quote": "we are adding about 10-odd kitchens in a quarter, that's the pace of expansion there.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "More details on the Nugget enterprise AI business to be shared in coming quarters after building the thesis",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Akshant Goyal",
+     "quote": "We want to take a couple of more quarters and build our thesis more strongly around this, and then we'll share more",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Competitor discounting level expected to be unsustainable and come off in the near future, reducing pressure to discount",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Akshant Goyal",
+     "quote": "We expect this to not continue beyond the near future so we do think that this will come off.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Inventory losses (~1.8% of NOV) not expected to improve materially",
+     "target": "directional",
+     "horizon": "long term",
+     "speaker": "Albinder Singh Dhindsa",
+     "quote": "It has been fairly asymptotic so far. We don't expect it to be materially much better.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "NAOV (average order value) is not expected to expand despite assortment expansion; wallet share will increase instead",
+     "target": "directional",
+     "horizon": "foreseeable future",
+     "speaker": "Akshant Goyal",
+     "quote": "When we say NAOV is unlikely to increase despite assortment expansion, what we are saying is that a lot of assortment that we are adding is also low-NAOV assortment.",
+     "page": 13
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex per store assumption increased ~150% vs earlier assumption, driven by supply chain, not just store throughput",
+     "target": "capex per store up 150% vs prior assumption",
+     "horizon": "current planning framework",
+     "speaker": "Albinder Singh Dhindsa",
+     "quote": "the capex expansion has a lot to do with the overall supply chain and not just the store itself",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "NOV per day per store assumption up ~60% vs earlier assumption; smaller-city stores may have lower NOV but profitable at 6% margin",
+     "target": "NOV per day per store up 60%; smaller-city stores profitable at 6% margin",
+     "horizon": "current planning framework",
+     "speaker": "Akshant Goyal",
+     "quote": "Opening stores in smaller cities could lead to a lower NOV per day, per store, but if that NOV is still profitable at 6% margin, then that increases the top line for us.",
+     "page": 14
+    }
+   ],
+   "reported": [
+    {
+     "metric": "volume",
+     "statement": "Blinkit delivered 21% QoQ volume growth in the quarter",
+     "target": "Blinkit +21% QoQ volume growth",
+     "quote": "you did deliver 21% QoQ volume growth",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Added around 200 stores in the quarter",
+     "target": "~200 store adds",
+     "quote": "You added around 200 stores this quarter",
+     "page": 7
+    },
+    {
+     "metric": "capex",
+     "statement": "Capex in the quarter was around INR 700 crore",
+     "target": "~INR 700 crore",
+     "quote": "your capex was around INR 700 crore",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Quick commerce MTUs comfortably over 30 million",
+     "target": "30+ million MTUs",
+     "quote": "You already have a number of MTUs, which is comfortably over 30 million",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Net working capital currently at 14 days, down from 18 days",
+     "target": "14 days",
+     "quote": "Currently, as we have mentioned in question five, we are at 14 days.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Inventory losses about 1.8% of NOV, largely driven by perishables, netted at gross profit level",
+     "target": "~1.8% of NOV",
+     "quote": "You say that it's about 1.8% of NOV and largely driven by perishables",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "OCF this quarter was higher due to a tax refund; not structural",
+     "target": "tax refund boosted OCF (amount not stated)",
+     "quote": "The tax refund was on account of a refund because there were certain expenses which were ambiguous on whether they'll be allowable.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Older customer cohorts spend 3x versus three years back, at full cohort level including churned customers",
+     "target": "3x over three years",
+     "quote": "over a three-year period, typically a cohort of customers see 3x increase",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Older Blinkit kitchens showing progress in throughput and right assortment mix",
+     "target": "directional",
+     "quote": "in some of our older kitchens, we are seeing a lot of progress in throughput",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Payables increased ~INR 1,650 crore this quarter, driven by scale of business, on expected lines",
+     "target": "payables up ~INR 1,650 crore QoQ",
+     "quote": "Trade payables have increased because of the increase in the scale of the business... Payables are fairly on expected lines.",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Monthly active restaurant count in food delivery dipped slightly this quarter due to LPG situation last quarter",
+     "target": "slight dip in monthly active restaurant count",
+     "quote": "it's a little bit of an impact from the LPG situation in the country last quarter because of which some restaurants went offline",
+     "page": 16
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  },
+  {
+   "call": "Q2 FY27",
+   "items": [
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Food delivery margins to remain broadly flattish as surplus is reinvested in growth",
+     "target": "flattish over next 1-2 years",
+     "horizon": "next 1-2 years",
+     "speaker": "Akshant Goyal",
+     "quote": "broadly, over the next 1 or 2 years, we expect the margins to remain flattish.",
+     "page": 2
+    },
+    {
+     "metric": "other",
+     "statement": "Bulk of new quick commerce store expansion will be in smaller cities (tier 2/3)",
+     "target": "directional",
+     "horizon": "FY27-FY28",
+     "speaker": "Akshant Goyal",
+     "quote": "the bulk of the expansion of these new stores will be in smaller cities.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "dark.ai expected to be a high gross margin business that funds itself and reaches profitability soon",
+     "target": "directional",
+     "horizon": "near term post-launch",
+     "speaker": "Akshant Goyal",
+     "quote": "we think this could be a high gross margin business, which could fund itself largely and get to profitability pretty soon.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "dark.ai capex/cost not expected to become meaningful unless blockbuster response requires GPU/infrastructure investment",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Akshant Goyal",
+     "quote": "we don't expect the capex or cost to become meaningful, at least as of now, unless, of course, we receive a blockbuster response.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "dark.ai launch is a few months away; long term it will be a product open for all",
+     "target": "directional",
+     "horizon": "few months",
+     "speaker": "Akshant Goyal",
+     "quote": "We are still a few months away from launch... But long term, it's a product open for all.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "1P share of SKUs steady at 90-95% with no incremental working capital change expected on that account",
+     "target": "90-95% 1P",
+     "horizon": "steady state",
+     "speaker": "Akshant Goyal",
+     "quote": "we are at that steady state now where about 90-95% is 1P, and we don't expect any more incremental working capital change on that account.",
+     "page": 5
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Adjusted EBITDA margin improvement to be driven by operating leverage while expansion continues",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "Till the time we continue expanding, that is what will drive most of the margin expansion.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "$1 billion Adjusted EBITDA guidance for FY29 maintained",
+     "target": "$1 billion Adjusted EBITDA FY29",
+     "horizon": "FY29",
+     "speaker": "Akshant Goyal",
+     "quote": "We maintain that guidance as of now.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Blinkit NOV growth to pick up from 79% starting the December quarter (OND) on a YoY basis, with no short-term margin reduction from accelerated store additions",
+     "target": "growth pickup from Dec quarter; margins not hit short term",
+     "horizon": "Q3 FY27 onwards",
+     "speaker": "Akshant Goyal",
+     "quote": "as we accelerate store addition, which is starting OND, we don't expect that to hit the margins in the short term.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "NOV per day per store expected to rise from INR 9 lakh to about INR 11 lakh per day per store in steady state",
+     "target": "~INR 11 lakh/day/store (from INR 9 lakh)",
+     "horizon": "steady state / medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "in steady state it could get to about INR 11 lakh per day per store. We are at INR 9 lakh today.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Company will invest balance sheet into new businesses (including AI-related) as long as they demonstrate longer-term return on capital",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Akshant Goyal",
+     "quote": "we have the balance sheet to invest, if required, into building these businesses, as long as they demonstrate a longer-term return on capital",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "AI chat interface on the Zomato app will be iterated into a much better product in coming weeks and months",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Akshant Goyal",
+     "quote": "we are iterating on it, so you will see a much better product in the coming weeks and months",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Quick commerce store count grew ~50% YoY",
+     "target": "~50% YoY",
+     "quote": "our overall store count in QC has grown by almost 50% YoY",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "NOV per day and orders per day per dark store grew 16-17%",
+     "target": "16-17%",
+     "quote": "the NOV per day as well as orders per day per dark store continued to grow pretty healthily at 16-17%",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "NOV per day per store currently at INR 9 lakh",
+     "target": "INR 9 lakh/day/store",
+     "quote": "We are at INR 9 lakh today.",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Blinkit NOV growth was 79%",
+     "target": "79%",
+     "quote": "when you're guiding for growth to pick up in Blinkit from 79%",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Mature cities have more than 70% of NOV being EBITDA positive",
+     "target": ">70% of NOV EBITDA positive",
+     "quote": "some mature cities, with more than 70% of NOV being EBITDA positive",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Top 8 cities account for roughly 70% of NOV, reducing directionally",
+     "target": "~70%, reducing",
+     "quote": "somewhere around 70%?... It is reducing directionally.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "In mature cities, Blinkit MTU is already multiple times that of Zomato",
+     "target": "multiple times",
+     "quote": "in our mature cities, Blinkit MTU is already multiple times that of Zomato",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "1P share of SKUs is at 90-95%",
+     "target": "90-95%",
+     "quote": "we are at that steady state now where about 90-95% is 1P",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Gourmet store expansion progressed to Bangalore and Bombay; gourmet orders not yet a significant percentage of orders",
+     "value": "Expanded to Bangalore and Bombay; store count not disclosed",
+     "quote": "we've expanded gourmet to Bangalore and Bombay as well. We are not disclosing the separate overall number of gourmet stores",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Net AOV overall stable; tier 1 NAOVs higher on assortment expansion offsetting lower tier 2 NAOVs (new cities ~10-15% lower per analyst)",
+     "value": "NAOV stable; new cities ~10-15% lower (analyst's framing)",
+     "quote": "Most of the offset for the NAOV is assortment expansion in tier 1 cities... balances out some of the lower NAOVs from tier 2 cities",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Current AI bot on Zomato app seeing some traction, but no big uptick in conversational ordering; users still prefer to browse",
+     "value": "Some traction; no significant uptick in conversation-based ordering",
+     "quote": "The current AI bot that you see, we are seeing some traction there... we are not seeing too much of an uptick on that",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "dark.ai is an application layer built on fine-tuned open-source models; own compute/GPU needed only for hosting",
+     "value": "Application layer on open-source models",
+     "quote": "We are using open-source models and fine-tuning them and building an application on top of them",
+     "page": 15
+    }
+   ],
+   "source": "transcripts/2026-10-27-transcript-9931c3.md",
+   "month": "2026-10"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Where near-term claims could be checked—Blinkit margin direction, per-store NOV, working capital, NAOV stability—management delivered. Big-ticket guidance (FY29 $1bn EBITDA, District FY30, 6% margins) remains untested, and District breakeven and food-delivery growth stopped being disclosed.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q3 FY26",
+    "promise": "Quick commerce EBITDA margins to expand directionally, though pace might slow",
+    "delivered": "Consolidated EBITDA margin rose 2.3%→2.8%→2.9%→3.1% over next three quarters; Q2 FY27 reported >70% mature-city NOV EBITDA positive",
+    "status": "delivered",
+    "cite": "quarterly_actuals Q4 FY26–Q2 FY27; Q2 FY27 call p.9",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "NOV per day per store will keep growing despite assortment-driven dip",
+    "delivered": "Q2 FY27 reported NOV/day and orders/day per dark store grew 16-17%; level at INR 9 lakh/day",
+    "status": "delivered",
+    "cite": "Q2 FY27 call p.11-12",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Net working capital to stay within 18 days; ROCE north of 40%",
+    "delivered": "Q1 FY27 reported NWC at 14 days, down from 18; ROCE not stated in later material",
+    "status": "partly",
+    "cite": "Q1 FY27 call p.12",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "District losses to fall sequentially, breakeven in four to six quarters",
+    "delivered": "Later calls and filings gave no District loss figure; progress cannot be verified",
+    "status": "not measurable",
+    "cite": "Q1/Q2 FY27 calls; quarterly_actuals",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Food delivery YoY growth to slowly trend up towards 20%",
+    "delivered": "No later call disclosed food delivery YoY growth; only a slight restaurant-count dip was reported",
+    "status": "not measurable",
+    "cite": "Q2 FY27 call p.16",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "100% YoY growth and 3,500-4,000 stores over one to two years, competition permitting",
+    "delivered": "Q2 FY27 reported store count +~50% YoY and Blinkit NOV +79%; horizon still open",
+    "status": "too early",
+    "cite": "Q2 FY27 call p.7,11",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Blinkit NAOV to stay broadly flat, with only seasonal Q3 uptick",
+    "delivered": "Q2 FY27 reported net AOV overall stable, tier-1 assortment gains offsetting lower tier-2 NAOVs",
+    "status": "delivered",
+    "cite": "Q2 FY27 call p.14",
+    "verify": {
+     "checked": 0,
+     "found": 0,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "Net working capital to improve from 14 days to 12-day steady state",
+    "delivered": "Q2 FY27 did not restate NWC days; medium-term horizon still open",
+    "status": "too early",
+    "cite": "Q2 FY27 call (no update)",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "Blinkit NOV growth to pick up from 79% starting December quarter, no short-term margin hit",
+    "delivered": "Q3 FY27 results not yet reported in material",
+    "status": "too early",
+    "cite": "quarterly_actuals end Q2 FY27",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY27",
+    "promise": "$1 billion Adjusted EBITDA guidance for FY29 maintained",
+    "delivered": "FY29 not yet reported; consolidated EBITDA margin only 3.1% in Q2 FY27",
+    "status": "too early",
+    "cite": "quarterly_actuals Q2 FY27",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Scale compounding fast: FY26 total income INR 55,760 crore vs INR 21,320 crore FY25; Q2 FY27 revenue INR 24,138 crore, still +77.6% YoY.",
+    "cite": "annual-report-2026 p.278; dossier/trajectory",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Profitability inflecting: EBIT positive three straight quarters (INR 18→48→127 crore); EBITDA margin up 1.2%→3.1% in five quarters; Q2 FY27 PAT +92.3% YoY.",
+    "cite": "dossier/trajectory Q4 FY26–Q2 FY27",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Near-term promises delivered: Blinkit margins expanded, NOV/store +16-17% to INR 9 lakh/day, NWC 14 days vs 18 guided; >70% mature-city NOV EBITDA positive.",
+    "cite": "guidance-ledger; transcripts/Q2-FY27-concall p.9,11-12",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "FY26 consolidated profit fell to INR 366 crore from INR 527 crore despite revenue ~2.6x; Q2 FY27 PAT margin ~0.5% (INR 125 crore on INR 24,138 crore).",
+    "cite": "annual-report-2026 p.220; dossier/trajectory",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Growth decelerating sharply: revenue YoY 201.9%→77.6% in four quarters; PAT (INR 92, 125 crore) still below Q4 FY26's INR 174 crore.",
+    "cite": "dossier/trajectory",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "point": "Food delivery's INR 2,079 crore result carries the group: Going Out lost INR 292 crore, Hyperpure earned INR 16 crore; District losses and food-delivery growth disclosure stopped.",
+    "cite": "annual-report-2026 p.279-280; guidance-ledger",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q3 FY27 print: does Blinkit NOV growth accelerate from 79% as promised for the December quarter, with no short-term margin hit?",
+   "Whether District loss figures and food-delivery YoY growth disclosures resume, given breakeven was promised within 4-6 quarters from Q3 FY26.",
+   "Store-count trajectory vs 3,500-4,000 target (currently +~50% YoY vs 100% growth promise) and NWC path from 14 to 12 days."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-10-27-transcript-9931c3.md",
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-01-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 63,
+  "found": 63
+ }
+}

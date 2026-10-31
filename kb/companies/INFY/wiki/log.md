@@ -9,3 +9,8 @@
 - 2026-10-29 19:45 UTC — ingested results (24p, chandra) → results-docs/2026-10-23-results-e27f2f.md
 - 2026-10-29 19:46 UTC — ingested corporate_action (195p, pypdf) → filings/docs/2026-10-23-corporate-action-65e459.md
 - 2026-10-29 20:45 UTC — ingested press_release (4p, pypdf) → filings/docs/2026-10-19-press-release-06e716.md
+- 2026-10-31 17:32 UTC — ingested transcript (46p, pypdf) → transcripts/2026-04-concall.md
+- 2026-10-31 17:32 UTC — ingested transcript (48p, pypdf) → transcripts/2026-07-concall.md
+- 2026-10-31 17:32 UTC — ingested transcript (64p, pypdf) → transcripts/2026-02-concall.md
+- 2026-10-31 17:33 UTC — ingested annual_report (383p, pypdf) → annual-reports/annual-report-2026.md
+- 2026-10-31 19:23 UTC — dossier built: 4 calls, 10 quarters, AR=yes

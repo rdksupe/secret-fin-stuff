@@ -1,0 +1,1266 @@
+{
+ "symbol": "TITAN",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Titan Company Limited is a lifestyle company (part of the Tata Group ecosystem per the MD's remarks) that designs, manufactures and retails watches, jewellery and eyewear through large retail networks, and also operates a B2B engineering and automation subsidiary (TEAL). In FY2025-26 it crossed ₹75,000+ crore consolidated revenue (excluding bullion), delivering 28% revenue growth.",
+  "segments": [
+   {
+    "name": "Jewellery",
+    "share": "not stated",
+    "note": "Largest revenue line: manufactured jewellery ₹52,405 crore + traded ₹8,529 crore (p328); grew 33% with 27% same-store growth; brands include Tanishq (528 stores), Mia (₹2,000+ crore, 292 stores), CaratLane (378 stores, >30% growth), Zoya (13 boutiques); launched LGD brand 'beYon'; acquired 67% of Damas Jewellery (p153-156)"
+   },
+   {
+    "name": "Watches",
+    "share": "not stated",
+    "note": "17% NSV growth; analog watches grew 24% vs market 18%, ~27% analog market share; 1,292 retail stores (743 Titan World, 288 Helios, 252 Fastrack, 9 Helios Luxe) (p154)"
+   },
+   {
+    "name": "EyeCare",
+    "share": "not stated",
+    "note": "Returned to double-digit growth in H2 FY2025-26; 'Vision meets Fashion' strategy (p153)"
+   },
+   {
+    "name": "Emerging businesses",
+    "share": "not stated",
+    "note": "Fragrances & Women's Bags performed well; Indian Dress Wear muted (p153)"
+   },
+   {
+    "name": "TEAL (B2B Engineering)",
+    "share": "not stated",
+    "note": "Wholly owned subsidiary; one of its best performances, driven by automation solutions for electronics manufacturing (p153)"
+   }
+  ],
+  "geographies": "Primarily India; international jewellery business expanding in North America (CaratLane stores in New Jersey and Dallas) with GCC presence impacted by geopolitical developments in March (p153, p156).",
+  "key_facts": [
+   "Total income (standalone) ₹78,089 crore; Profit After Tax ₹4,630 crore; EBIT ₹7,242 crore at 9.3% margin (p14)",
+   "Consolidated revenue crossed ₹76,000+ crore (excluding bullion), 28% growth (p153)",
+   "3,603 stores across 46 lakh sq. ft. retail area; 11 manufacturing and assembly facilities (p14)",
+   "Jewellery Division grew 33% with 27% same-store growth; Watches grew 17% (p154-155)",
+   "CSR spend ₹90 crore reaching 9.8 lakh+ beneficiaries across 66 social intervention areas (p13)"
+  ],
+  "pages": [
+   13,
+   14,
+   15,
+   153,
+   154,
+   155,
+   156,
+   328
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 12494.0,
+   "ebitda": 1190.72,
+   "ebit": 1032.72,
+   "pbt": 991.0,
+   "pat": 771.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 9.5,
+   "op_margin": 8.3
+  },
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 13266.0,
+   "ebitda": 1246.72,
+   "ebit": 1082.72,
+   "pbt": 973.0,
+   "pat": 715.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 9.4,
+   "op_margin": 8.2
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 14534.0,
+   "ebitda": 1235.0,
+   "ebit": 1064.0,
+   "pbt": 947.0,
+   "pat": 704.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 8.5,
+   "op_margin": 7.3
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 17740.0,
+   "ebitda": 1673.72,
+   "ebit": 1498.72,
+   "pbt": 1396.0,
+   "pat": 1047.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 9.4,
+   "op_margin": 8.4
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 14916.0,
+   "ebitda": 1537.0,
+   "ebit": 1354.0,
+   "pbt": 1218.0,
+   "pat": 871.0,
+   "is_bank": false,
+   "revenue_yoy": 19.4,
+   "pat_yoy": 13.0,
+   "margin": 10.3,
+   "op_margin": 9.1
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 16523.0,
+   "ebitda": 1830.0,
+   "ebit": 1646.0,
+   "pbt": 1480.0,
+   "pat": 1091.0,
+   "is_bank": false,
+   "revenue_yoy": 24.6,
+   "pat_yoy": 52.6,
+   "margin": 11.1,
+   "op_margin": 10.0
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 18725.0,
+   "ebitda": 1874.0,
+   "ebit": 1685.0,
+   "pbt": 1521.0,
+   "pat": 1120.0,
+   "is_bank": false,
+   "revenue_yoy": 28.8,
+   "pat_yoy": 59.1,
+   "margin": 10.0,
+   "op_margin": 9.0
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 25416.0,
+   "ebitda": 2713.0,
+   "ebit": 2506.0,
+   "pbt": 2223.0,
+   "pat": 1684.0,
+   "is_bank": false,
+   "revenue_yoy": 43.3,
+   "pat_yoy": 60.8,
+   "margin": 10.7,
+   "op_margin": 9.9
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 26920.0,
+   "ebitda": 1936.0,
+   "ebit": 1690.0,
+   "pbt": 1576.0,
+   "pat": 1179.0,
+   "is_bank": false,
+   "revenue_yoy": 80.5,
+   "pat_yoy": 35.4,
+   "margin": 7.2,
+   "op_margin": 6.3
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 21356.0,
+   "ebitda": 2888.0,
+   "ebit": 2632.0,
+   "pbt": 2427.0,
+   "pat": 1777.0,
+   "is_bank": false,
+   "revenue_yoy": 29.3,
+   "pat_yoy": 62.9,
+   "margin": 13.5,
+   "op_margin": 12.3
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Increase share of 18-carat jewellery substantially going forward based on pilot response",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ajoy Chawla",
+     "quote": "We certainly hope to increase that share substantially as we go forward based on the initial pilots that we have seen.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Margin guidance unchanged; consistency in margin delivery expected if gold prices stabilize",
+     "target": "directional",
+     "horizon": "FY26",
+     "speaker": "Ashok Sonthalia",
+     "quote": "our endeavor is to be consistent with our margin delivery... we would still be pretty consistent, if stable",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Tanishq new store openings target for the year",
+     "target": "40 (35-40 reasonable range)",
+     "horizon": "FY26",
+     "speaker": "Ajoy Chawla",
+     "quote": "overall, for the year, our target remains 40... 35 to 40 is a reasonable range to expect. 40 is the target.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Store renovations/expansions for the year",
+     "target": "70-80",
+     "horizon": "FY26",
+     "speaker": "Ajoy Chawla",
+     "quote": "for the renovations, etcetera, 70 to 80 may be the orders that may happen for the year.",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Watches margins to gradually revert to 16-17% band; mid-teen (15-16%) over 1-2 years",
+     "target": "16-17% near term; 15-16% in 1-2 years",
+     "horizon": "1-2 years",
+     "speaker": "Ashok Sonthalia",
+     "quote": "they will gradually revert towards 16%, 17% band... mid-teen is a good number to aim for, 15% to 16%",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Jewellery margin 50bps one-off benefit from Q1 expected to reverse over next 2 quarters",
+     "target": "directional",
+     "horizon": "next 2 quarters",
+     "speaker": "Ashok Sonthalia",
+     "quote": "50 basis points last time onetime, which was expected to reverse over the next 2 quarters",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Inventory/stock to come down in Q3, allowing minor correction in GML interest",
+     "target": "directional",
+     "horizon": "Q3 FY26",
+     "speaker": "Ashok Sonthalia",
+     "quote": "We will certainly see in quarter 3 stock coming down from the present... I do expect in quarter 3 to slightly come down.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Eyecare division to close FY26 with growth of 13-14%",
+     "target": "13-14%",
+     "horizon": "FY26",
+     "speaker": "N. S. Raghavan",
+     "quote": "we believe that we should be closing this year at a slightly higher number... anywhere between 13% to 14%.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Jewellery YTD December growth rates should be better than first half growth rates",
+     "target": "directional",
+     "horizon": "Q3 FY26 / YTD December",
+     "speaker": "Ajoy Chawla",
+     "quote": "by the time we end -- we come to YTD December, our growth rates should have become better than the first half growth rates.",
+     "page": 9
+    },
+    {
+     "metric": "market share",
+     "statement": "Continue gaining share in East and South; extend regionalization playbook to other states",
+     "target": "directional",
+     "horizon": "near future",
+     "speaker": "Ajoy Chawla",
+     "quote": "we continue to gain share in East and South... this playbook can be extended to other states as well, and we are planning so",
+     "page": 11
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Hopes to keep jewellery margin within the range-bound 11% floor despite gold price headwinds",
+     "target": "11% floor (range-bound)",
+     "horizon": "FY26",
+     "speaker": "Ajoy Chawla",
+     "quote": "we are hoping to keep it within that range-bound kind of margin. Let's see, unless something new and big turns up",
+     "page": 13
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Some CaratLane margin initiatives are sustainable if gold prices stay stable; hard to forecast if gold rises sharply",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Saumen Bhaumik",
+     "quote": "Some of the things that we have done will certainly have sustainable impact. Assuming the gold rate remains, let's say, stable, we would see that line continuing",
+     "page": 14
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Q2 FY26 growth across businesses, markets and subsidiaries described as very satisfying",
+     "value": "qualitative",
+     "quote": "It's good to be talking to you at the end a very satisfying Q2 FY '26.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Studded buyer growth positive (early single digits) while gold jewellery buyer growth negative",
+     "value": "studded buyer growth positive early single digits; gold jewellery buyer growth negative",
+     "quote": "gold jewellery growth in terms of buyers, it's lower. It's negative, whereas in studded buyer growth, it's positive.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Festive-to-festive (32 days like-to-like) buyer growth improved vs Q2",
+     "value": "improved vs Q2",
+     "quote": "our buyer growth have improved in festive to festive of 32 days like-to-like period, compared to, let's say, quarter 2.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Tanishq store additions: 6 domestic in Q2, 9 YTD September, 8 more in October",
+     "value": "6 in Q2; 9 YTD Sept; +8 in October",
+     "quote": "it shows 6 in the domestic in quarter 2, but YTD is 9... we added 8 more in October.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Close to 35 Tanishq stores expanded/renovated in first half",
+     "value": "~35 stores",
+     "quote": "we've actually expanded and renovated close to 35 stores in the first half of the year.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Q2 jewellery margin had no net impact of reversal/accrual of the Q1 50bps one-off",
+     "value": "no net impact in Q2",
+     "quote": "in quarter 2, we didn't see any net impact of reversal and accrual.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Consolidated inventory up INR 9,500 crores, largely driven by gold price and business scale",
+     "value": "+INR 9,500 crores",
+     "quote": "It is largely driven by gold price, if you look at the overall number.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Eyecare: ~90% of retail volumes locally produced; 2 lens plants, 1 frame plant, 11-12 in-house fitting labs",
+     "value": "~90% locally produced",
+     "quote": "almost 90% of the volumes what we sell at retail... is locally produced in our factory.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Post-Diwali 10-day sales growth continued in same vein as festive",
+     "value": "qualitative",
+     "quote": "post festive 10 days also that we have seen post the Diwali action, the sales growth has continued to be in the same vein as we saw in festive.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Watches festive growth of 16% vs 12% growth in the prior-year comparable quarter",
+     "value": "festive +16% YoY",
+     "quote": "the festive period sort of saw a 16% growth over last year, same similar period",
+     "page": 12
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "CaratLane margins expanded 250 bps to 10%",
+     "value": "CaratLane margin 10% (+250bps)",
+     "quote": "CaratLane where your margins have expanded 250 bps to 10%",
+     "page": 13
+    },
+    {
+     "metric": "segment growth",
+     "statement": "High-value studded contribution rose 1pp YoY to ~14% of business; solitaires ~3.5-4% of business, up ~0.5-1pp",
+     "value": "high-value studded ~14% (+1pp), solitaire 3.5-4%",
+     "quote": "in Quarter 2, it was contributing around 14% of the overall business, and that was 1 percentage point higher than last year Quarter 2",
+     "page": 15
+    }
+   ],
+   "source": "transcripts/2025-11-concall.md",
+   "month": "2025-11"
+  },
+  {
+   "call": "Q3 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Damas books will be consolidated into Titan consolidated results from 1st January, so Q4 results will include Damas",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Ashok Sonthalia",
+     "quote": "consolidation of Damas books into Titan consolidation will start from 1st January. So quarter 4 results, you will have Damas consolidation.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Investors urged to focus on consolidated performance given CaratLane international, TEAL and Damas",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "I urge you to start looking at consolidated performance as well because that's going to be increasingly important.",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "No guidance offered for rest of Q4 jewellery; January was good but gold rate volatility makes it too early to call",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Arun Narayan",
+     "quote": "it's too early to call out or give you a guidance or say anything that could guide you on where the rest of the quarter could kind of move.",
+     "page": 4
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "In rising gold prices, jewellery margins will stay under pressure; focus shifts to absolute EBIT/PBT growth over margin percentage",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "In the continuously rising gold prices, jewellery margins will kind of exhibit this kind of pressure. But absolute EBIT... have been growing nicely.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "International business margins will gradually improve and eventually reflect India jewellery margins",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "gradually, it is going up as we have always talked about from the loss to, gradually, it will improve, will reflect jewellery margin, which we have in India.",
+     "page": 10
+    },
+    {
+     "metric": "volume",
+     "statement": "Eyecare will continue to deliver volume growth of around 8-10%",
+     "target": "8% to 10%",
+     "horizon": "medium term",
+     "speaker": "N. S. Raghavan",
+     "quote": "This is what we have estimated, around an 8% to 10% growth. So this is what we will continue to deliver.",
+     "page": 10
+    },
+    {
+     "metric": "market share",
+     "statement": "Company wants to directionally increase the share of business that is relatively immune to gold price volatility (exchange + purchase plans)",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Arun Narayan",
+     "quote": "our idea is to move in that direction... because that's good for business, and it's also good for the consumer. So directionally, that's where we want to move.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "No new franchising models (e.g., FOFO) planned for Tanishq; current model continues",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Arun Narayan / Ajoy Chawla",
+     "quote": "nothing really to significantly alter the franchising model that we currently have.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Making-charge discount playbook (pre-Akshaya Tritiya and pre-Dhanteras windows) will continue unchanged despite high gold prices",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Arun Narayan",
+     "quote": "there is a playbook that we have, which is continuing. We have not seen the need to kind of alter or change that despite the conditions.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "More Damas stores will be converted to Tanishq, to be reported with Q4 results",
+     "target": "directional",
+     "horizon": "Q4 FY26",
+     "speaker": "Ashok Sonthalia",
+     "quote": "You will see some of the quarter 4 also, and we will report that as -- when we present quarter 4 result. So some more stores will get converted apart from these 2.",
+     "page": 12
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "TEAL quarterly margins may continue to fluctuate due to project business mix, though order book and visibility are good",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "TEAL is doing well with a good order book and good visibility for the future, but quarterly margin ups and downs, you might expect in future also.",
+     "page": 12
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "CaratLane will sustain a low double-digit EBIT margin, having reached it earlier than expected",
+     "target": "low double-digit EBIT margin",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "gradually, CaratLane with the scale will start inching towards double-digit EBIT margin... they would stay there, low double-digit margin EBIT profile.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Completed 67% stake acquisition of Damas",
+     "target": "67% stake",
+     "quote": "We are very happy to announce that we completed 67% stake acquisition of Damas.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Labour code impact accounted for as exceptional item: INR152 crores consolidated, INR138 crores standalone",
+     "target": "INR152 crores consolidated / INR138 crores standalone",
+     "quote": "The impact on a consolidated level is INR152 crores... as well as INR138 crores in stand-alone financials.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Jewellery grew ~40% in Q3 while other businesses grew 17-18% and 14-15%",
+     "target": "jewellery ~40%; others 17-18% and 14-15%",
+     "quote": "jewellery, which is a slightly lower-margin business... because of 40% growth, while other businesses have grown nicely, but they are 17%, 18%, 14%, 15%.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "New buyer contribution was 45% this quarter vs 42% last quarter and 48% in the year-ago quarter",
+     "target": "45% (vs 42% QoQ, 48% YoY)",
+     "quote": "Last quarter, New was 42%. This quarter, it's 45%. But vis-a-vis last year, same quarter, which was 48%, it is lower.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Average ticket size was ~INR1.9 lakhs, the highest ever; studded ticket +15%, plain gold ticket +44%",
+     "target": "INR1.9 lakhs; studded +15%; plain gold +44%",
+     "quote": "1.9, sorry, for the quarter, 1.9 lakhs... the studded ticket size has also gone up by 15%... while plain gold ticket size went up by 44%.",
+     "page": 8
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Jewellery margin dropped ~50bps vs last year Q3; no hedging one-offs this quarter",
+     "target": "50bps drop YoY",
+     "quote": "50 basis point drop is there in quarter 3 compared to last quarter 3.",
+     "page": 7
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Jewellery comparable gross margin dipped ~200bps, of which ~150bps was offset by operating leverage and cost efficiencies (~1% normalized drop)",
+     "target": "~200bps gross margin dip; ~1% normalized",
+     "quote": "you are right, 1% drop. And we have been talking about that.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Eyecare omnichannel revenue grew 11% with volume growth of ~8%; domestic growth ~17.5%",
+     "target": "revenue +11%; volume ~8%; domestic ~17.5%",
+     "quote": "the omnichannel sale, what we have reported, is 11%... reported by a volume growth of close to around 8%.",
+     "page": 10
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "International margin ~5-6% after adjusting for one-time primary sales of ~INR194-200 crores (Dubai to Damas)",
+     "target": "5% to 6% adjusted",
+     "quote": "we had some primary sales of INR200 crores, close to that... if you adjust that, the margins are about 5% to 6%.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "20-25% of jewellery business comes from purchase plans; more than 50% of business has an exchange element",
+     "target": "20-25% purchase plans; >50% exchange",
+     "quote": "anywhere from 20% to 25% of our business comes from our jewellery purchase plans... more than 50% of our business today has an element of exchange.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Two Damas stores converted to Tanishq this quarter",
+     "target": "2 stores",
+     "quote": "some of those stores are getting converted... apart from these 2.",
+     "page": 12
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "CaratLane margin uptick driven by revenue growth, cost management, and recovery from Q1 margin drop",
+     "target": "not stated",
+     "quote": "revenue growth and cost management are the 2 main factors, and recovery from the margin drop that happened in Q1 are the 3 things that I would attribute Q3's -- the profit performance.",
+     "page": 14
+    }
+   ],
+   "source": "transcripts/2026-02-concall.md",
+   "month": "2026-02"
+  },
+  {
+   "call": "Q4 & FY26",
+   "items": [
+    {
+     "metric": "segment growth",
+     "statement": "Jewellery sales growth guidance of 15-20% held as a medium-term CAGR (3-5 years), not FY27-specific guidance",
+     "target": "15-20% CAGR",
+     "horizon": "3-5 years",
+     "speaker": "Ashok Sonthalia / Ajoy Chawla",
+     "quote": "We are not giving any guidance to you for FY27... 15% to 20%, three to five-year kind of horizon is certainly to be delivered on a CAGR basis",
+     "page": 11
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Jewellery growth of 15-20% seen as an annualized/CAGR number over next three-four years",
+     "target": "15-20%",
+     "horizon": "next 3-4 years",
+     "speaker": "Ajoy Chawla",
+     "quote": "It's typically an annualized number and also a kind of a CAGR for the next three, four years, and I would stay with that.",
+     "page": 10
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Aim to grow EBIT slightly lower than revenue growth of 15-20%; no specific margin range given; more at Investor Day",
+     "target": "directional",
+     "horizon": "FY27 / medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "Can we grow our EBIT also at least a little bit lower than revenue... We will talk maybe more about that in our Investor Day",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Investor Day planned in first week of June with more guidance on margins",
+     "target": "directional",
+     "horizon": "June (FY27)",
+     "speaker": "Ashok Sonthalia",
+     "quote": "Maybe in our investor day, which we are planning in June 1st week.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "beYon (LGD) to expand from 2 stores to 10-12 stores in two-three cities before national launch; several stores in place by Q1",
+     "target": "10-12 stores",
+     "horizon": "Q1 FY27 onwards",
+     "speaker": "Arun Narayan",
+     "quote": "We would certainly like to expand to around 10 to 12 stores in two to three cities... hopefully we will get a bunch of stores in place well in Quarter 1 itself.",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Ticket size benefit from gold price inflation expected in Q1 and Q2 of FY27; second half depends on gold trend",
+     "target": "directional",
+     "horizon": "Q1-Q2 FY27",
+     "speaker": "Arun Narayan",
+     "quote": "Just the increase in gold rate will give us a certain ticket size benefit in Quarter 1 and Quarter 2.",
+     "page": 6
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "11-11.5% domestic jewellery margin sustainability not assured; 10-20 bps being lost to gold price, offset partly by overhead control",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "I would not give you a good assurance that this is sustainable... Some 10-20 basis point, we have been kind of losing.",
+     "page": 7
+    },
+    {
+     "metric": "other",
+     "statement": "Damas/international business expected to improve over next two-three quarters; increased disclosure coming",
+     "target": "directional",
+     "horizon": "next 2-3 quarters",
+     "speaker": "Ashok Sonthalia",
+     "quote": "Over the, I would say two, three quarters beyond... we are very, very positive about the aspects of whatever is happening in the integration.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Gold supply covered for Q1; no increase in gold metal loan cost expected in short term",
+     "target": "directional",
+     "horizon": "Q1 FY27",
+     "speaker": "Ashok Sonthalia",
+     "quote": "We are pretty much quite covered for Quarter 1... We don't see any increase in cost in gold loans, at least in the short term.",
+     "page": 3
+    },
+    {
+     "metric": "market share",
+     "statement": "Jewellery market share gained about 50-60 bps in FY26 vs FY25",
+     "target": "50-60 bps",
+     "horizon": "FY26",
+     "speaker": "Arun Narayan",
+     "quote": "Our sense is that perhaps we have gained about 50 to 60 bps is our sense on FY26 versus FY25.",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Taneira tracking same-store growth, buyer growth, stock turns and sell-throughs; buyer growth in sub-₹10,000 band to show up in next few months",
+     "target": "directional",
+     "horizon": "next few months",
+     "speaker": "Ajoy Chawla",
+     "quote": "A lot of work is underway to kind of bring in a lot more buyer growth, particularly in the sub-₹10,000 price band category.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Damas minority stake: partners can discuss and transact about four years after the occasion",
+     "target": "directional",
+     "horizon": "~4 years",
+     "speaker": "Ashok Sonthalia",
+     "quote": "It is about four years after that occasion would come where partners can discuss and transact.",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "segment growth",
+     "statement": "Q4 jewellery buyer growth of 8% vs flattish in prior nine months",
+     "target": "buyer growth 8%",
+     "quote": "We have seen resurgence in buyer growth in Quarter 4 and what we have reported is 8% versus a flattish for the period prior to that.",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Analog watches grew ~16% for the year; total watches division grew ~14%",
+     "target": "analog +16%, watches +14%",
+     "quote": "Analog watches overall growth has been around 16% for the year... overall growth has been about 14% for the Watches division.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Analog watches now ~85-90% of watch business revenue",
+     "target": "~85%, closer to 90%",
+     "quote": "Analog within the watch is around 85%. Now closer to 90%.",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "International business profitable at operating level for full year; Q4 loss of ₹82 crores due to GCC disruption",
+     "target": "Q4 loss ₹82 crores",
+     "quote": "At operating level, they became profitable... Q4 in the form of loss of ₹82 crores, what you are seeing.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Unallocated Q4 loss of ~₹140 crores includes ₹100-120 crores special reward to employees",
+     "target": "₹100-120 crores",
+     "quote": "It is about ₹100- ₹120 crores roughly. And that is what the variation you are seeing.",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Transfer pricing adjustment of ~₹80 crores in standalone books from FY26 formalization",
+     "target": "~₹80 crores",
+     "quote": "That transfer pricing adjustment in the standalone books is about ₹80 crores plus minus.",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "CaratLane grew 22-23%, impacted by ERP migration to Oracle Fusion in Jan-Feb",
+     "target": "22-23%",
+     "quote": "For CaratLane, specifically among other things, we have grown to the tune of 22%-23%... We moved from our legacy ERP to Oracle Fusion.",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Q4 top-line growth described as best-ever in recent past, all businesses grew well",
+     "target": "directional",
+     "quote": "We have ended the year with a superlative Quarter 4 top-line growth, perhaps our best-ever in the recent past.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "CaratLane EBIT margin 8.4% this quarter; nearly 10% for the year",
+     "target": "",
+     "horizon": "",
+     "speaker": "",
+     "quote": "",
+     "page": 0
+    }
+   ],
+   "source": "transcripts/2026-06-concall.md",
+   "month": "2026-06"
+  },
+  {
+   "call": "Q1 FY27",
+   "items": [
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Jewellery (Tanishq/Mia/Zoya) EBIT margin to stay around 11% as center of gravity, plus/minus; sticking to previous guidance",
+     "target": "~11% (center of gravity)",
+     "horizon": "medium term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "more of 11% being the center of gravity for jewellery business margin, we would be around that plus/minus",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Customs duty gains of ₹407 crore to flow through P&L as inventory is sold, in Q2 and Q3",
+     "target": "₹407 crore over Q2-Q3",
+     "horizon": "next 2-3 quarters",
+     "speaker": "Ashok Sonthalia",
+     "quote": "Over next 2 to 3 quarters, these gains would gradually flow through P&L",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "MTM inventory gains of 75-80 bps in jewellery EBIT expected to reverse in coming quarters",
+     "target": "75-80 bps reversal",
+     "horizon": "coming quarters",
+     "speaker": "Ashok Sonthalia",
+     "quote": "we believe that these are likely to reverse in the coming quarters",
+     "page": 3
+    },
+    {
+     "metric": "segment growth",
+     "statement": "International business (ex-Damas) to keep mid-single-digit EBIT margin; overall international portfolio positive EBIT for full year",
+     "target": "5-6% EBIT margin; positive EBIT",
+     "horizon": "FY27",
+     "speaker": "Ashok Sonthalia",
+     "quote": "rest of the portfolio of international business, except Damas is making profit mid-single-digit EBIT margin, 5% - 6%",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Targeting double-digit aggressive growth for jewellery, as shared at Investor Day",
+     "target": "double-digit growth",
+     "horizon": "medium term",
+     "speaker": "Ajoy Chawla",
+     "quote": "we are targeting, as always, a double-digit aggressive growth, and that's something which we shared even in the Investor Day",
+     "page": 9
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Gross margin enhancement programs to bear fruit more in H2 than H1; hopeful of delivering ~11% jewellery EBIT margin on full-year basis",
+     "target": "~11% full year",
+     "horizon": "FY27",
+     "speaker": "Ashok Sonthalia / Ajoy Chawla",
+     "quote": "those will start bearing fruit in the second half of the year, more so than the first half",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "FY30 guidance given at Analyst Day; medium-to-long term strong double-digit growth",
+     "target": "directional",
+     "horizon": "FY30 / medium-long term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "in our Analyst Day, we guided FY 30 numbers... medium to long term, we have always said that a good strong double-digit growth",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Company remains on track to its FY30 goals; no doubt about marching towards them",
+     "target": "FY30 goals (number not stated in this part)",
+     "horizon": "FY30",
+     "speaker": "Ajoy Chawla (implied, continuing prior answer)",
+     "quote": "That FY30 number. So that has not changed at all in our mind, and we don't have any doubt at this point of time that we are not marching towards that.",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Healthy double-digit growth in jewellery is inevitable; margins will follow with execution",
+     "target": "double-digit growth",
+     "horizon": "medium term",
+     "speaker": "Ajoy Chawla",
+     "quote": "for us to target a healthy double-digit growth in jewellery is inevitable. How it plays out in a particular month and quarter might vary a little bit, but I'm very bullish on that.",
+     "page": 13
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "TEAL normalized margin to gravitate towards 12-16%; this full year can be higher",
+     "target": "12% to 15%, 16%",
+     "horizon": "mid- to long term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "the normalized margin would be gradually gravitating towards 12% to 15%, 16%. This year, full year basis, they can be higher.",
+     "page": 14
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "CaratLane to gradually move towards double-digit EBIT margin, around 10%, possibly 11% long term",
+     "target": "~10%, potentially 11%",
+     "horizon": "medium to long term",
+     "speaker": "Ashok Sonthalia",
+     "quote": "their normal trajectory should be towards 10%... they can either progress towards 11% or stay around that number.",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Both TEAL and CaratLane still on significant growth path; top line growth prioritized over margins",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ajoy Chawla",
+     "quote": "both these subsidiaries are still on a significant growth path... we will continue to prioritize top line growth in both of them.",
+     "page": 14
+    }
+   ],
+   "reported": [
+    {
+     "metric": "other",
+     "statement": "Customs duty rate increase gains realized this quarter",
+     "value": "₹407 crore consolidated (₹386 cr Tanishq/Mia/Zoya, ₹21 cr CaratLane)",
+     "quote": "in this quarter, we had overall at a consolidated level realization of ₹407 crores",
+     "page": 3
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "MTM inventory gain benefited jewellery EBIT",
+     "value": "75-80 bps",
+     "quote": "we have accounting MTM in the inventory, which is -- which caused 75 to 80 basis point jewellery division EBIT upward",
+     "page": 3
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Normalized Tanishq/Mia/Zoya EBIT margin for the quarter",
+     "value": "10.9%",
+     "quote": "the normalized EBIT margin for our Tanishq Mia Zoya business would be 10.9%, the number for this quarter",
+     "page": 3
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Watches EBIT margin normalized for standard costing revaluation",
+     "value": "17.8% vs 18.6% in Q1 FY26",
+     "quote": "last Quarter 1 FY '26 watch EBIT margin was 18.6% compared to 17.8% normalized margin for this quarter",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Buyer growth reported for the quarter",
+     "value": "5%",
+     "quote": "buyer growth of 5% when gold prices are stable",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Studded momentum continued from Q4 FY26 through the quarter",
+     "value": "directional (resurgence continuing)",
+     "quote": "we began seeing a resurgence of studded in Quarter 4 of last year, and we are seeing that continue to play out in Quarter 1",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "Like-for-like growth this quarter (cited by analyst, not disputed)",
+     "value": ">30% LFL",
+     "quote": "we've obviously seen more than a 30% kind of an LFL growth this quarter",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Exchange-driven sales exceed 50% of jewellery business",
+     "target": ">50% of business",
+     "quote": "the sale that comes from exchange, both the exchange of old gold bought elsewhere and the gold bought at Tanishq exceeds 50% of our -- of the business.",
+     "page": 14
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "CaratLane delivered EBIT margin of about 9.6% this quarter",
+     "target": "9.6%",
+     "quote": "So they have delivered 9.6%, I think something like that, 9% upwards.",
+     "page": 14
+    },
+    {
+     "metric": "other",
+     "statement": "Festival of Diamonds offer is a flat 20% off on diamond value, same structure as Jan-Feb",
+     "target": "flat 20% off",
+     "quote": "the FOD offer we have this time is a flat 20% off on diamond value, pretty much the same as the last one of the months of Jan, Feb.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "May second half and June were record-like performance after responding to the situation",
+     "target": "record performance",
+     "quote": "May second half and June has been kind of a record kind of a performance that we saw.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "July also not bad; positivity seen in last 4 months",
+     "target": "directional",
+     "quote": "the growth, what we have seen in Quarter 1, and we are also seeing that July also is not bad. So, I'm seeing a certain positivity so far in the last 4 months.",
+     "page": 17
+    }
+   ],
+   "source": "transcripts/2026-08-concall.md",
+   "month": "2026-08"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Management's growth and strategic promises (Q3 acceleration, Damas consolidation, Q1 FY27 ticket-size benefit) were largely delivered with figures to show. Margin commitments were only partly kept—CaratLane stayed just below double digits and jewellery hovered near 11%—and store-count targets could not be verified from later calls.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q2 FY26",
+    "promise": "Jewellery YTD-December growth to beat H1 FY26 growth rates",
+    "delivered": "Q3 FY26 revenue +43.3% YoY (actuals); jewellery grew ~40% in Q3 (Q3 call), well above H1's 24.6-28.8%",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2025-12-31; Q3 FY26 reported",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Q1's 50bps jewellery margin one-off to reverse over next two quarters",
+    "delivered": "Q2 saw no net impact (Q2 call); Q3 margin fell ~50bps YoY with no one-offs (Q3 call)",
+    "status": "delivered",
+    "cite": "Q2 FY26 reported; Q3 FY26 reported",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "40 Tanishq store additions in FY26 (35-40 reasonable range)",
+    "delivered": "Only 9 by September plus 8 in October reported; full-year FY26 store count not stated in later calls",
+    "status": "not measurable",
+    "cite": "Q2 FY26 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Keep jewellery margin range-bound with 11% floor despite gold headwinds",
+    "delivered": "Q3 margin -50bps YoY (Q3 call); normalized 10.9% in Q1 FY27 (Q1 call)—near, not clearly above, 11%",
+    "status": "partly",
+    "cite": "Q3 FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Damas consolidated from 1 January; Q4 FY26 results to include Damas",
+    "delivered": "Q4 revenue +80.5% YoY (actuals); Q4 call reported international/Damas Q4 loss of ₹82 crores and integration updates",
+    "status": "delivered",
+    "cite": "quarterly_actuals 2026-03-31; Q4 & FY26 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "CaratLane to sustain a low double-digit EBIT margin",
+    "delivered": "Q4 8.4%, FY26 nearly 10% (Q4 call); 9.6% in Q1 FY27 (Q1 call)—hovering just below double digits",
+    "status": "partly",
+    "cite": "Q4 & FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Eyecare to keep delivering volume growth of around 8-10%",
+    "delivered": "Q3 volume growth ~8% (Q3 call), within band; Q4 and Q1 FY27 calls do not state eyecare volumes",
+    "status": "partly",
+    "cite": "Q3 FY26 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 & FY26",
+    "promise": "Gold-price ticket-size benefit expected in Q1-Q2 FY27",
+    "delivered": "Q1 FY27 LFL growth >30%, record May-June (Q1 call); revenue +29.3% YoY (actuals)",
+    "status": "delivered",
+    "cite": "Q1 FY27 reported; quarterly_actuals 2026-06-30",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 & FY26",
+    "promise": "beYon to reach 10-12 stores; several in place by Q1 FY27",
+    "delivered": "Q1 FY27 call's reported items do not mention beYon store count; progress not stated",
+    "status": "not measurable",
+    "cite": "Q1 FY27 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY27",
+    "promise": "₹407 crore customs duty gains to flow through P&L over Q2-Q3 FY27",
+    "delivered": "₹407cr realized in Q1 (Q1 call); Q2-Q3 FY27 not yet reported, flow-through pending",
+    "status": "too early",
+    "cite": "Q1 FY27 reported",
+    "verify": {
+     "checked": 1,
+     "found": 1,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "Consolidated revenue crossed ₹76,000 crore ex-bullion, +28%; Q1 FY27 revenue +29.3% YoY and PAT +62.9%, showing momentum.",
+    "cite": "annual-report-2026 p153; quarterly_actuals 2026-06-30",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Jewellery grew 33% with 27% same-store growth; Q3 revenue +43.3% and Q4 +80.5% with Damas consolidated.",
+    "cite": "annual-report-2026 p154-155; quarterly_actuals 2025-12-31, 2026-03-31",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "point": "Q1 FY27 margins improved to 13.5% EBITDA and 12.3% operating; ₹407 crore customs-duty flow-through is pending for Q2-Q3.",
+    "cite": "quarterly_actuals 2026-06-30; guidance-ledger",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "Q4 FY26 margin compressed to 7.2% EBITDA and 6.3% operating despite +80.5% revenue, showing mix can dilute profitability.",
+    "cite": "quarterly_actuals 2026-03-31",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Jewellery margin promise was only partly kept: Q3 fell ~50bps YoY and Q1 FY27 normalized 10.9%, near not clearly above 11%.",
+    "cite": "guidance-ledger",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "CaratLane stayed below low double-digit EBIT margin (8.4% Q4, 9.6% Q1 FY27); international/Damas posted ₹82 crore Q4 loss.",
+    "cite": "guidance-ledger",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Q2-Q3 FY27 flow-through of ₹407 crore customs-duty gains and whether jewellery margin holds above 11%.",
+   "Damas integration losses and GCC geopolitical impact on international jewellery.",
+   "Whether Q1 FY27 >30% LFL/ticket-size benefit sustains; Tanishq additions and beYon store count are not stated."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-08-concall.md",
+   "transcripts/2026-06-concall.md",
+   "transcripts/2026-02-concall.md",
+   "transcripts/2025-11-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 58,
+  "found": 58
+ }
+}

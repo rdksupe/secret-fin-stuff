@@ -1,0 +1,1246 @@
+{
+ "symbol": "RELIANCE",
+ "built_on": "2026-11-01",
+ "snapshot": {
+  "what_it_does": "Reliance Industries Limited (RIL) is a diversified Indian company whose portfolio spans Digital Services (Jio telecom/digital), Retail, Media & Entertainment, Oil to Chemicals (O2C), Oil and Gas, and New Energy businesses. It delivered record consolidated revenue of ₹11,75,919 crore (US$ 124.0 billion) and EBITDA of ₹2,07,911 crore (US$ 21.9 billion) in FY 2025-26, driven by double-digit growth in Digital Services, Retail and Media & Entertainment.",
+  "segments": [
+   {
+    "name": "Digital Services (Jio)",
+    "share": "not stated",
+    "note": "Gross revenue ₹1,76,164 crore; EBITDA ₹76,560 crore, up 17.8% Y-o-Y; 268 million 5G subscribers; ~13 million JioAirFiber premises"
+   },
+   {
+    "name": "Retail",
+    "share": "not stated",
+    "note": "Gross revenue ₹3,71,085 crore, up 12.1%; EBITDA ₹27,034 crore, up 7.7%; 387 million registered customers; 1.9 billion+ annual transactions"
+   },
+   {
+    "name": "Media & Entertainment",
+    "share": "not stated",
+    "note": "EBITDA up 218.7% with record viewership and double-digit revenue growth"
+   },
+   {
+    "name": "Oil to Chemicals (O2C)",
+    "share": "not stated",
+    "note": "EBITDA up 10.1% via higher operating rates, optimised feedstock sourcing and higher domestic placements"
+   },
+   {
+    "name": "Oil and Gas",
+    "share": "not stated",
+    "note": "EBITDA down 10.1% on natural decline in KG D6 production and softer gas prices"
+   }
+  ],
+  "geographies": "Primarily India-based operations with exports of ₹2,78,808 crore; subsidiaries span Singapore, USA, Malaysia, Middle East (DMCC) and other international locations (related-party disclosures).",
+  "key_facts": [
+   "Consolidated revenue ₹11,75,919 crore (US$ 124.0 billion), up 9.8% Y-o-Y",
+   "EBITDA ₹2,07,911 crore (US$ 21.9 billion), up 13.4% Y-o-Y; PAT ₹95,754 crore (US$ 10.1 billion), up 17.8%",
+   "Net debt ₹1,24,717 crore (US$ 13.2 billion); gross debt ₹3,74,421 crore as of March 31, 2026",
+   "Capex ₹1,44,271 crore (US$ 15.2 billion), funded by cash profits, directed to O2C, New Energy, Digital Services and Retail",
+   "Recommended dividend of ₹6 per share (₹8,119 crore); JV with Meta (₹855 crore, 70:30) for enterprise AI solutions"
+  ],
+  "pages": [
+   44,
+   80,
+   100
+  ],
+  "_model": "glm-5p3-flash",
+  "source": "annual-reports/annual-report-2026.md",
+  "key_facts_verify": [
+   {
+    "checked": 3,
+    "found": 3,
+    "missing": []
+   },
+   {
+    "checked": 6,
+    "found": 6,
+    "missing": []
+   },
+   {
+    "checked": 4,
+    "found": 4,
+    "missing": []
+   },
+   {
+    "checked": 2,
+    "found": 2,
+    "missing": []
+   },
+   {
+    "checked": 5,
+    "found": 5,
+    "missing": []
+   }
+  ]
+ },
+ "trajectory": [
+  {
+   "period_end": "2024-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 236217.0,
+   "ebitda": 38768.0,
+   "ebit": 25172.0,
+   "pbt": 23234.0,
+   "pat": 15138.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 16.4,
+   "op_margin": 10.7
+  },
+  {
+   "period_end": "2024-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 235481.0,
+   "ebitda": 38836.0,
+   "ebit": 25956.0,
+   "pbt": 25037.0,
+   "pat": 16563.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 16.5,
+   "op_margin": 11.0
+  },
+  {
+   "period_end": "2024-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 243865.0,
+   "ebitda": 43663.0,
+   "ebit": 30482.0,
+   "pbt": 28643.0,
+   "pat": 18540.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 17.9,
+   "op_margin": 12.5
+  },
+  {
+   "period_end": "2025-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 264573.0,
+   "ebitda": 43655.0,
+   "ebit": 30176.0,
+   "pbt": 29103.0,
+   "pat": 19407.0,
+   "is_bank": false,
+   "revenue_yoy": null,
+   "pat_yoy": null,
+   "margin": 16.5,
+   "op_margin": 11.4
+  },
+  {
+   "period_end": "2025-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 248660.0,
+   "ebitda": 42803.0,
+   "ebit": 28961.0,
+   "pbt": 37146.0,
+   "pat": 26994.0,
+   "is_bank": false,
+   "revenue_yoy": 5.3,
+   "pat_yoy": 78.3,
+   "margin": 17.2,
+   "op_margin": 11.6
+  },
+  {
+   "period_end": "2025-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 258898.0,
+   "ebitda": 45939.0,
+   "ebit": 31523.0,
+   "pbt": 29124.0,
+   "pat": 18165.0,
+   "is_bank": false,
+   "revenue_yoy": 9.9,
+   "pat_yoy": 9.7,
+   "margin": 17.7,
+   "op_margin": 12.2
+  },
+  {
+   "period_end": "2025-12-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 269496.0,
+   "ebitda": 45895.0,
+   "ebit": 31273.0,
+   "pbt": 29697.0,
+   "pat": 18645.0,
+   "is_bank": false,
+   "revenue_yoy": 10.5,
+   "pat_yoy": 0.6,
+   "margin": 17.0,
+   "op_margin": 11.6
+  },
+  {
+   "period_end": "2026-03-31",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 298621.0,
+   "ebitda": 44168.0,
+   "ebit": 29360.0,
+   "pbt": 27195.0,
+   "pat": 16971.0,
+   "is_bank": false,
+   "revenue_yoy": 12.9,
+   "pat_yoy": -12.6,
+   "margin": 14.8,
+   "op_margin": 9.8
+  },
+  {
+   "period_end": "2026-06-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 311850.0,
+   "ebitda": 47322.0,
+   "ebit": 32222.0,
+   "pbt": 30630.0,
+   "pat": 20946.0,
+   "is_bank": false,
+   "revenue_yoy": 25.4,
+   "pat_yoy": -22.4,
+   "margin": 15.2,
+   "op_margin": 10.3
+  },
+  {
+   "period_end": "2026-09-30",
+   "labels": [
+    "Revenue",
+    "EBITDA",
+    "PBT",
+    "PAT"
+   ],
+   "revenue": 332861.0,
+   "ebitda": 56316.0,
+   "ebit": 41001.0,
+   "pbt": 38613.0,
+   "pat": 25548.0,
+   "is_bank": false,
+   "revenue_yoy": 28.6,
+   "pat_yoy": 40.6,
+   "margin": 16.9,
+   "op_margin": 12.3
+  }
+ ],
+ "guidance": [
+  {
+   "call": "Q2 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Retail de-merger (NCLT approved) will happen in November, pending written judgment",
+     "target": "November 2025",
+     "horizon": "next month",
+     "speaker": "V. Srikanth",
+     "quote": "The NCLT approval has come through so this is something that the de-merger will happen in November, but we are waiting for the written judgment",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "RERTC (green energy) generation to start from sometime next year",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "V. Srikanth",
+     "quote": "development of cuts so that RERTC can be generated from sometime next year",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "JioFrames AI wearables mass-scale models to launch over the next few months at India-suitable price points",
+     "target": "directional",
+     "horizon": "next few months",
+     "speaker": "Anshuman Thakur",
+     "quote": "You will see these coming into the market in the next few months at price points which are very suitable for the demand Indian requirement",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "JioFrames language support to expand from 10 to 12 languages soon",
+     "target": "12 languages",
+     "horizon": "near term",
+     "speaker": "Anshuman Thakur",
+     "quote": "We are already supporting 10 languages; we should be supporting 12 languages fairly soon",
+     "page": 8
+    },
+    {
+     "metric": "volume",
+     "statement": "Home broadband digitization run-rate of ~1 million homes/month expected to continue and keep growing",
+     "target": "~1 million/month",
+     "horizon": "ongoing",
+     "speaker": "Anshuman Thakur",
+     "quote": "we are driving digitization of a million homes every month... we expect that trend to continue. In fact, if anything, keep growing",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Working to convert ~215-225 million 2G users to 4G/5G with affordable devices",
+     "target": "215-225 million users",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "We are still trying to penetrate convert almost 225 million or maybe 215 million 2G users and upgrade them",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "5G SA enterprise functionalities (URSP, PPDR) to be monetized over a period of time",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "Some of these are getting monetized, and others will get monetized over a period of time",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "Reliance Intelligence (100% RIL subsidiary) to build AI infrastructure and products, including gigawatt-scale AI DC in Jamnagar and a Google GCP region powered by 100% RIL green energy",
+     "target": "gigawatt scale",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "AIDC infrastructure that we are developing in Jamnagar, that we have announced gigawatt scale DC in Jamnagar",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Jio PC beta currently free; compute capacity to be sold on usage basis, integrated with Jio Workspace",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Anshuman Thakur",
+     "quote": "It is still beta. So, we are not really charging customers for this... users can actually buy compute capacity based on their requirements",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Focus on building FMCG brand, bottling capacity and food parks post de-merger",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "V. Srikanth",
+     "quote": "the focus is on brand building, on bottling capacity, on setting up of the food parks",
+     "page": 3
+    },
+    {
+     "metric": "volume",
+     "statement": "CBM multilateral wells to be drilled rapidly in coming quarters to augment production",
+     "target": "directional",
+     "horizon": "coming quarters",
+     "speaker": "Sanjay Barman Roy",
+     "quote": "the expectation is we will be able to rapidly drill these wells in the coming quarters and augment the production",
+     "page": 16
+    },
+    {
+     "metric": "other",
+     "statement": "Deep-water rig to arrive at KG-D6 block in Q1 next year for exploration wells, sidetracks and additional cluster wells",
+     "target": "directional",
+     "horizon": "Q1 next year",
+     "speaker": "Sanjay Barman Roy",
+     "quote": "we have got a deep-water rig come to our block in the next year, the first quarter of next year, and drill wells",
+     "page": 16
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenues up 10% YoY despite lower oil prices",
+     "value": "+10% YoY",
+     "quote": "you are talking about 10% increase in revenues on the back of the jump that we saw in retail... despite oil being lower",
+     "page": 4
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Consolidated EBITDA of 50,000+ Crores, up ~15%",
+     "value": "₹50,000+ Cr, +15% YoY",
+     "quote": "Overall EBITDA 50,000 Crores plus it is about 15% higher on a set of big numbers",
+     "page": 4
+    },
+    {
+     "metric": "PAT",
+     "statement": "Pre-minority PAT of 22,100 Crores, up 14% despite finance costs +14% and depreciation +12%",
+     "value": "₹22,100 Cr, +14% YoY",
+     "quote": "on a PAT basis at 22,100 Crores, this is pre-minority numbers that is also up 14%",
+     "page": 4
+    },
+    {
+     "metric": "capex",
+     "statement": "Quarterly capex of about 40,000 Crores, almost in line with cash profits; net debt broadly flat",
+     "value": "~₹40,000 Cr",
+     "quote": "The CAPEX that we spent at about close to 40,000 Crores, almost in line with our cash profits",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Jio connectivity: 506.4M subscribers (+8.3M), ARPU ₹211.4, revenue ₹31,857 Cr (+12.4%), EBITDA ₹17,874 Cr (+17.4%), margin 56.1%",
+     "value": "revenue +12.4% YoY, EBITDA +17.4% YoY, margin 56.1%",
+     "quote": "operating revenue for RJIL came in at ₹31,857 Crores... 12.4% year-on-year growth. EBITDA... 17.4% growth, EBITDA margin expanding to 56.1%",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Jio Platforms consolidated: revenue ₹36,332 Cr, EBITDA ₹18,757 Cr (+18%), PAT ₹7,375 Cr (+13%)",
+     "value": "EBITDA +18% YoY, PAT +13% YoY",
+     "quote": "operating revenue was at 36,332 Crores. EBITDA increased 18% to 18,757 Crores. And profit after tax at 7,375 Crores. 13% growth",
+     "page": 9
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Reliance Retail revenue growth of 18% YoY; transactions +27%; 400+ new stores added; FMCG revenue ₹5,300 Cr (doubled)",
+     "value": "+18% YoY; transactions +27%",
+     "quote": "We delivered 18% growth on a YOY basis... transactions, they have actually grown at 27% vis-a-vis revenue growth of 18%",
+     "page": 11
+    },
+    {
+     "metric": "volume",
+     "statement": "Jio homes: 23M fixed broadband premises (+3M in quarter), 9.5M AirFiber homes; 234M 5G users (+21M)",
+     "value": "23M homes, +3M QoQ; 234M 5G users",
+     "quote": "23 million fixed broadband connected premises, 3 million net adds in this quarter",
+     "page": 5
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Energy business EBITDA up 21% on higher cracks and volumes; upstream EBITDA stable at ~5,000 Crores",
+     "value": "+21% YoY; upstream ~₹5,000 Cr",
+     "quote": "Energy business... good numbers there, 21% higher... Upstream has been more stable at about 5,000 Crores of EBITDA",
+     "page": 3
+    },
+    {
+     "metric": "market share",
+     "statement": "Jio 45% connectivity revenue market share; media business at 400 million MAUs with sharp EBITDA jump",
+     "value": "45% revenue share; 400M MAUs",
+     "quote": "36,000 Crores plus revenue, 45% of revenue market share in the connectivity business, 52% EBITDA margin for JPL",
+     "page": 5
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Premium brands gross revenue up 18%, net revenue up 19%",
+     "value": "gross revenue +18%, net revenue +19%",
+     "quote": "gross revenue is up 18%, net revenue is up 19%",
+     "page": 11
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Premium brands EBITDA from operations up 17%",
+     "value": "EBITDA +17%",
+     "quote": "EBITDA from operations is up 17%, same as total EBITDA and same growth rate for profit after tax",
+     "page": 11
+    }
+   ],
+   "source": "transcripts/2025-10-concall.md",
+   "month": "2025-10"
+  },
+  {
+   "call": "Q3 FY26 (quarter ended December 31, 2025)",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "Gemini Pro offer to be expanded to other users beyond 5G unlimited base over time",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "We do plan to expand this to other users as well in the course of time.",
+     "page": 6
+    },
+    {
+     "metric": "market share",
+     "statement": "Home broadband market share gains expected to continue picking up",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "And that rate, if anything, is only picking up.",
+     "page": 6
+    },
+    {
+     "metric": "other",
+     "statement": "VLR subscriber addition trend expected to continue and pick up",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "And we see that trend continuing and, in fact, picking up as we move forward.",
+     "page": 6
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Jio margins should improve as network monetization increases",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "As we monetize our assets more, as we monetize our network more, these numbers should see the right trend.",
+     "page": 8
+    },
+    {
+     "metric": "other",
+     "statement": "Quick commerce on track to become second largest QC player",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "V Srikanth",
+     "quote": "very much on track to be the second largest QC player.",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "New Energy progress toward 10 GW integrated solar chain",
+     "target": "10 GW",
+     "horizon": "medium term",
+     "speaker": "V Srikanth",
+     "quote": "progress that we are making in terms of getting to the 10-gigawatts of integrated solar chain.",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "Beverage capacity will be more than doubled this year, with high-speed lines across 12 states",
+     "target": "more than double",
+     "horizon": "this year",
+     "speaker": "Ketan Mody",
+     "quote": "We will be more than doubling our capacity on beverages this year. We have high-speed lines across 12 states during the year.",
+     "page": 12
+    },
+    {
+     "metric": "capex",
+     "statement": "Work on food parks will begin next quarter; one beverage plant at Kurnool ready by March",
+     "target": "directional",
+     "horizon": "next quarter / March",
+     "speaker": "Ketan Mody",
+     "quote": "For most of the sites, our work on food parks will begin in this quarter itself, the next quarter. In fact, one of the beverage plants at Kurnool will be ready by March itself.",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Pet products piloted in southern cities, to be scaled up over next couple of quarters",
+     "target": "directional",
+     "horizon": "next couple of quarters",
+     "speaker": "Ketan Mody",
+     "quote": "We have piloted this in southern cities, and we plan to scale this up in next couple of quarters.",
+     "page": 13
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Noodle segment launched in four cities, expansion planned next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Ketan Mody",
+     "quote": "We have entered into the noodle segment also. This is currently being launched in four cities, and we plan to expand this in next quarter.",
+     "page": 13
+    },
+    {
+     "metric": "other",
+     "statement": "Rig to be mobilized in second half of year for exploration wells in KG basin, workovers and additional wells in KG D6 to augment production",
+     "target": "directional",
+     "horizon": "second half of this year",
+     "speaker": "Sanjay Barman Roy",
+     "quote": "We will be having a rig join us, mobilize in this second half of this year. And initially, we will undertake exploration wells in the KG basin.",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Gas prices expected to stay where they are, maybe a little decline before stabilizing or trending upwards",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Sanjay Barman Roy",
+     "quote": "We expect prices generally to stay where they are, and maybe there will be a little bit of a decline before they again get absorbed by the market.",
+     "page": 16
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated revenue up 10% for the quarter",
+     "target": "revenue +10%",
+     "quote": "Revenue is up 10%, EBITDA up about 6%.",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Consolidated PAT at 22,290 crores, up 1.6%",
+     "target": "PAT 22,290 crores, +1.6%",
+     "quote": "overall PAT at 22,290 crores, which was also up about 1.6%.",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Jio Platforms consol EBITDA margin at 51.8%",
+     "target": "EBITDA margin 51.8%",
+     "quote": "EBITDA of 19,303 Crores and consol EBITDA margin at 51.8%.",
+     "page": 8
+    },
+    {
+     "metric": "volume",
+     "statement": "Jio net subscriber addition of 8.9 million, base 515.3 million",
+     "target": "8.9 million net adds",
+     "quote": "Net customer addition of 8.9 million.",
+     "page": 8
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Reliance Retail highest-ever revenue at 97,600 crores, up 8.1%",
+     "target": "revenue 97,600 crores, +8.1%",
+     "quote": "this quarter we had the highest ever revenue at 97,600 Crores. The revenue was up 8.1%.",
+     "page": 9
+    },
+    {
+     "metric": "operating/EBIT margin",
+     "statement": "Retail EBITDA margin at 8%",
+     "target": "EBITDA margin 8%",
+     "quote": "EBITDA came in at 6,915 Crores. The margin stands at 8%.",
+     "page": 9
+    },
+    {
+     "metric": "other",
+     "statement": "Quick commerce at 1.6 million orders run rate in December",
+     "target": "1.6 million orders",
+     "quote": "we are already at 1.6 million plus orders in December.",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "ARPU at 213.7 with no tariff increase impact",
+     "target": "ARPU 213.7",
+     "quote": "ARPUs at 213.7. So, improvement in ARPU. There is no impact of tariff increase in any of this.",
+     "page": 8
+    },
+    {
+     "metric": "capex",
+     "statement": "Quarter capex at almost 34,000 crores",
+     "target": "capex ~34,000 crores",
+     "quote": "the capex at 33,000, almost 34,000 vis-a-vis the cash profits",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "S&P upgraded rating from BBB Plus to A Minus",
+     "target": "rating A-",
+     "quote": "S&P changed our rating from BBB Plus to A Minus, which is really two notches above.",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "RCPL added 5,000 Crores revenue this quarter; YTD 15,000 Crores",
+     "value": "5,000 Crores quarterly; 15,000 Crores YTD",
+     "quote": "We continue our momentum for this quarter; we added 5,000 Crores as revenue. And our YTD numbers stand at 15,000 Crores.",
+     "page": 12
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Daily essentials grown 1.5x YoY; energy portfolio reached 1,000 Crores in the quarter",
+     "value": "1.5x YoY; 1,000 Crores",
+     "quote": "Our important category is daily essentials, where we have grown 1.5 times on year-on-year basis... we have reached 1,000 Crores in this quarter.",
+     "page": 12
+    }
+   ],
+   "source": "transcripts/2026-01-concall.md",
+   "month": "2026-01"
+  },
+  {
+   "call": "Q4 FY26",
+   "items": [
+    {
+     "metric": "other",
+     "statement": "One-day installation rate for home broadband to be pushed closer to 100% (currently over 90% within 24 hours)",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "over 90% of the installations are happening within 24 hours, of course we will strive will target to take this closer to 100%",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "AI-first network initiatives (AI automations, energy optimization) should show good results in coming quarters",
+     "target": "directional",
+     "horizon": "next few quarters",
+     "speaker": "Anshuman Thakur",
+     "quote": "we have been implementing a whole bunch of intelligence, AI automations, energy optimization... we should see good results coming out of these in the next few quarters",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Non-line-of-sight AirFiber deployment working at scale will increase home acquisition run rate further",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "we are very optimistic about this working at scale and will help us increase the run rate, increase the acquisition rate even more",
+     "page": 5
+    },
+    {
+     "metric": "other",
+     "statement": "Rising demand expected for managed compute/JioPC solutions from smaller businesses in coming quarters",
+     "target": "directional",
+     "horizon": "next few quarters",
+     "speaker": "Anshuman Thakur",
+     "quote": "in the next few quarters you will see a lot of need coming up for these even with smaller businesses",
+     "page": 6
+    },
+    {
+     "metric": "volume",
+     "statement": "Per-capita data consumption expected to keep growing with AI-enabled use cases",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Anshuman Thakur",
+     "quote": "this continues to see very healthy growth, and we are expecting this to keep growing like this with more use cases coming in now within AI-enabled use cases",
+     "page": 6
+    },
+    {
+     "metric": "market share",
+     "statement": "FMCG business intends to become one of the largest manufacturers of cooldrinks in the country",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashutosh Goyal",
+     "quote": "we are investing into manufacturing capabilities, and we intend to become one of the largest manufacturers of cooldrinks in the country",
+     "page": 10
+    },
+    {
+     "metric": "capex",
+     "statement": "FMCG will continue to expand manufacturing plants (currently ~12) as the business grows, plus integrated food parks",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ashutosh Goyal",
+     "quote": "we will continue to expand as the business grows. From a food park perspective, we are setting up certain integrated food parks",
+     "page": 10
+    },
+    {
+     "metric": "market share",
+     "statement": "Continue expanding presence into newer international markets and deepen reach in existing ones",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Consumer business speaker (unnamed)",
+     "quote": "While we entered into the international markets last year, we would like to continue to expand our presence into the international markets",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "Fuel cracks expected to remain strong for some time due to refinery damage and shipping concerns",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Srinivas Tuttagunta",
+     "quote": "we think cracks may remain strong for some time to come with damage to refinery as well as all these concerns being there",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Expect lower global production and refining capacities going forward due to infrastructure damage",
+     "target": "directional",
+     "horizon": "near term",
+     "speaker": "Srinivas Tuttagunta",
+     "quote": "going forward we expect to see lower capacities on production as well as on refining both is what we understand",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Reintroduction of SAED is a business risk that will have to be reckoned with",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Srinivas Tuttagunta",
+     "quote": "Reintroduction of SAED is something which we have to reckon with... that is some a risk that is there in the business",
+     "page": 15
+    },
+    {
+     "metric": "other",
+     "statement": "Feedstock disruptions could accelerate recovery of the petrochemical cycle",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Amit Chaturvedi",
+     "quote": "This could result in accelerated recovery of the cycle which... naphtha cracking margins have been under severe stress",
+     "page": 17
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "FY26 consolidated revenue up 10%, EBITDA up 13.5%",
+     "target": "revenue +10% YoY, EBITDA +13.5% YoY",
+     "quote": "10% up on revenue, 13.5% on EBITDA, this of course includes the one time that we had in the sale of listed shares",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Q4 overall EBITDA flat; consumer businesses (Jio + retail) EBITDA up 14%, O2C PAT down 4%",
+     "target": "consumer EBITDA +14% YoY, O2C -4%",
+     "quote": "overall EBITDA growth is flat... it is about consumer... that is up 14%, which really negates the impact of energy",
+     "page": 3
+    },
+    {
+     "metric": "other",
+     "statement": "Net debt to EBITDA at 0.64x, below the below-one guidance",
+     "target": "0.64x",
+     "quote": "the EBITDA has been at about 0.64, which against what we have been talking about below one",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Q4 digital services revenue +16%, subscriber additions +7.5%, 5G user base +40%",
+     "target": "digital +16%, subs +7.5%, 5G base +40%",
+     "quote": "digital services has been good, 16% on the back of subscriber additions, which was up 7.5%, and the 5G user base has been growing at about 40%",
+     "page": 4
+    },
+    {
+     "metric": "other",
+     "statement": "O2C throughput lower by 4% in Q4 due to physical crude availability issues",
+     "target": "throughput -4%",
+     "quote": "if you see the throughput for us it was lower by 4% and just getting physical crude",
+     "page": 4
+    },
+    {
+     "metric": "volume",
+     "statement": "Jio ended year with 524.4 million subscribers, Q4 net add 9.1 million; ARPU Rs.214 (+4% YoY)",
+     "target": "524.4M subs, net add 9.1M, ARPU Rs.214",
+     "quote": "we ended the quarter ended the year at 524.4 million subscribers that was a net add of 9.1 million subscribers... Rs.214 ARPU",
+     "page": 6
+    },
+    {
+     "metric": "segment growth",
+     "statement": "RJIL Q4 revenue Rs.33,381 Cr (+11.2% YoY), EBITDA Rs.18,771 Cr, margin 56.2% (+230bps)",
+     "target": "revenue Rs.33,381 Cr +11.2%, EBITDA margin 56.2%",
+     "quote": "Rs.33,381 Crores for the last quarter, EBITDA of Rs.18,771 Crores, so EBITDA margin improving to 56.2%",
+     "page": 7
+    },
+    {
+     "metric": "PAT",
+     "statement": "JPL Q4 revenue Rs.38,259 Cr (+12.6%), EBITDA Rs.20,060 Cr (+17.9%), PAT Rs.7,935 Cr (+13%); FY PAT crossed Rs.30,000 Cr",
+     "target": "Q4 PAT Rs.7,935 Cr +13%",
+     "quote": "operating revenues of Rs.38,259 Crores that is a 12.6% growth year-on-year... PAT at 7,935, 13% growth year-on-year",
+     "page": 7
+    },
+    {
+     "metric": "revenue growth",
+     "statement": "Retail highest-ever quarterly revenue Rs.98,000 Cr (+11% YoY, ~14% adjusted for RCPL demerger), EBITDA Rs.6,900 Cr, margin 7.9%, PAT Rs.3,500 Cr; 333 new stores, crossed 20,000 stores",
+     "target": "revenue Rs.98,000 Cr +11%, EBITDA Rs.6,900 Cr, margin 7.9%",
+     "quote": "we had the highest ever revenues of Rs.98,000 Crores... 11% growth on a Y-o-Y basis... EBITDA came in at Rs.6,900 Crores, EBITDA margin is at 7.9%",
+     "page": 7
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMCG FY26 revenue Rs.22,000 Cr, Q4 Rs.7,350 Cr, both ~2x YoY; Campa Rs.4,700 Cr, Independence Rs.2,600 Cr",
+     "target": "FY Rs.22,000 Cr, Q4 Rs.7,350 Cr (2x YoY)",
+     "quote": "we closed our revenue of Rs.22,000 Crores in 2026 and for the Q4 alone, we delivered a revenue of Rs.7350 Crores, both these are two times growth",
+     "page": 9
+    },
+    {
+     "metric": "market share",
+     "statement": "JioStar monthly active user reach of 550 million in March",
+     "target": "",
+     "quote": "we achieved a monthly active user reach of 550 million people in March",
+     "page": 10
+    },
+    {
+     "metric": "other",
+     "statement": "World record 72.5 million concurrent streams during T20 World Cup",
+     "target": "",
+     "quote": "broke a world record for the maximum number of concurrent streams at the same time, at 72.5 million",
+     "page": 10
+    }
+   ],
+   "source": "transcripts/2026-04-concall.md",
+   "month": "2026-04"
+  },
+  {
+   "call": "Q1 FY2026-27 (quarter ended June 30, 2026)",
+   "items": [
+    {
+     "metric": "segment growth (retail digital commerce)",
+     "statement": "Grow online businesses rapidly this year, expand dark stores, omni-channel platforms and JioMart, with clear path to positive unit economics per market",
+     "target": "directional",
+     "horizon": "FY27 (this year)",
+     "speaker": "Sh Dinesh Taluja",
+     "quote": "we are looking at growing our online businesses pretty rapidly during this year. So we will expand dark stores, we will grow our omni-channel platforms, we will grow JioMart",
+     "page": 8
+    },
+    {
+     "metric": "operating/EBIT margin (retail)",
+     "statement": "Scale benefits from this year will convert into margins and cash generation over the next two years, using levers like own brands and monetization",
+     "target": "directional",
+     "horizon": "next two years",
+     "speaker": "Sh Dinesh Taluja",
+     "quote": "the benefit of that scale will convert into value in terms of margins and cash generation over the next two years",
+     "page": 8
+    },
+    {
+     "metric": "other (retail return on capital)",
+     "statement": "As density, mix productivity, inventory turns and monetization kick in, return on capital will improve and EBITDA and cash generation will accelerate",
+     "target": "directional",
+     "horizon": "coming years",
+     "speaker": "Sh Dinesh Taluja",
+     "quote": "we will start seeing good return on capital on these investments and EBITDA and cash generation would accelerate over the coming years",
+     "page": 9
+    },
+    {
+     "metric": "other (retail growth funding)",
+     "statement": "Online growth this year will be measured and funded from existing profits, with absolute numbers growing",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Sh Dinesh Taluja",
+     "quote": "This year online growth, we will focus on, but it will be quite measured. So, the growth will be funded from existing profits",
+     "page": 9
+    },
+    {
+     "metric": "other (retail unit economics)",
+     "statement": "Investments concentrated in micro markets with clear path to positive unit economics; will pull back where it does not make sense",
+     "target": "directional",
+     "horizon": "FY27",
+     "speaker": "Sh Dinesh Taluja",
+     "quote": "investments are concentrated in micro markets where there's a clear path to positive unit economics",
+     "page": 10
+    },
+    {
+     "metric": "segment growth",
+     "statement": "FMCG other categories (home care, personal care, processed food, confectionery, chocolates) expected to drive growth next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Ketan Mody",
+     "quote": "everything had started giving us good growth and this is where we feel a lot of growth would be coming during the next quarter",
+     "page": 11
+    },
+    {
+     "metric": "market share",
+     "statement": "Plan to enter Australia and African markets for beverages next quarter",
+     "target": "directional",
+     "horizon": "next quarter",
+     "speaker": "Ketan Mody",
+     "quote": "For the next quarter, we plan to kind of enter into Australia and African markets",
+     "page": 11
+    },
+    {
+     "metric": "capex",
+     "statement": "Exploring a new edible oil facility in West Bengal",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Ketan Mody",
+     "quote": "we are now working to set up a facility in West Bengal",
+     "page": 11
+    },
+    {
+     "metric": "other",
+     "statement": "Campa CANS launch in Australia by end of this month",
+     "target": "directional",
+     "horizon": "this month",
+     "speaker": "Ketan Mody",
+     "quote": "We have now officially manufactured Campa CANS in Australia, and we will be doing a launch during this end of this month",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "Preparing for India launch of acquired brands (Tony & Guy, Brylcreem, Badedas, Matey)",
+     "target": "directional",
+     "horizon": "not stated",
+     "speaker": "Ketan Mody",
+     "quote": "We are preparing for India launch on this",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "AI-generated micro-content via JAMS expected to enable scaled high-quality short-form content",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ishan Chatterjee",
+     "quote": "we expect that this will allow us to launch much more high-quality content scale across our short-form content",
+     "page": 12
+    },
+    {
+     "metric": "other",
+     "statement": "IPL expected to continue driving activation across user base",
+     "target": "directional",
+     "horizon": "medium term",
+     "speaker": "Ishan Chatterjee",
+     "quote": "it is something that we expect will continue to drive a lot of activation across our user bases",
+     "page": 13
+    }
+   ],
+   "reported": [
+    {
+     "metric": "revenue growth",
+     "statement": "Consolidated topline up 25% YoY, driven by oil prices plus Jio and retail each up ~12%",
+     "quote": "topline up 25% primarily because of oil prices, but it is also a fact that Jio topline was also up 12%, even retail was up close to 12%",
+     "page": 3
+    },
+    {
+     "metric": "EBITDA margin",
+     "statement": "Overall EBITDA more than Rs.54,000 Crores, up 10% YoY (backing out Rs.8,900 Crores Asian Paints gain)",
+     "quote": "our overall EBITDA is more than Rs.54,000 Crores, so we are up 10%",
+     "page": 3
+    },
+    {
+     "metric": "PAT",
+     "statement": "Net profit at almost Rs.23,200 Crores, up 6% YoY",
+     "quote": "Net profit at almost close to 23,200, again up 6%",
+     "page": 3
+    },
+    {
+     "metric": "segment growth (O2C)",
+     "statement": "O2C revenue up 30% and EBITDA Rs.17,000 Crores, up 17% YoY",
+     "quote": "Moving on to O2C specifically, 30% up on revenue basis. Rs.17,000 Crores and that's up 17%",
+     "page": 3
+    },
+    {
+     "metric": "capex",
+     "statement": "Quarterly capex of about close to Rs.39,000 Crores",
+     "quote": "capex of about close to Rs.39,000 Crores",
+     "page": 5
+    },
+    {
+     "metric": "other (net debt)",
+     "statement": "Net debt slightly lower than March, at about Rs.1,23,000 Crores",
+     "quote": "from a net debt point of view, it is slightly lower than what it was in March, Rs 1,23,000 Crores odd",
+     "page": 5
+    },
+    {
+     "metric": "segment growth (Jio)",
+     "statement": "JPL revenue Rs.39,173 Crores, up 11.8% YoY; EBITDA Rs.20,865 Crores, up 15.1%, margin 53.3%",
+     "quote": "Rs.39,173 Crores is the revenue, that is, 11.8% year-on-year growth, EBITDA at Rs.20,865 Crores, that is a 15.1% year-on-year growth",
+     "page": 5
+    },
+    {
+     "metric": "volume (Jio subscribers)",
+     "statement": "533 million subscribers, 285 million on 5G; ARPU Rs.215.6, up Rs.7 YoY",
+     "quote": "533 million subscribers in connectivity. That is a net addition of 35.2 million over the last 12 months",
+     "page": 5
+    },
+    {
+     "metric": "segment growth (retail)",
+     "statement": "Retail revenue Rs.90,000 Crores, up 12% adjusted for RCPL demerger (7.4% reported); EBITDA Rs.6,309 Crores, margin 7.9%",
+     "quote": "Rs.90,000 Crores, so it is 12% higher. If you were to remove the impact of RCPL... EBITDA is Rs 6,309 crore",
+     "page": 4
+    },
+    {
+     "metric": "segment growth (JioStar/RCPL)",
+     "statement": "JioStar topline Rs.13,000 Crores with income from operations up 30%; RCPL revenue Rs.8,600 Crores, 2x of last year",
+     "quote": "JioStar actually did well, Rs.13,000 Crores topline and income from operations... up 30%... RCPL... Rs.8,600 Crores is 2x of what it was",
+     "page": 4
+    },
+    {
+     "metric": "segment growth",
+     "statement": "Fashion and lifestyle LFL growth",
+     "target": "4% LFL growth",
+     "quote": "Moving to fashion and lifestyle, 4% LFL growth",
+     "page": 10
+    },
+    {
+     "metric": "volume",
+     "statement": "Ajio Rush orders up QoQ",
+     "target": "+136% QoQ",
+     "quote": "The number of orders were up 136% on a quarter-on-quarter basis",
+     "page": 10
+    }
+   ],
+   "source": "transcripts/2026-07-concall.md",
+   "month": "2026-07"
+  }
+ ],
+ "promised_vs_delivered": {
+  "verdict": "Credibility is mixed: near-term momentum and Jio margin/FMCG scale claims were broadly borne out, but several dated operational targets are not explicitly confirmed later. Reported figures are mostly consistent, though PAT volatility in Q4 FY26 (-12.6%) and Q1 FY27 (-22.4%) tempers a clean high score.",
+  "score": "mixed",
+  "rows": [
+   {
+    "call": "Q2 FY26",
+    "promise": "Retail de-merger, NCLT approved, to happen in November 2025 pending written judgment.",
+    "delivered": "Later calls treat RCPL as demerged: Q4 retail adjusted for RCPL; Q1 FY27 RCPL revenue ₹8,600 Cr, 2x YoY. November date not stated.",
+    "status": "delivered",
+    "cite": "Q4 FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q2 FY26",
+    "promise": "Home broadband digitization run-rate of about 1 million homes/month expected to continue and keep growing.",
+    "delivered": "No later call gives home-premise run-rate; only Q2 itself reported 23M fixed-broadband premises, +3M QoQ.",
+    "status": "not measurable",
+    "cite": "Later calls; Q2 FY26 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Jio margins should improve as network and assets are monetized more.",
+    "delivered": "Q4 RJIL margin 56.2% (+230 bps); Q1 FY27 JPL margin 53.3% versus Q3 51.8%, EBITDA +15.1%.",
+    "status": "delivered",
+    "cite": "Q4 FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 5,
+     "found": 5,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Beverage capacity to more than double this year; Kurnool plant ready by March; food parks begin next quarter.",
+    "delivered": "FMCG scaled: FY26 ₹22,000 Cr, Q4 ₹7,350 Cr ~2x; Q1 FY27 RCPL ₹8,600 Cr 2x. Capacity/Kurnool not stated.",
+    "status": "partly",
+    "cite": "Q4 FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q3 FY26",
+    "promise": "Quick commerce is very much on track to become the second-largest QC player.",
+    "delivered": "Q3 reported 1.6M December orders; later calls give no QC market rank, only Ajio Rush orders +136% QoQ.",
+    "status": "not measurable",
+    "cite": "Q3 FY26 reported; Q1 FY27 reported",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "Fuel cracks expected to remain strong for some time on refinery damage and shipping concerns.",
+    "delivered": "Q1 FY27 reported revenue +25% on oil prices; O2C revenue +30%, EBITDA ₹17,000 Cr, +17% YoY.",
+    "status": "delivered",
+    "cite": "Q1 FY27 reported",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q4 FY26",
+    "promise": "AI-first network automation and energy optimization should show good results in coming quarters.",
+    "delivered": "Q1 FY27 JPL revenue +11.8%, EBITDA +15.1%, margin 53.3%, ARPU ₹215.6; AI-specific attribution not stated.",
+    "status": "partly",
+    "cite": "Q1 FY27 reported",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   },
+   {
+    "call": "Q1 FY2026-27",
+    "promise": "Grow online rapidly in FY27 via dark stores, omni-channel and JioMart, with positive unit economics, funded from profits.",
+    "delivered": "FY27 incomplete; Q2 FY27 actuals show consolidated revenue +28.6%, PAT +40.6%, but no online unit-economics disclosure.",
+    "status": "too early",
+    "cite": "quarterly_actuals 2026-09-30",
+    "verify": {
+     "checked": 2,
+     "found": 2,
+     "missing": []
+    }
+   }
+  ],
+  "_model": "kimi-k3"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "point": "FY26 revenue ₹11,75,919 crore (+9.8%), EBITDA ₹2,07,911 crore (+13.4%), PAT ₹95,754 crore (+17.8%); Q2 FY27 revenue +28.6%, PAT +40.6%.",
+    "cite": "annual-reports/annual-report-2026.md p.44; quarterly_actuals 2026-09-30",
+    "verify": {
+     "checked": 8,
+     "found": 8,
+     "missing": []
+    }
+   },
+   {
+    "point": "Jio EBITDA ₹76,560 crore (+17.8%) with 268 million 5G subscribers; Retail gross revenue ₹3,71,085 crore (+12.1%), 387 million registered customers.",
+    "cite": "annual-reports/annual-report-2026.md p.80",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Net debt ₹1,24,717 crore versus ₹2,07,911 crore EBITDA; ₹1,44,271 crore capex was funded by cash profits; dividend ₹6/share.",
+    "cite": "annual-reports/annual-report-2026.md p.100",
+    "verify": {
+     "checked": 4,
+     "found": 4,
+     "missing": []
+    }
+   }
+  ],
+  "bear": [
+   {
+    "point": "PAT is volatile: Q4 FY26 fell 12.6% and Q1 FY27 fell 22.4% despite revenue growth, before Q2 FY27 rebounded 40.6%.",
+    "cite": "quarterly_actuals 2026-03-31; 2026-06-30; 2026-09-30",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   },
+   {
+    "point": "Margins compressed into FY27: Q4 FY26 EBITDA margin 14.8%/operating 9.8%, Q1 FY27 15.2%/10.3%, below Q2 FY27 16.9%/12.3%.",
+    "cite": "quarterly_actuals 2026-03-31; 2026-06-30; 2026-09-30",
+    "verify": {
+     "checked": 6,
+     "found": 6,
+     "missing": []
+    }
+   },
+   {
+    "point": "Gross debt ₹3,74,421 crore and capex ₹1,44,271 crore are sizable; Oil & Gas EBITDA fell 10.1% on KG D6 decline and softer gas.",
+    "cite": "annual-reports/annual-report-2026.md p.44; p.100",
+    "verify": {
+     "checked": 3,
+     "found": 3,
+     "missing": []
+    }
+   }
+  ],
+  "watch": [
+   "Whether Q2 FY27 PAT +40.6% and 16.9%/12.3% margins hold after Q4 FY26/Q1 FY27 PAT declines.",
+   "Jio ARPU ₹215.6 and 53.3% margin trend; Retail online positive unit economics remain not stated.",
+   "O2C cracks versus Oil & Gas KG D6 decline, alongside ₹1,44,271 crore capex and net debt trajectory."
+  ],
+  "_model": "kimi-k3"
+ },
+ "sources": {
+  "transcripts": [
+   "transcripts/2026-07-concall.md",
+   "transcripts/2026-04-concall.md",
+   "transcripts/2026-01-concall.md",
+   "transcripts/2025-10-concall.md"
+  ],
+  "annual_report": "annual-reports/annual-report-2026.md"
+ },
+ "verification": {
+  "checked": 75,
+  "found": 75
+ }
+}

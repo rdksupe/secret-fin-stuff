@@ -1,0 +1,22 @@
+# LT Concall transcript 2026-07 2026-07-01 — structure
+
+Full text: [[transcripts/2026-07-concall]]
+
+- I now move on to the group performance: (p4) [[transcripts/2026-07-concall#page-4]]
+- Turning on to the prospects pipeline: (p4–5) [[transcripts/2026-07-concall#page-4]]
+- Moving on to the order book: (p5) [[transcripts/2026-07-concall#page-5]]
+- Turning on to revenues: (p5–6) [[transcripts/2026-07-concall#page-5]]
+- Moving on to EBITDA margin: (p6) [[transcripts/2026-07-concall#page-6]]
+- Turning on to working capital: (p6) [[transcripts/2026-07-concall#page-6]]
+- In terms of numbers: (p6–7) [[transcripts/2026-07-concall#page-6]]
+- We begin with the Infrastructure and Utilities segment: (p7) [[transcripts/2026-07-concall#page-7]]
+- Moving on to the Energy - Conventional segment, which comprises the Hydrocarbon and CarbonLite Solutions businesses: (p7–8) [[transcripts/2026-07-concall#page-7]]
+- Moving on to the next segment, Energy – Green: (p8) [[transcripts/2026-07-concall#page-8]]
+- Moving on to the Manufacturing and Products segment: (p8–9) [[transcripts/2026-07-concall#page-8]]
+- Moving on to the next segment, which is the Technology, Platforms and Services: (p9) [[transcripts/2026-07-concall#page-9]]
+- We move on to L&T Finance Limited: (p9) [[transcripts/2026-07-concall#page-9]]
+- Moving on to the Realty segment: (p9–10) [[transcripts/2026-07-concall#page-9]]
+- Moving on to the Development Project segment: (p10–11) [[transcripts/2026-07-concall#page-10]]
+- Coming on to margin: (p11) [[transcripts/2026-07-concall#page-11]]
+- Lastly, on Working Capital: (p11–26) [[transcripts/2026-07-concall#page-11]]
+- Moderator: (p26) [[transcripts/2026-07-concall#page-26]]
