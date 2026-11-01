@@ -22,9 +22,13 @@ worker() {
   echo "==> worker: code + data"
   # .env is NOT synced: the worker keeps its own (JWT secret, server keys).
   # The worker's DB is live (its crons ingest filings) — never overwrite it; documents ship separately.
-  "${RSYNCJ[@]}" --delete --exclude .env --exclude app/ --exclude .venv/ --exclude data/research/ --exclude 'data/research_*' \
-    --exclude 'data/finn.db*' --exclude data/audio/ \
+  # Code ships with --delete; data belongs to the worker. kb/ (the brains its crons keep writing)
+  # and data/ (db, media, the app password hash) are never overwritten or pruned by a deploy:
+  # an earlier version synced them too and every deploy rolled the brains back.
+  "${RSYNCJ[@]}" --delete --exclude .env --exclude app/ --exclude .venv/ --exclude /kb/ --exclude /data/ --exclude /dist/ \
     --exclude __pycache__/ --exclude .pytest_cache/ --exclude .ruff_cache/ "$REPO/" "$WORKER:/home/ubuntu/finn/"
+  # A brand-new worker gets the brains once, as a seed.
+  "${SSHJ[@]}" 'test -d /home/ubuntu/finn/kb/companies' || "${RSYNCJ[@]}" "$REPO/kb/" "$WORKER:/home/ubuntu/finn/kb/"
   "${RSYNCJ[@]}" --exclude .venv/ --exclude .git/ --exclude __pycache__/ "$PAGEINDEX/" "$WORKER:/home/ubuntu/PageIndex/"
 
   echo "==> worker: system packages"
@@ -54,10 +58,13 @@ worker() {
       PLUGIN_SRC=/opt/fieldclaw/deploy/hermes/plugins/protect-identity \
       bash ~/finn/hermes/provision.sh | tail -6'
 
-  echo "==> worker: research document records"
-  (cd "$REPO/api" && uv run finn export-docs 2>/dev/null) > /tmp/finn-docs.json
-  "${RSYNCJ[@]}" /tmp/finn-docs.json "$WORKER:/home/ubuntu/finn-docs.json" && rm -f /tmp/finn-docs.json
-  "${SSHJ[@]}" 'cd ~/finn/api && .venv/bin/finn import-docs ~/finn-docs.json && rm -f ~/finn-docs.json'
+  # Document records seed a brand-new worker only (its own ingest owns them afterwards).
+  if [[ "$("${SSHJ[@]}" 'test -s /home/ubuntu/finn/data/finn.db && echo has-db || echo empty')" == "empty" ]]; then
+    echo "==> worker: seed research document records"
+    (cd "$REPO/api" && uv run finn export-docs 2>/dev/null) > /tmp/finn-docs.json
+    "${RSYNCJ[@]}" /tmp/finn-docs.json "$WORKER:/home/ubuntu/finn-docs.json" && rm -f /tmp/finn-docs.json
+    "${SSHJ[@]}" 'cd ~/finn/api && .venv/bin/finn import-docs ~/finn-docs.json && rm -f ~/finn-docs.json'
+  fi
 
   echo "==> worker: FCM sender key (server only)"
   if [ -f "${FCM_KEY:-/run/media/rdksupe/finn/.secrets/fcm-sa.json}" ]; then

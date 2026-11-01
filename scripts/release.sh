@@ -49,6 +49,10 @@ fi
 if unzip -p "$APK_SRC" assets/index.android.bundle | grep -aq "localhost:8000"; then
   echo "APK bundle points at localhost; refusing to release" >&2; exit 1
 fi
+# Guard: no credential may ship in the app: it unlocks with a password and gets a server-minted token.
+if unzip -p "$APK_SRC" assets/index.android.bundle | grep -aqE "eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\."; then
+  echo "APK bundle contains a JWT; refusing to release" >&2; exit 1
+fi
 cp "$APK_SRC" "$OUT/FINN-$VERSION.apk"
 
 echo "==> covering note PDF"

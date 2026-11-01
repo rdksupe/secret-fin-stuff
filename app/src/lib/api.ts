@@ -1,17 +1,21 @@
-// FINN API client. The app authenticates with a JWT minted on the server (`finn token`) and
-// baked in at build time via EXPO_PUBLIC_FINN_TOKEN, sent as `Authorization: Bearer …`.
+// FINN API client. The app authenticates with a JWT the server mints when the investor unlocks
+// FINN with the password (see lib/session.ts), sent as `Authorization: Bearer …`.
+// No token is baked into the build.
+
+import { getToken, setToken } from './session';
 
 export const API_BASE = (process.env.EXPO_PUBLIC_FINN_API ?? '').replace(/\/$/, '');
-const TOKEN = process.env.EXPO_PUBLIC_FINN_TOKEN ?? '';
 
 /** A media URL the app's image views can load (native views can't always attach headers). */
 export function mediaUrl(path: string): string {
   const u = path.startsWith('http') ? path : `${API_BASE}${path}`;
-  return TOKEN ? `${u}${u.includes('?') ? '&' : '?'}token=${encodeURIComponent(TOKEN)}` : u;
+  const t = getToken();
+  return t ? `${u}${u.includes('?') ? '&' : '?'}token=${encodeURIComponent(t)}` : u;
 }
 
 export function headers(extra: Record<string, string> = {}): Record<string, string> {
-  return { ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}), ...extra };
+  const t = getToken();
+  return { ...(t ? { Authorization: `Bearer ${t}` } : {}), ...extra };
 }
 
 export class ApiError extends Error {
@@ -39,6 +43,10 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   } catch (e) {
     throw new ApiError(0, networkMessage(e));
   }
+  if (res.status === 401 && getToken()) {
+    // The session expired or the password changed: drop it so the app asks to unlock again.
+    setToken(null);
+  }
   if (!res.ok) {
     let detail = res.statusText;
     try {
@@ -47,6 +55,19 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     throw new ApiError(res.status, String(detail));
   }
   return res.json() as Promise<T>;
+}
+
+/** Exchange the password for a session token. */
+export async function unlock(password: string): Promise<void> {
+  const res = await globalThis.fetch(`${API_BASE}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password, device: 'android' }),
+  }).catch(() => null);
+  if (!res) throw new ApiError(0, "Can't reach FINN's server. Check your connection.");
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new ApiError(res.status, String(body.detail ?? 'Unlock failed'));
+  await setToken(body.token);
 }
 
 export const api = {

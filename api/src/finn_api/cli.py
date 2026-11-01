@@ -181,9 +181,28 @@ def cmd_reassess(a: argparse.Namespace) -> int:
 
 
 def cmd_token(a: argparse.Namespace) -> int:
-    from finn_api.auth import mint
+    from finn_api.auth import _load_password, mint
 
-    print(mint(a.sub, days=a.days))
+    rec = _load_password()
+    # With a password set, tokens must carry its version or the API refuses them.
+    print(mint(a.sub, days=a.days, pv=rec["version"] if rec else None))
+    return 0
+
+
+def cmd_password(a: argparse.Namespace) -> int:
+    """Set the app password (stored as a scrypt hash); every existing app token stops working."""
+    import getpass
+    import secrets as _s
+
+    from finn_api.auth import set_password
+
+    if a.generate:
+        words = _s.token_urlsafe(12)
+        plain = f"finn-{words}"
+    else:
+        plain = a.password or getpass.getpass("New FINN app password: ")
+    version = set_password(plain)
+    print(json.dumps({"ok": True, "version": version, **({"password": plain} if a.generate else {})}))
     return 0
 
 
@@ -363,6 +382,11 @@ def main(argv: list[str] | None = None) -> int:
     ra.add_argument("--limit", type=int, default=60)
     ra.add_argument("--force", action="store_true", help="re-run even where a verdict exists")
     ra.set_defaults(fn=cmd_reassess)
+
+    pw = sub.add_parser("password", help="set the app password (revokes existing app tokens)")
+    pw.add_argument("--password", help="the new password (omit to be prompted)")
+    pw.add_argument("--generate", action="store_true", help="generate a strong password and print it once")
+    pw.set_defaults(fn=cmd_password)
 
     tk = sub.add_parser("token", help="mint an app token (JWT) for an app build")
     tk.add_argument("--sub", default="finn-app")
