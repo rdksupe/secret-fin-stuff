@@ -3,8 +3,11 @@ import { useRef, useState } from 'react';
 import { type NativeScrollEvent, type NativeSyntheticEvent, Pressable, ScrollView, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { ChartArtifact, FormArtifact } from '@/components/artifacts';
 import { Setback, SetbackPlate } from '@/components/deco';
-import { ChevronRight, SearchIcon } from '@/components/icons';
+import { SearchIcon } from '@/components/icons';
+import { ScenarioArtifact } from '@/components/scenario';
+import { SourceChip } from '@/components/source';
 import { BarAction, TopBar } from '@/components/top-bar';
 import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
 import { setOnboarded } from '@/lib/onboarding';
@@ -34,23 +37,37 @@ function Line({ k, v, c = color.text }: { k: string; v: string; c?: string }) {
   );
 }
 
+/** A still of the "Needs you" deck: plates stacked like setbacks, filter chips above. */
 const BriefSpecimen = () => (
   <View style={{ marginTop: space.xl }}>
     <Body size={size.small} c={color.text2} style={{ marginBottom: space.m }}>
       FINN read <Text style={{ color: color.text, fontFamily: font.bold }}>917</Text> filings that day.{' '}
       <Text style={{ color: color.text, fontFamily: font.bold }}>5</Text> were yours; <Text style={{ color: color.text, fontFamily: font.bold }}>2</Text> were worth your time.
     </Body>
-    <SetbackPlate>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Ticker size={deco.lead} c={color.brassOnSea}>EMUDHRA</Ticker>
-        <View style={{ flex: 1 }} />
-        <Setback steps={3} onSea />
-      </View>
-      <Body size={size.small} c={color.onSea} style={{ marginTop: space.s, fontFamily: font.semibold }}>
-        Exits the TLS certificate business after browsers distrust its root CA.
-      </Body>
-      <Body size={size.meta} c={color.onSea2} style={{ marginTop: 4 }}>Pushed at 10:57, before the lower circuit.</Body>
-    </SetbackPlate>
+    <View style={{ flexDirection: 'row', gap: 6, marginBottom: space.m }}>
+      {[['All', 2, true], ['People', 1, false], ['Risk', 1, false]].map(([l, n, on]) => (
+        <View key={String(l)} style={{ height: 32, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 8, borderWidth: 1, borderColor: on ? color.sea : color.line, backgroundColor: on ? color.seaTint : color.raised }}>
+          <Body size={size.meta} c={on ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{String(l)}</Body>
+          <Figure size={11} c={color.text3}>{String(n)}</Figure>
+        </View>
+      ))}
+    </View>
+    <View style={{ paddingTop: 18 }}>
+      <View style={{ position: 'absolute', left: 28, right: 28, top: 0, bottom: 0, backgroundColor: '#3F7D74' }} />
+      <View style={{ position: 'absolute', left: 14, right: 14, top: 9, bottom: 0, backgroundColor: '#2E6B63' }} />
+      <SetbackPlate>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Ticker size={deco.lead} c={color.brassOnSea}>EMUDHRA</Ticker>
+          <View style={{ flex: 1 }} />
+          <Setback steps={3} onSea />
+        </View>
+        <Body size={size.small} c={color.onSea} style={{ marginTop: space.s, fontFamily: font.semibold }}>
+          Exits the TLS certificate business after browsers distrust its root CA.
+        </Body>
+        <Body size={size.meta} c={color.onSea2} style={{ marginTop: 4 }}>Pushed at 10:57, before the lower circuit.</Body>
+      </SetbackPlate>
+    </View>
+    <Figure size={12} c={color.text3} style={{ marginTop: space.s }}>1 of 2 · flick the card for the next</Figure>
   </View>
 );
 
@@ -73,34 +90,89 @@ const BrainSpecimen = () => (
   <Panel>
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1, borderColor: color.line, paddingHorizontal: 12, height: 44, backgroundColor: color.bg }}>
       <SearchIcon c={color.sea} size={18} />
-      <Body size={size.small} c={color.text}>margin guidance</Body>
+      <Body size={size.small} c={color.text}>order book</Body>
     </View>
-    <Figure size={11} c={color.text3}>guidance-ledger · Q2 FY27 call</Figure>
+    <Figure size={11} c={color.text3}>LT · annual report 2026 · Page 44</Figure>
     <Body size={size.small} c={color.text2}>
-      … operating/EBIT <Hl>margin</Hl> | <Hl>Margins</Hl> to inch up from current levels while prioritizing …
+      The year witnessed the booking of some noteworthy <Hl>orders</Hl> across businesses …
     </Body>
     <View style={{ height: 1, backgroundColor: color.line }} />
-    {['dossier/', 'results/', 'transcripts/', 'annual-reports/', 'filings/'].map((f) => (
-      <View key={f} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-        <ChevronRight c={color.sea} size={16} />
-        <Figure size={13} c={color.text} style={{ fontFamily: font.semibold }}>{f}</Figure>
-      </View>
-    ))}
+    <Body size={size.small}>
+      Every figure FINN quotes carries its source. Tap one to read the passage:{' '}
+      <SourceChip s={{ symbol: 'LT', path: 'annual-reports/annual-report-2026.md', section: 'Page 44', label: 'L&T AR p44' }} base={{ fontFamily: font.regular, fontSize: size.small }} />
+    </Body>
   </Panel>
+);
+
+/** Real components with real, cited figures: the chart and the slider both work here. */
+const TouchSpecimen = () => (
+  <View style={{ marginTop: space.l }}>
+    <ChartArtifact
+      spec={{
+        kind: 'bar',
+        title: 'Maruti October sales (units)',
+        unit: 'units',
+        labels: ['Total', 'Domestic', 'Exports'],
+        series: [
+          { name: 'Oct 2019', values: [153435, 141550, 9158] },
+          { name: 'Oct 2026', values: [276120, 216789, 49872] },
+        ],
+        source: 'Maruti sales releases, 1 Nov 2019 and 1 Nov 2026',
+      }}
+    />
+    <ScenarioArtifact
+      spec={{
+        title: 'What if L&T spends more on data centres?',
+        inputs: [{ id: 'capex', label: 'Data-centre capex a year', unit: '₹ Cr', min: 1000, max: 4000, step: 250, value: 2000 }],
+        constants: { ocf: 16741 },
+        outputs: [{ label: 'Share of FY26 operating cash flow', expr: 'capex / ocf * 100', unit: '%', digits: 1, bar: 100 }],
+        source: '~₹10,000 Cr over FY27–31 (May-26 call); OCF ₹16,741 Cr (FY26 annual report)',
+      }}
+    />
+  </View>
+);
+
+const AwaySpecimen = () => (
+  <View style={{ marginTop: space.l }}>
+    <FormArtifact
+      spec={{
+        title: 'Set up a watch',
+        fields: [
+          { id: 'cos', label: 'Companies', type: 'multi', options: ['LT', 'RELIANCE', 'BHARTIARTL'], value: ['LT', 'RELIANCE'] },
+          { id: 'when', label: 'Tell me', type: 'select', options: ['On new filings', 'Weekdays 08:30'], value: 'On new filings' },
+          { id: 'topic', label: 'Watch for', type: 'text', value: 'data-centre capex' },
+        ],
+        submit: { label: 'Create watch', prompt: '' },
+      }}
+    />
+    <Panel>
+      <Strong size={size.small}>Chats</Strong>
+      {[
+        ['Data-centre exposure', 'working', true],
+        ['TCS promised vs delivered', '14:05', false],
+        ['Maruti sales since 2019', 'working', true],
+      ].map(([t, w, on]) => (
+        <View key={String(t)} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          {on ? <View style={{ width: 7, height: 7, backgroundColor: color.brass }} /> : <View style={{ width: 7 }} />}
+          <Body size={size.small} style={{ flex: 1 }} numberOfLines={1}>{String(t)}</Body>
+          <Body size={size.meta} c={on ? color.brassText : color.text3}>{String(w)}</Body>
+        </View>
+      ))}
+    </Panel>
+  </View>
 );
 
 const AskSpecimen = () => (
   <Panel>
     <View style={{ alignSelf: 'flex-end', maxWidth: '88%', backgroundColor: color.bg, borderWidth: 1, borderColor: color.line, paddingHorizontal: 12, paddingVertical: 8 }}>
-      <Body size={size.small}>Which of my companies are exposed to data centres?</Body>
-      <Text style={{ position: 'absolute', left: -8, bottom: -8, fontSize: 12 }}>👍</Text>
+      <Body size={size.small}>Compare Maruti October 2019 sales with October 2026.</Body>
     </View>
-    <Figure size={11} c={color.text3}>📈 finn_brain_search: "data centre"</Figure>
+    <Figure size={11} c={color.text3}>📈 finn_filings: "sales" · 📈 finn_ingest · 📈 finn_brain_search</Figure>
     <Body size={size.small}>
-      <Hl>Eight</Hl> have real exposure. BHARTIARTL: Nxtra is one of two stated growth bets (Q1 concall, 2026-08) …
+      <Hl>+80% in seven years</Hl>, and October 2026 was the highest-ever month. FINN fetched the 2019 filing from NSE itself.
     </Body>
     <View style={{ height: 1, backgroundColor: color.line }} />
-    <Body size={size.small} c={color.text2}>"Every weekday at 8:30, send me a two-line brief on my IT stocks." → a real scheduled job</Body>
+    <Body size={size.small} c={color.text2}>Speak instead of typing, long-press to quote or react, and /stop it any time.</Body>
   </Panel>
 );
 
@@ -108,7 +180,7 @@ const PAGES = [
   {
     key: 'brief',
     title: 'It reads everything. You read what matters.',
-    body: 'FINN reads every NSE filing as it lands, keeps the few from your companies that matter, and says in one line why.',
+    body: 'FINN reads every NSE filing as it lands and deals you the few from your companies that matter, as a deck of cards: flick through, filter by kind, tap for the why.',
     specimen: <BriefSpecimen />,
   },
   {
@@ -119,15 +191,27 @@ const PAGES = [
   },
   {
     key: 'brains',
-    title: 'One brain per company.',
-    body: "Annual reports, call transcripts, results and filings, read and kept as linked pages you can search. FINN's research cites them: promised vs delivered, trajectory, bull and bear.",
+    title: 'One brain per company, and you can search it.',
+    body: "Annual reports, call transcripts, results and filings, kept as linked pages. Search across all of it, and check any number FINN gives you against the page it came from.",
     specimen: <BrainSpecimen />,
   },
   {
     key: 'ask',
     title: 'An agent, not a dashboard.',
-    body: 'Ask anything, by text or voice. Answers cite the page they came from. Long-press to reply or react, run several chats at once, and ask it to watch things on a schedule.',
+    body: 'Ask anything, by text or voice. When the brain lacks a year, FINN fetches those filings from NSE itself and answers from them.',
     specimen: <AskSpecimen />,
+  },
+  {
+    key: 'touch',
+    title: 'Answers you can touch.',
+    body: 'Charts you tap to read, tables you sort, company cards that open, and what-if tools you can drag. Try the slider.',
+    specimen: <TouchSpecimen />,
+  },
+  {
+    key: 'away',
+    title: 'It works while you are away.',
+    body: 'Ask FINN to watch something and it sets up a real scheduled job; the results come back as notifications. Run several chats at once; each keeps working on its own.',
+    specimen: <AwaySpecimen />,
   },
 ];
 
