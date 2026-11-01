@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from finn_api import portfolio_context
 from finn_api.auth import require_auth
 from finn_api.brain import Brain
 from finn_api.config import settings
@@ -132,6 +133,7 @@ def update_me(body: Settings, user: User = Depends(current_user), db: Session = 
     if body.alert_categories is not None:
         user.alert_categories_json = json.dumps(body.alert_categories)
     db.commit()
+    portfolio_context.write(db)
     return me(user)
 
 
@@ -150,6 +152,12 @@ def push_token(body: PushToken, user: User = Depends(current_user), db: Session 
 
 
 # ── portfolio ─────────────────────────────────────────────────────────────
+
+
+@router.get("/portfolio")
+def portfolio(db: Session = Depends(get_db)):
+    """Holdings and thresholds as markdown, read fresh: what the agent's finn_portfolio tool returns."""
+    return {"markdown": portfolio_context.render(db)}
 
 
 @router.get("/holdings")
@@ -202,6 +210,7 @@ def remove_holding(symbol: str, user: User = Depends(current_user), db: Session 
     if h:
         db.delete(h)
         db.commit()
+        portfolio_context.write(db)
     return {"ok": True}
 
 

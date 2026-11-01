@@ -397,4 +397,7 @@ def onboard(
             "latest_results": card and card["period_end"],
             "scaffolded": created,
         }
+    from finn_api import portfolio_context
+
+    portfolio_context.write(db)
     return report

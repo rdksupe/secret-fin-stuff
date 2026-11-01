@@ -22,6 +22,14 @@ def _warm_prices() -> None:
         log.warning("price warm-up failed: %s", e)
 
 
+def _write_portfolio() -> None:
+    from finn_api import portfolio_context
+    from finn_api.db import SessionLocal
+
+    with SessionLocal() as db:
+        portfolio_context.write(db)
+
+
 def _warm_brains() -> None:
     """Build every brain's search index up front so the first search isn't the slow one."""
     from finn_api.brain import Brain
@@ -41,6 +49,7 @@ def _warm_brains() -> None:
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
+    _write_portfolio()
     threading.Thread(target=_warm_prices, daemon=True).start()
     threading.Thread(target=_warm_brains, daemon=True).start()
     yield

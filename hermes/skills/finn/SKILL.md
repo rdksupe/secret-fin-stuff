@@ -16,6 +16,7 @@ version: 0.1.0
 | `finn_results(symbol)` | Latest quarter vs prev quarter vs year ago, from NSE XBRL, with red flags |
 | `finn_onboard(symbols, weights?)` | Add holdings / create a brain: scaffold, backfill 30 days of filings + results |
 | `finn_filing_text(url)` | Text of an exchange filing PDF |
+| `finn_portfolio()` | The investor's holdings, weights, watch-only names and thresholds, live. Call it for any "my portfolio" question |
 | `finn_brain_search(query, symbols?)` | **Start here.** Full-text search over every brain (annual reports, transcripts, results, filings, dossiers); returns passages with page + section. One call answers "which of my companies…" |
 | `finn_dossier(symbol)` | Grounded research dossier (builds it if missing): snapshot, trajectory, guidance ledger, promised vs delivered, bull/bear |
 | `finn_enrich(feed_id, summary, …)` | Write enrichment back to a feed item (see `finn-enrich`) |

@@ -99,6 +99,13 @@ def _api(path: str, params: dict) -> str:
         return r.read().decode()
 
 
+def portfolio(args: dict, **_kw) -> str:
+    try:
+        return json.loads(_api("/api/portfolio", {}))["markdown"]
+    except Exception as e:
+        return _err(f"portfolio lookup failed: {e}")
+
+
 def brain_search(args: dict, **_kw) -> str:
     q = str(args.get("query") or "").strip()
     if not q:
@@ -156,6 +163,13 @@ SCHEMAS = {
                        "Use when the exchange summary is a stub.",
         "parameters": {"type": "object", "properties": {"url": S, "pages": {"type": "integer"}}, "required": ["url"]},
     },
+    "finn_portfolio": {
+        "description": "The investor's current holdings (symbol, company, industry, weight), watch-only names "
+                       "and alert thresholds, read live. Call this for any question about 'my portfolio', "
+                       "'my companies' or 'my stocks' instead of listing kb/companies/ (which also holds "
+                       "companies they only researched).",
+        "parameters": {"type": "object", "properties": {}},
+    },
     "finn_brain_search": {
         "description": "Full-text search across company brains (annual reports, concall transcripts, results, "
                        "filings, dossiers). Returns the best-matching passages with their page path and section "
@@ -190,7 +204,7 @@ SCHEMAS = {
         }, "required": ["feed_id", "summary"]},
     },
 }
-HANDLERS = {"finn_brain_search": brain_search, "finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
+HANDLERS = {"finn_portfolio": portfolio, "finn_brain_search": brain_search, "finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
 
 
 def register(ctx) -> None:

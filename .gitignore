@@ -21,3 +21,6 @@ kb/companies/*/wiki/presentations/*.md
 kb/companies/*/wiki/results-docs/*.md
 kb/companies/*/wiki/filings/docs/*.md
 data/research
+
+# generated from the holdings table (finn_api.portfolio_context)
+/kb/portfolio.md
