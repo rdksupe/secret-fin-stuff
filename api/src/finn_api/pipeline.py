@@ -361,12 +361,21 @@ def onboard(
     weights: dict[str, float] | None = None,
     backfill_days: int = 30,
 ) -> dict:
-    """Add holdings, scaffold brains, backfill recent filings and the latest results."""
+    """Add holdings, scaffold brains, backfill recent filings and the latest results.
+
+    Symbols NSE doesn't list are refused (reported with close matches) instead of becoming empty holdings.
+    """
+    from finn_api import symbols as nse_symbols
+
     report: dict[str, dict] = {}
     end = date.today()
     for raw in symbols:
         sym = raw.strip().upper()
         if not sym:
+            continue
+        if nse_symbols.known(sym) is False:
+            report[sym] = {"error": "not an NSE-listed symbol",
+                           "did_you_mean": [m["symbol"] for m in nse_symbols.search(sym, 3)]}
             continue
         rows = nse.announcements(symbol=sym, start=end - timedelta(days=backfill_days), end=end)
         name = rows[0].get("sm_name") if rows else None

@@ -1,9 +1,10 @@
 import { router } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, Pressable, TextInput, View } from "react-native";
+import { ActivityIndicator, Pressable, View } from "react-native";
 
 import { ClockIcon, MinusIcon, PlusIcon } from "@/components/icons";
 import { Screen } from "@/components/screen";
+import { TickerSearch } from "@/components/ticker-search";
 import { BarAction, TopBar } from "@/components/top-bar";
 import { Spark } from "@/components/spark";
 import { Rule } from "@/components/story-row";
@@ -127,7 +128,6 @@ export default function Watch() {
   const [holdings, setHoldings] = useState<Holding[] | null>(null);
   const [prices, setPrices] = useState<Record<string, number[]>>({});
   const [me, setMe] = useState<Me | null>(null);
-  const [adding, setAdding] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -160,16 +160,11 @@ export default function Watch() {
     }
   };
 
-  const add = async () => {
-    const syms = adding
-      .toUpperCase()
-      .split(/[\s,]+/)
-      .filter(Boolean);
+  const add = async (syms: string[]) => {
     if (!syms.length) return;
     setBusy(`Building brains for ${syms.join(", ")}…`);
     try {
       await api.post("/holdings", { symbols: syms });
-      setAdding("");
       await load();
     } catch (e: any) {
       setError(`Couldn't add ${syms.join(", ")}: ${e.message}`);
@@ -280,50 +275,7 @@ export default function Watch() {
               </View>
             ))
           )}
-          <View style={{ flexDirection: "row", gap: 8, marginTop: space.l }}>
-            <TextInput
-              value={adding}
-              onChangeText={setAdding}
-              onSubmitEditing={add}
-              autoCapitalize="characters"
-              placeholder="Add NSE symbols, e.g. TRENT, KAYNES"
-              placeholderTextColor={color.text3}
-              style={
-                {
-                  flex: 1,
-                  height: touch,
-                  backgroundColor: color.raised,
-                  borderWidth: 1,
-                  borderColor: color.line,
-                  paddingHorizontal: 14,
-                  color: color.text,
-                  fontFamily: font.medium,
-                  fontSize: 15,
-                  outlineStyle: "none",
-                } as any
-              }
-            />
-            <Pressable
-              onPress={add}
-              disabled={!!busy || !adding.trim()}
-              accessibilityRole="button"
-              style={{
-                height: touch,
-                paddingHorizontal: 20,
-                justifyContent: "center",
-                borderRadius: touch / 2,
-                backgroundColor: adding.trim() ? color.sea : color.inset,
-              }}
-            >
-              <Body
-                size={size.small}
-                c={adding.trim() ? color.onSea : color.text3}
-                style={{ fontFamily: font.semibold }}
-              >
-                Add
-              </Body>
-            </Pressable>
-          </View>
+          <TickerSearch onAdd={add} busy={!!busy} exclude={(holdings ?? []).map((h) => h.symbol)} />
           {busy && (
             <Body
               size={size.small}

@@ -202,7 +202,12 @@ class Onboard(BaseModel):
 
 @router.post("/holdings")
 def add_holdings(body: Onboard, user: User = Depends(current_user), db: Session = Depends(get_db)):
-    return onboard(db, NSE(), user, body.symbols, weights=body.weights, backfill_days=body.days)
+    report = onboard(db, NSE(), user, body.symbols, weights=body.weights, backfill_days=body.days)
+    bad = {s: r for s, r in report.items() if isinstance(r, dict) and r.get("error")}
+    if bad and len(bad) == len(report):
+        hint = "; ".join(f"{s}: did you mean {', '.join(r['did_you_mean'])}?" if r.get("did_you_mean") else f"{s}: not listed on NSE" for s, r in bad.items())
+        raise HTTPException(400, hint)
+    return report
 
 
 @router.delete("/holdings/{symbol}")
