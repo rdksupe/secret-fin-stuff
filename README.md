@@ -15,10 +15,13 @@ Worth trying:
 - **Brief → 7d:** ranked stories (lead story, results cards, management change with a bio).
 - **Tap a story:** why FINN surfaced it, and what the exchange says.
 - **Watch:** tap a company, then "Promised vs delivered", the business, trajectory and bull/bear.
+- **Brief:** flick through the "Needs you" deck; filter any section.
+- **Watch → a company → its brain:** search "attrition" or "order book" across annual reports and transcripts.
 - **Ask:**
   - "How did TCS do last quarter?"
   - "What did Maruti's latest results show?"
   - "Every weekday at 8:30, send me a two-line brief on my IT stocks." This creates a real scheduled job.
+  - "Compare Maruti's October 2019 sales with October 2026 and chart it." FINN fetches 2019 from NSE and replies with a native chart.
 - **Speak:** ask by voice; tap **Listen** on any answer.
 
 ## How it works

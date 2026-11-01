@@ -25,10 +25,22 @@ FINN is an agent you talk to rather than a dashboard you read. It is a real alwa
 - **Coverage:** works for any NSE symbol (it builds the dossier on demand). Built for 16 of the 18 portfolio companies.
 
 **Talk to it:**
-- Chat streams answers with citations.
-- Voice: speak a question and listen to the answer.
+- Chat streams answers with citations, and shows each tool step as it runs.
+- **Answers you can touch:** FINN replies with native charts (tap a bar to read it, toggle series), sortable tables, company cards that open the company, and follow-up buttons. It can also send images and files it makes.
+- **It goes back in time on its own:** "compare with October 2019" makes FINN fetch that period's NSE filings, read them into the company's brain, and answer from them, with no scraping.
+- **Several chats at once:** each chat is its own agent session. One that finishes while you're elsewhere sends a push.
+- Voice: speak a question and listen to the answer. Long-press any message to reply to it or react.
 - Ask about any story, and the context comes along.
 - Behaves like a messaging bot: send several messages in a burst, add to a running answer, or `/stop` it.
+
+**Browse what it knows:** every company has a brain screen. It shows the folders (dossier, results, transcripts, annual reports with page trees, filings) and has full-text search across all of it. A hit opens at the matching page, even 600 pages into an annual report.
+
+## Design
+
+The app's look is taken from the street its investor works on: the 1930s Art Deco of Marine Drive and the Fort, Mumbai's money district.
+- **Colours:** a sea-green shell, a stone ground and lacquer ink. Brass appears only when FINN itself is acting, red only for losses.
+- **The signature move:** importance is drawn as setbacks, the stepped silhouettes of those buildings. A 1–3 tier mark ranks every story, and what needs you comes as a deck of stepped sea-green cards you flick through.
+- **The rest is standard Android:** Material navigation, system Back, and 48 dp touch targets.
 
 ## Judgment calls
 
@@ -61,7 +73,7 @@ Most cron runs cost nothing: a script does the fetching and diffing, and the age
   - ITC holds no earnings calls, so its dossier has no promised-vs-delivered section.
   - A few transcripts failed because BSE served a web page instead of the PDF; MARUTI has only one transcript, so its audit is thin.
   - Balance-sheet and cash-flow analysis isn't built. We have the annual reports but haven't extracted the statements.
-- **Single investor.** One portfolio and one set of thresholds. Each install gets its own chat, but the portfolio is shared.
+- **Single investor.** One portfolio and one set of thresholds. Each install keeps its own chats, but the portfolio is shared.
 - **Android only.** There is no iOS build. The app token expires on 30 November 2026.
 - **Not finished:**
   - A market-labelled classifier: 6 months of filings (25k) labelled by abnormal price reaction, results-day confounds removed. It is collected and partly featurised, but not trained.
