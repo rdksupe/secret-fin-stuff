@@ -66,6 +66,21 @@ def filings(db: Session, nse: NSE, symbol: str, start: date, end: date, query: s
     return out[:limit]
 
 
+def _filed_from_url(url: str) -> datetime | None:
+    """NSE attachment names embed the filing time as ddmmyyyyHHMMSS (e.g. ..._06112019113632_...);
+    use it so a document fetched today for 2019 is filed under 2019 in the brain."""
+    import re
+
+    m = re.search(r"(\d{2})(\d{2})((?:19|20)\d{2})(\d{2})?(\d{2})?", url.rsplit("/", 1)[-1])
+    if not m:
+        return None
+    try:
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        return datetime(y, mo, d, int(m.group(4) or 12), int(m.group(5) or 0), tzinfo=UTC) - timedelta(hours=5, minutes=30)
+    except ValueError:
+        return None
+
+
 def ingest_urls(db: Session, nse: NSE, symbol: str, urls: list[str], doc_type: str | None = None) -> list[dict]:
     """Read these filing PDFs into the company's brain now (text layer; PageIndex tree when long)
     and report where each landed. Already-read documents are returned as they are."""
@@ -75,7 +90,7 @@ def ingest_urls(db: Session, nse: NSE, symbol: str, urls: list[str], doc_type: s
         doc = db.scalar(select(Document).where(Document.symbol == sym, Document.url == url))
         if doc is None:
             doc = Document(symbol=sym, url=url, desc=doc_type or "Fetched filing", doc_type=doc_type,
-                           triage_by="agent", filed_at=datetime.now(UTC))
+                           triage_by="agent", filed_at=_filed_from_url(url) or datetime.now(UTC))
             db.add(doc)
             db.commit()
         if doc.status != "parsed":
