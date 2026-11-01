@@ -260,12 +260,18 @@ def queue_research_docs(db: Session, symbol: str, *, transcripts: int = 4, annua
     return queued
 
 
-def run_research_docs(db: Session, nse: NSE, symbol: str) -> list[Document]:
-    """Queue and process one company's research documents now (text layer + PageIndex)."""
+def run_research_docs(db: Session, nse: NSE, symbol: str, on_doc=None) -> list[Document]:
+    """Queue and process one company's research documents now (text layer + PageIndex).
+    `on_doc(i, n, doc)` is called before each document, for progress reporting."""
     queue_research_docs(db, symbol)
     todo = db.scalars(select(Document).where(Document.symbol == symbol.upper(), Document.triage_by == "screener",
                                              Document.status == "new")).all()
-    return [process(db, nse, d, allow_chandra=False) for d in todo]
+    out = []
+    for i, d in enumerate(todo):
+        if on_doc:
+            on_doc(i, len(todo), d)
+        out.append(process(db, nse, d, allow_chandra=False))
+    return out
 
 
 def parse_now(db: Session, nse: NSE, doc_id: str) -> Document:

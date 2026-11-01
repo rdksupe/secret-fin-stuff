@@ -11,7 +11,7 @@ import { Body, Mono, Ticker, Title } from '@/components/type';
 import { api, type Brain } from '@/lib/api';
 import { color, font, size, space } from '@/theme';
 
-type Hit = { path: string; title: string; heading: string; snippet: string };
+type Hit = { path: string; title: string; heading: string; section?: string; snippet: string };
 
 const back = (sym: string) => (router.canGoBack() ? router.back() : router.replace(`/company/${sym}`));
 
@@ -88,7 +88,7 @@ function Search({ sym, onActive }: { sym: string; onActive: (active: boolean) =>
           </Mono>
           {hits.map((h, i) => (
             <View key={`${h.path}-${i}`}>
-              <Pressable onPress={() => openBrainPage(sym, h.path)} style={({ pressed }) => ({ paddingVertical: 12, opacity: pressed ? 0.6 : 1 })}>
+              <Pressable onPress={() => openBrainPage(sym, h.path, h.section || undefined)} style={({ pressed }) => ({ paddingVertical: 12, opacity: pressed ? 0.6 : 1 })}>
                 <View style={{ flexDirection: 'row', gap: 8, marginBottom: 4 }}>
                   <Mono size={11} c={color.paper} numberOfLines={1} style={{ flexShrink: 1 }}>{h.path.replace(/\.md$/, '')}</Mono>
                   {h.heading ? <Mono size={11} c={color.dim} numberOfLines={1} style={{ flexShrink: 1 }}>· {h.heading}</Mono> : null}
@@ -141,18 +141,25 @@ function BrainHome({ sym }: { sym: string }) {
 }
 
 /** One page of the brain. [[links]] and (folder/page.md) citations open the page they point to. */
-function BrainPage({ sym, path }: { sym: string; path: string }) {
+type PageResp = { markdown: string; offset: number; total: number; section: string | null };
+
+function BrainPage({ sym, path, section }: { sym: string; path: string; section?: string }) {
   const [md, setMd] = useState<string | null>(null);
+  const [from, setFrom] = useState<string | undefined>(section);
+  const [meta, setMeta] = useState<{ offset: number; total: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setMd(null);
     setError(null);
     api
-      .get<{ markdown: string }>(`/companies/${sym}/brain/${path}`)
-      .then((r) => setMd(r.markdown))
+      .get<PageResp>(`/companies/${sym}/brain/${path}${from ? `?section=${encodeURIComponent(from)}` : ''}`)
+      .then((r) => {
+        setMd(r.markdown);
+        setMeta({ offset: r.offset, total: r.total });
+      })
       .catch(() => setError('This page is not in the brain yet.'));
-  }, [sym, path]);
+  }, [sym, path, from]);
 
   const follow = (target: string) => openBrainPage(sym, target.replace(/^\/+/, '').replace(/^wiki\//, ''));
   const crumbs = path.split('/');
@@ -178,17 +185,29 @@ function BrainPage({ sym, path }: { sym: string; path: string }) {
         <View style={{ marginTop: space.m }}>
           <Rule />
         </View>
+        {meta && meta.offset > 0 ? (
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: space.m, padding: space.m, borderRadius: 10, backgroundColor: color.well }}>
+            <Body size={size.small} c={color.mist} style={{ flex: 1 }}>
+              Opened at {from}, where your search matched ({Math.round((meta.offset / meta.total) * 100)}% into the document).
+            </Body>
+            <Pressable onPress={() => setFrom(undefined)} hitSlop={8}>
+              <Body size={size.small} c={color.paper}>From the start</Body>
+            </Pressable>
+          </View>
+        ) : null}
         <View style={{ marginTop: space.m }}>
           {error ? (
             <Body c={color.dim}>{error}</Body>
           ) : md === null ? (
             <ActivityIndicator color={color.marigold} style={{ marginTop: space.xl }} />
           ) : (
-            <Markdown text={md.slice(0, 40000)} size={14} onLink={follow} />
+            <Markdown text={md} size={14} onLink={follow} />
           )}
         </View>
-        {md && md.length > 40000 ? (
-          <Body size={12} c={color.dim} style={{ marginTop: space.m }}>Long page; showing the first part. Search finds passages anywhere in it.</Body>
+        {md && meta && meta.offset + md.length < meta.total ? (
+          <Body size={12} c={color.dim} style={{ marginTop: space.m }}>
+            Long document; showing about {Math.round(md.length / 2000)} pages from here. Search finds passages anywhere in it.
+          </Body>
         ) : null}
       </Screen>
       <AskBar symbol={sym} page={path} label="Ask FINN about this page" />
@@ -197,7 +216,7 @@ function BrainPage({ sym, path }: { sym: string; path: string }) {
 }
 
 export default function BrainScreen() {
-  const { symbol, path } = useLocalSearchParams<{ symbol: string; path?: string }>();
+  const { symbol, path, section } = useLocalSearchParams<{ symbol: string; path?: string; section?: string }>();
   const sym = String(symbol).toUpperCase();
-  return path ? <BrainPage sym={sym} path={String(path)} /> : <BrainHome sym={sym} />;
+  return path ? <BrainPage key={`${path}#${section ?? ''}`} sym={sym} path={String(path)} section={section} /> : <BrainHome sym={sym} />;
 }

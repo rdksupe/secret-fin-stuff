@@ -22,10 +22,27 @@ def _warm_prices() -> None:
         log.warning("price warm-up failed: %s", e)
 
 
+def _warm_brains() -> None:
+    """Build every brain's search index up front so the first search isn't the slow one."""
+    from finn_api.brain import Brain
+    from finn_api.config import settings
+    from finn_api.routes import _brain_index
+
+    root = settings.finn_kb_dir / "companies"
+    for d in sorted(root.iterdir()) if root.is_dir() else []:
+        try:
+            b = Brain(d.name)
+            if b.exists:
+                _brain_index(b)
+        except Exception as e:  # best effort
+            log.warning("brain index warm-up failed for %s: %s", d.name, e)
+
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
     threading.Thread(target=_warm_prices, daemon=True).start()
+    threading.Thread(target=_warm_brains, daemon=True).start()
     yield
 
 

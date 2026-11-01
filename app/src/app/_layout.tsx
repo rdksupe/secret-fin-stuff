@@ -1,11 +1,12 @@
 import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold } from '@expo-google-fonts/archivo';
 import { IBMPlexMono_400Regular, IBMPlexMono_500Medium } from '@expo-google-fonts/ibm-plex-mono';
 import { useFonts } from 'expo-font';
-import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
+import { DarkTheme, Stack, ThemeProvider, router } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
+import { isOnboarded } from '@/lib/onboarding';
 import { usePushRegistration } from '@/lib/push';
 import { color } from '@/theme';
 
@@ -27,7 +28,12 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (loaded) SplashScreen.hideAsync();
+    if (!loaded) return;
+    SplashScreen.hideAsync();
+    // First launch: the intro (features + notification permission) before anything else.
+    isOnboarded().then((done) => {
+      if (!done) router.push('/welcome' as never);
+    });
   }, [loaded]);
   usePushRegistration();
 
@@ -41,6 +47,7 @@ export default function RootLayout() {
         <Stack.Screen name="story/[id]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="company/[symbol]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="brain/[symbol]" options={{ animation: 'slide_from_right' }} />
+        <Stack.Screen name="welcome" options={{ animation: 'fade', gestureEnabled: false }} />
       </Stack>
     </ThemeProvider>
   );

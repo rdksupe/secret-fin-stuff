@@ -242,14 +242,40 @@ def parse_document(doc_id: str, db: Session = Depends(get_db)):
 _DOSSIER_JOBS: dict[str, dict] = {}
 
 
+def _notify(db: Session, title: str, body: str, data: dict[str, str]) -> None:
+    """FCM push to the investor's devices (no-op without the sender key or a registered phone)."""
+    from finn_api import fcm
+
+    if not fcm.available():
+        return
+    user = db.scalar(select(User).order_by(User.created_at))
+    for t in json.loads(user.push_tokens_json or "[]") if user else []:
+        if t.startswith("fcm:"):
+            fcm.send(t[4:], title, body, data)
+
+
 @router.get("/companies/{symbol}/dossier")
 def get_dossier(symbol: str):
     sym = symbol.upper()
     p = Brain(sym).wiki / "dossier" / "dossier.json"
+    from finn_api.research import build_progress
+
     job = _DOSSIER_JOBS.get(sym)
+    prog = build_progress(Brain(sym))
+    status = job["status"] if job else None
+    if prog and prog.get("state") == "building":
+        # Also covers builds the agent started through the CLI. A stale file (crashed build) doesn't count.
+        try:
+            fresh = datetime.now(UTC) - datetime.fromisoformat(prog["at"]) < timedelta(minutes=15)
+        except (KeyError, ValueError):
+            fresh = False
+        if fresh:
+            status = "building"
+    progress = prog if status == "building" else None
     if not p.exists():
-        return {"symbol": sym, "status": job["status"] if job else "missing", "dossier": None, "error": job and job.get("error")}
-    return {"symbol": sym, "status": job["status"] if job else "ready", "dossier": json.loads(p.read_text())}
+        return {"symbol": sym, "status": status or "missing", "dossier": None, "progress": progress,
+                "error": job and job.get("error")}
+    return {"symbol": sym, "status": status or "ready", "dossier": json.loads(p.read_text()), "progress": progress}
 
 
 @router.post("/companies/{symbol}/dossier")
@@ -268,10 +294,16 @@ def start_dossier(symbol: str):
     def work():
         try:
             with SessionLocal() as db:
-                build_dossier(db, NSE(), sym)
-            _DOSSIER_JOBS[sym] = {"status": "ready"}
+                d = build_dossier(db, NSE(), sym)
+                _DOSSIER_JOBS[sym] = {"status": "ready"}
+                verdict = ((d.get("promised_vs_delivered") or {}).get("verdict") or "").strip()
+                _notify(db, f"{sym} brain is ready",
+                        verdict[:160] or "Promised vs delivered, trajectory and bull/bear are in.",
+                        {"kind": "company", "symbol": sym})
         except Exception as e:  # surfaced to the app
             _DOSSIER_JOBS[sym] = {"status": "failed", "error": str(e)[:300]}
+            with SessionLocal() as db:
+                _notify(db, f"{sym} research failed", str(e)[:160], {"kind": "company", "symbol": sym})
 
     threading.Thread(target=work, daemon=True).start()
     return {"symbol": sym, "status": "building"}
@@ -387,29 +419,57 @@ def _clean_heading(h: str) -> str:
     return re.sub(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]", lambda m: m.group(2) or m.group(1).split("/")[-1], h)[:80]
 
 
+def _search(b: Brain, q: str, limit: int) -> list[dict]:
+    query = _fts_query(q)
+    if not query:
+        return []
+    con = _brain_index(b)
+    sql = ("select path, title, heading, snippet(c, 3, '«', '»', ' … ', 18), bm25(c, 0, 4, 2, 1) as score "
+           "from c where c match ? order by score limit ?")
+    rows = con.execute(sql, (query, limit)).fetchall()
+    if not rows and " " in query:  # every word didn't match together: any word, best first
+        rows = con.execute(sql, (query.replace(" ", " OR "), limit)).fetchall()
+    return [{"symbol": b.symbol, "path": r[0], "title": r[1], "heading": _clean_heading(r[2]),
+             "section": r[2], "snippet": r[3], "score": round(r[4], 3)} for r in rows]
+
+
 @router.get("/companies/{symbol}/brain/search")
 def brain_search(symbol: str, q: str, limit: int = 20):
     b = Brain(symbol)
     if not b.exists:
         raise HTTPException(404, "no brain yet")
-    query = _fts_query(q)
-    if not query:
-        return []
-    con = _brain_index(b)
-    sql = ("select path, title, heading, snippet(c, 3, '«', '»', ' … ', 18) from c where c match ? "
-           "order by bm25(c, 0, 4, 2, 1) limit ?")
-    rows = con.execute(sql, (query, min(limit, 50))).fetchall()
-    if not rows and " " in query:  # every word didn't match together: any word, best first
-        rows = con.execute(sql, (query.replace(" ", " OR "), min(limit, 50))).fetchall()
-    return [{"path": r[0], "title": r[1], "heading": _clean_heading(r[2]), "snippet": r[3]} for r in rows]
+    return _search(b, q, min(limit, 50))
+
+
+@router.get("/brain/search")
+def brain_search_all(q: str, symbols: str = "", limit: int = 20):
+    """One query across company brains (default: every brain), best passages first."""
+    root = settings.finn_kb_dir / "companies"
+    syms = [x.strip().upper() for x in symbols.split(",") if x.strip()] or sorted(
+        d.name for d in root.iterdir() if (d / "wiki").is_dir()) if root.is_dir() else []
+    hits: list[dict] = []
+    for sym in syms[:60]:
+        b = Brain(sym)
+        if b.exists:
+            hits += _search(b, q, 8)
+    return sorted(hits, key=lambda h: h["score"])[: min(limit, 50)]
 
 
 @router.get("/companies/{symbol}/brain/{path:path}")
-def company_page(symbol: str, path: str):
+def company_page(symbol: str, path: str, section: str | None = None, chars: int = 40000):
+    """A brain page. With `section` (a heading, e.g. "Page 44" from a search hit), the page from that
+    heading on, so a hit inside a 700-page annual report opens where it matched."""
     try:
-        return {"path": path, "markdown": Brain(symbol).read(path)}
+        md = Brain(symbol).read(path)
     except (FileNotFoundError, ValueError) as e:
         raise HTTPException(404, str(e)) from e
+    start = 0
+    if section:
+        m = re.search(rf"^#+\s*{re.escape(section.strip())}\s*$", md, re.M)
+        if m:
+            start = m.start()
+    return {"path": path, "markdown": md[start:start + chars], "offset": start, "total": len(md),
+            "section": section if start else None}
 
 
 # ── chat: proxy to the Hermes `finn` profile (api_server) ─────────────────

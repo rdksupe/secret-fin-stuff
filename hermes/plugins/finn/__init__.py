@@ -6,6 +6,8 @@ import json
 import os
 import re
 import subprocess
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 _SYMBOL = re.compile(r"^[A-Z0-9&\-]{1,20}$")
@@ -80,8 +82,38 @@ def dossier(args: dict, **_kw) -> str:
         return _err("symbol is required")
     page = _repo() / "kb" / "companies" / sym / "wiki" / "dossier" / "dossier.json"
     if page.exists() and not args.get("rebuild"):
-        return page.read_text()[-60000:]
+        d = json.loads(page.read_text())
+        # The guidance ledger is ~28k chars of verbatim quotes; the model gets it only on request
+        # (it is also kb/companies/{SYM}/wiki/guidance-ledger.md, and finn_brain_search finds lines in it).
+        if not args.get("include_guidance"):
+            d["guidance"] = f"omitted; read kb/companies/{sym}/wiki/guidance-ledger.md or pass include_guidance"
+        return json.dumps(d, ensure_ascii=False)[:60000]
     return _finn("dossier", sym, timeout=1800)
+
+
+def _api(path: str, params: dict) -> str:
+    base = (os.environ.get("FINN_APP_API_URL") or "http://127.0.0.1:8000").rstrip("/")
+    req = urllib.request.Request(f"{base}{path}?{urllib.parse.urlencode(params)}",
+                                 headers={"X-API-Key": os.environ.get("FINN_API_KEY", "")})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read().decode()
+
+
+def brain_search(args: dict, **_kw) -> str:
+    q = str(args.get("query") or "").strip()
+    if not q:
+        return _err("query is required")
+    try:
+        syms = _symbols(args.get("symbols") or [])
+    except ValueError as e:
+        return _err(str(e))
+    try:
+        hits = json.loads(_api("/api/brain/search", {"q": q, "symbols": ",".join(syms), "limit": int(args.get("limit") or 15)}))
+    except Exception as e:
+        return _err(f"brain search failed: {e}")
+    return json.dumps([{"symbol": h["symbol"], "page": f"kb/companies/{h['symbol']}/wiki/{h['path']}",
+                        "section": h["section"], "passage": h["snippet"].replace("«", "").replace("»", "")}
+                       for h in hits], ensure_ascii=False)
 
 
 def enrich(args: dict, **_kw) -> str:
@@ -124,11 +156,24 @@ SCHEMAS = {
                        "Use when the exchange summary is a stub.",
         "parameters": {"type": "object", "properties": {"url": S, "pages": {"type": "integer"}}, "required": ["url"]},
     },
+    "finn_brain_search": {
+        "description": "Full-text search across company brains (annual reports, concall transcripts, results, "
+                       "filings, dossiers). Returns the best-matching passages with their page path and section "
+                       "(e.g. 'Page 44'). Use this FIRST for any question about what companies said or disclosed, "
+                       "including cross-portfolio questions ('which of my companies are exposed to X'). Then "
+                       "read_file the cited page only if you need more context.",
+        "parameters": {"type": "object", "properties": {
+            "query": {"type": "string", "description": "a few keywords, e.g. 'data center capex'"},
+            "symbols": {"type": "array", "items": S, "description": "limit to these NSE symbols; omit for all"},
+            "limit": {"type": "integer", "description": "passages to return, default 15"},
+        }, "required": ["query"]},
+    },
     "finn_dossier": {
         "description": "Grounded research dossier for an NSE symbol, built only from its annual report, last 4 "
                        "concall transcripts and NSE results: snapshot, quarterly trajectory, guidance ledger, "
                        "promised-vs-delivered audit, bull/bear. Builds it (a few minutes) if missing.",
-        "parameters": {"type": "object", "properties": {"symbol": S, "rebuild": {"type": "boolean"}},
+        "parameters": {"type": "object", "properties": {"symbol": S, "rebuild": {"type": "boolean"},
+                                                        "include_guidance": {"type": "boolean"}},
                        "required": ["symbol"]},
     },
     "finn_enrich": {
@@ -145,7 +190,7 @@ SCHEMAS = {
         }, "required": ["feed_id", "summary"]},
     },
 }
-HANDLERS = {"finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
+HANDLERS = {"finn_brain_search": brain_search, "finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
 
 
 def register(ctx) -> None:

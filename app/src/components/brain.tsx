@@ -12,8 +12,8 @@ const tidy = (t: string, symbol: string) => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-export const openBrainPage = (symbol: string, path: string) =>
-  router.push({ pathname: '/brain/[symbol]', params: { symbol, path } } as never);
+export const openBrainPage = (symbol: string, path: string, section?: string) =>
+  router.push({ pathname: '/brain/[symbol]', params: section ? { symbol, path, section } : { symbol, path } } as never);
 
 function Folder({ symbol, f, startOpen }: { symbol: string; f: BrainFolder; startOpen: boolean }) {
   const [open, setOpen] = useState(startOpen);

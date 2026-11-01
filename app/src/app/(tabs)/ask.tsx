@@ -109,6 +109,7 @@ function Reaction({ emoji }: { emoji: string }) {
 function Bubble({
   m,
   live,
+  interim,
   showQuote,
   selected,
   onSelect,
@@ -117,6 +118,7 @@ function Bubble({
 }: {
   m: ChatMessage;
   live: boolean;
+  interim: boolean;
   showQuote: boolean;
   selected: boolean;
   onSelect: (m: ChatMessage) => void;
@@ -125,6 +127,14 @@ function Bubble({
 }) {
   if (m.kind === 'approval' || m.kind === 'clarify' || m.kind === 'confirm') return <Prompt m={m} onAnswer={(c) => onAnswer(m.id, c)} />;
   if (m.kind === 'tool') return <ToolTrace m={m} live={live} />;
+  if (interim) {
+    // Commentary between tool calls ("checking the Q2 call…"): part of the working, not the answer.
+    return (
+      <Body size={size.meta} c={color.dim} numberOfLines={3} style={{ marginVertical: space.xs }}>
+        {clean(m.text).replace(/[#*_`|>]/g, '').replace(/\s+/g, ' ').trim()}
+      </Body>
+    );
+  }
   const quote = showQuote && m.payload.reply_text ? { role: m.payload.reply_role ?? 'finn', text: m.payload.reply_text } : null;
   const highlight = selected ? { backgroundColor: color.well, borderRadius: 14 } : null;
   if (m.role === 'user') {
@@ -183,6 +193,18 @@ function contextLine(c: { symbol: string; label: string }) {
 }
 
 const REACTIONS = ['👍', '👎', '🎯', '🤔'];
+
+/** A FINN message followed by more FINN activity (tool steps or another message) in the same turn. */
+function isInterim(ms: ChatMessage[], i: number): boolean {
+  const m = ms[i];
+  if (m.role !== 'finn' || m.kind !== 'message' || m.proactive) return false;
+  if (m.text.startsWith('💾')) return true; // Hermes self-review notices
+  for (let j = i + 1; j < ms.length; j++) {
+    if (ms[j].role === 'user' || ms[j].proactive) return false;
+    if (ms[j].kind === 'tool' || ms[j].kind === 'message') return true;
+  }
+  return false;
+}
 
 function lastUserBefore(ms: ChatMessage[], i: number): string | undefined {
   for (let j = i - 1; j >= 0; j--) if (ms[j].role === 'user') return ms[j].id;
@@ -319,6 +341,7 @@ export default function Ask() {
               key={m.id}
               m={m}
               live={working && i === messages.length - 1}
+              interim={isInterim(messages, i)}
               // Hermes threads every answer to the question it answers; only show a quote when it isn't the one just above.
               showQuote={m.role === 'user' || m.payload.reply_to !== lastUserBefore(messages, i)}
               selected={selected?.id === m.id}

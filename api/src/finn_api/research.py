@@ -335,15 +335,50 @@ def verify_dossier(brain: Brain, d: dict) -> dict:
 # ── orchestration ─────────────────────────────────────────────────────────
 
 
+PROGRESS_FILE = "dossier/.progress.json"
+
+
+def build_progress(brain: Brain) -> dict | None:
+    """The running (or last) build's step and percent, written by build_dossier as it goes."""
+    p = brain.wiki / PROGRESS_FILE
+    try:
+        return json.loads(p.read_text())
+    except (OSError, ValueError):
+        return None
+
+
 def build_dossier(db: Session, nse: NSE, symbol: str, *, refresh_docs: bool = True) -> dict:
-    from finn_api import ingest
+    from datetime import UTC, datetime
 
     sym = symbol.upper()
     brain = Brain(sym)
     if not brain.exists:
         brain.scaffold()
+    (brain.wiki / "dossier").mkdir(parents=True, exist_ok=True)
+    started = datetime.now(UTC).isoformat()
+
+    def progress(pct: float, step: str, state: str = "building") -> None:
+        (brain.wiki / PROGRESS_FILE).write_text(json.dumps(
+            {"state": state, "pct": round(pct, 2), "step": step, "started": started,
+             "at": datetime.now(UTC).isoformat()}))
+
+    try:
+        return _build_dossier(db, nse, sym, brain, refresh_docs, progress)
+    except Exception as e:
+        progress(1.0, f"failed: {str(e)[:200]}", "failed")
+        raise
+
+
+_DOC_WORDS = {"transcript": "call transcript", "annual_report": "annual report", "presentation": "investor deck"}
+
+
+def _build_dossier(db: Session, nse: NSE, sym: str, brain: Brain, refresh_docs: bool, progress) -> dict:
+    from finn_api import ingest
+
+    progress(0.03, "Finding the annual report and call transcripts")
     if refresh_docs:
-        ingest.run_research_docs(db, nse, sym)
+        ingest.run_research_docs(db, nse, sym, on_doc=lambda i, n, d: progress(
+            0.05 + 0.5 * i / max(n, 1), f"Reading the {_DOC_WORDS.get(d.doc_type or '', 'document')} ({i + 1} of {n})"))
     docs = db.scalars(select(Document).where(Document.symbol == sym, Document.status == "parsed")).all()
     seen_paths: set[str] = set()
     transcripts = []
@@ -358,15 +393,23 @@ def build_dossier(db: Session, nse: NSE, symbol: str, *, refresh_docs: bool = Tr
     ar = next((d for d in sorted(docs, key=lambda d: d.filed_at or date.min, reverse=True)
                if d.doc_type == "annual_report" and d.wiki_path), None)
 
-    calls = [extract_guidance(db, brain, d) for d in transcripts]
+    calls = []
+    for i, d in enumerate(transcripts):
+        progress(0.55 + 0.2 * i / max(len(transcripts), 1),
+                 f"Extracting guidance from call {i + 1} of {len(transcripts)}")
+        calls.append(extract_guidance(db, brain, d))
     calls.sort(key=lambda c: c["month"])
     write_ledger(brain, calls)
+    progress(0.76, "Pulling quarterly results from NSE")
     series = quarterly_series(nse, sym)
     write_trajectory(brain, series)
+    progress(0.8, "Reading the business from the annual report")
     snap = snapshot(db, brain, ar) if ar else {}
     write_snapshot(brain, snap)
+    progress(0.86, "Checking each promise against what was delivered")
     pvd = promised_vs_delivered(db, sym, calls, series) if calls else {}
     write_pvd(brain, pvd)
+    progress(0.94, "Writing the bull and bear case")
     bb = bull_bear(db, sym, snap, series, pvd)
     write_bull_bear(brain, bb)
     db.commit()
@@ -377,4 +420,5 @@ def build_dossier(db: Session, nse: NSE, symbol: str, *, refresh_docs: bool = Tr
     dossier = verify_dossier(brain, dossier)
     (brain.wiki / "dossier" / "dossier.json").write_text(json.dumps(dossier, ensure_ascii=False, indent=1))
     brain.log(f"dossier built: {len(calls)} calls, {len(series)} quarters, AR={'yes' if ar else 'no'}")
+    progress(1.0, "Ready", "ready")
     return dossier

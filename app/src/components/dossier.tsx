@@ -20,7 +20,27 @@ type Dossier = {
   bull_bear: { bull?: { point: string; cite?: string }[]; bear?: { point: string; cite?: string }[]; watch?: string[] };
   sources: { transcripts: string[]; annual_report: string | null };
 };
-type Resp = { status: 'missing' | 'building' | 'ready' | 'failed'; dossier: Dossier | null; error?: string };
+type Progress = { state: string; pct: number; step: string; started: string };
+type Resp = { status: 'missing' | 'building' | 'ready' | 'failed'; dossier: Dossier | null; error?: string; progress?: Progress | null };
+
+/** Build progress: a thin bar, the current step, and that a push will say when it's done. */
+function BuildProgress({ p }: { p?: Progress | null }) {
+  const pct = Math.max(0.03, Math.min(1, p?.pct ?? 0.03));
+  return (
+    <View style={{ marginTop: space.l }}>
+      <View style={{ height: 4, borderRadius: 2, backgroundColor: color.hairline, overflow: 'hidden' }}>
+        <View style={{ width: `${pct * 100}%`, height: 4, borderRadius: 2, backgroundColor: color.marigold }} />
+      </View>
+      <View style={{ flexDirection: 'row', marginTop: space.s }}>
+        <Body size={size.small} c={color.paper} style={{ flex: 1 }}>{p?.step ?? 'Starting'}</Body>
+        <Mono size={12} c={color.dim}>{Math.round(pct * 100)}%</Mono>
+      </View>
+      <Body size={size.meta} c={color.dim} style={{ marginTop: 4 }}>
+        You can leave this screen. FINN sends a notification when it's ready.
+      </Body>
+    </View>
+  );
+}
 
 const STATUS: Record<string, { label: string; c: string }> = {
   delivered: { label: 'Delivered', c: color.gain },
@@ -50,7 +70,7 @@ export function DossierView({ symbol }: { symbol: string }) {
 
   useEffect(() => {
     if (r?.status !== 'building') return;
-    const t = setInterval(load, 5000);
+    const t = setInterval(load, 3000);
     return () => clearInterval(t);
   }, [r?.status, load]);
 
@@ -74,7 +94,7 @@ export function DossierView({ symbol }: { symbol: string }) {
               : `FINN builds research only from ${symbol}'s own annual report, call transcripts and results filings.`}
         </Body>
         {r.status === 'building' ? (
-          <ActivityIndicator color={color.marigold} style={{ marginTop: space.l, alignSelf: 'flex-start' }} />
+          <BuildProgress p={r.progress} />
         ) : (
           <Pressable onPress={build} accessibilityRole="button" style={{ marginTop: space.l, alignSelf: 'flex-start', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 10, backgroundColor: color.paper }}>
             <Strong size={size.small} c={color.ink}>Build research</Strong>

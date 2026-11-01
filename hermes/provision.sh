@@ -11,8 +11,8 @@ HOME_DIR="${FINN_HERMES_HOME:-$HOME/.hermes-finn}"
 HERMES_BIN="${HERMES_BIN:-$HOME/building_shit/hermes-agent/.venv/bin/hermes}"
 HERMES_PY="$(dirname "$HERMES_BIN")/python"
 PLUGIN_SRC="${PLUGIN_SRC:-$HOME/building_shit/buildsync/deploy/hermes/plugins/protect-identity}"
-MODEL_CHAT="${FINN_MODEL_CHAT:-accounts/fireworks/models/glm-5p3}"
-MODEL_CRON="${FINN_MODEL_CRON:-accounts/fireworks/models/glm-5p3-flash}"
+MODEL_CHAT="${FINN_MODEL_CHAT:-accounts/fireworks/models/deepseek-v4p1-flash}"
+MODEL_CRON="${FINN_MODEL_CRON:-accounts/fireworks/models/deepseek-v4p1-flash}"
 
 mkdir -p "$HOME_DIR"/{memories,skills,cron,sessions,logs,plugins,scripts}
 
@@ -96,6 +96,16 @@ cfg["timezone"] = "Asia/Kolkata"
 cfg["custom_providers"] = [{"name": "fireworks", "base_url": fw, "key_env": "FIREWORKS_API_KEY",
                             "api_mode": "chat_completions"}]
 cfg["model"] = {"default": model, "provider": "custom:fireworks", "base_url": fw}
+# Tools run from the FINN repo so kb/companies/... resolves on the first try.
+import os as _os
+cfg.setdefault("terminal", {})["cwd"] = _os.environ["FINN_REPO_PATH"]
+# Latency: no post-turn self-review (a second full-model run per turn that competed with the next
+# question) and no curator; Mem0 still records the conversation.
+cfg.setdefault("skills", {})["creation_nudge_interval"] = 0
+cfg.setdefault("memory", {})["nudge_interval"] = 0
+cfg.setdefault("curator", {})["enabled"] = False
+# Hard ceiling on tool rounds per turn; at the limit Hermes asks for an answer with what it has.
+cfg.setdefault("agent", {})["max_turns"] = 14
 cfg.setdefault("display", {})["busy_input_mode"] = "steer"
 cfg.setdefault("web", {})["search_backend"] = "exa"
 plug = cfg.setdefault("plugins", {})
@@ -131,7 +141,7 @@ gw.setdefault("api_server", {})["max_concurrent_runs"] = 4
 # Compaction and other side tasks run on the cheap model.
 aux = cfg.setdefault("auxiliary", {})
 for task in ("compression", "web_extract", "approval"):
-    aux[task] = {"provider": "custom:fireworks", "model": "accounts/fireworks/models/glm-5p3-flash",
+    aux[task] = {"provider": "custom:fireworks", "model": model,
                  "base_url": fw, "timeout": 120}
 p.write_text(yaml.dump(cfg, default_flow_style=False, sort_keys=False))
 print("config:", p)

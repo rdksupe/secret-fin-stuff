@@ -137,9 +137,14 @@ export default function Brief() {
             <Body c={color.dim}>Loading your brief…</Body>
           )}
           {status && !error && (
-            <Body size={size.meta} c={color.dim} style={{ marginTop: space.xs }}>
-              Watching {status.watching} companies · updated {ago(status.checked_at)}
-            </Body>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginTop: space.xs }}>
+              <Body size={size.meta} c={color.dim}>
+                Watching {status.watching} companies · updated {ago(status.checked_at)} ·{' '}
+              </Body>
+              <Pressable onPress={() => router.push('/welcome' as never)} hitSlop={8} accessibilityRole="button">
+                <Body size={size.meta} c={color.mist} style={{ textDecorationLine: 'underline' }}>How FINN works</Body>
+              </Pressable>
+            </View>
           )}
         </View>
 
