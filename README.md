@@ -65,19 +65,23 @@ FINN answers in blocks the app draws natively: charts, sortable tables, timeline
 
 ### Screens
 
-<p align="center">
-  <img src="docs/media/ask-cards.png" width="200" alt="Cards answer">
-  <img src="docs/media/ask-table.png" width="200" alt="Table and chart answer">
-  <img src="docs/media/ask-timeline.png" width="200" alt="Timeline answer">
-  <img src="docs/media/dossier.png" width="200" alt="Promised vs delivered dossier">
-</p>
-<p align="center">
-  <img src="docs/media/watch.png" width="200" alt="Watch: holdings">
-  <img src="docs/media/brain.png" width="200" alt="Company brain">
-  <img src="docs/media/watch-detail.png" width="200" alt="A watch and its runs">
-  <img src="docs/media/welcome-touch.png" width="200" alt="Onboarding tour">
-</p>
-<p align="center"><sub>Left to right: data-centre exposure as cards · IT results as a table and chart · eMudhra's timeline · L&T promised vs delivered · holdings · L&T's brain · a watch and its runs · the tour</sub></p>
+<sub>Scroll sideways →</sub>
+
+<table>
+<tr>
+<td align="center"><img src="docs/media/ask-cards.png" width="220" alt="Data-centre exposure as cards"><br><sub>Data-centre exposure as cards</sub></td>
+<td align="center"><img src="docs/media/ask-table.png" width="220" alt="IT results: table and chart"><br><sub>IT results: table and chart</sub></td>
+<td align="center"><img src="docs/media/ask-timeline.png" width="220" alt="eMudhra's October, dated"><br><sub>eMudhra's October, dated</sub></td>
+<td align="center"><img src="docs/media/ask-scenario.png" width="220" alt="L&T what-if"><br><sub>L&T what-if</sub></td>
+<td align="center"><img src="docs/media/dossier.png" width="220" alt="L&T promised vs delivered"><br><sub>L&T promised vs delivered</sub></td>
+<td align="center"><img src="docs/media/company.png" width="220" alt="Company: price and its brain"><br><sub>Company: price and its brain</sub></td>
+<td align="center"><img src="docs/media/brain.png" width="220" alt="L&T's brain"><br><sub>L&T's brain</sub></td>
+<td align="center"><img src="docs/media/watch.png" width="220" alt="Holdings"><br><sub>Holdings</sub></td>
+<td align="center"><img src="docs/media/watch-detail.png" width="220" alt="A watch and its runs"><br><sub>A watch and its runs</sub></td>
+<td align="center"><img src="docs/media/brief.png" width="220" alt="The Brief"><br><sub>The Brief</sub></td>
+<td align="center"><img src="docs/media/welcome-touch.png" width="220" alt="The tour"><br><sub>The tour</sub></td>
+</tr>
+</table>
 
 ## How it works
 
