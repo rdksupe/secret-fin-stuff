@@ -107,8 +107,12 @@ def _log_cost(db: Session, feature: str, model: str, tokens: int, cost: float) -
 
 
 def process(
-    db: Session, nse: NSE, doc: Document, *, allow_chandra: bool = True, force_parse: bool = False
+    db: Session, nse: NSE, doc: Document, *, allow_chandra: bool = True, force_parse: bool = False,
+    build_tree: bool = False,
 ) -> Document:
+    """Triage, convert and file one PDF. `build_tree` adds the PageIndex outline: memory-hungry
+    (hundreds of MB for an annual report on the 1 GB worker), so only dossier research asks for it;
+    background ingest and the agent's fetch tools read text only."""
     brain = Brain(doc.symbol)
     if not brain.exists:
         brain.scaffold()
@@ -201,7 +205,7 @@ def process(
     doc.wiki_path = str(page.relative_to(brain.wiki))
 
     # 3. PageIndex tree for long documents
-    if doc.pages >= TREE_MIN_PAGES and pageindex.available():
+    if build_tree and doc.pages >= TREE_MIN_PAGES and pageindex.available():
         try:
             tree = pageindex.build_tree(pdf_path)
             text_page = doc.wiki_path[:-3]
@@ -270,7 +274,7 @@ def run_research_docs(db: Session, nse: NSE, symbol: str, on_doc=None) -> list[D
     for i, d in enumerate(todo):
         if on_doc:
             on_doc(i, len(todo), d)
-        out.append(process(db, nse, d, allow_chandra=False))
+        out.append(process(db, nse, d, allow_chandra=False, build_tree=True))  # the dossier reads the outline
     return out
 
 

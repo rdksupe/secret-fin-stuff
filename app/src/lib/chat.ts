@@ -175,7 +175,10 @@ export function useConversation(id: string | null) {
   }, []);
 
   const upsert = useCallback((m: ChatMessage) => {
-    setMessages((ms) => {
+    setMessages((prev) => {
+      // The server's copy of something we just sent replaces our instant local echo,
+      // whichever arrives first: the POST response or the live stream.
+      const ms = m.role === 'user' && !m.id.startsWith('local-') ? prev.filter((x) => !(x.id.startsWith('local-') && x.text === m.text)) : prev;
       const i = ms.findIndex((x) => x.id === m.id);
       if (i === -1) return [...ms, m];
       const next = ms.slice();
@@ -244,10 +247,15 @@ export function useConversation(id: string | null) {
   const send = useCallback(
     async (text: string, context?: string, replyTo?: string) => {
       if (!id || !text.trim()) return;
+      // Show it the instant it's sent; the server's copy swaps in when it lands.
+      const local = `local-${Date.now()}`;
+      upsert({ id: local, role: 'user', kind: 'message', text: text.trim(), payload: {}, final: true, proactive: false, at: new Date().toISOString() });
+      setTypingAt(Date.now());
       try {
         const m = await api.post<ChatMessage>(`/conversations/${id}/messages`, { text: text.trim(), context, reply_to: replyTo });
         upsert(m);
       } catch (e: any) {
+        setMessages((ms) => ms.filter((x) => x.id !== local));
         upsert({
           id: `err-${Date.now()}`,
           role: 'finn',

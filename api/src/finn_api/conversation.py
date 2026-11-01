@@ -107,9 +107,32 @@ async def say(chat_id: str, body: Say, db: Session = Depends(get_db)):
     _publish(chat_id, {"type": "message", "message": _msg(m)})
     # Context rides along as a bracketed preface the agent can see; the user sees their own words.
     agent_text = f"[{body.context}]\n{text}" if body.context else text
-    await _bridge("/inbound", {"chat_id": chat_id, "user_id": chat_id, "text": agent_text, "message_id": m.id,
-                               "reply_to": quote})
+    # Answer the app at once and hand off to Hermes in the background: the app must not wait on the
+    # agent's event loop (seconds when the worker is busy) to show that the message arrived.
+    _publish(chat_id, {"type": "typing"})
+    task = asyncio.create_task(_handoff(chat_id, m.id, agent_text, quote))
+    _handoffs.add(task)
+    task.add_done_callback(_handoffs.discard)
     return _msg(m)
+
+
+_handoffs: set[asyncio.Task] = set()
+
+
+async def _handoff(chat_id: str, message_id: str, text: str, quote: dict | None) -> None:
+    try:
+        await _bridge("/inbound", {"chat_id": chat_id, "user_id": chat_id, "text": text, "message_id": message_id,
+                                   "reply_to": quote})
+    except Exception as e:  # tell the chat rather than fail silently
+        log.warning("hand-off to Hermes failed for %s: %s", chat_id, e)
+        from finn_api.db import SessionLocal
+
+        with SessionLocal() as db:
+            err = ChatMessage(chat_id=chat_id, role="finn", kind="message", final=True,
+                              text="FINN couldn't pick that up just now. Send it again in a moment.")
+            db.add(err)
+            db.commit()
+            _publish(chat_id, {"type": "message", "message": _msg(err)})
 
 
 class React(BaseModel):
