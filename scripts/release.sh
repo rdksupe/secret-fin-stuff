@@ -63,6 +63,7 @@ body { font-family: "Public Sans", Arial, sans-serif; color: #14201E; font-size:
 h1 { font-family: "Josefin Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #F4F7F5; background: #1E4D47; padding: 14px 18px; font-size: 18pt; margin: 0 0 14px; }
 h2 { color: #1E4D47; font-size: 13pt; border-bottom: 1px solid #C5D0CB; padding-bottom: 4px; margin-top: 22px; }
 code { font-size: 9.5pt; background: #E6ECE8; padding: 0 3px; }
+pre { background: #E6ECE8; padding: 10px 12px; font-size: 8.5pt; line-height: 1.35; } pre code { background: none; padding: 0; font-size: inherit; }
 table { border-collapse: collapse; width: 100%; } th, td { border-bottom: 1px solid #C5D0CB; padding: 5px 6px; text-align: left; }
 a { color: #1E4D47; }
 CSS

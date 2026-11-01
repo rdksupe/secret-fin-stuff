@@ -33,7 +33,7 @@ guidance, narrative vs numbers, bull/bear — use **only** its brain's `results/
   brain, go down the lookup order below; don't guess.
 - Cite every claim as a tappable source: `[[TCS:transcripts/2026-10-concall#Page 14|Q2 call p14]]`,
   `[[TCS:results/2026-09-30|Q2 FY27 results]]`. The reader taps it to see the passage.
-- If a brain is missing or thin, run the `finn-research` skill to build it first.
+- If a brain is missing or thin, build it first with `finn_onboard`, then `finn_dossier`.
 
 ## Speed
 The investor is on a phone, waiting. Every tool call costs them seconds.
