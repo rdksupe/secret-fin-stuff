@@ -1,11 +1,11 @@
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 
-import { AskIcon } from '@/components/icons';
+import { Deck } from '@/components/deck';
 import { TopBar } from '@/components/top-bar';
 import { Screen } from '@/components/screen';
-import { LeadStory, Rule, StoryRow } from '@/components/story-row';
+import { Rule, StoryRow } from '@/components/story-row';
 import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
 import { api, type Digest, type Status, type Story } from '@/lib/api';
 import { ago, headline, when } from '@/lib/format';
@@ -46,6 +46,64 @@ function WindowPicker({ hours, onChange }: { hours: number; onChange: (h: number
         );
       })}
     </View>
+  );
+}
+
+// Filter buckets over the filing taxonomy; chips only appear for buckets with stories.
+const BUCKETS: { key: string; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'results', label: 'Results' },
+  { key: 'people', label: 'People' },
+  { key: 'deals', label: 'Deals' },
+  { key: 'risk', label: 'Risk' },
+  { key: 'moves', label: 'Moves' },
+  { key: 'other', label: 'Other' },
+];
+
+function bucket(s: Story): string {
+  const h = s.head;
+  if (s.situation || h.kind === 'signal') return 'moves';
+  if (h.kind === 'results' || h.category === 'results') return 'results';
+  if (['management', 'auditor', 'governance'].includes(h.category)) return 'people';
+  if (['mna', 'orders', 'capital'].includes(h.category)) return 'deals';
+  if (['distress', 'rating', 'legal'].includes(h.category)) return 'risk';
+  return 'other';
+}
+
+function Filters({ stories, value, onChange }: { stories: Story[]; value: string; onChange: (k: string) => void }) {
+  const counts = stories.reduce<Record<string, number>>((a, s) => ({ ...a, [bucket(s)]: (a[bucket(s)] ?? 0) + 1 }), {});
+  const shown = BUCKETS.filter((b) => b.key === 'all' || counts[b.key]);
+  if (shown.length <= 2) return null; // one kind of story: nothing to filter
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -space.l, marginTop: space.l }} contentContainerStyle={{ gap: 8, paddingHorizontal: space.l }}>
+      {shown.map((b) => {
+        const on = value === b.key;
+        const n = b.key === 'all' ? stories.length : counts[b.key];
+        return (
+          <Pressable
+            key={b.key}
+            onPress={() => onChange(b.key)}
+            hitSlop={6}
+            accessibilityRole="button"
+            accessibilityState={{ selected: on }}
+            accessibilityLabel={`${b.label}, ${n}`}
+            style={({ pressed }) => ({
+              height: 36,
+              paddingHorizontal: 14,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 6,
+              borderRadius: 8,
+              borderWidth: 1,
+              borderColor: on ? color.sea : color.line,
+              backgroundColor: on ? color.seaTint : pressed ? color.inset : color.raised,
+            })}>
+            <Body size={size.small} c={on ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{b.label}</Body>
+            <Figure size={12} c={on ? color.sea : color.text3}>{n}</Figure>
+          </Pressable>
+        );
+      })}
+    </ScrollView>
   );
 }
 
@@ -124,18 +182,22 @@ export default function Brief() {
     setRefreshing(false);
   };
 
-  const [lead, ...restAlerts] = digest?.alert ?? [];
-  const onFile = digest?.list ?? [];
+  const [filter, setFilter] = useState('all');
+  const all = [...(digest?.alert ?? []), ...(digest?.brief ?? []), ...(digest?.list ?? [])];
+  const keep = (s: Story) => filter === 'all' || bucket(s) === filter;
+  const needs = (digest?.alert ?? []).filter(keep);
+  const worth = (digest?.brief ?? []).filter(keep);
+  const onFile = (digest?.list ?? []).filter(keep);
   const routine = digest ? Object.entries(digest.routine) : [];
 
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
       <TopBar title="FINN" below={<WindowPicker hours={hours} onChange={setHours} />} />
-      <Screen refreshing={refreshing} onRefresh={refresh} bottomPad={96}>
+      <Screen refreshing={refreshing} onRefresh={refresh} bottomPad={space.xl}>
         <View>
           {error ? (
             <Body c={color.text2}>
-              FINN's server didn't respond ({error}). Pull down to try again.
+              {error} Pull down to try again.
             </Body>
           ) : digest ? (
             <Body c={color.text2}>{statusLine(hours, digest, status)}</Body>
@@ -154,21 +216,21 @@ export default function Brief() {
           )}
         </View>
 
-        {lead && (
+        <Filters stories={all} value={filter} onChange={setFilter} />
+
+        {needs.length > 0 && (
           <View style={{ marginTop: space.xl }}>
-            <LeadStory story={lead} />
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginBottom: space.s }}>
+              <Title size={size.lead}>Needs you</Title>
+              <Figure size={14} c={color.text3}>{needs.length}</Figure>
+            </View>
+            <Deck stories={needs} />
           </View>
         )}
 
-        {restAlerts.length > 0 && (
-          <Section title="Also needs you" count={restAlerts.length}>
-            <List items={restAlerts} />
-          </Section>
-        )}
-
-        {digest && digest.brief.length > 0 && (
-          <Section title="Worth a look" count={digest.brief.length}>
-            <List items={digest.brief} />
+        {worth.length > 0 && (
+          <Section title="Worth a look" count={worth.length}>
+            <List items={worth} />
           </Section>
         )}
 
@@ -209,38 +271,15 @@ export default function Brief() {
           </View>
         )}
 
-        {digest && !lead && digest.brief.length === 0 && onFile.length === 0 && (
+        {digest && needs.length === 0 && worth.length === 0 && onFile.length === 0 && (
           <Body c={color.text2} style={{ marginTop: space.xl }}>
-            Nothing from your companies in this window. Pick a longer range, or ask FINN about one of them.
+            {filter === 'all'
+              ? 'Nothing from your companies in this window. Pick a longer range, or ask FINN about one of them.'
+              : 'Nothing of this kind in this window.'}
           </Body>
         )}
       </Screen>
 
-      {/* Material extended FAB: the screen's one primary action. */}
-      <Pressable
-        onPress={() => router.push('/ask')}
-        accessibilityRole="button"
-        accessibilityLabel="Ask FINN about any of this"
-        style={({ pressed }) => ({
-          position: 'absolute',
-          right: space.l,
-          bottom: space.l,
-          height: 56,
-          paddingHorizontal: 20,
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: 12,
-          backgroundColor: pressed ? '#25605A' : color.sea,
-          borderRadius: 16,
-          shadowColor: '#0B1F1C',
-          shadowOpacity: 0.22,
-          shadowRadius: 8,
-          shadowOffset: { width: 0, height: 4 },
-          elevation: 4,
-        })}>
-        <AskIcon c={color.onSea} />
-        <Body c={color.onSea} style={{ fontFamily: font.semibold }}>Ask FINN</Body>
-      </Pressable>
     </View>
   );
 }

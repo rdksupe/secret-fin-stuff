@@ -35,13 +35,14 @@ export function Setback({ steps, size = 18, ink = color.sea, onSea = false }: { 
 }
 
 /** The reversed sea-green plate with a stepped crown. One per screen: the single most material thing. */
-export function SetbackPlate({ children, style }: { children: ReactNode; style?: ViewStyle }) {
+export function SetbackPlate({ children, style, fill = false }: { children: ReactNode; style?: ViewStyle; fill?: boolean }) {
   // Two fixed setbacks (14dp in, 7dp up) so the crown keeps its proportions at any width.
+  // `fill` stretches the plate to its container (equal-height cards in the deck).
   return (
-    <View style={style}>
+    <View style={[fill ? { flex: 1 } : null, style]}>
       <View style={{ height: 7, marginHorizontal: 28, backgroundColor: color.sea }} />
       <View style={{ height: 7, marginHorizontal: 14, backgroundColor: color.sea }} />
-      <View style={{ backgroundColor: color.sea, paddingHorizontal: 18, paddingBottom: 18, paddingTop: 10 }}>{children}</View>
+      <View style={{ backgroundColor: color.sea, paddingHorizontal: 18, paddingBottom: 18, paddingTop: 10, flex: fill ? 1 : undefined }}>{children}</View>
     </View>
   );
 }

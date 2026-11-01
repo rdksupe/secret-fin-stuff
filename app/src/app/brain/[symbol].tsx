@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native';
 
-import { AskBar } from '@/components/ask-bar';
+import { AskAction, AskButton } from '@/components/ask-bar';
 import { CloseIcon } from '@/components/icons';
 import { TopBar } from '@/components/top-bar';
 import { BrainTree, openBrainPage } from '@/components/brain';
@@ -115,7 +115,7 @@ function BrainHome({ sym }: { sym: string }) {
 
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
-      <TopBar back title={`${sym} brain`} />
+      <TopBar back title={`${sym} brain`} right={<AskAction symbol={sym} />} />
       <Screen bottomPad={space.xl}>
         <Body c={color.text2} size={14} style={{ marginBottom: space.l }}>
           {brain ? `${total} pages FINN reads before it answers. ` : ''}Plain markdown from the company's own filings, results and calls, linked like a wiki.
@@ -131,7 +131,6 @@ function BrainHome({ sym }: { sym: string }) {
           )}
         </View>
       </Screen>
-      <AskBar symbol={sym} />
     </View>
   );
 }
@@ -162,7 +161,7 @@ function BrainPage({ sym, path, section }: { sym: string; path: string; section?
 
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
-      <TopBar back title={`${sym} brain`} />
+      <TopBar back title={`${sym} brain`} right={<AskAction symbol={sym} page={path} />} />
       <Screen bottomPad={space.xl}>
         <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6 }}>
           <Pressable onPress={() => router.push({ pathname: '/brain/[symbol]', params: { symbol: sym } } as never)} hitSlop={6}>
@@ -203,8 +202,8 @@ function BrainPage({ sym, path, section }: { sym: string; path: string; section?
             Long document; showing about {Math.round(md.length / 2000)} pages from here. Search finds passages anywhere in it.
           </Body>
         ) : null}
+        {md ? <AskButton symbol={sym} page={path} label="Ask FINN about this page" /> : null}
       </Screen>
-      <AskBar symbol={sym} page={path} label="Ask FINN about this page" />
     </View>
   );
 }

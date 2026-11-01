@@ -14,11 +14,25 @@ export class ApiError extends Error {
   }
 }
 
+/** Say what went wrong in the investor's terms; the raw transport error stays in the log. */
+export function networkMessage(e: unknown): string {
+  const raw = String((e as Error)?.message ?? e);
+  console.warn('FINN request failed', raw);
+  if (/certif|trust anchor|ssl|handshake/i.test(raw))
+    return "Can't reach FINN's server securely. This network may be blocking it; try another network or turn off the VPN.";
+  return "Can't reach FINN's server. Check your connection.";
+}
+
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const res = await globalThis.fetch(`${API_BASE}/api${path}`, {
-    ...init,
-    headers: headers({ 'Content-Type': 'application/json', ...((init.headers as Record<string, string>) ?? {}) }),
-  });
+  let res: Response;
+  try {
+    res = await globalThis.fetch(`${API_BASE}/api${path}`, {
+      ...init,
+      headers: headers({ 'Content-Type': 'application/json', ...((init.headers as Record<string, string>) ?? {}) }),
+    });
+  } catch (e) {
+    throw new ApiError(0, networkMessage(e));
+  }
   if (!res.ok) {
     let detail = res.statusText;
     try {

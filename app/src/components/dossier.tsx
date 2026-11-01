@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native';
 
 import { api } from '@/lib/api';
 import { quarterLabel } from '@/lib/format';
-import { color, size, space, touch } from '@/theme';
+import { color, font, size, space, touch } from '@/theme';
 
 import { Rule } from './story-row';
 import { Body, Medium, Figure, Pct, Strong, Title } from './type';
@@ -143,12 +143,22 @@ export function DossierView({ symbol }: { symbol: string }) {
           <Body>{d.snapshot.what_it_does}</Body>
           {(d.snapshot.segments ?? []).length > 0 && (
             <View style={{ marginTop: space.m }}>
-              {d.snapshot.segments!.map((s) => (
-                <View key={s.name} style={{ flexDirection: 'row', gap: space.m, paddingVertical: 7, borderBottomWidth: 1, borderColor: color.line }}>
-                  <Body size={size.small} style={{ flex: 1 }}>{s.name}</Body>
-                  <Figure size={13} c={color.text2}>{s.share}</Figure>
-                </View>
-              ))}
+              {d.snapshot.segments!.map((s) => {
+                // A share is usually "34%", but the annual report sometimes only gives a sentence;
+                // short shares sit in a right column, long ones go under the name.
+                // "not stated (FY26 revenue ₹79,785 crore)" → "FY26 revenue ₹79,785 crore"; bare "not stated" → nothing.
+                const share = (s.share ?? '').replace(/^not stated\s*\(?/i, '').replace(/\)$/, '').trim();
+                const short = share.length <= 14;
+                return (
+                  <View key={s.name} style={{ paddingVertical: 9, borderBottomWidth: 1, borderColor: color.line }}>
+                    <View style={{ flexDirection: 'row', gap: space.m, alignItems: 'baseline' }}>
+                      <Body size={size.small} style={{ flex: 1, fontFamily: font.semibold }}>{s.name}</Body>
+                      {short && share ? <Figure size={13} c={color.text2}>{share}</Figure> : null}
+                    </View>
+                    {!short && share ? <Body size={size.meta} c={color.text2} style={{ marginTop: 2 }}>{share}</Body> : null}
+                  </View>
+                );
+              })}
             </View>
           )}
           {(d.snapshot.key_facts ?? []).slice(0, 4).map((k) => (

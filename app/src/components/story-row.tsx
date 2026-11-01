@@ -6,6 +6,7 @@ import { headline, quarterLabel, when } from '@/lib/format';
 import { color, deco, font, size, space } from '@/theme';
 
 import { Setback, SetbackPlate } from './deco';
+import { ChevronRight } from './icons';
 
 import { ResultsStrip } from './results';
 import { Body, Medium, Figure, Pct, Ticker, Title } from './type';
@@ -75,10 +76,10 @@ function open(story: Story) {
  * The single most material story, reversed onto the sea-green plate with a stepped crown.
  * One per screen: rank is carried by this reversal, not by piling on sizes.
  */
-export function LeadStory({ story }: { story: Story }) {
+export function LeadStory({ story, fill = false }: { story: Story; fill?: boolean }) {
   return (
-    <Pressable onPress={() => open(story)} accessibilityRole="button" style={({ pressed }) => ({ opacity: pressed ? 0.88 : 1 })}>
-      <SetbackPlate>
+    <Pressable onPress={() => open(story)} accessibilityRole="button" style={({ pressed }) => ({ opacity: pressed ? 0.88 : 1, flex: fill ? 1 : undefined })}>
+      <SetbackPlate fill={fill}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <Ticker size={deco.lead} c={color.brassOnSea}>{story.symbol}</Ticker>
           <View style={{ flex: 1 }} />
@@ -89,15 +90,24 @@ export function LeadStory({ story }: { story: Story }) {
           {[kindLabel(story), refLine(story)].join(' · ')}
           {flaggedByFinn(story) ? ' · raised by FINN' : ''}
         </Figure>
-        <Title size={21} c={color.onSea} style={{ marginTop: space.m, fontFamily: font.bold, lineHeight: 27 }}>
+        <Title size={21} c={color.onSea} numberOfLines={fill ? 3 : undefined} style={{ marginTop: space.m, fontFamily: font.bold, lineHeight: 27 }}>
           {headline(story.head.title, story.head.summary)}
         </Title>
-        {story.head.payload.results ? (
+        {story.head.payload.results && !fill ? (
           <View style={{ marginTop: space.m }}>
             <ResultsStrip card={story.head.payload.results} onSea />
           </View>
         ) : null}
         <Detail story={story} onSea />
+        {fill ? (
+          // In the deck the plates share a height; the open action sits at the foot of each.
+          <View style={{ flex: 1, minHeight: space.l, justifyContent: 'flex-end' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingTop: space.m, borderTopWidth: 1, borderTopColor: 'rgba(238,244,241,0.18)' }}>
+              <Body size={size.small} c={color.onSea2} style={{ flex: 1, fontFamily: font.semibold }}>Open story</Body>
+              <ChevronRight c={color.onSea2} size={18} />
+            </View>
+          </View>
+        ) : null}
       </SetbackPlate>
     </Pressable>
   );

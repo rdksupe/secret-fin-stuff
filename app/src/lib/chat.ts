@@ -246,7 +246,7 @@ export function useConversation(id: string | null) {
           id: `err-${Date.now()}`,
           role: 'finn',
           kind: 'message',
-          text: `Couldn't reach FINN: ${e?.message ?? 'network error'}`,
+          text: e?.message ?? "Can't reach FINN's server. Check your connection.",
           payload: {},
           final: true,
           proactive: false,

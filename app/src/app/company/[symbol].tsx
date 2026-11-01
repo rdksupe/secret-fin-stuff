@@ -2,7 +2,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, View } from 'react-native';
 
-import { AskBar } from '@/components/ask-bar';
+import { AskAction, AskButton } from '@/components/ask-bar';
 import { TopBar } from '@/components/top-bar';
 import { BrainEntry, openBrainPage } from '@/components/brain';
 import { DossierView } from '@/components/dossier';
@@ -73,6 +73,7 @@ export default function Company() {
       <TopBar
         back
         title={sym}
+        right={<AskAction symbol={sym} />}
         below={
           last ? (
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12 }}>
@@ -170,9 +171,9 @@ export default function Company() {
             )}
 
         </>
+        <AskButton symbol={sym} label={`Research ${sym} with FINN`} />
       </Screen>
 
-      <AskBar symbol={sym} label={`Research ${sym} with FINN`} />
     </View>
   );
 }

@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { Linking, Pressable, View } from 'react-native';
 
 import { Setback } from '@/components/deco';
-import { AskIcon, ChevronRight } from '@/components/icons';
+import { AskAction, AskButton } from '@/components/ask-bar';
+import { ChevronRight } from '@/components/icons';
 import { ResultsTable } from '@/components/results';
 import { Screen } from '@/components/screen';
 import { TopBar } from '@/components/top-bar';
@@ -24,8 +25,8 @@ const NOUL_LABELS: Record<string, string> = {
   routine: 'Routine paperwork',
 };
 
-function Back({ title = 'Story' }: { title?: string }) {
-  return <TopBar back title={title} />;
+function Back({ title = 'Story', ask }: { title?: string; ask?: { symbol: string; feed: string } }) {
+  return <TopBar back title={title} right={ask ? <AskAction {...ask} /> : undefined} />;
 }
 
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
@@ -157,7 +158,7 @@ export default function StoryScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
-      <Back title={story.symbol} />
+      <Back title={story.symbol} ask={{ symbol: story.symbol, feed: h.id }} />
       <Screen bottomPad={space.xl}>
         <Pressable
           onPress={() => router.push({ pathname: '/company/[symbol]', params: { symbol: story.symbol } })}
@@ -243,27 +244,8 @@ export default function StoryScreen() {
             </Pressable>
           </View>
         </View>
+        <AskButton symbol={story.symbol} feed={h.id} label="Ask FINN about this" />
       </Screen>
-
-      <View style={{ borderTopWidth: 1, borderTopColor: color.line, backgroundColor: color.bg, alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.m, paddingBottom: space.l }}>
-        <Pressable
-          onPress={() => router.push({ pathname: '/ask', params: { feed: h.id, symbol: story.symbol } })}
-          accessibilityRole="button"
-          style={({ pressed }) => ({
-            width: '100%',
-            maxWidth: 608,
-            height: 56,
-            flexDirection: 'row',
-            gap: 10,
-            backgroundColor: pressed ? '#25605A' : color.sea,
-            borderRadius: 28,
-            justifyContent: 'center',
-            alignItems: 'center',
-          })}>
-          <AskIcon c={color.onSea} />
-          <Strong c={color.onSea}>Ask FINN about this</Strong>
-        </Pressable>
-      </View>
     </View>
   );
 }
