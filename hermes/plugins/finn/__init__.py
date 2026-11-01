@@ -238,7 +238,9 @@ SCHEMAS = {
     "finn_fetch_reports": {
         "description": "Older annual reports and concall transcripts (from the company's documents index on "
                        "BSE / company IR), read into the brain: e.g. annual_reports 7 reaches back ~7 years. "
-                       "Returns every annual report and transcript the brain now holds. Slow (minutes) for many.",
+                       "SLOW: each annual report is ~300 pages. Use only for what filings don't have (segment "
+                       "detail, multi-year tables, pre-2010); for sales, results and announcements use "
+                       "finn_filings + finn_ingest instead.",
         "parameters": {"type": "object", "properties": {
             "symbol": S, "annual_reports": {"type": "integer"}, "transcripts": {"type": "integer"},
         }, "required": ["symbol"]},

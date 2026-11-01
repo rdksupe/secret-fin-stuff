@@ -60,7 +60,12 @@ The crons keep brains current; history is fetched on demand. For "compare with O
 1. `finn_filings(symbol, start="2019-10-01", end="2019-11-30", query="sales")` → the filings and PDF links.
 2. `finn_ingest(symbol, urls=[…])` for the ones you need (they land in the brain, cited like any page).
 3. `finn_brain_search` / `read_file` the new pages, then answer.
-For older annual reports or calls use `finn_fetch_reports`. Never scrape with the terminal or write download scripts.
+**Filings first.** NSE filings with documents go back to mid-2010 (the list alone to 2004): monthly
+sales releases, results, press releases, investor decks. They are small and read in seconds, so
+for any period figure (monthly or annual sales, quarterly numbers, an announcement) use
+`finn_filings` + `finn_ingest`. Fetch annual reports with `finn_fetch_reports` only for what only
+an annual report holds (segment detail, multi-year summary tables, years before 2010), and only
+the years you need: each is ~300 pages and slow. Never scrape with the terminal or write download scripts.
 
 ## Show, don't just tell: answer blocks the app draws
 
