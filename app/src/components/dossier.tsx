@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { api } from '@/lib/api';
 import { quarterLabel } from '@/lib/format';
-import { color, size, space } from '@/theme';
+import { color, size, space, touch } from '@/theme';
 
 import { Rule } from './story-row';
-import { Body, Medium, Mono, Pct, Strong, Title } from './type';
+import { Body, Medium, Figure, Pct, Strong, Title } from './type';
 
 type Row = { call: string; promise: string; delivered: string; status: string; cite?: string };
 type Quarter = { period_end: string; labels: string[]; revenue: number | null; revenue_yoy: number | null; pat: number | null; pat_yoy: number | null; margin: number | null };
@@ -28,14 +28,14 @@ function BuildProgress({ p }: { p?: Progress | null }) {
   const pct = Math.max(0.03, Math.min(1, p?.pct ?? 0.03));
   return (
     <View style={{ marginTop: space.l }}>
-      <View style={{ height: 4, borderRadius: 2, backgroundColor: color.hairline, overflow: 'hidden' }}>
-        <View style={{ width: `${pct * 100}%`, height: 4, borderRadius: 2, backgroundColor: color.marigold }} />
+      <View style={{ height: 4, borderRadius: 2, backgroundColor: color.line, overflow: 'hidden' }}>
+        <View style={{ width: `${pct * 100}%`, height: 4, borderRadius: 2, backgroundColor: color.brassText }} />
       </View>
       <View style={{ flexDirection: 'row', marginTop: space.s }}>
-        <Body size={size.small} c={color.paper} style={{ flex: 1 }}>{p?.step ?? 'Starting'}</Body>
-        <Mono size={12} c={color.dim}>{Math.round(pct * 100)}%</Mono>
+        <Body size={size.small} c={color.text} style={{ flex: 1 }}>{p?.step ?? 'Starting'}</Body>
+        <Figure size={12} c={color.text3}>{Math.round(pct * 100)}%</Figure>
       </View>
-      <Body size={size.meta} c={color.dim} style={{ marginTop: 4 }}>
+      <Body size={size.meta} c={color.text3} style={{ marginTop: 4 }}>
         You can leave this screen. FINN sends a notification when it's ready.
       </Body>
     </View>
@@ -44,10 +44,10 @@ function BuildProgress({ p }: { p?: Progress | null }) {
 
 const STATUS: Record<string, { label: string; c: string }> = {
   delivered: { label: 'Delivered', c: color.gain },
-  partly: { label: 'Partly', c: color.marigold },
+  partly: { label: 'Partly', c: color.brassText },
   missed: { label: 'Missed', c: color.loss },
-  'too early': { label: 'Too early', c: color.mist },
-  'not measurable': { label: 'Not measurable', c: color.dim },
+  'too early': { label: 'Too early', c: color.text2 },
+  'not measurable': { label: 'Not measurable', c: color.text3 },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -86,7 +86,7 @@ export function DossierView({ symbol }: { symbol: string }) {
   if (!d) {
     return (
       <Section title="Research">
-        <Body c={color.mist}>
+        <Body c={color.text2}>
           {r.status === 'building'
             ? `Reading ${symbol}'s annual report and last four call transcripts. This takes a few minutes.`
             : r.status === 'failed'
@@ -96,8 +96,8 @@ export function DossierView({ symbol }: { symbol: string }) {
         {r.status === 'building' ? (
           <BuildProgress p={r.progress} />
         ) : (
-          <Pressable onPress={build} accessibilityRole="button" style={{ marginTop: space.l, alignSelf: 'flex-start', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 10, backgroundColor: color.paper }}>
-            <Strong size={size.small} c={color.ink}>Build research</Strong>
+          <Pressable onPress={build} accessibilityRole="button" style={{ marginTop: space.l, alignSelf: 'flex-start', height: touch, paddingHorizontal: 24, justifyContent: 'center', borderRadius: touch / 2, backgroundColor: color.sea }}>
+            <Strong size={size.small} c={color.onSea}>Build research</Strong>
           </Pressable>
         )}
       </Section>
@@ -113,10 +113,10 @@ export function DossierView({ symbol }: { symbol: string }) {
       {pvd.rows && pvd.rows.length > 0 && (
         <Section title="Promised vs delivered">
           <Body>
-            {pvd.score ? <Strong c={pvd.score === 'high' ? color.gain : pvd.score === 'low' ? color.loss : color.marigold}>{pvd.score.charAt(0).toUpperCase() + pvd.score.slice(1)} credibility. </Strong> : null}
+            {pvd.score ? <Strong c={pvd.score === 'high' ? color.gain : pvd.score === 'low' ? color.loss : color.brassText}>{pvd.score.charAt(0).toUpperCase() + pvd.score.slice(1)} credibility. </Strong> : null}
             {pvd.verdict}
           </Body>
-          <Body size={size.meta} c={color.dim} style={{ marginTop: space.xs }}>
+          <Body size={size.meta} c={color.text3} style={{ marginTop: space.xs }}>
             {Object.entries(counts).map(([k, v]) => `${v} ${STATUS[k]?.label.toLowerCase() ?? k}`).join(' · ')} · from {d.guidance.length} calls
           </Body>
           <View style={{ marginTop: space.m }}>
@@ -125,12 +125,12 @@ export function DossierView({ symbol }: { symbol: string }) {
                 <Rule />
                 <View style={{ paddingVertical: space.m }}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: STATUS[row.status]?.c ?? color.dim }} />
-                    <Body size={size.meta} c={STATUS[row.status]?.c ?? color.dim}>{STATUS[row.status]?.label ?? row.status}</Body>
-                    <Body size={size.meta} c={color.dim}>· {row.call}</Body>
+                    <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: STATUS[row.status]?.c ?? color.text3 }} />
+                    <Body size={size.meta} c={STATUS[row.status]?.c ?? color.text3}>{STATUS[row.status]?.label ?? row.status}</Body>
+                    <Body size={size.meta} c={color.text3}>· {row.call}</Body>
                   </View>
                   <Medium size={size.body} style={{ marginTop: 6 }}>{row.promise}</Medium>
-                  <Body size={size.small} c={color.mist} style={{ marginTop: 2 }}>{row.delivered}</Body>
+                  <Body size={size.small} c={color.text2} style={{ marginTop: 2 }}>{row.delivered}</Body>
                 </View>
               </View>
             ))}
@@ -144,17 +144,17 @@ export function DossierView({ symbol }: { symbol: string }) {
           {(d.snapshot.segments ?? []).length > 0 && (
             <View style={{ marginTop: space.m }}>
               {d.snapshot.segments!.map((s) => (
-                <View key={s.name} style={{ flexDirection: 'row', gap: space.m, paddingVertical: 7, borderBottomWidth: 1, borderColor: color.hairline }}>
+                <View key={s.name} style={{ flexDirection: 'row', gap: space.m, paddingVertical: 7, borderBottomWidth: 1, borderColor: color.line }}>
                   <Body size={size.small} style={{ flex: 1 }}>{s.name}</Body>
-                  <Mono size={13} c={color.mist}>{s.share}</Mono>
+                  <Figure size={13} c={color.text2}>{s.share}</Figure>
                 </View>
               ))}
             </View>
           )}
           {(d.snapshot.key_facts ?? []).slice(0, 4).map((k) => (
-            <Body key={k} size={size.small} c={color.mist} style={{ marginTop: space.s }}>{k}</Body>
+            <Body key={k} size={size.small} c={color.text2} style={{ marginTop: space.s }}>{k}</Body>
           ))}
-          <Body size={size.meta} c={color.dim} style={{ marginTop: space.s }}>
+          <Body size={size.meta} c={color.text3} style={{ marginTop: space.s }}>
             From the annual report{d.snapshot.pages?.length ? `, pages ${d.snapshot.pages.slice(0, 6).join(', ')}` : ''}
           </Body>
         </Section>
@@ -162,21 +162,21 @@ export function DossierView({ symbol }: { symbol: string }) {
 
       {recent.length > 1 && (
         <Section title="Trajectory">
-          <View style={{ flexDirection: 'row', paddingBottom: space.s, borderBottomWidth: 1, borderColor: color.hairline }}>
-            <Body size={size.meta} c={color.dim} style={{ flex: 1 }}>Quarter</Body>
-            <Body size={size.meta} c={color.dim} style={{ width: 72, textAlign: 'right' }}>{recent[0].labels[0]} YoY</Body>
-            <Body size={size.meta} c={color.dim} style={{ width: 64, textAlign: 'right' }}>Margin</Body>
-            <Body size={size.meta} c={color.dim} style={{ width: 72, textAlign: 'right' }}>PAT YoY</Body>
+          <View style={{ flexDirection: 'row', paddingBottom: space.s, borderBottomWidth: 1, borderColor: color.line }}>
+            <Body size={size.meta} c={color.text3} style={{ flex: 1 }}>Quarter</Body>
+            <Body size={size.meta} c={color.text3} style={{ width: 72, textAlign: 'right' }}>{recent[0].labels[0]} YoY</Body>
+            <Body size={size.meta} c={color.text3} style={{ width: 64, textAlign: 'right' }}>Margin</Body>
+            <Body size={size.meta} c={color.text3} style={{ width: 72, textAlign: 'right' }}>PAT YoY</Body>
           </View>
           {recent.map((q) => (
-            <View key={q.period_end} style={{ flexDirection: 'row', alignItems: 'baseline', paddingVertical: 9, borderBottomWidth: 1, borderColor: color.hairline }}>
-              <Mono size={13} c={color.mist} style={{ flex: 1 }}>{quarterLabel(q.period_end)}</Mono>
+            <View key={q.period_end} style={{ flexDirection: 'row', alignItems: 'baseline', paddingVertical: 9, borderBottomWidth: 1, borderColor: color.line }}>
+              <Figure size={13} c={color.text2} style={{ flex: 1 }}>{quarterLabel(q.period_end)}</Figure>
               <View style={{ width: 72, alignItems: 'flex-end' }}><Pct v={q.revenue_yoy} /></View>
-              <Mono size={13} style={{ width: 64, textAlign: 'right' }}>{q.margin === null ? '—' : `${q.margin}%`}</Mono>
+              <Figure size={13} style={{ width: 64, textAlign: 'right' }}>{q.margin === null ? '—' : `${q.margin}%`}</Figure>
               <View style={{ width: 72, alignItems: 'flex-end' }}><Pct v={q.pat_yoy} /></View>
             </View>
           ))}
-          <Body size={size.meta} c={color.dim} style={{ marginTop: space.s }}>From NSE results filings</Body>
+          <Body size={size.meta} c={color.text3} style={{ marginTop: space.s }}>From NSE results filings</Body>
         </Section>
       )}
 
@@ -187,16 +187,16 @@ export function DossierView({ symbol }: { symbol: string }) {
               <Strong size={size.small} c={side === 'bull' ? color.gain : color.loss}>{side === 'bull' ? 'Bull' : 'Bear'}</Strong>
               {(d.bull_bear[side] ?? []).map((p, i) => (
                 <Body key={i} size={size.small} style={{ marginTop: 6 }}>
-                  {p.point} <Body size={size.meta} c={color.dim}>({p.cite})</Body>
+                  {p.point} <Body size={size.meta} c={color.text3}>({p.cite})</Body>
                 </Body>
               ))}
             </View>
           ))}
           {(d.bull_bear.watch ?? []).length > 0 && (
             <>
-              <Strong size={size.small} c={color.mist}>Watch next quarter</Strong>
+              <Strong size={size.small} c={color.text2}>Watch next quarter</Strong>
               {d.bull_bear.watch!.map((w, i) => (
-                <Body key={i} size={size.small} c={color.mist} style={{ marginTop: 6 }}>{w}</Body>
+                <Body key={i} size={size.small} c={color.text2} style={{ marginTop: 6 }}>{w}</Body>
               ))}
             </>
           )}
@@ -204,11 +204,11 @@ export function DossierView({ symbol }: { symbol: string }) {
       ) : null}
 
       <View style={{ marginTop: space.l, flexDirection: 'row', alignItems: 'center', gap: space.l }}>
-        <Body size={size.meta} c={color.dim} style={{ flex: 1 }}>
+        <Body size={size.meta} c={color.text3} style={{ flex: 1 }}>
           Built {d.built_on} from {d.sources.transcripts.length} call transcripts{d.sources.annual_report ? ' and the annual report' : ''}. No news or broker views.
         </Body>
         <Pressable onPress={build} hitSlop={8} accessibilityRole="button">
-          <Body size={size.meta} c={color.mist}>Rebuild</Body>
+          <Body size={size.meta} c={color.text2}>Rebuild</Body>
         </Pressable>
       </View>
     </>

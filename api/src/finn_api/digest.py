@@ -26,6 +26,7 @@ def _item(i: FeedItem) -> dict:
         "summary": i.summary,
         "payload": json.loads(i.payload_json or "{}"),
         "source_url": i.source_url,
+        "ref": i.dedup_key,  # e.g. "nse:1031874": the exchange's own reference, shown as the catalogue number
         "event_at": i.event_at.replace(tzinfo=i.event_at.tzinfo or UTC).isoformat(),
         "seen": i.seen,
     }

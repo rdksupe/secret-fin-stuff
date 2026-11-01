@@ -91,6 +91,7 @@ export type FeedItem = {
     prev_close?: number;
   };
   source_url: string | null;
+  ref?: string;
   event_at: string;
   seen: boolean;
   related?: FeedItem[];

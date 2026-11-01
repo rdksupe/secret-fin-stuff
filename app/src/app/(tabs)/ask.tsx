@@ -3,15 +3,16 @@ import { useEffect, useRef, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { MicIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
+import { ChatsIcon, ChevronRight, CloseIcon, MicIcon, PlusIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
+import { BarAction, TopBar } from '@/components/top-bar';
 import { Markdown } from '@/components/markdown';
 import { Dot } from '@/components/pulse';
-import { Body, Mono, Strong, Title } from '@/components/type';
+import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
 import { api, type Story } from '@/lib/api';
 import { clean, useChats, useConversation, type ChatMessage, type ChatSummary } from '@/lib/chat';
 import { useSpeech, useVoiceNote } from '@/lib/voice';
 import { headline, when } from '@/lib/format';
-import { color, font, maxWidth, size, space } from '@/theme';
+import { color, font, maxWidth, size, space, touch } from '@/theme';
 
 const STARTERS = [
   'What changed in my portfolio this week?',
@@ -27,15 +28,15 @@ function Prompt({ m, onAnswer }: { m: ChatMessage; onAnswer: (choice: string) =>
   const choices = m.kind === 'approval' ? ['approve', 'deny'] : m.payload.choices ?? [];
   const primary = m.kind === 'confirm' ? 'once' : 'approve';
   return (
-    <View style={{ marginVertical: space.m, borderWidth: 1, borderColor: color.hairline, borderRadius: 12, padding: space.l }}>
-      <Strong size={size.small} c={color.marigold}>{m.kind === 'clarify' ? 'FINN has a question' : 'FINN needs your OK'}</Strong>
+    <View style={{ marginVertical: space.m, borderWidth: 1, borderColor: color.line, backgroundColor: color.raised, padding: space.l }}>
+      <Strong size={size.small} c={color.brassText}>{m.kind === 'clarify' ? 'FINN has a question' : 'FINN needs your OK'}</Strong>
       <Body style={{ marginTop: space.s }}>{clean(m.text).replace(/\*\*/g, '')}</Body>
       {m.payload.command ? (
-        <Mono size={12} c={color.mist} style={{ marginTop: space.s }}>{m.payload.command}</Mono>
+        <Figure size={12} c={color.text2} style={{ marginTop: space.s }}>{m.payload.command}</Figure>
       ) : null}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space.s, marginTop: space.m }}>
         {answered ? (
-          <Body size={size.small} c={color.mist}>You chose: {LABELS[answered] ?? answered}</Body>
+          <Body size={size.small} c={color.text2}>You chose: {LABELS[answered] ?? answered}</Body>
         ) : (
           choices.map((c) => (
             <Pressable
@@ -46,12 +47,12 @@ function Prompt({ m, onAnswer }: { m: ChatMessage; onAnswer: (choice: string) =>
                 paddingHorizontal: 14,
                 paddingVertical: 9,
                 borderRadius: 10,
-                backgroundColor: c === primary ? color.paper : 'transparent',
+                backgroundColor: c === primary ? color.text : 'transparent',
                 borderWidth: 1,
-                borderColor: c === primary ? color.paper : color.hairline,
+                borderColor: c === primary ? color.text : color.line,
                 opacity: pressed ? 0.7 : 1,
               })}>
-              <Body size={size.small} c={c === primary ? color.ink : color.paper}>
+              <Body size={size.small} c={c === primary ? color.bg : color.text}>
                 {LABELS[c] ?? c.charAt(0).toUpperCase() + c.slice(1)}
               </Body>
             </Pressable>
@@ -67,14 +68,14 @@ type Listen = { playing: string | null; loading: string | null; toggle: (id: str
 /** The quoted message a reply points at, Telegram-style. */
 function Quote({ m, onClear }: { m: Pick<ChatMessage, 'role' | 'text'>; onClear?: () => void }) {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', borderLeftWidth: 2, borderLeftColor: m.role === 'finn' ? color.marigold : color.mist, paddingLeft: 8, marginBottom: 6 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', borderLeftWidth: 1, borderLeftColor: m.role === 'finn' ? color.brass : color.text3, paddingLeft: 8, marginBottom: 6 }}>
       <View style={{ flex: 1 }}>
-        <Body size={size.meta} c={m.role === 'finn' ? color.marigold : color.mist}>{m.role === 'finn' ? 'FINN' : 'You'}</Body>
-        <Body size={size.meta} c={color.mist} numberOfLines={2}>{clean(m.text).replace(/[#*_`|>]/g, '')}</Body>
+        <Body size={size.meta} c={m.role === 'finn' ? color.brassText : color.text2}>{m.role === 'finn' ? 'FINN' : 'You'}</Body>
+        <Body size={size.meta} c={color.text2} numberOfLines={2}>{clean(m.text).replace(/[#*_`|>]/g, '')}</Body>
       </View>
       {onClear ? (
         <Pressable onPress={onClear} hitSlop={12} accessibilityLabel="Cancel reply" style={{ paddingHorizontal: 6 }}>
-          <Body c={color.dim}>×</Body>
+          <CloseIcon c={color.text2} size={18} />
         </Pressable>
       ) : null}
     </View>
@@ -89,10 +90,10 @@ function ToolTrace({ m, live }: { m: ChatMessage; live: boolean }) {
   return (
     <Pressable onPress={() => setOpen((o) => !o)} disabled={live || lines.length <= 2} style={{ marginVertical: space.xs, gap: 2 }}>
       {!open && !live && lines.length > 2 ? (
-        <Mono size={12} c={color.dim}>{`${lines.length} steps · show all`}</Mono>
+        <Figure size={12} c={color.text3}>{`${lines.length} steps · show all`}</Figure>
       ) : null}
       {shown.map((l, i) => (
-        <Mono key={i} size={12} c={live && i === shown.length - 1 ? color.marigold : color.dim} numberOfLines={2}>{l}</Mono>
+        <Figure key={i} size={12} c={live && i === shown.length - 1 ? color.brassText : color.text3} numberOfLines={2}>{l}</Figure>
       ))}
     </Pressable>
   );
@@ -100,7 +101,7 @@ function ToolTrace({ m, live }: { m: ChatMessage; live: boolean }) {
 
 function Reaction({ emoji }: { emoji: string }) {
   return (
-    <View style={{ alignSelf: 'flex-start', marginTop: 6, borderRadius: 10, borderWidth: 1, borderColor: color.hairline, backgroundColor: color.panel, paddingHorizontal: 7, paddingVertical: 2 }}>
+    <View style={{ alignSelf: 'flex-start', marginTop: 6, borderWidth: 1, borderColor: color.line, backgroundColor: color.raised, paddingHorizontal: 7, paddingVertical: 2 }}>
       <Body size={size.small}>{emoji}</Body>
     </View>
   );
@@ -130,31 +131,31 @@ function Bubble({
   if (interim) {
     // Commentary between tool calls ("checking the Q2 call…"): part of the working, not the answer.
     return (
-      <Body size={size.meta} c={color.dim} numberOfLines={3} style={{ marginVertical: space.xs }}>
+      <Body size={size.meta} c={color.text3} numberOfLines={3} style={{ marginVertical: space.xs }}>
         {clean(m.text).replace(/[#*_`|>]/g, '').replace(/\s+/g, ' ').trim()}
       </Body>
     );
   }
   const quote = showQuote && m.payload.reply_text ? { role: m.payload.reply_role ?? 'finn', text: m.payload.reply_text } : null;
-  const highlight = selected ? { backgroundColor: color.well, borderRadius: 14 } : null;
+  const highlight = selected ? { backgroundColor: color.inset } : null;
   if (m.role === 'user') {
     // Slash commands are controls, not conversation.
     if (m.text.startsWith('/')) {
       return (
-        <Body size={size.meta} c={color.dim} style={{ alignSelf: 'center', marginVertical: space.s }}>
+        <Body size={size.meta} c={color.text3} style={{ alignSelf: 'center', marginVertical: space.s }}>
           {m.text === '/stop' ? 'Stopped' : m.text === '/new' ? 'New conversation' : m.text}
         </Body>
       );
     }
     return (
       <Pressable onLongPress={() => onSelect(m)} delayLongPress={300} style={[{ alignSelf: 'flex-end', maxWidth: '86%', marginVertical: space.s }, highlight]}>
-        <View style={{ backgroundColor: selected ? color.hairline : color.panel, borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10 }}>
+        <View style={{ backgroundColor: selected ? color.seaTint : color.raised, borderWidth: 1, borderColor: color.line, paddingHorizontal: 14, paddingVertical: 10 }}>
           {quote ? <Quote m={quote} /> : null}
-          {m.payload.voice ? <Body size={size.meta} c={color.dim}>Voice note</Body> : null}
+          {m.payload.voice ? <Body size={size.meta} c={color.text3}>Voice note</Body> : null}
           <Body>{m.text}</Body>
         </View>
         {m.payload.finn_reaction ? (
-          <View style={{ position: 'absolute', left: -10, bottom: -8, borderRadius: 10, backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, paddingHorizontal: 4, paddingVertical: 1 }}>
+          <View style={{ position: 'absolute', left: -10, bottom: -8, backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, paddingHorizontal: 4, paddingVertical: 1 }}>
             <Body size={12}>{m.payload.finn_reaction}</Body>
           </View>
         ) : null}
@@ -166,17 +167,17 @@ function Bubble({
     <Pressable onLongPress={() => onSelect(m)} delayLongPress={300} style={[{ marginVertical: space.m, paddingVertical: selected ? 6 : 0, paddingHorizontal: selected ? 8 : 0, marginHorizontal: selected ? -8 : 0 }, highlight]}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
         <Dot size={6} working={!m.final} />
-        <Body size={size.meta} c={m.final ? color.dim : color.marigold}>
+        <Body size={size.meta} c={m.final ? color.text3 : color.brassText}>
           {m.proactive ? `FINN · scheduled · ${when(m.at)}` : m.final ? 'FINN' : 'FINN is writing'}
         </Body>
       </View>
       {quote ? <Quote m={quote} /> : null}
-      {text ? <Markdown text={text} /> : <Body c={color.dim}>…</Body>}
+      {text ? <Markdown text={text} /> : <Body c={color.text3}>…</Body>}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m }}>
         {m.payload.reaction ? <Reaction emoji={m.payload.reaction} /> : null}
         {m.final && text.length > 0 && (
           <Pressable onPress={() => listen.toggle(m.id)} hitSlop={8} accessibilityRole="button" style={{ marginTop: space.s }}>
-            <Body size={size.meta} c={color.mist}>
+            <Body size={size.meta} c={color.text2}>
               {listen.loading === m.id ? 'Preparing audio…' : listen.playing === m.id ? 'Stop listening' : 'Listen'}
             </Body>
           </Pressable>
@@ -224,8 +225,6 @@ export default function Ask() {
   const listen = useSpeech(chatId);
   const [draft, setDraft] = useState('');
   const scroll = useRef<{ scrollToEnd: (o?: { animated?: boolean }) => void } | null>(null);
-  const insets = useSafeAreaInsets();
-
   // Opened from a push about a particular session.
   const { select } = chats;
   useEffect(() => {
@@ -272,43 +271,48 @@ export default function Ask() {
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.ink }} behavior="padding">
-      <View style={{ paddingTop: insets.top + space.l, paddingHorizontal: space.l, width: '100%', maxWidth, alignSelf: 'center' }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Title size={20} style={{ fontFamily: font.bold, letterSpacing: 0.5 }}>Ask</Title>
-          {working ? (
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginLeft: 12 }}>
-              <Dot size={6} working />
-              <Body size={size.meta} c={color.marigold}>working</Body>
-            </View>
-          ) : !online ? (
-            <Body size={size.meta} c={color.dim} style={{ marginLeft: 12 }}>reconnecting</Body>
-          ) : null}
-          <View style={{ flex: 1 }} />
-          <Pressable onPress={() => setSheet(true)} hitSlop={10} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginRight: space.l }}>
-            {othersWorking > 0 ? <Dot size={6} working /> : null}
-            <Body size={size.small} c={color.mist}>
-              {othersWorking > 0 ? `Chats · ${othersWorking} running` : 'Chats'}
-            </Body>
-          </Pressable>
-          {messages.length > 0 && (
-            <Pressable onPress={newChat} hitSlop={10} accessibilityRole="button">
-              <Body size={size.small} c={color.paper}>New</Body>
-            </Pressable>
-          )}
-        </View>
-        {context && (
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: space.m, alignSelf: 'flex-start', maxWidth: '100%', backgroundColor: color.well, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 6 }}>
-            <Mono size={12} style={{ fontFamily: font.monoMedium }}>{context.symbol}</Mono>
-            {context.label ? (
-              <Body size={size.meta} c={color.mist} numberOfLines={1} style={{ flexShrink: 1 }}>{context.label}</Body>
+    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.bg }} behavior="padding">
+      <TopBar
+        title="Ask"
+        right={
+          <>
+            <BarAction label={othersWorking > 0 ? `Chats, ${othersWorking} running` : 'Chats'} onPress={() => setSheet(true)}>
+              <ChatsIcon c={color.onSea} />
+              {othersWorking > 0 ? <Figure size={12} c={color.brassOnSea} style={{ fontFamily: font.semibold }}>{othersWorking}</Figure> : null}
+            </BarAction>
+            {messages.length > 0 ? (
+              <BarAction label="New chat" onPress={newChat}>
+                <PlusIcon c={color.onSea} />
+              </BarAction>
             ) : null}
-            <Pressable onPress={clearContext} hitSlop={10} accessibilityLabel="Clear context">
-              <Body size={size.small} c={color.dim}>×</Body>
-            </Pressable>
-          </View>
-        )}
-      </View>
+          </>
+        }
+        below={
+          working || !online || context ? (
+            <View style={{ gap: space.s }}>
+              {working ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <Dot size={6} working onSea />
+                  <Body size={size.small} c={color.brassOnSea} style={{ fontFamily: font.semibold }}>FINN is working</Body>
+                </View>
+              ) : !online ? (
+                <Body size={size.small} c={color.onSea2}>Reconnecting…</Body>
+              ) : null}
+              {context ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'flex-start', maxWidth: '100%', borderWidth: 1, borderColor: 'rgba(238,244,241,0.38)', paddingLeft: 12, height: 36 }}>
+                  <Ticker c={color.brassOnSea}>{context.symbol}</Ticker>
+                  {context.label ? (
+                    <Body size={size.meta} c={color.onSea2} numberOfLines={1} style={{ flexShrink: 1 }}>{context.label}</Body>
+                  ) : null}
+                  <Pressable onPress={clearContext} accessibilityRole="button" accessibilityLabel="Clear context" style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
+                    <CloseIcon c={color.onSea} size={18} />
+                  </Pressable>
+                </View>
+              ) : null}
+            </View>
+          ) : undefined
+        }
+      />
 
       <ScrollView
         ref={scroll as never}
@@ -316,9 +320,9 @@ export default function Ask() {
         onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })}
         contentContainerStyle={{ paddingHorizontal: space.l, paddingBottom: space.xl, width: '100%', maxWidth, alignSelf: 'center' }}>
         {messages.length === 0 ? (
-          <View style={{ marginTop: space.xxl }}>
+          <View style={{ marginTop: space.xl }}>
             <Title size={size.title}>{context ? `Ask about ${context.symbol}` : 'Ask about any NSE company'}</Title>
-            <Body c={color.mist} style={{ marginTop: space.s }}>
+            <Body c={color.text2} style={{ marginTop: space.s }}>
               Answers come from each company's own filings, results and call transcripts. FINN cites the page it used. Ask it to watch something on a schedule and it will message you here.
             </Body>
             <View style={{ marginTop: space.xl, gap: space.s }}>
@@ -329,8 +333,10 @@ export default function Ask() {
                 <Pressable
                   key={s}
                   onPress={() => submit(s)}
-                  style={({ pressed }) => ({ borderWidth: 1, borderColor: color.hairline, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, opacity: pressed ? 0.6 : 1 })}>
-                  <Body size={size.small} c={color.paper}>{s}</Body>
+                  accessibilityRole="button"
+                  style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: 10, minHeight: 52, borderWidth: 1, borderColor: color.line, backgroundColor: pressed ? color.inset : color.raised, paddingHorizontal: 14, paddingVertical: 12 })}>
+                  <Body size={size.small} c={color.text} style={{ flex: 1 }}>{s}</Body>
+                  <ChevronRight c={color.sea} size={18} />
                 </Pressable>
               ))}
             </View>
@@ -356,7 +362,7 @@ export default function Ask() {
       <View style={{ paddingHorizontal: space.l, paddingBottom: space.s, paddingTop: space.s, width: '100%', maxWidth, alignSelf: 'center' }}>
         {selected ? (
           // Long-press menu: reply to any message, react to FINN's.
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: space.s, backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 14, padding: 4 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: space.s, backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, padding: 4 }}>
             <Pressable
               onPress={() => {
                 setReplyTo(selected);
@@ -364,8 +370,8 @@ export default function Ask() {
                 input.current?.focus();
               }}
               accessibilityRole="button"
-              style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingVertical: 8 }}>
-              <ReplyIcon c={color.paper} />
+              style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, height: touch }}>
+              <ReplyIcon c={color.sea} />
               <Body size={size.small}>Reply</Body>
             </Pressable>
             {selected.role === 'finn'
@@ -377,18 +383,18 @@ export default function Ask() {
                       setSelected(null);
                     }}
                     accessibilityLabel={`React ${e}`}
-                    style={{ paddingHorizontal: 8, paddingVertical: 6, borderRadius: 10, backgroundColor: selected.payload.reaction === e ? color.hairline : 'transparent' }}>
+                    style={{ width: touch, height: touch, alignItems: 'center', justifyContent: 'center', backgroundColor: selected.payload.reaction === e ? color.seaTint : 'transparent' }}>
                     <Body size={size.lead}>{e}</Body>
                   </Pressable>
                 ))
               : null}
             <View style={{ flex: 1 }} />
             <Pressable onPress={() => setSelected(null)} hitSlop={8} style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-              <Body size={size.small} c={color.dim}>Cancel</Body>
+              <Body size={size.small} c={color.text3}>Cancel</Body>
             </Pressable>
           </View>
         ) : null}
-        <View style={{ backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 18, paddingLeft: 14, paddingRight: 5, paddingVertical: 5 }}>
+        <View style={{ backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, paddingLeft: 14, paddingRight: 4, paddingVertical: 4 }}>
           {replyTo ? (
             <View style={{ paddingTop: 6, paddingRight: 6 }}>
               <Quote m={replyTo} onClear={() => setReplyTo(null)} />
@@ -400,9 +406,9 @@ export default function Ask() {
               value={draft}
               onChangeText={setDraft}
               placeholder={voice.recording ? 'Listening… tap the mic to send' : working ? 'Add to that; FINN folds it in' : 'Ask about a company, a filing, a number'}
-              placeholderTextColor={voice.recording ? color.loss : color.dim}
+              placeholderTextColor={voice.recording ? color.loss : color.text3}
               multiline
-              style={{ flex: 1, minHeight: 38, maxHeight: 120, color: color.paper, fontFamily: font.regular, fontSize: 15, paddingTop: 9, paddingBottom: 9, outlineStyle: 'none' } as any}
+              style={{ flex: 1, minHeight: 38, maxHeight: 120, color: color.text, fontFamily: font.regular, fontSize: 15, paddingTop: 9, paddingBottom: 9, outlineStyle: 'none' } as any}
               onKeyPress={(e: any) => {
                 if (Platform.OS === 'web' && e.nativeEvent.key === 'Enter' && !e.nativeEvent.shiftKey) {
                   e.preventDefault?.();
@@ -411,31 +417,31 @@ export default function Ask() {
               }}
             />
             {voice.recording ? (
-              <Mono size={12} c={color.loss} style={{ alignSelf: 'center' }}>
+              <Figure size={12} c={color.loss} style={{ alignSelf: 'center' }}>
                 {`${Math.max(0, Math.round((Date.now() - voice.startedAt) / 1000))}s`}
-              </Mono>
+              </Figure>
             ) : null}
             {draft.trim() ? (
-              <RoundButton label="Send" onPress={() => submit()} bg={color.paper}>
-                <SendIcon c={color.ink} />
+              <RoundButton label="Send" onPress={() => submit()} bg={color.sea}>
+                <SendIcon c={color.onSea} />
               </RoundButton>
             ) : working && !voice.recording ? (
-              <RoundButton label="Stop FINN" onPress={stop} bg={color.well} border>
-                <StopIcon c={color.paper} size={14} />
+              <RoundButton label="Stop FINN" onPress={stop} bg={color.inset} border>
+                <StopIcon c={color.sea} size={14} />
               </RoundButton>
             ) : voice.supported ? (
               <RoundButton
                 label={voice.recording ? 'Stop and send voice note' : 'Record a voice note'}
                 onPress={() => (voice.recording ? voice.stopAndSend(contextText()) : voice.start())}
                 disabled={voice.sending}
-                bg={voice.recording ? color.loss : color.well}
+                bg={voice.recording ? color.loss : color.inset}
                 border={!voice.recording}>
-                {voice.recording ? <SendIcon c={color.ink} /> : <MicIcon c={voice.sending ? color.dim : color.paper} />}
+                {voice.recording ? <SendIcon c={color.raised} /> : <MicIcon c={voice.sending ? color.text3 : color.sea} />}
               </RoundButton>
             ) : null}
           </View>
         </View>
-        {voice.sending ? <Body size={size.meta} c={color.dim} style={{ marginTop: space.xs }}>Transcribing…</Body> : null}
+        {voice.sending ? <Body size={size.meta} c={color.text3} style={{ marginTop: space.xs }}>Transcribing…</Body> : null}
         {voice.error ? <Body size={size.meta} c={color.loss} style={{ marginTop: space.xs }}>{voice.error}</Body> : null}
       </View>
       <Sessions
@@ -481,44 +487,45 @@ function Sessions({
   return (
     <Modal visible={open} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable onPress={onClose} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.55)' }} />
-      <View style={{ maxHeight: '75%', backgroundColor: color.ink, borderTopLeftRadius: 18, borderTopRightRadius: 18, borderTopWidth: 1, borderColor: color.hairline, paddingBottom: insets.bottom + space.m }}>
+      <View style={{ maxHeight: '75%', backgroundColor: color.raised, borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingBottom: insets.bottom + space.m }}>
+        <View style={{ alignSelf: 'center', width: 32, height: 4, borderRadius: 2, backgroundColor: color.faint, marginTop: 12 }} />
         <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.l, paddingBottom: space.m }}>
           <Title size={18} style={{ fontFamily: font.bold }}>Chats</Title>
           <View style={{ flex: 1 }} />
-          <Pressable onPress={onNew} hitSlop={10} accessibilityRole="button" style={{ paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10, backgroundColor: color.paper }}>
-            <Strong size={14} c={color.ink}>New chat</Strong>
+          <Pressable onPress={onNew} accessibilityRole="button" style={{ height: 40, paddingHorizontal: 18, justifyContent: 'center', borderRadius: 20, backgroundColor: color.sea }}>
+            <Strong size={14} c={color.onSea}>New chat</Strong>
           </Pressable>
         </View>
         <ScrollView contentContainerStyle={{ paddingHorizontal: space.l }}>
-          {sessions.length === 0 ? <Body c={color.dim}>No chats yet.</Body> : null}
+          {sessions.length === 0 ? <Body c={color.text3}>No chats yet.</Body> : null}
           {sessions.map((c) => (
             <Pressable
               key={c.id}
               onPress={() => onPick(c.id)}
               onLongPress={() => c.id !== 'home' && onRemove(c.id)}
               style={({ pressed }) => ({
+                minHeight: 64,
                 paddingVertical: space.m,
-                paddingHorizontal: space.m,
-                marginHorizontal: -space.m,
-                borderRadius: 12,
-                backgroundColor: c.id === current ? color.panel : pressed ? color.well : 'transparent',
+                paddingHorizontal: space.l,
+                marginHorizontal: -space.l,
+                backgroundColor: c.id === current ? color.seaTint : pressed ? color.inset : 'transparent',
               })}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                 {c.working ? <Dot size={6} working /> : null}
                 <Body numberOfLines={1} style={{ flex: 1, fontFamily: font.medium }}>{c.title}</Body>
-                <Body size={size.meta} c={c.working ? color.marigold : color.dim}>
+                <Body size={size.meta} c={c.working ? color.brassText : color.text3}>
                   {c.working ? 'working' : c.at ? when(c.at) : 'empty'}
                 </Body>
               </View>
               {c.last ? (
-                <Body size={size.small} c={color.mist} numberOfLines={1} style={{ marginTop: 2 }}>
+                <Body size={size.small} c={color.text2} numberOfLines={1} style={{ marginTop: 2 }}>
                   {c.last_role === 'user' ? 'You: ' : ''}
                   {clean(c.last).replace(/[#*_`|>]/g, '')}
                 </Body>
               ) : null}
             </Pressable>
           ))}
-          <Body size={size.meta} c={color.dim} style={{ marginTop: space.m, marginBottom: space.s }}>
+          <Body size={size.meta} c={color.text3} style={{ marginTop: space.m, marginBottom: space.s }}>
             Each chat runs on its own; FINN can work on several at once and notifies you when one finishes. Long-press a chat to remove it from this list.
           </Body>
         </ScrollView>
@@ -548,16 +555,15 @@ function RoundButton({
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={label}
-      hitSlop={6}
       style={({ pressed }) => ({
-        width: 38,
-        height: 38,
-        borderRadius: 19,
+        width: touch,
+        height: touch,
+        borderRadius: touch / 2,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: bg,
         borderWidth: border ? 1 : 0,
-        borderColor: color.hairline,
+        borderColor: color.line,
         opacity: pressed ? 0.7 : 1,
       })}>
       {children}

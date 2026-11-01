@@ -25,14 +25,14 @@ function inline(text: string, base: object, key: string, onLink?: OnLink) {
         <Text
           key={`${key}w${i++}`}
           onPress={onLink ? () => onLink(toPath(target.trim())) : undefined}
-          style={{ color: onLink ? color.marigold : color.mist }}>
+          style={{ color: onLink ? color.sea : color.text2, fontFamily: onLink ? font.semibold : undefined, textDecorationLine: onLink ? 'underline' : 'none' }}>
           {(label ?? target).trim()}
         </Text>,
       );
     } else if (t.startsWith('**')) {
       parts.push(<Text key={`${key}b${i++}`} style={{ fontFamily: font.semibold }}>{t.slice(2, -2)}</Text>);
     } else if (t.startsWith('`')) {
-      parts.push(<Text key={`${key}c${i++}`} style={{ fontFamily: font.mono, fontSize: 13, color: color.mist }}>{t.slice(1, -1)}</Text>);
+      parts.push(<Text key={`${key}c${i++}`} style={{ fontFamily: font.medium, fontSize: 13, color: color.text2 }}>{t.slice(1, -1)}</Text>);
     } else if (t.startsWith('[')) {
       const [, label, href] = t.match(/\[([^\]]+)\]\(([^)]+)\)/) ?? [];
       parts.push(
@@ -49,7 +49,7 @@ function inline(text: string, base: object, key: string, onLink?: OnLink) {
         <Text
           key={`${key}s${i++}`}
           onPress={onLink ? () => onLink(t.slice(1, -1)) : undefined}
-          style={{ fontFamily: font.mono, fontSize: 12, color: onLink ? color.marigold : color.dim }}>
+          style={{ fontFamily: font.medium, fontSize: 12, color: onLink ? color.sea : color.text3 }}>
           {t}
         </Text>,
       );
@@ -72,7 +72,7 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
             style={{
               flexDirection: 'row',
               borderBottomWidth: ri === 0 ? 1 : 0.5,
-              borderColor: ri === 0 ? color.hairline : 'rgba(38,44,55,0.6)',
+              borderColor: ri === 0 ? color.line : 'rgba(38,44,55,0.6)',
               paddingVertical: 6,
             }}>
             {r.map((c, ci) => (
@@ -82,9 +82,9 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
                   minWidth: ci === 0 ? 96 : 76,
                   paddingRight: 12,
                   textAlign: ci > 0 && numeric(c) ? 'right' : 'left',
-                  fontFamily: ri === 0 ? font.monoMedium : numeric(c) ? font.mono : font.regular,
+                  fontFamily: ri === 0 ? font.semibold : numeric(c) ? font.medium : font.regular,
                   fontSize: ri === 0 ? 12 : 14,
-                  color: ri === 0 ? color.mist : c.trim().startsWith('-') || c.trim().startsWith('−') ? color.loss : color.paper,
+                  color: ri === 0 ? color.text2 : c.trim().startsWith('-') || c.trim().startsWith('−') ? color.loss : color.text,
                   fontVariant: ['tabular-nums'],
                 }}>
                 {c.replace(/\*\*/g, '')}
@@ -98,7 +98,7 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
 }
 
 export function Markdown({ text, size = 15, onLink }: { text: string; size?: number; onLink?: OnLink }) {
-  const base = { fontFamily: font.regular, fontSize: size, lineHeight: size * 1.5, color: color.paper };
+  const base = { fontFamily: font.regular, fontSize: size, lineHeight: size * 1.5, color: color.text };
   const lines = text.replace(/\r/g, '').split('\n');
   const out: React.ReactNode[] = [];
   let i = 0;
@@ -122,7 +122,7 @@ export function Markdown({ text, size = 15, onLink }: { text: string; size?: num
     const h = line.match(/^(#{1,4})\s+(.*)/);
     if (h) {
       out.push(
-        <Text key={`h${k++}`} style={{ fontFamily: font.semibold, fontSize: h[1].length <= 2 ? size + 2 : size, color: color.paper, marginTop: 10, marginBottom: 2 }}>
+        <Text key={`h${k++}`} style={{ fontFamily: font.semibold, fontSize: h[1].length <= 2 ? size + 2 : size, color: color.text, marginTop: 10, marginBottom: 2 }}>
           {h[2].replace(/\*\*/g, '')}
         </Text>,
       );
@@ -134,7 +134,7 @@ export function Markdown({ text, size = 15, onLink }: { text: string; size?: num
       const bullet = /\d/.test(li[1]) ? li[1] : '·';
       out.push(
         <View key={`l${k++}`} style={{ flexDirection: 'row', paddingLeft: 2, marginVertical: 1 }}>
-          <Text style={[base, { width: 18, color: color.mist, fontFamily: font.mono }]}>{bullet}</Text>
+          <Text style={[base, { width: 18, color: color.text2, fontFamily: font.medium }]}>{bullet}</Text>
           <View style={{ flex: 1 }}>{inline(li[2], base, `l${k}`, onLink)}</View>
         </View>,
       );

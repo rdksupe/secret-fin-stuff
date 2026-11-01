@@ -1,15 +1,16 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, View } from 'react-native';
 
 import { AskBar } from '@/components/ask-bar';
+import { TopBar } from '@/components/top-bar';
 import { BrainEntry, openBrainPage } from '@/components/brain';
 import { DossierView } from '@/components/dossier';
 import { ResultsTable } from '@/components/results';
 import { Screen } from '@/components/screen';
 import { Spark } from '@/components/spark';
 import { Rule } from '@/components/story-row';
-import { Body, Mono, Pct, Strong, Ticker, Title } from '@/components/type';
+import { Body, Figure, Pct, Strong, Title } from '@/components/type';
 import { api, type Brain, type Doc, type PricePoint, type ResultsCard } from '@/lib/api';
 import { quarterLabel, rupee, when } from '@/lib/format';
 import { color, font, size, space } from '@/theme';
@@ -68,34 +69,35 @@ export default function Company() {
   const stored = docs.filter((d) => d.status === 'stored' && !['routine_compliance', 'call_notice'].includes(d.doc_type ?? ''));
 
   return (
-    <View style={{ flex: 1, backgroundColor: color.ink }}>
+    <View style={{ flex: 1, backgroundColor: color.bg }}>
+      <TopBar
+        back
+        title={sym}
+        below={
+          last ? (
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12 }}>
+              <Figure size={28} c={color.onSea} style={{ fontFamily: font.semibold }}>{rupee(last.close)}</Figure>
+              <Pct v={last.change_pct} size={15} digits={2} onSea />
+            </View>
+          ) : undefined
+        }
+      />
       <Screen bottomPad={space.xl}>
-        <Pressable onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} hitSlop={12}>
-          <Body c={color.mist} size={size.small}>‹ Back</Body>
-        </Pressable>
-
-        <View style={{ marginTop: space.xl }}><Ticker size={15}>{sym}</Ticker></View>
-        {last && (
-          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 12, marginTop: space.s }}>
-            <Mono size={30} style={{ fontFamily: font.monoMedium }}>{rupee(last.close)}</Mono>
-            <Pct v={last.change_pct} size={15} digits={2} />
-          </View>
-        )}
         {prices.length > 1 && (
-          <View style={{ marginTop: space.m }}>
+          <View>
             <Spark values={prices.map((p) => p.close)} width={340} height={64} />
-            <Mono size={12} c={color.dim} style={{ marginTop: 4 }}>
+            <Figure size={12} c={color.text3} style={{ marginTop: 4 }}>
               {prices.length} sessions · {first ? <Pct v={((last.close - first.close) / first.close) * 100} size={11} /> : null}
-            </Mono>
+            </Figure>
           </View>
         )}
 
         {brain ? (
           <BrainEntry brain={brain} />
         ) : !brainMissing ? (
-          <ActivityIndicator color={color.marigold} style={{ marginTop: space.xl, alignSelf: 'flex-start' }} />
+          <ActivityIndicator color={color.sea} style={{ marginTop: space.xl, alignSelf: 'flex-start' }} />
         ) : (
-          <Body c={color.dim} size={14} style={{ marginTop: space.xl }}>
+          <Body c={color.text3} size={14} style={{ marginTop: space.xl }}>
             No brain for {sym} yet. Ask FINN to research it and it will build one.
           </Body>
         )}
@@ -118,13 +120,13 @@ export default function Company() {
         <>
             <View style={{ marginTop: space.xxl }}>
               <Title size={size.lead}>What FINN has read</Title>
-              <Body c={color.mist} size={14} style={{ marginTop: space.s }}>
+              <Body c={color.text2} size={14} style={{ marginTop: space.s }}>
                 Primary documents only. These are what research answers cite.
               </Body>
               <View style={{ marginTop: space.s }}>
                 <Rule />
                 {research.length === 0 && (
-                  <Body size={14} c={color.dim} style={{ paddingVertical: space.m }}>
+                  <Body size={14} c={color.text3} style={{ paddingVertical: space.m }}>
                     Nothing parsed yet. New transcripts and decks are read as they're filed.
                   </Body>
                 )}
@@ -133,11 +135,11 @@ export default function Company() {
                     <Pressable onPress={() => d.wiki_path && open(d.wiki_path)} style={{ paddingVertical: 12 }}>
                       <View style={{ flexDirection: 'row', gap: 8 }}>
                         <Strong size={14} style={{ flex: 1 }}>{DOC_LABEL[d.doc_type ?? 'other']}</Strong>
-                        <Mono size={12} c={color.dim}>{when(d.filed_at)}</Mono>
+                        <Figure size={12} c={color.text3}>{when(d.filed_at)}</Figure>
                       </View>
-                      <Mono size={12} c={color.dim} style={{ marginTop: 2 }}>
+                      <Figure size={12} c={color.text3} style={{ marginTop: 2 }}>
                         {d.pages ?? '?'} pages · {d.engine === 'chandra' ? 'OCR' : 'text'}{d.tree_path ? ' · indexed' : ''}
-                      </Mono>
+                      </Figure>
                     </Pressable>
                     <Rule />
                   </View>
@@ -153,13 +155,13 @@ export default function Company() {
                     <View key={d.id} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 9, gap: 10 }}>
                       <View style={{ flex: 1 }}>
                         <Body size={14} numberOfLines={1}>{DOC_LABEL[d.doc_type ?? 'other']} · {d.desc}</Body>
-                        <Mono size={12} c={color.dim}>{when(d.filed_at)} · {d.pages ?? '?'} pages</Mono>
+                        <Figure size={12} c={color.text3}>{when(d.filed_at)} · {d.pages ?? '?'} pages</Figure>
                       </View>
                       <Pressable onPress={() => Linking.openURL(d.url)} hitSlop={6}>
-                        <Mono size={12} c={color.mist}>PDF</Mono>
+                        <Figure size={12} c={color.text2}>PDF</Figure>
                       </Pressable>
                       <Pressable onPress={() => parse(d)} disabled={!!parsing} hitSlop={6}>
-                        {parsing === d.id ? <ActivityIndicator size="small" color={color.marigold} /> : <Mono size={12} c={color.paper}>Read it</Mono>}
+                        {parsing === d.id ? <ActivityIndicator size="small" color={color.sea} /> : <Figure size={12} c={color.text}>Read it</Figure>}
                       </Pressable>
                     </View>
                   ))}

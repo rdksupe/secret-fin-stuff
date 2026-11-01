@@ -2,13 +2,16 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Linking, Pressable, View } from 'react-native';
 
+import { Setback } from '@/components/deco';
+import { AskIcon, ChevronRight } from '@/components/icons';
 import { ResultsTable } from '@/components/results';
 import { Screen } from '@/components/screen';
+import { TopBar } from '@/components/top-bar';
 import { Rule } from '@/components/story-row';
-import { Body, Mono, Pct, Strong, Ticker, Title } from '@/components/type';
+import { Body, Figure, Pct, Strong, Title } from '@/components/type';
 import { api, type FeedItem, type Materiality, type Story } from '@/lib/api';
 import { headline, quarterLabel, rupee, when } from '@/lib/format';
-import { color, size, space } from '@/theme';
+import { color, font, size, space } from '@/theme';
 
 type StoryDetail = Story & { company?: string };
 
@@ -21,12 +24,8 @@ const NOUL_LABELS: Record<string, string> = {
   routine: 'Routine paperwork',
 };
 
-function Back() {
-  return (
-    <Pressable onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} hitSlop={12} accessibilityRole="button">
-      <Body c={color.mist} size={size.small}>‹ Back</Body>
-    </Pressable>
-  );
+function Back({ title = 'Story' }: { title?: string }) {
+  return <TopBar back title={title} />;
 }
 
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
@@ -42,11 +41,11 @@ function Why({ m, movedWith }: { m?: Materiality; movedWith?: string }) {
   if (!m && !movedWith) return null;
   return (
     <Block label="Why FINN surfaced this">
-      {movedWith && <Body c={color.paper}>Filed around an unusual move: {movedWith}.</Body>}
+      {movedWith && <Body c={color.text}>Filed around an unusual move: {movedWith}.</Body>}
       {m?.llm && (
-        <Body c={color.paper} style={{ marginTop: movedWith ? 6 : 0 }}>
+        <Body c={color.text} style={{ marginTop: movedWith ? 6 : 0 }}>
           FINN read the filing and judged it{' '}
-          <Strong c={m.llm.direction === 'negative' ? color.loss : m.llm.direction === 'positive' ? color.gain : color.paper}>
+          <Strong c={m.llm.direction === 'negative' ? color.loss : m.llm.direction === 'positive' ? color.gain : color.text}>
             {m.llm.direction ?? 'material'}
           </Strong>
           , importance {Math.round((m.llm.importance ?? 0) * 100)}/100.
@@ -54,16 +53,16 @@ function Why({ m, movedWith }: { m?: Materiality; movedWith?: string }) {
       )}
       {m && Object.keys(m.nouls ?? {}).length > 0 && (
         <View style={{ marginTop: space.m, gap: 7 }}>
-          <Mono c={color.dim} size={11}>
+          <Figure c={color.text3} size={11}>
             First screen (Jev) · {m.stage === 'jev' ? `settled it: ${m.verdict}` : 'unsure, so FINN read it in full'}
-          </Mono>
+          </Figure>
           {Object.entries(m.nouls).map(([k, v]) => (
             <View key={k} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <Body size={14} c={color.mist} style={{ width: 190 }}>{NOUL_LABELS[k] ?? k}</Body>
-              <View style={{ flex: 1, height: 4, backgroundColor: color.well, borderRadius: 2 }}>
-                <View style={{ width: `${Math.round(v * 100)}%`, height: 4, borderRadius: 2, backgroundColor: v >= 0.7 ? color.paper : color.dim }} />
+              <Body size={14} c={color.text2} style={{ width: 190 }}>{NOUL_LABELS[k] ?? k}</Body>
+              <View style={{ flex: 1, height: 4, backgroundColor: color.inset, borderRadius: 2 }}>
+                <View style={{ width: `${Math.round(v * 100)}%`, height: 4, borderRadius: 2, backgroundColor: v >= 0.7 ? color.text : color.text3 }} />
               </View>
-              <Mono size={12} c={color.dim} style={{ width: 30, textAlign: 'right' }}>{v.toFixed(2)}</Mono>
+              <Figure size={12} c={color.text3} style={{ width: 30, textAlign: 'right' }}>{v.toFixed(2)}</Figure>
             </View>
           ))}
         </View>
@@ -84,15 +83,15 @@ function Timeline({ story }: { story: StoryDetail }) {
                 height: 8,
                 borderRadius: 4,
                 marginTop: 6,
-                backgroundColor: t.kind === 'signal' ? color.ink : color.paper,
+                backgroundColor: t.kind === 'signal' ? color.bg : color.text,
                 borderWidth: 1,
-                borderColor: t.kind === 'signal' ? color.mist : color.paper,
+                borderColor: t.kind === 'signal' ? color.text2 : color.text,
               }}
             />
-            {i < arr.length - 1 && <View style={{ flex: 1, width: 1, backgroundColor: color.hairline }} />}
+            {i < arr.length - 1 && <View style={{ flex: 1, width: 1, backgroundColor: color.line }} />}
           </View>
           <View style={{ flex: 1, paddingBottom: space.l }}>
-            <Mono size={12} c={color.dim}>{when(t.at)}</Mono>
+            <Figure size={12} c={color.text3}>{when(t.at)}</Figure>
             <Body size={14} style={{ marginTop: 2 }}>{t.kind === 'signal' ? t.title : headline(t.title, t.summary)}</Body>
           </View>
         </View>
@@ -108,7 +107,7 @@ function Related({ items }: { items: FeedItem[] }) {
     <Block label="Related filings">
       {filings.map((i) => (
         <Pressable key={i.id} onPress={() => i.source_url && Linking.openURL(i.source_url)} style={{ paddingVertical: 8 }}>
-          <Mono size={12} c={color.dim}>{when(i.event_at)} · {i.payload.desc ?? i.title}</Mono>
+          <Figure size={12} c={color.text3}>{when(i.event_at)} · {i.payload.desc ?? i.title}</Figure>
           <Body size={14} numberOfLines={2}>{headline(i.title, i.summary)}</Body>
         </Pressable>
       ))}
@@ -131,17 +130,19 @@ export default function StoryScreen() {
 
   if (error)
     return (
-      <Screen>
+      <View style={{ flex: 1, backgroundColor: color.bg }}>
         <Back />
-        <Title style={{ marginTop: space.xl }}>This item is no longer in your feed.</Title>
-        <Body c={color.mist} style={{ marginTop: space.s }}>{error}</Body>
-      </Screen>
+        <Screen>
+          <Title>This item is no longer in your feed.</Title>
+          <Body c={color.text2} style={{ marginTop: space.s }}>{error}</Body>
+        </Screen>
+      </View>
     );
   if (!story)
     return (
-      <Screen>
+      <View style={{ flex: 1, backgroundColor: color.bg }}>
         <Back />
-      </Screen>
+      </View>
     );
 
   const h = story.head;
@@ -155,31 +156,34 @@ export default function StoryScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: color.ink }}>
+    <View style={{ flex: 1, backgroundColor: color.bg }}>
+      <Back title={story.symbol} />
       <Screen bottomPad={space.xl}>
-        <Back />
         <Pressable
           onPress={() => router.push({ pathname: '/company/[symbol]', params: { symbol: story.symbol } })}
-          style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: space.xl }}>
-          <Ticker size={14}>{story.symbol}</Ticker>
-          <Body size={size.small} c={color.mist} numberOfLines={1} style={{ flex: 1 }}>
-            {story.company ?? h.payload.company ?? ''} ›
+          accessibilityRole="button"
+          style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 48, backgroundColor: pressed ? color.inset : 'transparent', marginHorizontal: -space.l, paddingHorizontal: space.l })}>
+          <Setback steps={story.tier} />
+          <Body size={size.small} c={color.text2} numberOfLines={1} style={{ flex: 1 }}>
+            {story.company ?? h.payload.company ?? ''}
           </Body>
+          <Body size={size.small} c={color.sea} style={{ fontFamily: font.semibold }}>Company</Body>
+          <ChevronRight c={color.sea} size={18} />
         </Pressable>
 
         <Title size={headline(h.title, h.summary).length > 90 ? size.title : size.display} style={{ marginTop: space.m }}>
           {results ? `${quarterLabel(results.period_end)}: ${headline(h.title, h.summary)}` : headline(h.title, h.summary)}
         </Title>
-        <Body size={size.small} c={color.dim} style={{ marginTop: space.s }}>
+        <Body size={size.small} c={color.text3} style={{ marginTop: space.s }}>
           {story.situation ? 'Developing situation' : h.payload.category_label ?? h.title} · {when(h.event_at)}
         </Body>
 
         {story.situation && story.cumulative_pct !== undefined && (
           <View style={{ marginTop: space.xl, flexDirection: 'row', alignItems: 'baseline', gap: 12 }}>
             <Pct v={story.cumulative_pct} size={28} />
-            <Mono c={color.mist}>
+            <Figure c={color.text2}>
               {rupee(story.from_close)} → {rupee(story.to_close)}
-            </Mono>
+            </Figure>
           </View>
         )}
 
@@ -200,11 +204,11 @@ export default function StoryScreen() {
         {person && (
           <Block label={person.change === 'appointed' || person.role?.includes('incoming') ? 'Who is coming in' : 'Who'}>
             <Strong size={17}>{person.name}</Strong>
-            {person.role && <Mono c={color.mist} size={12} style={{ marginTop: 2 }}>{person.role}</Mono>}
+            {person.role && <Figure c={color.text2} size={12} style={{ marginTop: 2 }}>{person.role}</Figure>}
             {person.bio && <Body style={{ marginTop: space.s }}>{person.bio}</Body>}
             {(person.sources ?? []).slice(0, 3).map((s) => (
               <Pressable key={s} onPress={() => Linking.openURL(s)}>
-                <Mono size={12} c={color.dim} numberOfLines={1} style={{ marginTop: 4, textDecorationLine: 'underline' }}>{s}</Mono>
+                <Figure size={12} c={color.text3} numberOfLines={1} style={{ marginTop: 4, textDecorationLine: 'underline' }}>{s}</Figure>
               </Pressable>
             ))}
           </Block>
@@ -214,7 +218,7 @@ export default function StoryScreen() {
 
         {raw && h.kind !== 'signal' && (
           <Block label="What the exchange says">
-            <Body c={color.mist} size={14}>{raw}</Body>
+            <Body c={color.text2} size={14}>{raw}</Body>
           </Block>
         )}
 
@@ -222,32 +226,42 @@ export default function StoryScreen() {
 
         <View style={{ marginTop: space.xxl }}>
           <Rule />
-          <View style={{ flexDirection: 'row', gap: space.xl, paddingTop: space.l }}>
+          <View style={{ flexDirection: 'row', gap: space.s, paddingTop: space.m }}>
             {h.source_url && (
-              <Pressable onPress={() => Linking.openURL(h.source_url!)}>
-                <Body size={size.small} c={color.paper}>Open filing</Body>
+              <Pressable
+                onPress={() => Linking.openURL(h.source_url!)}
+                accessibilityRole="link"
+                style={({ pressed }) => ({ height: 40, paddingHorizontal: 18, justifyContent: 'center', borderRadius: 20, borderWidth: 1, borderColor: color.sea, backgroundColor: pressed ? color.seaTint : 'transparent', marginVertical: 4 })}>
+                <Body size={size.small} c={color.sea} style={{ fontFamily: font.semibold }}>Open filing</Body>
               </Pressable>
             )}
-            <Pressable onPress={dismiss}>
-              <Body size={size.small} c={color.mist}>Dismiss</Body>
+            <Pressable
+              onPress={dismiss}
+              accessibilityRole="button"
+              style={({ pressed }) => ({ height: 40, paddingHorizontal: 14, justifyContent: 'center', borderRadius: 20, backgroundColor: pressed ? color.inset : 'transparent', marginVertical: 4 })}>
+              <Body size={size.small} c={color.text2} style={{ fontFamily: font.semibold }}>Dismiss</Body>
             </Pressable>
           </View>
         </View>
       </Screen>
 
-      <View style={{ borderTopWidth: 1, borderTopColor: color.hairline, backgroundColor: color.ink, alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.m, paddingBottom: space.l }}>
+      <View style={{ borderTopWidth: 1, borderTopColor: color.line, backgroundColor: color.bg, alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.m, paddingBottom: space.l }}>
         <Pressable
           onPress={() => router.push({ pathname: '/ask', params: { feed: h.id, symbol: story.symbol } })}
+          accessibilityRole="button"
           style={({ pressed }) => ({
             width: '100%',
             maxWidth: 608,
-            backgroundColor: color.paper,
-            borderRadius: 14,
-            paddingVertical: 14,
+            height: 56,
+            flexDirection: 'row',
+            gap: 10,
+            backgroundColor: pressed ? '#25605A' : color.sea,
+            borderRadius: 28,
+            justifyContent: 'center',
             alignItems: 'center',
-            opacity: pressed ? 0.85 : 1,
           })}>
-          <Strong c={color.ink}>Ask FINN about this</Strong>
+          <AskIcon c={color.onSea} />
+          <Strong c={color.onSea}>Ask FINN about this</Strong>
         </Pressable>
       </View>
     </View>

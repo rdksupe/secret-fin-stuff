@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { RefreshControl, ScrollView, View, type ViewStyle } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { color, maxWidth, space } from '@/theme';
 
@@ -18,13 +17,12 @@ export function Screen({
   bottomPad?: number;
   style?: ViewStyle;
 }) {
-  const insets = useSafeAreaInsets();
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: color.ink }}
-      contentContainerStyle={{ paddingTop: insets.top + space.l, paddingBottom: bottomPad + insets.bottom }}
+      style={{ flex: 1, backgroundColor: color.bg }}
+      contentContainerStyle={{ paddingTop: space.l, paddingBottom: bottomPad }}
       refreshControl={
-        onRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} tintColor={color.marigold} /> : undefined
+        onRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} tintColor={color.sea} colors={[color.sea]} progressBackgroundColor={color.raised} /> : undefined
       }>
       <View style={[{ width: '100%', maxWidth, alignSelf: 'center', paddingHorizontal: space.l }, style]}>{children}</View>
     </ScrollView>

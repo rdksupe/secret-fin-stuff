@@ -3,26 +3,26 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native';
 
 import { AskBar } from '@/components/ask-bar';
+import { CloseIcon } from '@/components/icons';
+import { TopBar } from '@/components/top-bar';
 import { BrainTree, openBrainPage } from '@/components/brain';
 import { Markdown } from '@/components/markdown';
 import { Screen } from '@/components/screen';
 import { Rule } from '@/components/story-row';
-import { Body, Mono, Ticker, Title } from '@/components/type';
+import { Body, Figure, Ticker } from '@/components/type';
 import { api, type Brain } from '@/lib/api';
 import { color, font, size, space } from '@/theme';
 
 type Hit = { path: string; title: string; heading: string; section?: string; snippet: string };
 
-const back = (sym: string) => (router.canGoBack() ? router.back() : router.replace(`/company/${sym}`));
-
 /** «matched» words from the FTS snippet, drawn in FINN's colour. */
 function Snippet({ text }: { text: string }) {
   const parts = text.replace(/\s+/g, ' ').split(/(«[^»]*»)/);
   return (
-    <Text style={{ fontFamily: font.regular, fontSize: size.small, lineHeight: 20, color: color.mist }}>
+    <Text style={{ fontFamily: font.regular, fontSize: size.small, lineHeight: 20, color: color.text2 }}>
       {parts.map((p, i) =>
         p.startsWith('«') ? (
-          <Text key={i} style={{ color: color.marigold, fontFamily: font.semibold }}>{p.slice(1, -1)}</Text>
+          <Text key={i} style={{ color: color.sea, fontFamily: font.bold }}>{p.slice(1, -1)}</Text>
         ) : (
           p
         ),
@@ -63,35 +63,35 @@ function Search({ sym, onActive }: { sym: string; onActive: (active: boolean) =>
 
   return (
     <View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: color.panel, borderWidth: 1, borderColor: color.hairline, borderRadius: 12, paddingHorizontal: 14 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, borderRadius: 12, paddingHorizontal: 14 }}>
         <TextInput
           value={q}
           onChangeText={setQ}
           placeholder={`Search ${sym}: attrition, margin guidance, a name…`}
-          placeholderTextColor={color.dim}
+          placeholderTextColor={color.text3}
           returnKeyType="search"
           autoCorrect={false}
-          style={{ flex: 1, paddingVertical: 12, color: color.paper, fontFamily: font.regular, fontSize: 15, outlineStyle: 'none' } as never}
+          style={{ flex: 1, paddingVertical: 12, color: color.text, fontFamily: font.regular, fontSize: 15, outlineStyle: 'none' } as never}
         />
         {busy ? (
-          <ActivityIndicator size="small" color={color.marigold} />
+          <ActivityIndicator size="small" color={color.sea} />
         ) : q ? (
           <Pressable onPress={() => setQ('')} hitSlop={10} accessibilityLabel="Clear search">
-            <Body c={color.dim}>×</Body>
+            <CloseIcon c={color.text2} size={18} />
           </Pressable>
         ) : null}
       </View>
       {hits && (
         <View style={{ marginTop: space.m }}>
-          <Mono size={12} c={color.dim}>
+          <Figure size={12} c={color.text3}>
             {hits.length === 0 ? 'Nothing in the brain matches that.' : `${hits.length} passage${hits.length === 1 ? '' : 's'}`}
-          </Mono>
+          </Figure>
           {hits.map((h, i) => (
             <View key={`${h.path}-${i}`}>
               <Pressable onPress={() => openBrainPage(sym, h.path, h.section || undefined)} style={({ pressed }) => ({ paddingVertical: 12, opacity: pressed ? 0.6 : 1 })}>
                 <View style={{ flexDirection: 'row', gap: 8, marginBottom: 4 }}>
-                  <Mono size={11} c={color.paper} numberOfLines={1} style={{ flexShrink: 1 }}>{h.path.replace(/\.md$/, '')}</Mono>
-                  {h.heading ? <Mono size={11} c={color.dim} numberOfLines={1} style={{ flexShrink: 1 }}>· {h.heading}</Mono> : null}
+                  <Figure size={11} c={color.text} numberOfLines={1} style={{ flexShrink: 1 }}>{h.path.replace(/\.md$/, '')}</Figure>
+                  {h.heading ? <Figure size={11} c={color.text3} numberOfLines={1} style={{ flexShrink: 1 }}>· {h.heading}</Figure> : null}
                 </View>
                 <Snippet text={h.snippet} />
               </Pressable>
@@ -114,14 +114,10 @@ function BrainHome({ sym }: { sym: string }) {
   const total = (brain?.tree ?? []).reduce((n, f) => n + f.pages.length, 0);
 
   return (
-    <View style={{ flex: 1, backgroundColor: color.ink }}>
+    <View style={{ flex: 1, backgroundColor: color.bg }}>
+      <TopBar back title={`${sym} brain`} />
       <Screen bottomPad={space.xl}>
-        <Pressable onPress={() => back(sym)} hitSlop={12}>
-          <Body c={color.mist} size={14}>‹ Back</Body>
-        </Pressable>
-        <View style={{ marginTop: space.xl }}><Ticker size={15}>{sym}</Ticker></View>
-        <Title size={size.title} style={{ marginTop: space.s }}>Brain</Title>
-        <Body c={color.mist} size={14} style={{ marginTop: space.s, marginBottom: space.l }}>
+        <Body c={color.text2} size={14} style={{ marginBottom: space.l }}>
           {brain ? `${total} pages FINN reads before it answers. ` : ''}Plain markdown from the company's own filings, results and calls, linked like a wiki.
         </Body>
         <Search sym={sym} onActive={setSearching} />
@@ -129,9 +125,9 @@ function BrainHome({ sym }: { sym: string }) {
           {brain ? (
             <BrainTree brain={brain} />
           ) : missing ? (
-            <Body c={color.dim}>No brain for {sym} yet. Ask FINN to research it and it will build one.</Body>
+            <Body c={color.text3}>No brain for {sym} yet. Ask FINN to research it and it will build one.</Body>
           ) : (
-            <ActivityIndicator color={color.marigold} style={{ alignSelf: 'flex-start' }} />
+            <ActivityIndicator color={color.sea} style={{ alignSelf: 'flex-start' }} />
           )}
         </View>
       </Screen>
@@ -165,47 +161,45 @@ function BrainPage({ sym, path, section }: { sym: string; path: string; section?
   const crumbs = path.split('/');
 
   return (
-    <View style={{ flex: 1, backgroundColor: color.ink }}>
+    <View style={{ flex: 1, backgroundColor: color.bg }}>
+      <TopBar back title={`${sym} brain`} />
       <Screen bottomPad={space.xl}>
-        <Pressable onPress={() => back(sym)} hitSlop={12}>
-          <Body c={color.mist} size={14}>‹ Back</Body>
-        </Pressable>
-        <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6, marginTop: space.l }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6 }}>
           <Pressable onPress={() => router.push({ pathname: '/brain/[symbol]', params: { symbol: sym } } as never)} hitSlop={6}>
             <Ticker size={13}>{sym}</Ticker>
           </Pressable>
-          <Mono size={12} c={color.dim}>/</Mono>
+          <Figure size={12} c={color.text3}>/</Figure>
           {crumbs.map((c, i) => (
-            <Mono key={i} size={12} c={i === crumbs.length - 1 ? color.paper : color.dim}>
+            <Figure key={i} size={12} c={i === crumbs.length - 1 ? color.text : color.text3}>
               {c}
               {i < crumbs.length - 1 ? ' /' : ''}
-            </Mono>
+            </Figure>
           ))}
         </View>
         <View style={{ marginTop: space.m }}>
           <Rule />
         </View>
         {meta && meta.offset > 0 ? (
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: space.m, padding: space.m, borderRadius: 10, backgroundColor: color.well }}>
-            <Body size={size.small} c={color.mist} style={{ flex: 1 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: space.m, padding: space.m, backgroundColor: color.seaTint }}>
+            <Body size={size.small} c={color.text2} style={{ flex: 1 }}>
               Opened at {from}, where your search matched ({Math.round((meta.offset / meta.total) * 100)}% into the document).
             </Body>
             <Pressable onPress={() => setFrom(undefined)} hitSlop={8}>
-              <Body size={size.small} c={color.paper}>From the start</Body>
+              <Body size={size.small} c={color.text}>From the start</Body>
             </Pressable>
           </View>
         ) : null}
         <View style={{ marginTop: space.m }}>
           {error ? (
-            <Body c={color.dim}>{error}</Body>
+            <Body c={color.text3}>{error}</Body>
           ) : md === null ? (
-            <ActivityIndicator color={color.marigold} style={{ marginTop: space.xl }} />
+            <ActivityIndicator color={color.sea} style={{ marginTop: space.xl }} />
           ) : (
             <Markdown text={md} size={14} onLink={follow} />
           )}
         </View>
         {md && meta && meta.offset + md.length < meta.total ? (
-          <Body size={12} c={color.dim} style={{ marginTop: space.m }}>
+          <Body size={12} c={color.text3} style={{ marginTop: space.m }}>
             Long document; showing about {Math.round(md.length / 2000)} pages from here. Search finds passages anywhere in it.
           </Body>
         ) : null}

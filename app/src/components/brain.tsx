@@ -2,8 +2,9 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 
+import { ChevronDown, ChevronRight } from '@/components/icons';
 import { Rule } from '@/components/story-row';
-import { Body, Mono, Strong } from '@/components/type';
+import { Body, Figure, Strong } from '@/components/type';
 import type { Brain, BrainFolder } from '@/lib/api';
 import { color, font, size, space } from '@/theme';
 
@@ -26,26 +27,28 @@ function Folder({ symbol, f, startOpen }: { symbol: string; f: BrainFolder; star
         accessibilityState={{ expanded: open }}
         style={({ pressed }) => ({ paddingVertical: 12, opacity: pressed ? 0.7 : 1 })}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-          <Mono size={13} c={empty ? color.faint : color.mist} style={{ width: 12 }}>{empty ? '·' : open ? '▾' : '▸'}</Mono>
-          <Mono size={14} c={empty ? color.dim : color.paper} style={{ fontFamily: font.monoMedium, flex: 1 }}>
+          <View style={{ width: 20, alignItems: 'center' }}>
+            {empty ? <View style={{ width: 4, height: 4, backgroundColor: color.faint }} /> : open ? <ChevronDown c={color.sea} size={18} /> : <ChevronRight c={color.sea} size={18} />}
+          </View>
+          <Figure size={14} c={empty ? color.text3 : color.text} style={{ fontFamily: font.semibold, flex: 1 }}>
             {f.name}/
-          </Mono>
-          <Mono size={12} c={color.dim}>{empty ? 'empty' : f.pages.length}</Mono>
+          </Figure>
+          <Figure size={12} c={color.text3}>{empty ? 'empty' : f.pages.length}</Figure>
         </View>
         {f.about ? (
-          <Body size={size.meta} c={color.dim} style={{ marginLeft: 22, marginTop: 2 }}>{f.about}</Body>
+          <Body size={size.meta} c={color.text3} style={{ marginLeft: 22, marginTop: 2 }}>{f.about}</Body>
         ) : null}
       </Pressable>
       {open &&
         f.pages.map((p) => (
-          <View key={p.path} style={{ marginLeft: 22, borderLeftWidth: 1, borderLeftColor: color.hairline, paddingLeft: 12 }}>
+          <View key={p.path} style={{ marginLeft: 22, borderLeftWidth: 1, borderLeftColor: color.line, paddingLeft: 12 }}>
             <Pressable onPress={() => openBrainPage(symbol, p.path)} style={({ pressed }) => ({ paddingVertical: 9, opacity: pressed ? 0.6 : 1 })}>
               <Body size={size.small} numberOfLines={2}>{tidy(p.title, symbol)}</Body>
-              <Mono size={11} c={color.dim} style={{ marginTop: 1 }}>{p.path.split('/').pop()}</Mono>
+              <Figure size={11} c={color.text3} style={{ marginTop: 1 }}>{p.path.split('/').pop()}</Figure>
             </Pressable>
             {p.tree ? (
               <Pressable onPress={() => openBrainPage(symbol, p.tree!)} hitSlop={6} style={{ paddingBottom: 9 }}>
-                <Mono size={11} c={color.marigold}>PageIndex tree ›</Mono>
+                <Figure size={12} c={color.sea} style={{ fontFamily: font.semibold }}>PageIndex tree</Figure>
               </Pressable>
             ) : null}
           </View>
@@ -71,13 +74,14 @@ export function BrainTree({ brain }: { brain: Brain }) {
             onPress={() => openBrainPage(brain.symbol, p.path)}
             style={({ pressed }) => ({
               borderWidth: 1,
-              borderColor: p.path === 'index.md' ? color.marigold : color.hairline,
+              borderColor: p.path === 'index.md' ? color.sea : color.line,
+              backgroundColor: p.path === 'index.md' ? color.seaTint : color.raised,
               borderRadius: 10,
               paddingHorizontal: 12,
               paddingVertical: 8,
               opacity: pressed ? 0.7 : 1,
             })}>
-            <Mono size={12} c={p.path === 'index.md' ? color.marigold : color.paper}>{p.path.replace(/\.md$/, '')}</Mono>
+            <Figure size={13} c={p.path === 'index.md' ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{p.path.replace(/\.md$/, '')}</Figure>
           </Pressable>
         ))}
       </View>
@@ -87,7 +91,7 @@ export function BrainTree({ brain }: { brain: Brain }) {
           <Folder key={f.name} symbol={brain.symbol} f={f} startOpen={f.name === 'dossier'} />
         ))}
       </View>
-      <Strong size={size.meta} c={color.dim} style={{ marginTop: space.s }}>
+      <Strong size={size.meta} c={color.text3} style={{ marginTop: space.s }}>
         {`kb/companies/${brain.symbol}/wiki/`}
       </Strong>
     </View>
@@ -106,16 +110,16 @@ export function BrainEntry({ brain }: { brain: Brain }) {
       style={({ pressed }) => ({
         marginTop: space.xl,
         borderWidth: 1,
-        borderColor: color.hairline,
+        borderColor: color.line,
         borderRadius: 14,
         padding: space.l,
-        backgroundColor: pressed ? color.panel : color.well,
+        backgroundColor: pressed ? color.raised : color.inset,
       })}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Strong style={{ flex: 1 }}>{brain.symbol} brain</Strong>
-        <Mono size={12} c={color.mist}>{total} pages ›</Mono>
+        <Figure size={12} c={color.text2}>{total} pages ›</Figure>
       </View>
-      <Body size={size.small} c={color.mist} style={{ marginTop: 4 }}>
+      <Body size={size.small} c={color.text2} style={{ marginTop: 4 }}>
         Search and read everything FINN knows: {folders.map((f) => f.name).join(', ')}.
       </Body>
     </Pressable>
