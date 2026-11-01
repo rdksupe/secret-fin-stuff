@@ -75,7 +75,7 @@ function Filters({ stories, value, onChange }: { stories: Story[]; value: string
   const shown = BUCKETS.filter((b) => b.key === 'all' || counts[b.key]);
   if (shown.length <= 2) return null; // one kind of story: nothing to filter
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -space.l, marginTop: space.l }} contentContainerStyle={{ gap: 8, paddingHorizontal: space.l }}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -space.l, marginTop: space.s, flexGrow: 0 }} contentContainerStyle={{ gap: 8, paddingHorizontal: space.l }}>
       {shown.map((b) => {
         const on = value === b.key;
         const n = b.key === 'all' ? stories.length : counts[b.key];
@@ -182,12 +182,17 @@ export default function Brief() {
     setRefreshing(false);
   };
 
-  const [filter, setFilter] = useState('all');
-  const all = [...(digest?.alert ?? []), ...(digest?.brief ?? []), ...(digest?.list ?? [])];
-  const keep = (s: Story) => filter === 'all' || bucket(s) === filter;
-  const needs = (digest?.alert ?? []).filter(keep);
-  const worth = (digest?.brief ?? []).filter(keep);
-  const onFile = (digest?.list ?? []).filter(keep);
+  // Each section filters on its own, under its own heading.
+  const [fNeeds, setFNeeds] = useState('all');
+  const [fWorth, setFWorth] = useState('all');
+  const [fFile, setFFile] = useState('all');
+  const by = (f: string) => (s: Story) => f === 'all' || bucket(s) === f;
+  const allNeeds = digest?.alert ?? [];
+  const allWorth = digest?.brief ?? [];
+  const allFile = digest?.list ?? [];
+  const needs = allNeeds.filter(by(fNeeds));
+  const worth = allWorth.filter(by(fWorth));
+  const onFile = allFile.filter(by(fFile));
   const routine = digest ? Object.entries(digest.routine) : [];
 
   return (
@@ -216,26 +221,32 @@ export default function Brief() {
           )}
         </View>
 
-        <Filters stories={all} value={filter} onChange={setFilter} />
-
-        {needs.length > 0 && (
+        {allNeeds.length > 0 && (
           <View style={{ marginTop: space.xl }}>
-            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginBottom: space.s }}>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
               <Title size={size.lead}>Needs you</Title>
               <Figure size={14} c={color.text3}>{needs.length}</Figure>
             </View>
-            <Deck stories={needs} />
+            <Filters stories={allNeeds} value={fNeeds} onChange={setFNeeds} />
+            <View style={{ marginTop: space.m }}>
+              <Deck key={fNeeds} stories={needs} />
+            </View>
           </View>
         )}
 
-        {worth.length > 0 && (
+        {allWorth.length > 0 && (
           <Section title="Worth a look" count={worth.length}>
-            <List items={worth} />
+            <Filters stories={allWorth} value={fWorth} onChange={setFWorth} />
+            <View style={{ marginTop: space.s }}>
+              <List items={worth} />
+            </View>
           </Section>
         )}
 
-        {onFile.length > 0 && (
+        {allFile.length > 0 && (
           <Section title="On file" count={onFile.length}>
+            <Filters stories={allFile} value={fFile} onChange={setFFile} />
+            <View style={{ marginTop: space.s }} />
             <List items={moreOnFile ? onFile : onFile.slice(0, 3)} compact />
             {onFile.length > 3 && (
               <Pressable onPress={() => setMoreOnFile((v) => !v)} style={{ paddingVertical: space.m }} accessibilityRole="button">
@@ -271,11 +282,9 @@ export default function Brief() {
           </View>
         )}
 
-        {digest && needs.length === 0 && worth.length === 0 && onFile.length === 0 && (
+        {digest && allNeeds.length === 0 && allWorth.length === 0 && allFile.length === 0 && (
           <Body c={color.text2} style={{ marginTop: space.xl }}>
-            {filter === 'all'
-              ? 'Nothing from your companies in this window. Pick a longer range, or ask FINN about one of them.'
-              : 'Nothing of this kind in this window.'}
+            Nothing from your companies in this window. Pick a longer range, or ask FINN about one of them.
           </Body>
         )}
       </Screen>
