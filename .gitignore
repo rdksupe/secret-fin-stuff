@@ -24,3 +24,6 @@ data/research
 
 # generated from the holdings table (finn_api.portfolio_context)
 /kb/portfolio.md
+
+# release artefacts (scripts/release.sh)
+/dist/
