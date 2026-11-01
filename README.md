@@ -16,6 +16,7 @@ Worth trying:
 - **Tap a story:** why FINN surfaced it, and what the exchange says.
 - **Watch:** tap a company, then "Promised vs delivered", the business, trajectory and bull/bear.
 - **Brief:** flick through the "Needs you" deck; filter any section.
+- **Watches (clock icon on Watch or Ask):** every scheduled job, its next run and every answer it has delivered; pause, run now or delete. "New watch" sets one up through FINN. A watch's notification opens its page.
 - **Watch → a company → its brain:** search "attrition" or "order book" across annual reports and transcripts.
 - **Ask:**
   - "How did TCS do last quarter?"

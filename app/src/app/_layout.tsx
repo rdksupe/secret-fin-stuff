@@ -61,6 +61,8 @@ export default function RootLayout() {
         <Stack.Screen name="story/[id]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="company/[symbol]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="brain/[symbol]" options={{ animation: 'slide_from_right' }} />
+        <Stack.Screen name="watches/index" options={{ animation: 'slide_from_right' }} />
+        <Stack.Screen name="watches/[id]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="welcome" options={{ animation: 'fade', gestureEnabled: false }} />
         <Stack.Screen name="unlock" options={{ animation: 'fade', gestureEnabled: false }} />
       </Stack>

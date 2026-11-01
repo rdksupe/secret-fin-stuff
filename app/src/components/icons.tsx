@@ -98,3 +98,10 @@ export const MinusIcon = ({ size = 22, c }: P) => (
     <Path d="M5 12h14" {...stroke(c)} />
   </Svg>
 );
+
+/** Watches: a clock face, the investor's scheduled jobs. */
+export const ClockIcon = ({ size = 22, c }: P) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24">
+    <Path d="M12 3.5a8.5 8.5 0 1 0 0 17a8.5 8.5 0 1 0 0-17zM12 7.5V12l3 2" {...stroke(c)} />
+  </Svg>
+);

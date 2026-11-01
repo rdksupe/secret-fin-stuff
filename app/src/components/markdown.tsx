@@ -104,7 +104,7 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
   );
 }
 
-export function Markdown({ text, size = 15, onLink, onAction }: { text: string; size?: number; onLink?: OnLink; onAction?: (prompt: string) => void }) {
+export function Markdown({ text, size = 15, onLink, onAction, complete = true }: { text: string; size?: number; onLink?: OnLink; onAction?: (prompt: string) => void; complete?: boolean }) {
   const base = { fontFamily: font.regular, fontSize: size, lineHeight: size * 1.5, color: color.text };
   const lines = text.replace(/\r/g, '').split('\n');
   const out: React.ReactNode[] = [];
@@ -126,8 +126,9 @@ export function Markdown({ text, size = 15, onLink, onAction }: { text: string; 
         body.push(lines[i]);
         i++;
       }
+      const closed = i < lines.length;
       i++; // closing fence (absent while streaming: the artifact shows its placeholder)
-      out.push(<Artifact key={`a${k++}`} lang={lang} body={body.join('\n')} onAction={onAction} />);
+      out.push(<Artifact key={`a${k++}`} lang={lang} body={body.join('\n')} onAction={onAction} closed={closed || complete} />);
       continue;
     }
     if (line.trim().startsWith('|')) {

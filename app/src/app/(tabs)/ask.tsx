@@ -4,7 +4,7 @@ import { Image } from 'expo-image';
 import { KeyboardAvoidingView, Linking, Modal, Platform, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ChatsIcon, ChevronRight, CloseIcon, MicIcon, PlusIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
+import { ChatsIcon, ChevronRight, ClockIcon, CloseIcon, MicIcon, PlusIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
 import { BarAction, TopBar } from '@/components/top-bar';
 import { Markdown } from '@/components/markdown';
 import { Dot } from '@/components/pulse';
@@ -209,7 +209,7 @@ function Bubble({
         </Body>
       </View>
       {quote ? <Quote m={quote} /> : null}
-      {text ? <Markdown text={text} onAction={onAction} /> : m.payload.attachments?.length ? null : <Body c={color.text3}>…</Body>}
+      {text ? <Markdown text={text} onAction={onAction} complete={m.final} /> : m.payload.attachments?.length ? null : <Body c={color.text3}>…</Body>}
       {m.payload.attachments?.map((a) => <Attachment key={a.url} a={a} />)}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m }}>
         {m.payload.reaction ? <Reaction emoji={m.payload.reaction} /> : null}
@@ -251,7 +251,7 @@ function lastUserBefore(ms: ChatMessage[], i: number): string | undefined {
 }
 
 export default function Ask() {
-  const params = useLocalSearchParams<{ feed?: string; symbol?: string; chat?: string; page?: string }>();
+  const params = useLocalSearchParams<{ feed?: string; symbol?: string; chat?: string; page?: string; prompt?: string }>();
   const chats = useChats();
   const [sheet, setSheet] = useState(false);
   const [context, setContext] = useState<{ symbol: string; label: string } | null>(null);
@@ -292,6 +292,22 @@ export default function Ask() {
     }
   }, [params.symbol, params.feed, params.page]);
 
+  // Opened with a ready prompt (e.g. "New watch"): send it in a fresh chat, once.
+  const [pending, setPending] = useState<string | null>(null);
+  useEffect(() => {
+    if (!params.prompt) return;
+    newChat();
+    setPending(params.prompt);
+    router.setParams({ prompt: undefined });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.prompt]);
+  useEffect(() => {
+    if (!pending || messages.length > 0) return;
+    send(pending, undefined, undefined);
+    setPending(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pending, chatId]);
+
   const contextText = () =>
     context ? contextLine(context) : undefined;
 
@@ -314,6 +330,9 @@ export default function Ask() {
         title="Ask"
         right={
           <>
+            <BarAction label="Scheduled watches" onPress={() => router.push('/watches' as never)}>
+              <ClockIcon c={color.onSea} />
+            </BarAction>
             <BarAction label={othersWorking > 0 ? `Chats, ${othersWorking} running` : 'Chats'} onPress={() => setSheet(true)}>
               <ChatsIcon c={color.onSea} />
               {othersWorking > 0 ? <Figure size={12} c={color.brassOnSea} style={{ fontFamily: font.semibold }}>{othersWorking}</Figure> : null}

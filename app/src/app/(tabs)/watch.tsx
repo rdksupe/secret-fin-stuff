@@ -2,9 +2,9 @@ import { router } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Pressable, TextInput, View } from "react-native";
 
-import { MinusIcon, PlusIcon } from "@/components/icons";
+import { ClockIcon, MinusIcon, PlusIcon } from "@/components/icons";
 import { Screen } from "@/components/screen";
-import { TopBar } from "@/components/top-bar";
+import { BarAction, TopBar } from "@/components/top-bar";
 import { Spark } from "@/components/spark";
 import { Rule } from "@/components/story-row";
 import { Body, Figure, Pct, Ticker, Title } from "@/components/type";
@@ -186,6 +186,11 @@ export default function Watch() {
     <View style={{ flex: 1, backgroundColor: color.bg }}>
       <TopBar
         title="Watch"
+        right={
+          <BarAction label="Scheduled watches" onPress={() => router.push("/watches" as never)}>
+            <ClockIcon c={color.onSea} />
+          </BarAction>
+        }
         below={
           <Body c={color.onSea2} size={size.small}>
             {holdings

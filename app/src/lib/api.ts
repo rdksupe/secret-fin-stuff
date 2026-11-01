@@ -170,6 +170,26 @@ export type Status = {
   last_filing_at: string | null;
   checked_at: string;
 };
+/** A scheduled watch: a Hermes cron job the investor set up from chat. */
+export type Watch = {
+  id: string;
+  name: string;
+  schedule: string; // "Weekdays 08:30"
+  cron: string | null;
+  enabled: boolean;
+  state: string | null;
+  next_run_at: string | null;
+  last_run_at: string | null;
+  last_status: string | null;
+  last_error: string | null;
+  chat_id: string | null;
+  script_only: boolean;
+  prompt: string;
+  runs: number;
+};
+export type WatchRun = { id: string; at: string; silent: boolean; preview?: string; response?: string };
+export type WatchDetail = Watch & { runs_list: WatchRun[] };
+
 export type Holding = {
   symbol: string;
   name: string | null;

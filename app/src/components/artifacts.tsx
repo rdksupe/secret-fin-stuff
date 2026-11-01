@@ -483,11 +483,12 @@ export function ActionsArtifact({ spec, onAction }: { spec: ActionsSpec; onActio
 }
 
 /** Render one fenced block: a finn-* artifact when it parses, otherwise a plain code panel. */
-export function Artifact({ lang, body, onAction }: { lang: string; body: string; onAction?: (prompt: string) => void }) {
+export function Artifact({ lang, body, onAction, closed = false }: { lang: string; body: string; onAction?: (prompt: string) => void; closed?: boolean }) {
   let spec: any = null;
   if (lang.startsWith('finn-')) {
     try {
       spec = JSON.parse(body);
+      if (lang === 'finn-actions' && Array.isArray(spec)) spec = { actions: spec }; // FINN sometimes sends the bare list
     } catch {
       spec = null;
     }
@@ -507,7 +508,9 @@ export function Artifact({ lang, body, onAction }: { lang: string; body: string;
     if (spec && lang === 'finn-cards' && Array.isArray(spec.items)) return <CardsArtifact spec={spec} />;
     if (spec && lang === 'finn-actions' && Array.isArray(spec.actions)) return <ActionsArtifact spec={spec} onAction={onAction} />;
   } catch {}
-  // A finn block still streaming in (or malformed): a quiet placeholder rather than raw JSON.
+  // A finished block that still can't be drawn: leave it out rather than promise a drawing forever.
+  if (lang.startsWith('finn-') && closed) return null;
+  // A finn block still streaming in: a quiet placeholder rather than raw JSON.
   if (lang.startsWith('finn-')) {
     return (
       <View style={{ marginVertical: space.s, borderWidth: 1, borderColor: color.line, padding: space.m, minHeight: touch }}>

@@ -91,6 +91,7 @@ class FinnAppAdapter(BasePlatformAdapter):
             logger.warning("[%s] FINN_APP_BRIDGE_SECRET not set", self.name)
             return False
         self._client = httpx.AsyncClient()
+        self._loop = asyncio.get_running_loop()
         app = web.Application()
         app.router.add_post("/inbound", self._inbound)
         app.router.add_post("/action", self._action)
@@ -177,6 +178,11 @@ class FinnAppAdapter(BasePlatformAdapter):
     async def _emit(self, event: dict) -> dict:
         if not self._client:
             raise RuntimeError("adapter not connected")
+        if asyncio.get_running_loop() is not getattr(self, "_loop", None):
+            # Cron delivery calls us from the scheduler's own event loop; the shared client's pool is
+            # bound to the gateway loop, so use a short-lived client here.
+            async with httpx.AsyncClient() as c:
+                return await _post_event(c, self._api, event)
         return await _post_event(self._client, self._api, event)
 
     async def send(self, chat_id: str, content: str, reply_to: Optional[str] = None,
@@ -185,6 +191,8 @@ class FinnAppAdapter(BasePlatformAdapter):
             res = await self._emit({"chat_id": chat_id, "type": "message", "text": content[:MAX_MESSAGE_LENGTH],
                                     "reply_to": reply_to,
                                     "kind": "tool" if _is_progress(content, metadata) else "message",
+                                    # A scheduled watch's result (Hermes cron passes its job id): pushes open that watch.
+                                    "job_id": (metadata or {}).get("job_id"),
                                     # Streamed previews are edited until finalize; anything else is complete.
                                     "finalize": not (metadata or {}).get("expect_edits")})
             return SendResult(success=True, message_id=res.get("message_id"))

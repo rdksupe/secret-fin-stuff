@@ -54,7 +54,8 @@ export function usePushRegistration() {
 
     const open = (r: Notifications.NotificationResponse) => {
       const data = r.notification.request.content.data ?? {};
-      if (data.kind === 'company' && typeof data.symbol === 'string') router.push({ pathname: '/company/[symbol]', params: { symbol: data.symbol } }); // research finished
+      if (data.kind === 'watch' && typeof data.job_id === 'string') router.push({ pathname: '/watches/[id]', params: { id: data.job_id } }); // a scheduled watch's result
+      else if (data.kind === 'company' && typeof data.symbol === 'string') router.push({ pathname: '/company/[symbol]', params: { symbol: data.symbol } }); // research finished
       else if (data.kind === 'chat') router.push({ pathname: '/ask', params: typeof data.chat_id === 'string' ? { chat: data.chat_id } : {} }); // scheduled job / reminder from FINN
       else if (typeof data.feed_id === 'string') router.push({ pathname: '/story/[id]', params: { id: data.feed_id } });
     };

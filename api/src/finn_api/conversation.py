@@ -16,6 +16,7 @@ from collections import defaultdict
 
 import httpx
 from fastapi import (
+    BackgroundTasks,
     APIRouter,
     Depends,
     File,
@@ -367,10 +368,11 @@ class HermesEvent(BaseModel):
     session_key: str | None = None
     reply_to: str | None = None
     kind: str | None = None  # "tool" for the gateway's tool-progress bubble
+    job_id: str | None = None  # set when a scheduled watch (Hermes cron) delivers its result
 
 
 @router.post("/internal/hermes/events")
-def hermes_event(ev: HermesEvent, claims: dict = Depends(require_auth), db: Session = Depends(get_db)):
+def hermes_event(ev: HermesEvent, bg: BackgroundTasks, claims: dict = Depends(require_auth), db: Session = Depends(get_db)):
     if claims.get("sub") != "server":
         raise HTTPException(403, "server key required")
     chat_id = _valid_chat(ev.chat_id)
@@ -395,24 +397,34 @@ def hermes_event(ev: HermesEvent, claims: dict = Depends(require_auth), db: Sess
             m.text = ev.text or m.text
             m.final = True if m.kind == "tool" else ev.finalize
             db.commit()
+            if m.kind == "message" and m.final and not was_final:
+                bg.add_task(_recover_tail, m.id)
             listeners = _publish(chat_id, {"type": "update", "message": _msg(m)})
             if m.kind == "message" and m.final and not was_final and listeners == 0:
                 # A streamed answer finished while the investor was elsewhere (another chat, app closed).
                 _push_to_phone(db, m)
             return {"ok": True, "message_id": m.id}
     kind = ev.type if ev.type in ("approval", "clarify", "confirm") else ("tool" if ev.kind == "tool" else "message")
+    hdr = _CRON_HEADER.match(ev.text or "") if kind == "message" else None
+    if hdr:
+        # Hermes's fallback cron delivery wraps the answer in a header that names the job.
+        ev.job_id = ev.job_id or hdr.group(1)
+        ev.text = (ev.text or "")[hdr.end():].strip()
     payload = {k: v for k, v in {"command": ev.command, "choices": ev.choices, "id": ev.id,
-                                 "session_key": ev.session_key}.items() if v}
+                                 "session_key": ev.session_key, "job_id": ev.job_id}.items() if v}
     quote = _quote(db, chat_id, ev.reply_to)
     if quote:
         payload |= {"reply_to": quote["id"], "reply_text": quote["text"][:160], "reply_role": quote["role"]}
     final = kind != "message" or ev.finalize
     m = ChatMessage(chat_id=chat_id, role="finn", kind=kind, text=ev.text or "", payload_json=json.dumps(payload),
-                    final=final, proactive=ev.proactive)
+                    final=final, proactive=ev.proactive or bool(ev.job_id))
     db.add(m)
     db.commit()
     listeners = _publish(chat_id, {"type": "message", "message": _msg(m)})
-    if listeners == 0 and kind != "tool" and final:
+    if ev.job_id and kind == "message":
+        # A watch's result always reaches the phone, and opens that watch's page.
+        _push_to_phone(db, m)
+    elif listeners == 0 and kind != "tool" and final:
         # Nobody has the app open: a cron result, reminder or late reply — push it.
         m.proactive = True
         db.commit()
@@ -481,6 +493,9 @@ def media_file(name: str, token: str | None = Query(default=None), request: Requ
     return FileResponse(p)
 
 
+_CRON_HEADER = re.compile(r"^\s*Cronjob Response:[^\n]*?\(job_id:\s*([0-9a-f]{6,32})\)\s*\n(?:\s*-{3,}\s*\n)?")
+
+
 def _push_to_phone(db: Session, m: ChatMessage) -> None:
     from finn_api import fcm
 
@@ -489,5 +504,49 @@ def _push_to_phone(db: Session, m: ChatMessage) -> None:
     user = db.scalar(select(User).order_by(User.created_at))
     tokens = [t[4:] for t in json.loads(user.push_tokens_json or "[]") if t.startswith("fcm:")] if user else []
     first = (m.text or "").strip().splitlines()[0] if m.text else "FINN"
+    job_id = json.loads(m.payload_json or "{}").get("job_id")
+    title, data = "FINN", {"chat_id": m.chat_id, "message_id": m.id, "kind": "chat"}
+    if job_id:
+        from finn_api.watches import _jobs
+
+        name = next((j.get("name") for j in _jobs() if j.get("id") == job_id), None)
+        title, data = (name or "Your watch")[:60], {"chat_id": m.chat_id, "message_id": m.id, "kind": "watch", "job_id": job_id}
     for t in tokens:
-        fcm.send(t, "FINN", first[:200], {"chat_id": m.chat_id, "message_id": m.id, "kind": "chat"})
+        fcm.send(t, title, first[:200], data)
+
+
+def _recover_tail(message_id: str) -> None:
+    """Restore a streamed answer the gateway finalized short.
+
+    Hermes's stream consumer occasionally marks a partial edit as the final delivery and suppresses
+    the full send, so the app keeps a cut answer (the last block, usually finn-actions, goes missing).
+    Hermes's own transcript has the full reply: if it extends what we stored, take it.
+    """
+    import sqlite3
+    import time
+
+    from finn_api.db import SessionLocal
+    from finn_api.watches import HERMES_HOME
+
+    time.sleep(3)  # the transcript row is written as the turn closes
+    with SessionLocal() as db:
+        m = db.get(ChatMessage, message_id)
+        if not m or not m.text or len(m.text) < 40:
+            return
+        head = m.text.strip()
+        try:
+            con = sqlite3.connect(f"file:{HERMES_HOME / 'state.db'}?mode=ro", uri=True, timeout=5)
+            rows = con.execute(
+                "select content from messages where role='assistant' and content is not null "
+                "and timestamp > strftime('%s','now','-15 minutes') order by id desc limit 40").fetchall()
+            con.close()
+        except sqlite3.Error as e:
+            log.warning("tail recovery: hermes transcript unreadable: %s", e)
+            return
+        full = next((c.strip() for (c,) in rows if c and c.strip().startswith(head[:200]) and len(c.strip()) > len(head) + 5), None)
+        if not full:
+            return
+        log.info("tail recovery: message %s %d -> %d chars", message_id, len(head), len(full))
+        m.text = full
+        db.commit()
+        _publish(m.chat_id, {"type": "update", "message": _msg(m)})

@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from finn_api.auth import public as auth_public
 from finn_api.conversation import router as conversation_router
+from finn_api.watches import router as watches_router
 from finn_api.db import init_db
 from finn_api.routes import router
 
@@ -68,6 +69,7 @@ app.add_middleware(
 app.include_router(auth_public)
 app.include_router(router)
 app.include_router(conversation_router)
+app.include_router(watches_router)
 
 
 @app.get("/health")
