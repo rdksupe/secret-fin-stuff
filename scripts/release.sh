@@ -21,7 +21,7 @@ APK_SRC="$APP/android/app/build/outputs/apk/release/app-release.apk"
 TAG="v$VERSION"
 mkdir -p "$OUT"
 
-git -C "$ROOT" diff --quiet || { echo "commit your changes first" >&2; exit 1; }
+git -C "$ROOT" diff --quiet -- . ':!kb' ':!data' || { echo "commit your changes first" >&2; exit 1; }  # brain data churns; code must be clean
 git -C "$ROOT" rev-parse "$TAG" >/dev/null 2>&1 && { echo "$TAG already exists" >&2; exit 1; }
 
 if [[ $BUILD == 1 ]]; then
