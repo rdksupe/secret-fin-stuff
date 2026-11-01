@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T12:49:27.008461Z",
+  "title": "Design System: FINN",
+  "extensions": {
+    "colorMeta": {
+      "sea": {
+        "role": "primary",
+        "displayName": "Sea Stucco",
+        "canonical": "#1E4D47",
+        "tonalRamp": [
+          "#1E4D47",
+          "#25605A",
+          "#2E6B63",
+          "#3F7D74",
+          "#C3D8D1"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Pale Stone",
+        "canonical": "#E6ECE8",
+        "tonalRamp": [
+          "#F4F7F5",
+          "#E6ECE8",
+          "#D8E1DC",
+          "#C5D0CB",
+          "#A9B8B2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Lacquer Ink",
+        "canonical": "#14201E",
+        "tonalRamp": [
+          "#14201E",
+          "#3D4D49",
+          "#55655F"
+        ]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Brass (FINN acting)",
+        "canonical": "#B8862B",
+        "tonalRamp": [
+          "#7A5712",
+          "#B8862B",
+          "#E2BE76"
+        ]
+      },
+      "loss": {
+        "role": "semantic",
+        "displayName": "Loss Red",
+        "canonical": "#A33A2A",
+        "tonalRamp": [
+          "#A33A2A",
+          "#F2A592"
+        ]
+      },
+      "gain": {
+        "role": "semantic",
+        "displayName": "Gain Green",
+        "canonical": "#1F6B44",
+        "tonalRamp": [
+          "#1F6B44"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "deco-title": {
+        "displayName": "Deco Title",
+        "purpose": "Wordmark and screen titles, Josefin caps."
+      },
+      "deco-plate-ticker": {
+        "displayName": "Plate Ticker",
+        "purpose": "Ticker on a reversed plate."
+      },
+      "deco-ticker": {
+        "displayName": "Ticker",
+        "purpose": "Ticker in rows."
+      },
+      "lead-headline": {
+        "displayName": "Lead Headline",
+        "purpose": "Headline on the reversed plate, Public Sans bold."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "setback-climb",
+        "value": "3 tiers, 220ms exp-out each, 240ms stagger, 520ms hold, looped",
+        "purpose": "FINN is working; static under Remove animations."
+      },
+      {
+        "name": "deck-flick",
+        "value": "220ms quad-out, threshold 110dp or vx 0.6",
+        "purpose": "Send top story card to the back."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "column-cap",
+        "value": "640dp"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Setback Plate",
+      "kind": "card",
+      "description": "The one reversed sea plate per screen with a stepped crown.",
+      "html": "<div class=\"p\"><i class=\"c1\"></i><i class=\"c2\"></i><div class=\"b\"><span class=\"t\">EMUDHRA</span><p>Order book up; margins hold</p></div></div>",
+      "css": ".p{width:300px}.p i{display:block;height:7px;background:#1E4D47}.p .c1{margin:0 28px}.p .c2{margin:0 14px}.p .b{background:#1E4D47;padding:10px 18px 18px;color:#EEF4F1;font-family:'Public Sans',sans-serif}.p .t{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:.14em;color:#E2BE76}.p p{margin:10px 0 0;font-weight:700;font-size:21px;line-height:27px}"
+    },
+    {
+      "name": "Story Row",
+      "kind": "custom",
+      "description": "Ranked row with setback mark, ticker, headline, catalogue ref.",
+      "html": "<div class=\"r\"><svg width=\"18\" height=\"14\"><rect x=\"0\" y=\"9\" width=\"18\" height=\"5\" fill=\"#1E4D47\"/><rect x=\"3\" y=\"4.5\" width=\"12\" height=\"5\" fill=\"#1E4D47\"/><rect x=\"6\" y=\"0\" width=\"6\" height=\"5\" fill=\"#A9B8B2\"/></svg><div><b class=\"t\">DIXON</b> <span class=\"k\">Results</span><div class=\"h\">Other income was 61% of profit before tax</div><div class=\"f\">NSE 1031874 \u00b7 21 Oct</div></div></div>",
+      "css": ".r{display:flex;gap:14px;padding:16px;background:#E6ECE8;color:#14201E;font-family:'Public Sans',sans-serif;width:340px}.t{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.14em;color:#1E4D47}.k{font-size:14px;color:#3D4D49}.h{font-weight:600;font-size:16px;margin-top:4px}.f{font-size:12px;color:#55655F;margin-top:4px;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "description": "Material pill in sea.",
+      "html": "<button class=\"b\">Ask FINN</button>",
+      "css": ".b{height:56px;padding:0 28px;border:0;border-radius:28px;background:#1E4D47;color:#EEF4F1;font:600 16px 'Public Sans',sans-serif}.b:active{background:#25605A}"
+    },
+    {
+      "name": "Window Chip",
+      "kind": "chip",
+      "description": "Square 36dp chip, selected = sea tint.",
+      "html": "<span class=\"c\">7d</span>",
+      "css": ".c{display:inline-flex;align-items:center;height:36px;padding:0 14px;border:1px solid #1E4D47;background:#C3D8D1;color:#1E4D47;font:600 13px 'Public Sans',sans-serif;border-radius:0}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "description": "Material 3 bar with sea-tint indicator.",
+      "html": "<div class=\"n\"><div><span class=\"i\"></span>Brief</div><div>Watch</div><div>Ask</div></div>",
+      "css": ".n{display:flex;width:340px;background:#D8E1DC;border-top:1px solid #C5D0CB;font:500 12px 'Public Sans',sans-serif;color:#3D4D49}.n div{flex:1;text-align:center;padding:12px 0 14px}.n div:first-child{font-weight:700;color:#14201E}.i{display:block;margin:0 auto 4px;width:64px;height:32px;border-radius:16px;background:#C3D8D1}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Bombay Deco",
+    "overview": "FINN is built like Marine Drive and the Fort: importance stands in setbacks. A sea-green stucco shell frames a pale stone ground and lacquer ink; brass appears only when FINN is acting; red only for price losses. One reversed setback plate per screen carries the most material thing.",
+    "keyCharacteristics": [
+      "Light theme only",
+      "Flat, tonal depth, no shadows",
+      "Square content, Material pills only for radius",
+      "Josefin caps at three steps, Public Sans for everything else"
+    ],
+    "rules": [
+      {
+        "name": "The Brass Means FINN Rule",
+        "body": "Brass is only 'FINN is acting': working dots, raised by FINN, plate ticker.",
+        "section": "colors"
+      },
+      {
+        "name": "The Loss Is a Price Rule",
+        "body": "Loss red only for price losses; verdicts in ink; sparklines neutral sea; chart series exclude brass.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sea Is the Shell Rule",
+        "body": "Sea green is shell and brand, never a good/bad signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Deco Steps Rule",
+        "body": "Josefin caps only for wordmark/screen title, plate ticker, row ticker.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do rank with the setback mark and the one plate per screen",
+      "Do keep 48dp targets, hitSlop 6 on 36dp chips",
+      "Do show exchange refs as catalogue numbers"
+    ],
+    "donts": [
+      "Don't add a second plate, or one on Watch or Brain",
+      "Don't round cards, inputs or chips",
+      "Don't use brass or red outside their roles",
+      "Don't add shadows, kickers or a dark scheme without a decision"
+    ]
+  }
+}

@@ -32,6 +32,20 @@ export async function registerPush(ask: boolean): Promise<boolean> {
   }
 }
 
+/** Ask for notification permission only. Used by the tour, which runs before there is a session. */
+export async function askPushPermission(): Promise<boolean> {
+  if (Platform.OS !== 'android' && Platform.OS !== 'ios') return false;
+  try {
+    if (Platform.OS === 'android') {
+      await Notifications.setNotificationChannelAsync('alerts', { name: 'Alerts', importance: Notifications.AndroidImportance.HIGH, lightColor: '#F0A63A' });
+    }
+    const perm = await Notifications.getPermissionsAsync();
+    return perm.granted || (await Notifications.requestPermissionsAsync()).granted;
+  } catch {
+    return false;
+  }
+}
+
 /** Re-register on launch (silently, if already allowed) and open the right screen from taps. */
 export function usePushRegistration() {
   useEffect(() => {

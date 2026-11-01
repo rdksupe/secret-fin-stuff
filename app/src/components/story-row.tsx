@@ -68,6 +68,18 @@ function Detail({ story, onSea = false }: { story: Story; onSea?: boolean }) {
   );
 }
 
+/** The one-line why under the lead headline: FINN's own reason from scoring the filing, never invented. */
+function Why({ story }: { story: Story }) {
+  const h = story.head;
+  const line = h.payload.materiality?.llm?.one_liner?.trim();
+  if (!line || headline(h.title, h.summary).toLowerCase().includes(line.toLowerCase().slice(0, 40))) return null;
+  return (
+    <Body size={size.small} c={color.onSea2} numberOfLines={2} style={{ marginTop: space.s }}>
+      {line}
+    </Body>
+  );
+}
+
 function open(story: Story) {
   router.push({ pathname: '/story/[id]', params: { id: story.head.id } });
 }
@@ -93,6 +105,7 @@ export function LeadStory({ story, fill = false }: { story: Story; fill?: boolea
         <Title size={21} c={color.onSea} numberOfLines={fill ? 3 : undefined} style={{ marginTop: space.m, fontFamily: font.bold, lineHeight: 27 }}>
           {headline(story.head.title, story.head.summary)}
         </Title>
+        <Why story={story} />
         {story.head.payload.results && !fill ? (
           <View style={{ marginTop: space.m }}>
             <ResultsStrip card={story.head.payload.results} onSea />

@@ -14,6 +14,7 @@ import { clean, useChats, useConversation, type ChatMessage, type ChatSummary } 
 import { useSpeech, useVoiceNote } from '@/lib/voice';
 import { headline, when } from '@/lib/format';
 import { color, font, maxWidth, size, space, touch } from '@/theme';
+import { Setback, SetbackPlate } from '@/components/deco';
 
 const STARTERS = [
   'What changed in my portfolio this week?',
@@ -47,7 +48,8 @@ function Prompt({ m, onAnswer }: { m: ChatMessage; onAnswer: (choice: string) =>
               style={({ pressed }) => ({
                 paddingHorizontal: 14,
                 paddingVertical: 9,
-                borderRadius: 10,
+                minHeight: touch,
+                justifyContent: 'center',
                 backgroundColor: c === primary ? color.text : 'transparent',
                 borderWidth: 1,
                 borderColor: c === primary ? color.text : color.line,
@@ -340,7 +342,7 @@ export default function Ask() {
                   {context.label ? (
                     <Body size={size.meta} c={color.onSea2} numberOfLines={1} style={{ flexShrink: 1 }}>{context.label}</Body>
                   ) : null}
-                  <Pressable onPress={clearContext} accessibilityRole="button" accessibilityLabel="Clear context" style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
+                  <Pressable onPress={clearContext} accessibilityRole="button" accessibilityLabel="Clear context" hitSlop={6} style={{ width: 36, height: 36, alignItems: 'center', justifyContent: 'center' }}>
                     <CloseIcon c={color.onSea} size={18} />
                   </Pressable>
                 </View>
@@ -357,10 +359,15 @@ export default function Ask() {
         contentContainerStyle={{ paddingHorizontal: space.l, paddingBottom: space.xl, width: '100%', maxWidth, alignSelf: 'center' }}>
         {messages.length === 0 ? (
           <View style={{ marginTop: space.xl }}>
-            <Title size={size.title}>{context ? `Ask about ${context.symbol}` : 'Ask about any NSE company'}</Title>
-            <Body c={color.text2} style={{ marginTop: space.s }}>
-              Answers come from each company's own filings, results and call transcripts. FINN cites the page it used. Ask it to watch something on a schedule and it will message you here.
-            </Body>
+            <SetbackPlate>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                <Title size={22} c={color.onSea} style={{ flex: 1, fontFamily: font.bold }}>{context ? `Ask about ${context.symbol}` : 'Ask about any NSE company'}</Title>
+                <Setback steps={3} onSea />
+              </View>
+              <Body size={size.small} c={color.onSea2} style={{ marginTop: space.s }}>
+                Answers come from each company's own filings, results and call transcripts. FINN cites the page it used. Ask it to watch something on a schedule and it will message you here.
+              </Body>
+            </SetbackPlate>
             <View style={{ marginTop: space.xl, gap: space.s }}>
               {(context
                 ? [`Promised vs delivered at ${context.symbol} over the last four quarters`, `Summarise ${context.symbol}'s latest results`, `What should I watch at ${context.symbol} next quarter?`]
@@ -529,7 +536,7 @@ function Sessions({
         <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: space.l, paddingTop: space.l, paddingBottom: space.m }}>
           <Title size={18} style={{ fontFamily: font.bold }}>Chats</Title>
           <View style={{ flex: 1 }} />
-          <Pressable onPress={onNew} accessibilityRole="button" style={{ height: 40, paddingHorizontal: 18, justifyContent: 'center', borderRadius: 20, backgroundColor: color.sea }}>
+          <Pressable onPress={onNew} accessibilityRole="button" style={{ height: touch, paddingHorizontal: 18, justifyContent: 'center', borderRadius: 20, backgroundColor: color.sea }}>
             <Strong size={14} c={color.onSea}>New chat</Strong>
           </Pressable>
         </View>

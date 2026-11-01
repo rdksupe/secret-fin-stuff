@@ -2,7 +2,7 @@ import Svg, { Circle, Polyline } from 'react-native-svg';
 
 import { color } from '@/theme';
 
-/** Close-price trace. Colour follows the move over the window, the last close gets a dot. */
+/** Close-price trace in a neutral sea line: red and green stay with the day's change figure beside it. */
 export function Spark({ values, width = 72, height = 24 }: { values: number[]; width?: number; height?: number }) {
   if (values.length < 2) return null;
   const lo = Math.min(...values);
@@ -13,8 +13,7 @@ export function Spark({ values, width = 72, height = 24 }: { values: number[]; w
     pad + (i / (values.length - 1)) * (width - pad * 2),
     pad + (1 - (v - lo) / span) * (height - pad * 2),
   ]);
-  const up = values[values.length - 1] >= values[0];
-  const stroke = up ? color.gain : color.loss;
+  const stroke = color.sea;
   const [lx, ly] = pts[pts.length - 1];
   return (
     <Svg width={width} height={height}>

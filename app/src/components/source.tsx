@@ -6,7 +6,7 @@ import { openBrainPage } from '@/components/brain';
 import { CloseIcon } from '@/components/icons';
 import { Markdown } from '@/components/markdown';
 import { Body, Figure, Strong, Ticker } from '@/components/type';
-import { api } from '@/lib/api';
+import { ApiError, api } from '@/lib/api';
 import { color, font, size, space, touch } from '@/theme';
 
 // Tap-for-source. FINN cites as [[SYMBOL:path#Section|label]]; the app turns each citation into a
@@ -58,7 +58,7 @@ export function SourceSheet() {
   const s = useSyncExternalStore(subscribe, () => current, () => null);
   const insets = useSafeAreaInsets();
   const [md, setMd] = useState<string | null>(null);
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState<false | 'missing' | 'locked'>(false);
 
   useEffect(() => {
     if (!s) return;
@@ -68,7 +68,7 @@ export function SourceSheet() {
     api
       .get<{ markdown: string }>(`/companies/${s.symbol}/brain/${s.path}${s.section ? `?section=${encodeURIComponent(s.section)}&chars=2400` : '?chars=2400'}`)
       .then((r) => live && setMd(r.markdown))
-      .catch(() => live && setErr(true));
+      .catch((e) => live && setErr(e instanceof ApiError && e.status === 401 ? 'locked' : 'missing'));
     return () => {
       live = false;
     };
@@ -91,9 +91,9 @@ export function SourceSheet() {
               </Pressable>
             </View>
             <ScrollView style={{ marginTop: space.s }} contentContainerStyle={{ paddingHorizontal: space.l, paddingBottom: space.m }}>
-              {err ? <Body c={color.text3}>This page isn't in the brain.</Body> : md === null ? <ActivityIndicator color={color.sea} /> : <Markdown text={md} size={14} />}
+              {err === 'locked' ? <Body c={color.text2}>Unlock FINN to read the cited passage. In answers, every chip like this opens the exact page FINN quoted.</Body> : err ? <Body c={color.text2}>FINN hasn't read this page yet. Ask FINN to fetch the filing and it will add it to the brain.</Body> : md === null ? <ActivityIndicator color={color.sea} /> : <Markdown text={md} size={14} />}
             </ScrollView>
-            <Pressable
+            {err ? null : <Pressable
               onPress={() => {
                 const t = s;
                 closeSource();
@@ -102,7 +102,7 @@ export function SourceSheet() {
               accessibilityRole="button"
               style={({ pressed }) => ({ marginHorizontal: space.l, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: pressed ? '#25605A' : color.sea })}>
               <Strong size={size.small} c={color.onSea}>Open the full page</Strong>
-            </Pressable>
+            </Pressable>}
           </>
         ) : null}
       </View>

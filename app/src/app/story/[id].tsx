@@ -12,7 +12,7 @@ import { Rule } from '@/components/story-row';
 import { Body, Figure, Pct, Strong, Title } from '@/components/type';
 import { api, type FeedItem, type Materiality, type Story } from '@/lib/api';
 import { headline, quarterLabel, rupee, when } from '@/lib/format';
-import { color, font, size, space } from '@/theme';
+import { color, font, size, space, touch } from '@/theme';
 
 type StoryDetail = Story & { company?: string };
 
@@ -232,14 +232,14 @@ export default function StoryScreen() {
               <Pressable
                 onPress={() => Linking.openURL(h.source_url!)}
                 accessibilityRole="link"
-                style={({ pressed }) => ({ height: 40, paddingHorizontal: 18, justifyContent: 'center', borderRadius: 20, borderWidth: 1, borderColor: color.sea, backgroundColor: pressed ? color.seaTint : 'transparent', marginVertical: 4 })}>
+                style={({ pressed }) => ({ height: touch, paddingHorizontal: 18, justifyContent: 'center', borderRadius: touch / 2, borderWidth: 1, borderColor: color.sea, backgroundColor: pressed ? color.seaTint : 'transparent', marginVertical: 4 })}>
                 <Body size={size.small} c={color.sea} style={{ fontFamily: font.semibold }}>Open filing</Body>
               </Pressable>
             )}
             <Pressable
               onPress={dismiss}
               accessibilityRole="button"
-              style={({ pressed }) => ({ height: 40, paddingHorizontal: 14, justifyContent: 'center', borderRadius: 20, backgroundColor: pressed ? color.inset : 'transparent', marginVertical: 4 })}>
+              style={({ pressed }) => ({ height: touch, paddingHorizontal: 14, justifyContent: 'center', borderRadius: touch / 2, backgroundColor: pressed ? color.inset : 'transparent', marginVertical: 4 })}>
               <Body size={size.small} c={color.text2} style={{ fontFamily: font.semibold }}>Dismiss</Body>
             </Pressable>
           </View>

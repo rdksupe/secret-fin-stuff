@@ -2,11 +2,12 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 
+import { Setback, SetbackPlate } from '@/components/deco';
 import { ChevronDown, ChevronRight } from '@/components/icons';
 import { Rule } from '@/components/story-row';
-import { Body, Figure, Strong } from '@/components/type';
+import { Body, Figure, Strong, Ticker } from '@/components/type';
 import type { Brain, BrainFolder } from '@/lib/api';
-import { color, font, size, space } from '@/theme';
+import { color, deco, font, size, space } from '@/theme';
 
 const tidy = (t: string, symbol: string) => {
   const s = t.replace(new RegExp(`^${symbol}\\s*[·—-]\\s*`), '');
@@ -76,9 +77,10 @@ export function BrainTree({ brain }: { brain: Brain }) {
               borderWidth: 1,
               borderColor: p.path === 'index.md' ? color.sea : color.line,
               backgroundColor: p.path === 'index.md' ? color.seaTint : color.raised,
-              borderRadius: 10,
               paddingHorizontal: 12,
               paddingVertical: 8,
+              minHeight: 40,
+              justifyContent: 'center',
               opacity: pressed ? 0.7 : 1,
             })}>
             <Figure size={13} c={p.path === 'index.md' ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{p.path.replace(/\.md$/, '')}</Figure>
@@ -107,21 +109,21 @@ export function BrainEntry({ brain }: { brain: Brain }) {
       onPress={() => brainHome(brain.symbol)}
       accessibilityRole="button"
       accessibilityLabel={`Open the ${brain.symbol} brain`}
-      style={({ pressed }) => ({
-        marginTop: space.xl,
-        borderWidth: 1,
-        borderColor: color.line,
-        borderRadius: 14,
-        padding: space.l,
-        backgroundColor: pressed ? color.raised : color.inset,
-      })}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Strong style={{ flex: 1 }}>{brain.symbol} brain</Strong>
-        <Figure size={12} c={color.text2}>{total} pages ›</Figure>
-      </View>
-      <Body size={size.small} c={color.text2} style={{ marginTop: 4 }}>
-        Search and read everything FINN knows: {folders.map((f) => f.name).join(', ')}.
-      </Body>
+      style={({ pressed }) => ({ marginTop: space.xl, opacity: pressed ? 0.88 : 1 })}>
+      <SetbackPlate>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+          <Ticker size={deco.lead} c={color.brassOnSea}>{brain.symbol}</Ticker>
+          <Body size={size.small} c={color.onSea} style={{ flex: 1, fontFamily: font.semibold }}>brain</Body>
+          <Setback steps={3} onSea />
+        </View>
+        <Body size={size.small} c={color.onSea2} style={{ marginTop: space.s }}>
+          Search and read everything FINN knows: {folders.map((f) => f.name).join(', ')}.
+        </Body>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: space.m, paddingTop: space.m, borderTopWidth: 1, borderTopColor: 'rgba(238,244,241,0.18)' }}>
+          <Figure size={13} c={color.onSea2} style={{ flex: 1, fontFamily: font.semibold }}>{total} pages</Figure>
+          <ChevronRight c={color.onSea2} size={18} />
+        </View>
+      </SetbackPlate>
     </Pressable>
   );
 }

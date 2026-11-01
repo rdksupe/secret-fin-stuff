@@ -42,13 +42,11 @@ export default function RootLayout() {
   useEffect(() => {
     if (!loaded || session === 'loading') return;
     SplashScreen.hideAsync();
-    if (session === 'out') {
-      router.replace('/unlock' as never);
-      return;
-    }
-    // First launch after unlocking: the intro (features + notification permission).
+    // A fresh install always sees the tour first, before the password: whoever opens FINN sees what
+    // it does. The tour hands over to unlock (or home, if already unlocked) when it finishes.
     isOnboarded().then((done) => {
-      if (!done) router.push('/welcome' as never);
+      if (!done) router.replace('/welcome' as never);
+      else if (session === 'out') router.replace('/unlock' as never);
     });
   }, [loaded, session]);
   usePushRegistration();

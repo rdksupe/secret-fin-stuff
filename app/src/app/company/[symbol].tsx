@@ -133,7 +133,7 @@ export default function Company() {
                 )}
                 {research.map((d) => (
                   <View key={d.id}>
-                    <Pressable onPress={() => d.wiki_path && open(d.wiki_path)} style={{ paddingVertical: 12 }}>
+                    <Pressable onPress={() => d.wiki_path && open(d.wiki_path)} style={{ paddingVertical: 12, minHeight: 48 }}>
                       <View style={{ flexDirection: 'row', gap: 8 }}>
                         <Strong size={14} style={{ flex: 1 }}>{DOC_LABEL[d.doc_type ?? 'other']}</Strong>
                         <Figure size={12} c={color.text3}>{when(d.filed_at)}</Figure>

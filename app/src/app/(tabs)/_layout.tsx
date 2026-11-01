@@ -8,7 +8,7 @@ import { color, font } from '@/theme';
 
 const ICONS = { Brief: BriefIcon, Watch: WatchIcon, Ask: AskIcon } as const;
 
-// Material 3 navigation bar: icon in an indicator pill, label below, 80dp tall.
+// Material 3 navigation bar: icon in an indicator pill, label below, 64dp tall.
 function TabButton({ isFocused: _ignored, label, path, ...props }: TabTriggerSlotProps & { label: keyof typeof ICONS; path: string }) {
   const pathname = usePathname();
   const isFocused = path === '/' ? pathname === '/' : pathname.startsWith(path);

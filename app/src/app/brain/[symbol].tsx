@@ -63,7 +63,7 @@ function Search({ sym, onActive }: { sym: string; onActive: (active: boolean) =>
 
   return (
     <View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, borderRadius: 12, paddingHorizontal: 14 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: color.raised, borderWidth: 1, borderColor: color.line, paddingHorizontal: 14 }}>
         <TextInput
           value={q}
           onChangeText={setQ}

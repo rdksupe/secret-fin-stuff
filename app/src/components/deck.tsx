@@ -78,7 +78,7 @@ export function Deck({ stories }: { stories: Story[] }) {
           );
         })}
         {/* A shared minimum height keeps the deck from jumping as cards of different length come up. */}
-        <Animated.View {...responder.panHandlers} style={{ minHeight: 196, transform: [{ translateX: pan }, { rotate }] }}>
+        <Animated.View {...responder.panHandlers} style={{ minHeight: 168, transform: [{ translateX: pan }, { rotate }] }}>
           <LeadStory key={story.story_key} story={story} fill />
         </Animated.View>
       </View>

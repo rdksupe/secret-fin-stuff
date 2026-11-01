@@ -8,10 +8,11 @@ import { Setback, SetbackPlate } from '@/components/deco';
 import { SearchIcon } from '@/components/icons';
 import { ScenarioArtifact } from '@/components/scenario';
 import { SourceChip } from '@/components/source';
-import { BarAction, TopBar } from '@/components/top-bar';
+import { TopBar } from '@/components/top-bar';
 import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
 import { setOnboarded } from '@/lib/onboarding';
-import { registerPush } from '@/lib/push';
+import { askPushPermission, registerPush } from '@/lib/push';
+import { getToken } from '@/lib/session';
 import { color, deco, font, maxWidth, size, space, touch } from '@/theme';
 
 // First-run intro: what FINN does, shown with small specimens of the real screens.
@@ -228,12 +229,14 @@ export default function Welcome() {
 
   const finish = async () => {
     await setOnboarded(true);
-    router.replace('/');
+    // The tour runs before the password on a fresh install; unlock comes next.
+    router.replace(getToken() ? '/' : ('/unlock' as never));
   };
 
   const allow = async () => {
     setAsking(true);
-    await registerPush(true);
+    // Without a session the device token can't be sent yet; unlock registers it once permission is granted.
+    await (getToken() ? registerPush(true) : askPushPermission());
     setAsking(false);
     finish();
   };
@@ -243,7 +246,7 @@ export default function Welcome() {
 
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
-      <TopBar title="FINN" right={page < total - 1 ? <BarAction label="Skip" onPress={finish} /> : undefined} />
+      <TopBar title="FINN" />
 
       <ScrollView
         ref={scroller as never}
@@ -255,7 +258,7 @@ export default function Welcome() {
         scrollEventThrottle={64}
         style={{ flex: 1 }}>
         {PAGES.map((p, i) => (
-          <ScrollView key={p.key} style={{ width }} contentContainerStyle={[column, { paddingTop: space.xl, paddingBottom: space.xl }]}>
+          <ScrollView key={p.key} style={{ width }} contentContainerStyle={[column, { paddingTop: space.xl, paddingBottom: space.xl, flexGrow: 1, justifyContent: 'center' }]}>
             <View style={inner}>
               <Title size={28} style={{ lineHeight: 34, fontFamily: font.bold }}>{p.title}</Title>
               <Body c={color.text2} style={{ marginTop: space.m, lineHeight: 24 }}>{p.body}</Body>

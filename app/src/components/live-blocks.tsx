@@ -11,7 +11,7 @@ import { StoryRow } from '@/components/story-row';
 import { Body, Figure, Pct, Strong, Ticker } from '@/components/type';
 import { api, type Holding, type PricePoint, type ResultsCard, type Story } from '@/lib/api';
 import { quarterLabel, rupee } from '@/lib/format';
-import { color, font, size, space } from '@/theme';
+import { color, font, size, space, touch } from '@/theme';
 
 // Live blocks: FINN names WHAT to show and the app fetches the numbers from FINN's own API, so a
 // figure in one of these can never be mistyped by the model. ```finn-price, ```finn-results,
@@ -37,7 +37,7 @@ function Shell({ title, children, onOpen, openLabel }: { title?: string; childre
       {title ? <Strong size={size.small} style={{ marginBottom: space.s }}>{title}</Strong> : null}
       {children}
       {onOpen ? (
-        <Pressable onPress={onOpen} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: space.s, minHeight: 40 }}>
+        <Pressable onPress={onOpen} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: space.s, minHeight: touch }}>
           <Body size={size.small} c={color.sea} style={{ fontFamily: font.semibold, flex: 1 }}>{openLabel ?? 'Open'}</Body>
           <ChevronRight c={color.sea} size={18} />
         </Pressable>

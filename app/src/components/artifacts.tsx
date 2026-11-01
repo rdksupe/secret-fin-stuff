@@ -34,7 +34,7 @@ export type FormSpec = {
   submit: { label: string; prompt: string };
 };
 
-const SERIES = [color.sea, color.brass, '#5E8F86', '#7A5712', '#9BB8B0'];
+const SERIES = [color.sea, '#7FA9A0', '#3D4D49', '#B7C6C0', '#5E8F86'];
 
 function fmt(v: number | null | undefined, unit?: string): string {
   if (v === null || v === undefined || Number.isNaN(v)) return '—';
@@ -192,7 +192,7 @@ function Donut({ spec }: { spec: ChartSpec }) {
     a0 = a1;
     return { d, i };
   });
-  const COLORS = [color.sea, color.brass, '#5E8F86', '#7A5712', '#9BB8B0', '#2C6A62', '#C9A55A', '#3D4D49'];
+  const COLORS = [color.sea, '#7FA9A0', '#3D4D49', '#B7C6C0', '#5E8F86', '#2C6A62', '#9BB8B0', '#6F837D'];
   return (
     <Frame title={spec.title} source={spec.source}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m }}>
@@ -235,7 +235,7 @@ function Scatter({ spec, w }: { spec: ChartSpec; w: number }) {
           {spec.xLabel ? <SvgText x={w - pad} y={h - 8} fontSize={11} fontFamily={font.medium} fill={color.text3} textAnchor="end">{spec.xLabel}</SvgText> : null}
           {spec.yLabel ? <SvgText x={pad} y={pad - 10} fontSize={11} fontFamily={font.medium} fill={color.text3}>{spec.yLabel}</SvgText> : null}
           {pts.map((p, i) => (
-            <Circle key={p.label} cx={px(p.x)} cy={py(p.y)} r={pick === i ? 7 : 5} fill={pick === i ? color.brass : color.sea} opacity={0.9} />
+            <Circle key={p.label} cx={px(p.x)} cy={py(p.y)} r={pick === i ? 7 : 5} fill={pick === i ? color.text : color.sea} opacity={0.9} />
           ))}
           {pts.map((p) => (
             <SvgText key={`t${p.label}`} x={px(p.x) + 8} y={py(p.y) + 4} fontSize={10} fontFamily={font.semibold} fill={color.text2}>{p.label}</SvgText>
@@ -257,7 +257,8 @@ function Scatter({ spec, w }: { spec: ChartSpec; w: number }) {
   );
 }
 
-const STATUS_C: Record<string, string> = { delivered: color.gain, done: color.gain, missed: color.loss, partly: color.brassText, pending: color.text3, too_early: color.text3 };
+// Loss red is for price losses and brass for FINN acting, so verdicts stay in ink.
+const STATUS_C: Record<string, string> = { delivered: color.gain, done: color.gain, missed: color.text, partly: color.text2, pending: color.text3, too_early: color.text3 };
 
 /** Dated events down a line: a developing situation, guidance call by call. */
 export function TimelineArtifact({ spec }: { spec: TimelineSpec }) {
@@ -317,7 +318,8 @@ export function FormArtifact({ spec, onAction }: { spec: FormSpec; onAction?: (p
                     onPress={() => (f.type === 'multi' ? set(f.id, on ? (v as string[]).filter((x) => x !== o) : [...(v as string[]), o]) : set(f.id, o))}
                     accessibilityRole={f.type === 'multi' ? 'checkbox' : 'radio'}
                     accessibilityState={{ checked: on }}
-                    style={{ height: 36, paddingHorizontal: 12, justifyContent: 'center', borderRadius: 8, borderWidth: 1, borderColor: on ? color.sea : color.line, backgroundColor: on ? color.seaTint : color.bg }}>
+                    hitSlop={6}
+                    style={{ height: 36, paddingHorizontal: 12, justifyContent: 'center', borderRadius: 0, borderWidth: 1, borderColor: on ? color.sea : color.line, backgroundColor: on ? color.seaTint : color.bg }}>
                     <Body size={size.small} c={on ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{o}</Body>
                   </Pressable>
                 );
@@ -363,7 +365,7 @@ export function TableArtifact({ spec }: { spec: TableSpec }) {
         <View>
           <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderColor: color.line }}>
             {spec.columns.map((c, ci) => (
-              <Pressable key={c} onPress={() => setSort((s) => (s?.col === ci ? { col: ci, dir: s.dir === 1 ? -1 : 1 } : { col: ci, dir: -1 }))} accessibilityRole="button" style={{ minWidth: ci === 0 ? 108 : 84, height: 36, justifyContent: 'center', paddingRight: 12 }}>
+              <Pressable key={c} onPress={() => setSort((s) => (s?.col === ci ? { col: ci, dir: s.dir === 1 ? -1 : 1 } : { col: ci, dir: -1 }))} accessibilityRole="button" style={{ minWidth: ci === 0 ? 108 : 84, height: touch, justifyContent: 'center', paddingRight: 12 }}>
                 <Body size={size.meta} c={sort?.col === ci ? color.sea : color.text3} style={{ fontFamily: font.semibold, textAlign: ci === 0 ? 'left' : 'right' }}>
                   {c}{sort?.col === ci ? (sort.dir === -1 ? ' ↓' : ' ↑') : ''}
                 </Body>
@@ -468,7 +470,7 @@ export function ActionsArtifact({ spec, onAction }: { spec: ActionsSpec; onActio
           key={a.label}
           onPress={() => onAction(a.prompt)}
           accessibilityRole="button"
-          style={({ pressed }) => ({ minHeight: 40, justifyContent: 'center', paddingHorizontal: 16, borderRadius: 20, borderWidth: 1, borderColor: color.sea, backgroundColor: pressed ? color.seaTint : 'transparent' })}>
+          style={({ pressed }) => ({ minHeight: touch, justifyContent: 'center', paddingHorizontal: 16, borderRadius: 20, borderWidth: 1, borderColor: color.sea, backgroundColor: pressed ? color.seaTint : 'transparent' })}>
           <Body size={size.small} c={color.sea} style={{ fontFamily: font.semibold }}>{a.label}</Body>
         </Pressable>
       ))}

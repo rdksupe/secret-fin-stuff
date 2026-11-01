@@ -29,7 +29,7 @@ function BuildProgress({ p }: { p?: Progress | null }) {
   return (
     <View style={{ marginTop: space.l }}>
       <View style={{ height: 4, borderRadius: 2, backgroundColor: color.line, overflow: 'hidden' }}>
-        <View style={{ width: `${pct * 100}%`, height: 4, borderRadius: 2, backgroundColor: color.brassText }} />
+        <View style={{ width: `${pct * 100}%`, height: 4, borderRadius: 2, backgroundColor: color.sea }} />
       </View>
       <View style={{ flexDirection: 'row', marginTop: space.s }}>
         <Body size={size.small} c={color.text} style={{ flex: 1 }}>{p?.step ?? 'Starting'}</Body>
@@ -44,8 +44,8 @@ function BuildProgress({ p }: { p?: Progress | null }) {
 
 const STATUS: Record<string, { label: string; c: string }> = {
   delivered: { label: 'Delivered', c: color.gain },
-  partly: { label: 'Partly', c: color.brassText },
-  missed: { label: 'Missed', c: color.loss },
+  partly: { label: 'Partly', c: color.text2 },
+  missed: { label: 'Missed', c: color.text },
   'too early': { label: 'Too early', c: color.text2 },
   'not measurable': { label: 'Not measurable', c: color.text3 },
 };
@@ -113,8 +113,9 @@ export function DossierView({ symbol }: { symbol: string }) {
       {pvd.rows && pvd.rows.length > 0 && (
         <Section title="Promised vs delivered">
           <Body>
-            {pvd.score ? <Strong c={pvd.score === 'high' ? color.gain : pvd.score === 'low' ? color.loss : color.brassText}>{pvd.score.charAt(0).toUpperCase() + pvd.score.slice(1)} credibility. </Strong> : null}
-            {pvd.verdict}
+            {pvd.score ? <Strong c={color.sea}>{pvd.score.charAt(0).toUpperCase() + pvd.score.slice(1)} credibility. </Strong> : null}
+            {/* The verdict often opens with the same words; don't say them twice. */}
+            {(pvd.verdict ?? '').replace(/^\s*(high|mixed|low)\s+credibility\s*[:.,-]\s*/i, '').replace(/^./, (c) => c.toUpperCase())}
           </Body>
           <Body size={size.meta} c={color.text3} style={{ marginTop: space.xs }}>
             {Object.entries(counts).map(([k, v]) => `${v} ${STATUS[k]?.label.toLowerCase() ?? k}`).join(' · ')} · from {d.guidance.length} calls

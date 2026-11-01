@@ -69,6 +69,15 @@ function evaluate(expr: string, vars: Record<string, number>): number | null {
   }
 }
 
+/** "₹ Cr" reads as a prefix ("₹2,000 Cr"), "%" hugs the number, anything else follows it. */
+const withUnit = (v: number, unit?: string, digits = 1) => {
+  const n = fmtNum(v, digits);
+  if (!unit) return n;
+  if (unit === '%') return `${n}%`;
+  const m = unit.match(/^\s*₹\s*(.*)$/);
+  return m ? `₹${n}${m[1] ? ` ${m[1]}` : ''}` : `${n} ${unit}`;
+};
+
 const fmtNum = (v: number, digits = 1) => v.toLocaleString('en-IN', { maximumFractionDigits: digits, minimumFractionDigits: 0 });
 
 function Slider({ input, value, onChange }: { input: SliderIn; value: number; onChange: (v: number) => void }) {
@@ -95,7 +104,7 @@ function Slider({ input, value, onChange }: { input: SliderIn; value: number; on
     <View style={{ marginTop: space.m }}>
       <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
         <Body size={size.small} c={color.text2} style={{ flex: 1 }}>{input.label}</Body>
-        <Figure size={14} style={{ fontFamily: font.semibold }}>{fmtNum(value, 2)}{input.unit ? ` ${input.unit}` : ''}</Figure>
+        <Figure size={14} style={{ fontFamily: font.semibold }}>{withUnit(value, input.unit, 2)}</Figure>
       </View>
       <View
         {...responder.panHandlers}
@@ -128,7 +137,7 @@ function Choice({ input, value, onChange }: { input: ChoiceIn; value: number; on
         {input.options.map((o) => {
           const on = o.value === value;
           return (
-            <Pressable key={o.label} onPress={() => onChange(o.value)} accessibilityRole="button" accessibilityState={{ selected: on }} style={{ height: 36, paddingHorizontal: 14, justifyContent: 'center', borderRadius: 8, borderWidth: 1, borderColor: on ? color.sea : color.line, backgroundColor: on ? color.seaTint : color.bg }}>
+            <Pressable key={o.label} onPress={() => onChange(o.value)} accessibilityRole="button" accessibilityState={{ selected: on }} hitSlop={6} style={{ height: 36, paddingHorizontal: 14, justifyContent: 'center', borderRadius: 0, borderWidth: 1, borderColor: on ? color.sea : color.line, backgroundColor: on ? color.seaTint : color.bg }}>
               <Body size={size.small} c={on ? color.sea : color.text} style={{ fontFamily: font.semibold }}>{o.label}</Body>
             </Pressable>
           );
@@ -160,7 +169,7 @@ export function ScenarioArtifact({ spec }: { spec: ScenarioSpec }) {
             <View key={o.label} style={{ paddingTop: space.m }}>
               <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: space.m }}>
                 <Body size={size.small} style={{ flex: 1 }}>{o.label}</Body>
-                <Figure size={18} c={color.sea} style={{ fontFamily: font.bold }}>{v === null ? '—' : `${fmtNum(v, o.digits ?? 1)}${o.unit === '%' ? '%' : o.unit ? ` ${o.unit}` : ''}`}</Figure>
+                <Figure size={18} c={color.sea} style={{ fontFamily: font.bold }}>{v === null ? '—' : withUnit(v, o.unit, o.digits ?? 1)}</Figure>
               </View>
               {o.bar && v !== null ? (
                 <View style={{ height: 6, backgroundColor: color.line, marginTop: 6 }}>
