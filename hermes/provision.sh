@@ -113,11 +113,14 @@ plug["enabled"] = sorted(set(plug.get("enabled") or []) | {"protect-identity", "
 # The app is a first-class chat platform: stream replies, no tool-progress spam.
 dp = cfg.setdefault("display", {}).setdefault("platforms", {}).setdefault("finn_app", {})
 dp.update({"streaming": True, "tool_progress": "all", "tool_progress_grouping": "accumulate"})
-# Personal memory per chat (Mem0) and voice via smallest.ai — the FieldClaw setup.
+# Memory: Hermes' built-in local memory only. Mem0 was removed: it cost ~2 s to activate plus up
+# to 3 s of recall per turn, sent every exchange to a third party, and (keyed per chat) never
+# carried across chats; holdings, watches, history and company knowledge live elsewhere already.
+# Voice via smallest.ai.
 import os
 repo = os.environ.get("FINN_REPO_PATH", "")
 mem = cfg.setdefault("memory", {})
-mem.update({"memory_enabled": True, "user_profile_enabled": True, "provider": "mem0"})
+mem.update({"memory_enabled": True, "user_profile_enabled": True, "provider": ""})
 voice_dir = f"{repo}/hermes/scripts/voice"
 cfg["stt"] = {"enabled": True, "provider": "smallest", "providers": {"smallest": {
     "type": "command", "format": "txt", "language": "en", "model": "pulse", "timeout": 180,
