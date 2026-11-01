@@ -14,11 +14,11 @@ log = logging.getLogger("finn")
 
 
 def _warm_prices() -> None:
-    """Parse the last ~60 sessions once so Watch/Company sparklines answer instantly."""
+    """Parse the last 120 sessions (the price endpoints' cap) once, so no chart pays a cold fetch."""
     from finn_api.sources.nse import NSE
 
     try:
-        NSE().recent_bhavcopies(60)
+        NSE().recent_bhavcopies(120)
     except Exception as e:  # warm-up is best effort
         log.warning("price warm-up failed: %s", e)
 

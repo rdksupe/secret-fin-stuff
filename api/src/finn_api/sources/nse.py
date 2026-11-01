@@ -16,8 +16,10 @@ import hashlib
 import io
 import json
 import logging
+import threading
 import time
 import zipfile
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -43,6 +45,7 @@ _HEADERS = {
 
 
 _BHAV_PARSED: dict[date, dict[str, "Bar"]] = {}
+_BHAV_LOCKS: defaultdict[date, threading.Lock] = defaultdict(threading.Lock)  # one fetch per day, even under parallel requests
 _BHAV_MISSING: dict[date, float] = {}  # day → when we found no file (holiday, or not out yet)
 _RECENT_RETRY_S = 900  # today's file appears in the evening; recheck every 15 min
 
@@ -210,6 +213,12 @@ class NSE:
         """
         if day in _BHAV_PARSED:
             return _BHAV_PARSED[day]
+        with _BHAV_LOCKS[day]:
+            if day in _BHAV_PARSED:  # another request fetched it while we waited
+                return _BHAV_PARSED[day]
+            return self._bhavcopy_fetch(day)
+
+    def _bhavcopy_fetch(self, day: date) -> dict[str, Bar]:
         missed = _BHAV_MISSING.get(day)
         if missed and (day < date.today() - timedelta(days=3) or time.time() - missed < _RECENT_RETRY_S):
             raise NSEError(f"no bhavcopy for {day}")

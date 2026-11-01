@@ -117,7 +117,8 @@ export function ChartArtifact({ spec }: { spec: ChartSpec }) {
           {shown.map((s) => (
             <Polyline key={s.name} points={s.values.map((v, li) => (v === null ? null : `${x(li)},${y(v)}`)).filter(Boolean).join(' ')} fill="none" stroke={SERIES[s.i % SERIES.length]} strokeWidth={2} />
           ))}
-          {shown.map((s) => s.values.map((v, li) => (v === null ? null : (
+          {/* Dots only where they help: short series, or the point being read on a long one. */}
+          {shown.map((s) => s.values.map((v, li) => (v === null || (spec.labels.length > 24 && pick?.li !== li) ? null : (
             <Circle key={`${s.name}${li}`} cx={x(li)} cy={y(v)} r={pick?.li === li ? 5 : 3} fill={SERIES[s.i % SERIES.length]} />
           ))))}
           {[0, spec.labels.length - 1].filter((v, i, a) => a.indexOf(v) === i).map((li) => (
@@ -181,6 +182,9 @@ function Donut({ spec }: { spec: ChartSpec }) {
   const [pick, setPick] = useState<number | null>(null);
   const vals = (spec.series[0]?.values ?? []).map((v) => (typeof v === 'number' && v > 0 ? v : 0));
   const total = vals.reduce((a, b) => a + b, 0) || 1;
+  // Values already in % (e.g. portfolio weights) are shown as given, not re-shared to 100.
+  const asGiven = spec.unit === '%';
+  const share = (v: number) => (asGiven ? v : Math.round((v / total) * 1000) / 10);
   const R = 70, r = 44, c = 80;
   let a0 = -Math.PI / 2;
   const arcs = vals.map((v, i) => {
@@ -199,7 +203,7 @@ function Donut({ spec }: { spec: ChartSpec }) {
         <Svg width={160} height={160}>
           {arcs.map((a) => (a.d ? <Path key={a.i} d={a.d} fill={COLORS[a.i % COLORS.length]} opacity={pick === null || pick === a.i ? 1 : 0.3} fillRule="evenodd" /> : null))}
           <SvgText x={c} y={c + 5} fontSize={13} fontFamily={font.semibold} fill={color.text} textAnchor="middle">
-            {pick === null ? fmt(total, spec.unit) : `${Math.round((vals[pick] / total) * 1000) / 10}%`}
+            {pick === null ? fmt(total, spec.unit) : `${share(vals[pick])}%`}
           </SvgText>
         </Svg>
         <View style={{ flex: 1, gap: 2 }}>
@@ -207,7 +211,7 @@ function Donut({ spec }: { spec: ChartSpec }) {
             <Pressable key={l} onPress={() => setPick(pick === i ? null : i)} accessibilityRole="button" style={{ flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 28 }}>
               <View style={{ width: 10, height: 10, backgroundColor: COLORS[i % COLORS.length] }} />
               <Body size={size.meta} style={{ flex: 1 }} numberOfLines={1}>{l}</Body>
-              <Figure size={12} c={color.text2}>{Math.round((vals[i] / total) * 1000) / 10}%</Figure>
+              <Figure size={12} c={color.text2}>{share(vals[i])}%</Figure>
             </Pressable>
           ))}
         </View>
