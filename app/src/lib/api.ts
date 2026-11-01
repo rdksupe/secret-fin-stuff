@@ -4,6 +4,12 @@
 export const API_BASE = (process.env.EXPO_PUBLIC_FINN_API ?? '').replace(/\/$/, '');
 const TOKEN = process.env.EXPO_PUBLIC_FINN_TOKEN ?? '';
 
+/** A media URL the app's image views can load (native views can't always attach headers). */
+export function mediaUrl(path: string): string {
+  const u = path.startsWith('http') ? path : `${API_BASE}${path}`;
+  return TOKEN ? `${u}${u.includes('?') ? '&' : '?'}token=${encodeURIComponent(TOKEN)}` : u;
+}
+
 export function headers(extra: Record<string, string> = {}): Record<string, string> {
   return { ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}), ...extra };
 }

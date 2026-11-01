@@ -2,6 +2,8 @@ import { Linking, ScrollView, Text, View } from 'react-native';
 
 import { color, font } from '@/theme';
 
+import { Artifact } from './artifacts';
+
 // Small markdown renderer for FINN's answers: headings, paragraphs, lists, tables,
 // bold, inline code, links. Enough for analyst-style replies; nothing exotic.
 
@@ -97,7 +99,7 @@ function Table({ rows, k }: { rows: string[][]; k: string }) {
   );
 }
 
-export function Markdown({ text, size = 15, onLink }: { text: string; size?: number; onLink?: OnLink }) {
+export function Markdown({ text, size = 15, onLink, onAction }: { text: string; size?: number; onLink?: OnLink; onAction?: (prompt: string) => void }) {
   const base = { fontFamily: font.regular, fontSize: size, lineHeight: size * 1.5, color: color.text };
   const lines = text.replace(/\r/g, '').split('\n');
   const out: React.ReactNode[] = [];
@@ -107,6 +109,20 @@ export function Markdown({ text, size = 15, onLink }: { text: string; size?: num
     const line = lines[i];
     if (!line.trim()) {
       i++;
+      continue;
+    }
+    // Fenced block: a finn-* artifact (chart, table, cards, actions) or plain code.
+    const fence = line.trim().match(/^```\s*([\w-]*)/);
+    if (fence) {
+      const lang = fence[1] ?? '';
+      const body: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].trim().startsWith('```')) {
+        body.push(lines[i]);
+        i++;
+      }
+      i++; // closing fence (absent while streaming: the artifact shows its placeholder)
+      out.push(<Artifact key={`a${k++}`} lang={lang} body={body.join('\n')} onAction={onAction} />);
       continue;
     }
     if (line.trim().startsWith('|')) {
@@ -142,7 +158,7 @@ export function Markdown({ text, size = 15, onLink }: { text: string; size?: num
       continue;
     }
     const para: string[] = [];
-    while (i < lines.length && lines[i].trim() && !/^(#{1,4}\s|\s*([-*•]|\d+[.)])\s|\s*\|)/.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() && !/^(#{1,4}\s|\s*([-*•]|\d+[.)])\s|\s*\||\s*```)/.test(lines[i])) {
       para.push(lines[i].trim());
       i++;
     }

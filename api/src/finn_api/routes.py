@@ -6,6 +6,7 @@ import json
 import re
 import sqlite3
 from datetime import UTC, datetime, timedelta
+from datetime import date as _date
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Request
@@ -316,6 +317,49 @@ def start_dossier(symbol: str):
 
     threading.Thread(target=work, daemon=True).start()
     return {"symbol": sym, "status": "building"}
+
+
+# ── on-demand fetching (the agent's finn_filings / finn_ingest / finn_fetch_reports tools) ──
+
+
+class IngestIn(BaseModel):
+    urls: list[str]
+    doc_type: str | None = None
+
+
+class ReportsIn(BaseModel):
+    annual_reports: int = 1
+    transcripts: int = 0
+
+
+@router.get("/companies/{symbol}/filings")
+def company_filings(symbol: str, start: str, end: str | None = None, q: str = "", limit: int = 60,
+                    db: Session = Depends(get_db)):
+    """Any period of a company's NSE filings (years back), marked with what FINN has already read."""
+    from finn_api import fetch
+
+    try:
+        a = _date.fromisoformat(start)
+        b = _date.fromisoformat(end) if end else _date.today()
+    except ValueError as e:
+        raise HTTPException(400, "dates are YYYY-MM-DD") from e
+    return fetch.filings(db, NSE(), symbol, a, b, q, min(limit, 200))
+
+
+@router.post("/companies/{symbol}/ingest")
+def company_ingest(symbol: str, body: IngestIn, db: Session = Depends(get_db)):
+    """Read filing PDFs into the company's brain now; they become searchable immediately."""
+    from finn_api import fetch
+
+    return fetch.ingest_urls(db, NSE(), symbol, body.urls, body.doc_type)
+
+
+@router.post("/companies/{symbol}/reports")
+def company_reports(symbol: str, body: ReportsIn, db: Session = Depends(get_db)):
+    """Older annual reports and concall transcripts, read into the brain."""
+    from finn_api import fetch
+
+    return fetch.fetch_reports(db, NSE(), symbol, body.annual_reports, body.transcripts)
 
 
 @router.get("/companies/{symbol}/brain")

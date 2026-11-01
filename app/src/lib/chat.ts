@@ -20,6 +20,7 @@ export type ChatMessage = {
     answered?: string;
     resolved?: boolean;
     voice?: boolean;
+    attachments?: { type: 'image' | 'document' | 'audio' | 'video'; url: string; name: string; bytes?: number }[];
     reply_to?: string;
     reply_text?: string;
     reply_role?: 'user' | 'finn';
@@ -155,7 +156,12 @@ export function useChats() {
 const utc = (iso: string) => Date.parse(iso.endsWith('Z') || iso.includes('+') ? iso : `${iso}Z`);
 
 /** Strip the gateway's streaming cursor; the app draws its own state. */
-export const clean = (t: string) => t.replace(/\s*▉\s*$/, '').replace(/^\n+/, '');
+export const clean = (t: string) =>
+  t
+    .replace(/\s*▉\s*$/, '')
+    // The gateway delivers MEDIA:<path> files as attachments; never show the raw tag.
+    .replace(/^.*MEDIA:\S+.*$/gm, '')
+    .replace(/^\n+/, '');
 
 export function useConversation(id: string | null) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);

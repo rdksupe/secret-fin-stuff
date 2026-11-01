@@ -15,7 +15,16 @@ import re
 from collections import defaultdict
 
 import httpx
-from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, UploadFile
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    Query,
+    Request,
+    UploadFile,
+)
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy import select
@@ -386,6 +395,67 @@ def hermes_event(ev: HermesEvent, claims: dict = Depends(require_auth), db: Sess
         db.commit()
         _push_to_phone(db, m)
     return {"ok": True, "message_id": m.id}
+
+
+# ── media FINN sends (charts it rendered, files it made) ───────────────────
+
+_MEDIA_TYPES = {".png": "image", ".jpg": "image", ".jpeg": "image", ".webp": "image", ".gif": "image",
+                ".pdf": "document", ".csv": "document", ".xlsx": "document", ".mp3": "audio", ".ogg": "audio",
+                ".m4a": "audio", ".mp4": "video"}
+
+
+def _media_dir():
+    d = settings.finn_audio_dir.parent / "media"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+@router.post("/internal/hermes/media")
+async def hermes_media(chat_id: str = Form(...), caption: str = Form(""), file: UploadFile = File(...),
+                       claims: dict = Depends(require_auth), db: Session = Depends(get_db)):
+    """The finn_app adapter's native file delivery: store the file, post it as a chat attachment."""
+    import uuid
+    from pathlib import Path
+
+    if claims.get("sub") != "server":
+        raise HTTPException(403, "server key required")
+    chat_id = _valid_chat(chat_id)
+    name = Path(file.filename or "file").name
+    ext = Path(name).suffix.lower()
+    kind = _MEDIA_TYPES.get(ext)
+    if not kind:
+        raise HTTPException(415, f"unsupported file type {ext}")
+    stored = f"{uuid.uuid4().hex}{ext}"
+    data = await file.read()
+    if len(data) > 20 * 1024 * 1024:
+        raise HTTPException(413, "file too large")
+    (_media_dir() / stored).write_bytes(data)
+    payload = {"attachments": [{"type": kind, "url": f"/api/media/{stored}", "name": name, "bytes": len(data)}]}
+    m = ChatMessage(chat_id=chat_id, role="finn", kind="message", text=caption or "", payload_json=json.dumps(payload),
+                    final=True)
+    db.add(m)
+    db.commit()
+    if _publish(chat_id, {"type": "message", "message": _msg(m)}) == 0:
+        m.proactive = True
+        db.commit()
+        _push_to_phone(db, m)
+    return {"ok": True, "message_id": m.id}
+
+
+@router.get("/media/{name}")
+def media_file(name: str, token: str | None = Query(default=None), request: Request = None):
+    """Attachments for the app. Accepts the bearer token as ?token= because native image views
+    can't always attach headers."""
+    from finn_api.auth import require_auth as _check
+
+    auth = request.headers.get("authorization") if request else None
+    _check(authorization=auth or (f"Bearer {token}" if token else None), x_api_key=None)
+    if not re.fullmatch(r"[0-9a-f]{32}\.[a-z0-9]{2,5}", name):
+        raise HTTPException(404)
+    p = _media_dir() / name
+    if not p.exists():
+        raise HTTPException(404)
+    return FileResponse(p)
 
 
 def _push_to_phone(db: Session, m: ChatMessage) -> None:

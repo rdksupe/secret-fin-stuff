@@ -1,6 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, TextInput, View } from 'react-native';
+import { Image } from 'expo-image';
+import { KeyboardAvoidingView, Linking, Modal, Platform, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ChatsIcon, ChevronRight, CloseIcon, MicIcon, PlusIcon, ReplyIcon, SendIcon, StopIcon } from '@/components/icons';
@@ -8,7 +9,7 @@ import { BarAction, TopBar } from '@/components/top-bar';
 import { Markdown } from '@/components/markdown';
 import { Dot } from '@/components/pulse';
 import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
-import { api, type Story } from '@/lib/api';
+import { api, mediaUrl, type Story } from '@/lib/api';
 import { clean, useChats, useConversation, type ChatMessage, type ChatSummary } from '@/lib/chat';
 import { useSpeech, useVoiceNote } from '@/lib/voice';
 import { headline, when } from '@/lib/format';
@@ -99,6 +100,38 @@ function ToolTrace({ m, live }: { m: ChatMessage; live: boolean }) {
   );
 }
 
+/** A file FINN sent: images inline (tap for full size), anything else as a file row. */
+function Attachment({ a }: { a: NonNullable<ChatMessage['payload']['attachments']>[number] }) {
+  const [full, setFull] = useState(false);
+  const uri = mediaUrl(a.url);
+  if (a.type === 'image') {
+    return (
+      <>
+        <Pressable onPress={() => setFull(true)} accessibilityRole="imagebutton" accessibilityLabel={`Image: ${a.name}`} style={{ marginTop: space.s, borderWidth: 1, borderColor: color.line, backgroundColor: color.raised }}>
+          <Image source={{ uri }} style={{ width: '100%', aspectRatio: 4 / 3 }} contentFit="contain" />
+        </Pressable>
+        <Modal visible={full} transparent animationType="fade" onRequestClose={() => setFull(false)}>
+          <Pressable onPress={() => setFull(false)} style={{ flex: 1, backgroundColor: 'rgba(10,20,18,0.92)', justifyContent: 'center' }} accessibilityLabel="Close image">
+            <Image source={{ uri }} style={{ width: '100%', height: '80%' }} contentFit="contain" />
+          </Pressable>
+        </Modal>
+      </>
+    );
+  }
+  return (
+    <Pressable
+      onPress={() => Linking.openURL(uri)}
+      accessibilityRole="link"
+      style={({ pressed }) => ({ marginTop: space.s, flexDirection: 'row', alignItems: 'center', gap: space.m, minHeight: 56, borderWidth: 1, borderColor: color.line, backgroundColor: pressed ? color.inset : color.raised, paddingHorizontal: space.m })}>
+      <View style={{ flex: 1 }}>
+        <Body size={size.small} style={{ fontFamily: font.semibold }} numberOfLines={1}>{a.name}</Body>
+        <Body size={size.meta} c={color.text3}>{a.type}{a.bytes ? ` · ${Math.max(1, Math.round(a.bytes / 1024))} KB` : ''}</Body>
+      </View>
+      <ChevronRight c={color.sea} size={18} />
+    </Pressable>
+  );
+}
+
 function Reaction({ emoji }: { emoji: string }) {
   return (
     <View style={{ alignSelf: 'flex-start', marginTop: 6, borderWidth: 1, borderColor: color.line, backgroundColor: color.raised, paddingHorizontal: 7, paddingVertical: 2 }}>
@@ -115,6 +148,7 @@ function Bubble({
   selected,
   onSelect,
   onAnswer,
+  onAction,
   listen,
 }: {
   m: ChatMessage;
@@ -124,6 +158,7 @@ function Bubble({
   selected: boolean;
   onSelect: (m: ChatMessage) => void;
   onAnswer: (id: string, choice: string) => void;
+  onAction: (prompt: string) => void;
   listen: Listen;
 }) {
   if (m.kind === 'approval' || m.kind === 'clarify' || m.kind === 'confirm') return <Prompt m={m} onAnswer={(c) => onAnswer(m.id, c)} />;
@@ -172,7 +207,8 @@ function Bubble({
         </Body>
       </View>
       {quote ? <Quote m={quote} /> : null}
-      {text ? <Markdown text={text} /> : <Body c={color.text3}>…</Body>}
+      {text ? <Markdown text={text} onAction={onAction} /> : m.payload.attachments?.length ? null : <Body c={color.text3}>…</Body>}
+      {m.payload.attachments?.map((a) => <Attachment key={a.url} a={a} />)}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m }}>
         {m.payload.reaction ? <Reaction emoji={m.payload.reaction} /> : null}
         {m.final && text.length > 0 && (
@@ -353,6 +389,7 @@ export default function Ask() {
               selected={selected?.id === m.id}
               onSelect={setSelected}
               onAnswer={answer}
+              onAction={(p) => submit(p)}
               listen={listen}
             />
           ))

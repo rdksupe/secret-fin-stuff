@@ -258,7 +258,43 @@ class FinnAppAdapter(BasePlatformAdapter):
         except Exception as e:
             return SendResult(success=False, error=str(e))
 
+    # Native media: the gateway extracts MEDIA:<path> tags (and image tool output) and calls these.
+    # Files go to the FINN API as chat attachments the app renders inline.
+    async def _upload(self, chat_id: str, path: str, caption: Optional[str]) -> SendResult:
+        if not self._client:
+            return SendResult(success=False, error="adapter not connected")
+        try:
+            p = os.path.expanduser(path)
+            with open(p, "rb") as f:
+                r = await self._client.post(
+                    f"{self._api}/api/internal/hermes/media",
+                    data={"chat_id": chat_id, "caption": (caption or "")[:2000]},
+                    files={"file": (os.path.basename(p), f.read())},
+                    headers={"X-API-Key": _server_key()}, timeout=60)
+            r.raise_for_status()
+            return SendResult(success=True, message_id=r.json().get("message_id"))
+        except Exception as e:
+            logger.warning("[%s] media upload failed for %s: %s", self.name, path, e)
+            return SendResult(success=False, error=str(e))
+
+    async def send_image_file(self, chat_id: str, image_path: str, caption: Optional[str] = None,
+                              reply_to: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None, **_kw) -> SendResult:
+        return await self._upload(chat_id, image_path, caption)
+
+    async def send_document(self, chat_id: str, file_path: str, caption: Optional[str] = None,
+                            file_name: Optional[str] = None, reply_to: Optional[str] = None,
+                            metadata: Optional[Dict[str, Any]] = None, **_kw) -> SendResult:
+        return await self._upload(chat_id, file_path, caption)
+
+    async def send_video(self, chat_id: str, video_path: str, caption: Optional[str] = None, **_kw) -> SendResult:
+        return await self._upload(chat_id, video_path, caption)
+
+    async def send_voice(self, chat_id: str, audio_path: str, caption: Optional[str] = None, **_kw) -> SendResult:
+        return await self._upload(chat_id, audio_path, caption)
+
     async def send_image(self, chat_id: str, image_url: str, caption: Optional[str] = None, **_kw) -> SendResult:
+        if image_url.startswith(("/", "~", "file://")):
+            return await self._upload(chat_id, image_url.removeprefix("file://"), caption)
         return await self.send(chat_id, f"{caption + chr(10) if caption else ''}![image]({image_url})")
 
     async def get_chat_info(self, chat_id: str) -> Dict[str, Any]:

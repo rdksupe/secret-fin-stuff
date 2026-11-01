@@ -72,6 +72,15 @@ def cmd_cron_announcements(a: argparse.Namespace) -> int:
     with SessionLocal() as db:
         created = ingest_announcements(db, nse, rows)
         retry_pending_results(db, nse)
+        if created:
+            # Read the new filings' PDFs now, so they are in the brain before anyone asks
+            # (the separate ingest cron used to add up to another 15 minutes).
+            from finn_api import ingest
+
+            try:
+                ingest.run(db, nse, limit=8, allow_chandra=False)
+            except Exception as e:  # never lose the announcements over a PDF
+                print(f"inline ingest failed: {e}", file=sys.stderr)
         for i in created:
             if i.category in ENRICH and i.event_at >= cutoff:
                 i.payload_json = json.dumps(json.loads(i.payload_json or "{}") | {"enrich_pending": True})

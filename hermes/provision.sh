@@ -105,7 +105,7 @@ cfg.setdefault("skills", {})["creation_nudge_interval"] = 0
 cfg.setdefault("memory", {})["nudge_interval"] = 0
 cfg.setdefault("curator", {})["enabled"] = False
 # Hard ceiling on tool rounds per turn; at the limit Hermes asks for an answer with what it has.
-cfg.setdefault("agent", {})["max_turns"] = 14
+cfg.setdefault("agent", {})["max_turns"] = 24
 cfg.setdefault("display", {})["busy_input_mode"] = "steer"
 cfg.setdefault("web", {})["search_backend"] = "exa"
 plug = cfg.setdefault("plugins", {})
@@ -169,7 +169,7 @@ jobs = [
          script="finn_announcements.py", skills=["finn", "finn-enrich"],
          prompt="Enrich each FINN item above using the finn-enrich skill, write back with the finn_enrich tool, then stop.",
          enabled_toolsets=["finn", "file", "web", "skills"]),
-    dict(name="finn-announcements-weekend", schedule="0 * * * 0,6",
+    dict(name="finn-announcements-weekend", schedule="*/15 * * * 0,6",
          script="finn_announcements.py", skills=["finn", "finn-enrich"],
          prompt="Enrich each FINN item above using the finn-enrich skill, write back with the finn_enrich tool, then stop.",
          enabled_toolsets=["finn", "file", "web", "skills"]),

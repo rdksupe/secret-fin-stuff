@@ -99,6 +99,58 @@ def _api(path: str, params: dict) -> str:
         return r.read().decode()
 
 
+def _post(path: str, body: dict, timeout: int = 600) -> str:
+    base = (os.environ.get("FINN_APP_API_URL") or "http://127.0.0.1:8000").rstrip("/")
+    req = urllib.request.Request(f"{base}{path}", data=json.dumps(body).encode(), method="POST",
+                                 headers={"X-API-Key": os.environ.get("FINN_API_KEY", ""), "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode()
+
+
+def filings(args: dict, **_kw) -> str:
+    try:
+        (sym,) = _symbols(args.get("symbol"))[:1] or [""]
+    except ValueError as e:
+        return _err(str(e))
+    if not sym or not args.get("start"):
+        return _err("symbol and start (YYYY-MM-DD) are required")
+    params = {"start": str(args["start"]), "q": str(args.get("query") or ""), "limit": int(args.get("limit") or 40)}
+    if args.get("end"):
+        params["end"] = str(args["end"])
+    try:
+        return _api(f"/api/companies/{sym}/filings", params)
+    except Exception as e:
+        return _err(f"filings lookup failed: {e}")
+
+
+def ingest_tool(args: dict, **_kw) -> str:
+    try:
+        (sym,) = _symbols(args.get("symbol"))[:1] or [""]
+    except ValueError as e:
+        return _err(str(e))
+    urls = [u for u in (args.get("urls") or []) if isinstance(u, str) and u.startswith("http")]
+    if not sym or not urls:
+        return _err("symbol and urls (the pdf links from finn_filings) are required")
+    try:
+        return _post(f"/api/companies/{sym}/ingest", {"urls": urls[:12], "doc_type": args.get("doc_type")})
+    except Exception as e:
+        return _err(f"ingest failed: {e}")
+
+
+def fetch_reports(args: dict, **_kw) -> str:
+    try:
+        (sym,) = _symbols(args.get("symbol"))[:1] or [""]
+    except ValueError as e:
+        return _err(str(e))
+    if not sym:
+        return _err("symbol is required")
+    try:
+        return _post(f"/api/companies/{sym}/reports", {"annual_reports": int(args.get("annual_reports") or 1),
+                                                         "transcripts": int(args.get("transcripts") or 0)}, timeout=1200)
+    except Exception as e:
+        return _err(f"report fetch failed: {e}")
+
+
 def portfolio(args: dict, **_kw) -> str:
     try:
         return json.loads(_api("/api/portfolio", {}))["markdown"]
@@ -163,6 +215,34 @@ SCHEMAS = {
                        "Use when the exchange summary is a stub.",
         "parameters": {"type": "object", "properties": {"url": S, "pages": {"type": "integer"}}, "required": ["url"]},
     },
+    "finn_filings": {
+        "description": "A company's NSE exchange filings for ANY date range, years back (e.g. start 2019-10-01, "
+                       "end 2019-11-30): date, category, summary, PDF link, and in_brain (the brain page if FINN "
+                       "has already read it). Use when the brain lacks a period the question needs. Optional "
+                       "query filters words (e.g. 'sales', 'results').",
+        "parameters": {"type": "object", "properties": {
+            "symbol": S, "start": {"type": "string", "description": "YYYY-MM-DD"},
+            "end": {"type": "string", "description": "YYYY-MM-DD, default today"},
+            "query": S, "limit": {"type": "integer"},
+        }, "required": ["symbol", "start"]},
+    },
+    "finn_ingest": {
+        "description": "Read filing PDFs (pdf links from finn_filings) into the company's brain now. Returns each "
+                       "brain page path; they are immediately searchable with finn_brain_search and readable with "
+                       "read_file. Up to 12 per call.",
+        "parameters": {"type": "object", "properties": {
+            "symbol": S, "urls": {"type": "array", "items": S},
+            "doc_type": {"type": "string", "description": "optional label, e.g. press_release, results"},
+        }, "required": ["symbol", "urls"]},
+    },
+    "finn_fetch_reports": {
+        "description": "Older annual reports and concall transcripts (from the company's documents index on "
+                       "BSE / company IR), read into the brain: e.g. annual_reports 7 reaches back ~7 years. "
+                       "Returns every annual report and transcript the brain now holds. Slow (minutes) for many.",
+        "parameters": {"type": "object", "properties": {
+            "symbol": S, "annual_reports": {"type": "integer"}, "transcripts": {"type": "integer"},
+        }, "required": ["symbol"]},
+    },
     "finn_portfolio": {
         "description": "The investor's current holdings (symbol, company, industry, weight), watch-only names "
                        "and alert thresholds, read live. Call this for any question about 'my portfolio', "
@@ -204,7 +284,7 @@ SCHEMAS = {
         }, "required": ["feed_id", "summary"]},
     },
 }
-HANDLERS = {"finn_portfolio": portfolio, "finn_brain_search": brain_search, "finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
+HANDLERS = {"finn_filings": filings, "finn_ingest": ingest_tool, "finn_fetch_reports": fetch_reports, "finn_portfolio": portfolio, "finn_brain_search": brain_search, "finn_dossier": dossier, "finn_filing_text": filing_text, "finn_digest": digest, "finn_results": results, "finn_onboard": onboard, "finn_enrich": enrich}
 
 
 def register(ctx) -> None:

@@ -16,6 +16,9 @@ version: 0.1.0
 | `finn_results(symbol)` | Latest quarter vs prev quarter vs year ago, from NSE XBRL, with red flags |
 | `finn_onboard(symbols, weights?)` | Add holdings / create a brain: scaffold, backfill 30 days of filings + results |
 | `finn_filing_text(url)` | Text of an exchange filing PDF |
+| `finn_filings(symbol, start, end?, query?)` | Any period of a company's NSE filings, years back, with PDF links and whether the brain already has each |
+| `finn_ingest(symbol, urls)` | Read those filing PDFs into the brain now (then `finn_brain_search` finds them) |
+| `finn_fetch_reports(symbol, annual_reports?, transcripts?)` | Older annual reports / concall transcripts into the brain (e.g. `annual_reports: 7` ≈ seven years back) |
 | `finn_portfolio()` | The investor's holdings, weights, watch-only names and thresholds, live. Call it for any "my portfolio" question |
 | `finn_brain_search(query, symbols?)` | **Start here.** Full-text search over every brain (annual reports, transcripts, results, filings, dossiers); returns passages with page + section. One call answers "which of my companies…" |
 | `finn_dossier(symbol)` | Grounded research dossier (builds it if missing): snapshot, trajectory, guidance ledger, promised vs delivered, bull/bear |
@@ -49,3 +52,39 @@ pages and cite them. Never answer research questions from memory.
 - Mobile screen: ≤ 8 lines unless asked for depth. Tables for numbers.
 - Every number carries its period and source file.
 - End with at most one useful follow-up offer, not a list.
+
+
+## When the brain doesn't cover the period
+
+The crons keep brains current; history is fetched on demand. For "compare with October 2019":
+1. `finn_filings(symbol, start="2019-10-01", end="2019-11-30", query="sales")` → the filings and PDF links.
+2. `finn_ingest(symbol, urls=[…])` for the ones you need (they land in the brain, cited like any page).
+3. `finn_brain_search` / `read_file` the new pages, then answer.
+For older annual reports or calls use `finn_fetch_reports`. Never scrape with the terminal or write download scripts.
+
+## Show, don't just tell: answer blocks the app draws
+
+The FINN app renders these fenced blocks as native, tappable components. Use them whenever a
+number comparison, series or list reads better as a chart, table or cards. Valid JSON only; every
+number must come from the sources you cite (put the citation in `source`). Keep prose short around them.
+
+Chart (bars: categories down the page; line: a series over time). Tap shows values:
+```finn-chart
+{"kind":"bar","title":"Maruti October sales","unit":"units","labels":["Total","Domestic","Exports"],
+ "series":[{"name":"Oct 2019","values":[153435,141550,9158]},{"name":"Oct 2026","values":[276120,216789,49872]}],
+ "source":"Sales press releases, 1 Nov 2019 and 1 Nov 2026"}
+```
+Table (sortable by the reader):
+```finn-table
+{"title":"TCS quarterly","columns":["Quarter","Revenue ₹ Cr","PAT YoY"],"rows":[["Q2 FY27",73188,"+15.0%"],["Q1 FY27",72275,"+12.1%"]],"source":"NSE XBRL"}
+```
+Company / metric cards (a card with a symbol opens that company):
+```finn-cards
+{"title":"Data-centre exposure","items":[{"symbol":"LT","title":"Vyoma colocation","value":"32 MW","note":"₹10,000 Cr capex FY27-31 (May-26 call p12)"}]}
+```
+Follow-up buttons (tapping sends the prompt):
+```finn-actions
+{"actions":[{"label":"Add FY20–FY26 trend","prompt":"Plot Maruti's October sales for every year 2019–2026"}]}
+```
+Prefer a `finn-chart` to rendering a PNG. For anything the blocks can't draw, save an image file and put
+`MEDIA:/absolute/path.png` on its own line: the app shows it inline. One or two blocks per answer, not a dashboard.
