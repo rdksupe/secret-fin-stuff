@@ -8,8 +8,8 @@ An always-on investor agent for NSE portfolios. It reads every exchange filing, 
 ## Try it
 
 1. Download **`FINN.apk`** from the latest [GitHub release](../../releases) on an Android phone and install it. Allow installs from your browser when Android asks.
-2. Open it. It connects to the live backend (`https://129-225-119-60.sslip.io/api`) with a token built into the app. That token expires on 30 Nov 2026.
-3. Allow notifications to get pushes for material filings and unusual moves.
+2. Open it. A short tour shows what FINN does (answer blocks, sources, scheduled watches); allow notifications on its last page to get pushes for material filings and unusual moves.
+3. Enter the password you were given. The server checks it and issues a 30-day session for this phone (`https://129-225-119-60.sslip.io/api`); no key is built into the app. Changing the password on the server signs every phone out.
 
 Worth trying:
 - **Brief → 7d:** ranked stories (lead story, results cards, management change with a bio).

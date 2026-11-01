@@ -1,6 +1,6 @@
 # FINN — covering note
 
-**Try it:** install the Android app (link in the README). It talks to a live backend on Oracle Cloud that has been reading NSE since 30 October. Nothing is mocked: every filing, price and result you see is real NSE data for a mock 18-company portfolio.
+**Try it:** install the Android app (link in the README), take the short tour, then unlock it with the password that came with this note. It talks to a live backend on Oracle Cloud that has been reading NSE since 30 October. Nothing is mocked: every filing, price and result you see is real NSE data for a mock 18-company portfolio.
 
 ## The point of view
 
@@ -74,7 +74,7 @@ Most cron runs cost nothing: a script does the fetching and diffing, and the age
   - A few transcripts failed because BSE served a web page instead of the PDF; MARUTI has only one transcript, so its audit is thin.
   - Balance-sheet and cash-flow analysis isn't built. We have the annual reports but haven't extracted the statements.
 - **Single investor.** One portfolio and one set of thresholds. Each install keeps its own chats, but the portfolio is shared.
-- **Android only.** There is no iOS build. The app token expires on 30 November 2026.
+- **Android only.** There is no iOS build. Access is one shared password; sessions last 30 days and a password change revokes them all.
 - **Not finished:**
   - A market-labelled classifier: 6 months of filings (25k) labelled by abnormal price reaction, results-day confounds removed. It is collected and partly featurised, but not trained.
   - An entity graph across companies and people.
