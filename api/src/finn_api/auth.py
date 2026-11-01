@@ -46,8 +46,8 @@ def _load_password() -> dict | None:
 
 def set_password(plain: str) -> int:
     """Store a new password (hash only) and bump its version, revoking every existing app token."""
-    if len(plain) < 10:
-        raise ValueError("use at least 10 characters")
+    if len(plain) < 8:
+        raise ValueError("use at least 8 characters")
     old = _load_password() or {}
     salt = secrets.token_bytes(16)
     digest = hashlib.scrypt(plain.encode(), salt=salt, **_SCRYPT, dklen=32)
