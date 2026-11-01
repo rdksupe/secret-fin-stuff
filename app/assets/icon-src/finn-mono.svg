@@ -1,0 +1,12 @@
+<!-- FINN themed (monochrome) icon: tower silhouette with the face cut out. Authored vector. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs><mask id="m"><rect width="1024" height="1024" fill="#fff"/>
+    <ellipse cx="466" cy="494" rx="22" ry="26" fill="#000"/><ellipse cx="558" cy="494" rx="22" ry="26" fill="#000"/>
+    <path d="M490 528 Q512 550 534 528" fill="none" stroke="#000" stroke-width="9" stroke-linecap="round"/>
+    <rect x="490" y="610" width="44" height="86" rx="22" fill="#000"/></mask></defs>
+  <g fill="#fff" mask="url(#m)">
+    <rect x="504" y="252" width="16" height="84" rx="8"/><path d="M512 214 L534 244 L512 274 L490 244 Z"/>
+    <rect x="442" y="326" width="140" height="120" rx="20"/><rect x="387" y="434" width="250" height="134" rx="22"/>
+    <rect x="332" y="556" width="360" height="140" rx="24"/>
+  </g>
+</svg>

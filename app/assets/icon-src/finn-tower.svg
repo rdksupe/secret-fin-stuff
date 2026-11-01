@@ -1,0 +1,32 @@
+<!-- FINN app mark: a three-tier Art Deco setback tower (the app's rank mark) with a face and a brass spire.
+     Authored by hand as vector for the FINN app icon; source of every icon raster in assets/images. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <g id="tower">
+    <!-- soft ground shadow -->
+    <ellipse cx="512" cy="706" rx="210" ry="22" fill="#143A35"/>
+    <!-- spire and finial -->
+    <rect x="504" y="252" width="16" height="84" rx="8" fill="#E2BE76"/>
+    <path d="M512 214 L534 244 L512 274 L490 244 Z" fill="#E2BE76"/>
+    <!-- three setbacks -->
+    <rect x="442" y="326" width="140" height="120" rx="20" fill="#EEF4F1"/>
+    <rect x="387" y="434" width="250" height="134" rx="22" fill="#EEF4F1"/>
+    <rect x="332" y="556" width="360" height="140" rx="24" fill="#EEF4F1"/>
+    <!-- deco banding on the top tier -->
+    <rect x="474" y="356" width="76" height="10" rx="5" fill="#C3D8D1"/>
+    <rect x="490" y="378" width="44" height="10" rx="5" fill="#C3D8D1"/>
+    <!-- face on the middle tier -->
+    <ellipse cx="466" cy="494" rx="22" ry="26" fill="#14201E"/>
+    <ellipse cx="558" cy="494" rx="22" ry="26" fill="#14201E"/>
+    <circle cx="474" cy="484" r="7" fill="#FFFFFF"/>
+    <circle cx="566" cy="484" r="7" fill="#FFFFFF"/>
+    <ellipse cx="430" cy="530" rx="20" ry="11" fill="#F2A592" opacity="0.85"/>
+    <ellipse cx="594" cy="530" rx="20" ry="11" fill="#F2A592" opacity="0.85"/>
+    <path d="M490 528 Q512 550 534 528" fill="none" stroke="#14201E" stroke-width="9" stroke-linecap="round"/>
+    <!-- windows on the base tier -->
+    <rect x="384" y="596" width="22" height="64" rx="11" fill="#1E4D47"/>
+    <rect x="440" y="596" width="22" height="64" rx="11" fill="#1E4D47"/>
+    <rect x="562" y="596" width="22" height="64" rx="11" fill="#1E4D47"/>
+    <rect x="618" y="596" width="22" height="64" rx="11" fill="#1E4D47"/>
+    <rect x="490" y="610" width="44" height="86" rx="22" fill="#1E4D47"/>
+  </g>
+</svg>
