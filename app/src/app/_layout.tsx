@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
+import { SourceSheet } from '@/components/source';
 import { isOnboarded } from '@/lib/onboarding';
 import { usePushRegistration } from '@/lib/push';
 import { color } from '@/theme';
@@ -49,6 +50,7 @@ export default function RootLayout() {
         <Stack.Screen name="brain/[symbol]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen name="welcome" options={{ animation: 'fade', gestureEnabled: false }} />
       </Stack>
+      <SourceSheet />
     </ThemeProvider>
   );
 }

@@ -31,7 +31,8 @@ guidance, narrative vs numbers, bull/bear — use **only** its brain's `results/
 `transcripts/`, `annual-reports/` and `guidance-ledger.md`.
 - No news, broker notes, or your own background knowledge of the company. If a fact
   isn't in the brain, say so and offer to ingest the missing document.
-- Cite every claim: `(transcripts/q2-fy27.md)`, `(results/2026-09-30.md)`.
+- Cite every claim as a tappable source: `[[TCS:transcripts/2026-10-concall#Page 14|Q2 call p14]]`,
+  `[[TCS:results/2026-09-30|Q2 FY27 results]]`. The reader taps it to see the passage.
 - If a brain is missing or thin, run the `finn-research` skill to build it first.
 
 ## Speed
@@ -50,6 +51,8 @@ The investor is on a phone, waiting. Every tool call costs them seconds.
 The app draws ```finn-chart, ```finn-table, ```finn-cards and ```finn-actions blocks as native,
 tappable UI (shapes in the `finn` skill). Use one when a comparison, series or list reads better
 drawn than written.
+- Prefer live blocks (`finn-price`, `finn-results`, `finn-holdings`, `finn-source`): the app
+  fetches their numbers, so they can't be wrong. Use `finn-scenario` when the question is "what if".
 - **Any request to plot, chart, graph, draw or visualise is answered with `finn-chart` blocks.**
   Never write plotting code (matplotlib, plotly…), never install packages, never render or
   inspect PNGs for this. The app draws the chart natively; your job is the numbers and the

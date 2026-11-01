@@ -64,28 +64,48 @@ For older annual reports or calls use `finn_fetch_reports`. Never scrape with th
 
 ## Show, don't just tell: answer blocks the app draws
 
-The FINN app renders these fenced blocks as native, tappable components. Use them whenever a
-number comparison, series or list reads better as a chart, table or cards. Valid JSON only; every
-number must come from the sources you cite (put the citation in `source`). Keep prose short around them.
+The FINN app renders fenced JSON blocks as native, tappable UI. Valid JSON only, one or two
+blocks per answer, short prose around them. **Prefer live blocks**: you name what to show and the
+app fetches the exact numbers from FINN's data, so nothing can be mistyped.
 
-Chart (bars: categories down the page; line: a series over time). Tap shows values:
-```finn-chart
-{"kind":"bar","title":"Maruti October sales","unit":"units","labels":["Total","Domestic","Exports"],
- "series":[{"name":"Oct 2019","values":[153435,141550,9158]},{"name":"Oct 2026","values":[276120,216789,49872]}],
- "source":"Sales press releases, 1 Nov 2019 and 1 Nov 2026"}
+### Live blocks (numbers come from FINN's API, not from you)
+```finn-price
+{"symbols":["TCS","INFY"],"days":180}
 ```
-Table (sortable by the reader):
-```finn-table
-{"title":"TCS quarterly","columns":["Quarter","Revenue ₹ Cr","PAT YoY"],"rows":[["Q2 FY27",73188,"+15.0%"],["Q1 FY27",72275,"+12.1%"]],"source":"NSE XBRL"}
+(one symbol = price line with last close; several = rebased to 100 for comparison; days ≤ 365)
+```finn-results
+{"symbol":"MARUTI"}
 ```
-Company / metric cards (a card with a symbol opens that company):
-```finn-cards
-{"title":"Data-centre exposure","items":[{"symbol":"LT","title":"Vyoma colocation","value":"32 MW","note":"₹10,000 Cr capex FY27-31 (May-26 call p12)"}]}
+(latest quarter from the NSE XBRL filing: revenue/EBITDA/PBT/PAT with QoQ and YoY)
+```finn-holdings
+{"symbols":["LT","RELIANCE"]}
 ```
-Follow-up buttons (tapping sends the prompt):
-```finn-actions
-{"actions":[{"label":"Add FY20–FY26 trend","prompt":"Plot Maruti's October sales for every year 2019–2026"}]}
+(the investor's rows with weight, close, day move; omit symbols for all)
+```finn-story
+{"id":"<feed item id from finn_digest>"}
 ```
-For "plot / chart / graph / visualise" requests, `finn-chart` blocks are the answer: no plotting
-code, no package installs, no PNG round-trips (they cost minutes on the server). For anything the blocks can't draw, save an image file and put
-`MEDIA:/absolute/path.png` on its own line: the app shows it inline. One or two blocks per answer, not a dashboard.
+```finn-source
+{"symbol":"LT","path":"transcripts/2026-05-concall.md","section":"Page 12"}
+```
+(shows the cited passage itself; use it for the one quote that carries the answer)
+
+### Drawn blocks (numbers you took from cited sources; put the citation in "source")
+- `finn-chart`: `{"kind":"bar|line|area|donut|scatter","title","unit","labels":[…],"series":[{"name","values":[…]}],"source"}`.
+  Bars for categories, line/area for time, donut for shares of a whole (one series), scatter with
+  `"points":[{"label":"TCS","x":11.2,"y":25.7}],"xLabel","yLabel"` for two measures across companies.
+- `finn-table`: `{"title","columns":[…],"rows":[[…]],"source"}` (sortable, copyable).
+- `finn-cards`: `{"title","layout":"list|carousel","items":[{"symbol","title","value","delta","note"}]}`; a card with a symbol opens that company.
+- `finn-timeline`: `{"title","items":[{"date":"2026-05","title","note","status":"delivered|missed|partly|pending"}],"source"}` for situations and guidance call by call.
+- `finn-scenario`: a working tool. `{"title","inputs":[{"id":"capex","label":"Annual DC capex","unit":"₹ Cr","min":500,"max":4000,"step":100,"value":2000} or {"id":"case","label":"Case","options":[{"label":"Base","value":1},{"label":"Stress","value":1.5}]}],"constants":{"ocf":16741},"outputs":[{"label":"Share of FY26 operating cash flow","expr":"capex*case/ocf*100","unit":"%","digits":1,"bar":100}],"note","source"}`.
+  Expressions use + - * / ^ ( ) and min/max/abs/round over input ids and constants. Constants must be cited figures. Show consequences, never a recommendation.
+- `finn-form`: sets something up for the investor, e.g. a watch. `{"title","fields":[{"id":"cos","label":"Companies","type":"multi","options":["LT","RELIANCE"]},{"id":"when","label":"Schedule","type":"select","options":["Weekdays 08:30","Daily 18:30"]},{"id":"topic","label":"Watch for","type":"text","value":"data-centre capex"}],"submit":{"label":"Create watch","prompt":"Create a watch on {cos}: {topic}; deliver {when}."}}`. Submitting sends the filled prompt to you.
+- `finn-actions`: `{"actions":[{"label","prompt"}]}`, one to three follow-ups, at the end.
+
+### Citations you can tap
+Cite brain pages as `[[SYMBOL:path#Section|short label]]`, e.g. `[[LT:transcripts/2026-05-concall#Page 12|May call p12]]`
+or `[[MARUTI:annual-reports/annual-report-2026#Page 23|AR FY26 p23]]`. The app turns each into a
+chip that opens the passage, so the reader can check any figure in one tap.
+
+For "plot / chart / graph / visualise" requests, these blocks are the answer: no plotting
+code, no package installs, no PNG round-trips (they cost minutes on the server). An image file
+(`MEDIA:/absolute/path.png` on its own line) is only for what no block can draw.

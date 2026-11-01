@@ -3,6 +3,7 @@ import { Linking, ScrollView, Text, View } from 'react-native';
 import { color, font } from '@/theme';
 
 import { Artifact } from './artifacts';
+import { parseSource, SourceChip } from './source';
 
 // Small markdown renderer for FINN's answers: headings, paragraphs, lists, tables,
 // bold, inline code, links. Enough for analyst-style replies; nothing exotic.
@@ -20,7 +21,11 @@ function inline(text: string, base: object, key: string, onLink?: OnLink) {
   while ((m = re.exec(text))) {
     if (m.index > last) parts.push(text.slice(last, m.index));
     const t = m[0];
-    if (t.startsWith('[[')) {
+    const src = t.startsWith('[[') ? parseSource(t.slice(2, -2)) : null;
+    if (src) {
+      // A citation FINN can be checked on: [[LT:transcripts/2026-05-concall#Page 12|May call p12]]
+      parts.push(<SourceChip key={`${key}c${i++}`} s={src} base={base} />);
+    } else if (t.startsWith('[[')) {
       // Obsidian-style link inside the company brain: [[results/2026-09-30]] or [[profile|Business profile]]
       const [target, label] = t.slice(2, -2).split('|');
       parts.push(
