@@ -24,6 +24,7 @@ SECRET_FILES = [
     HOME / ".hermes-finn/.env",
     HOME / ".hermes-fieldclaw/.env",
     Path("/run/media/rdksupe/finn/.finn-app-token"),
+    Path("/run/media/rdksupe/finn/.finn-app-password"),  # the app unlock password (plaintext, local only)
 ]
 SECRET_KEYS = re.compile(r"(KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL)", re.I)
 PATTERNS = [
@@ -65,7 +66,9 @@ def known_secrets() -> set[str]:
     if sa.exists():
         k = json.loads(sa.read_text())
         vals |= {k.get("private_key_id", ""), k.get("private_key", "")}
-    return {v for v in vals if len(v) >= 12}
+    # A credential's *path* (e.g. FINN_FCM_CREDENTIALS=/run/media/…/fcm-sa.json) is not a secret, and
+    # redacting its first 12 characters would mangle every path in the log.
+    return {v for v in vals if len(v) >= 12 and not v.startswith(("/", "~/", "./"))}
 
 
 def redact(text: str, secrets: set[str]) -> str:
@@ -135,12 +138,15 @@ def render(session: Path, secrets: set[str]) -> str:
             continue
         if e.get("type") not in ("user", "assistant") or e.get("isSidechain"):
             continue
+        # Harness bookkeeping: skill bodies, compaction summaries and replayed context.
+        if e.get("isMeta") or e.get("isCompactSummary") or e.get("isVisibleInTranscriptOnly"):
+            continue
         msg = e.get("message") or {}
         ts = e.get("timestamp")
         when = ""
         if ts:
             dt = datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(IST)
-            if dt.date() != last_day:
+            if last_day is None or dt.date() > last_day:  # replayed context never moves the clock back
                 last_day = dt.date()
                 out += ["", f"## {dt:%A %d %B %Y}", ""]
             when = f"{dt:%H:%M}"
@@ -153,6 +159,17 @@ def render(session: Path, secrets: set[str]) -> str:
                 if not text or text.startswith("Caveat:"):
                     continue
                 text = re.sub(r"</?pasted_content[^>]*>", "", text)
+                if "Base directory for this skill:" in text:
+                    continue  # a skill's instruction body, injected by the harness
+                if text.startswith("This session is being continued from a previous conversation"):
+                    out += ["*— context compacted; the session continues —*", ""]
+                    continue
+                cmd = re.search(r"<command-name>(/[^<]+)</command-name>.*?(?:<command-args>([^<]*)</command-args>)?", text, re.S)
+                if cmd:
+                    out += [f"### 🧑 User · {when}", "", f"`{cmd.group(1)} {cmd.group(2) or ''}`".replace(" `", "`"), ""]
+                    continue
+                # Keep pasted markdown from creating document headings.
+                text = re.sub(r"^(#{1,6}) ", lambda m: "\\" + m.group(1) + " ", text, flags=re.M)
                 out += [f"### 🧑 User · {when}", "", text, ""]
             elif e["type"] == "user" and t == "tool_result":
                 c = b.get("content")
