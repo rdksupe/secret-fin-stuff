@@ -86,5 +86,6 @@ Follow-up buttons (tapping sends the prompt):
 ```finn-actions
 {"actions":[{"label":"Add FY20–FY26 trend","prompt":"Plot Maruti's October sales for every year 2019–2026"}]}
 ```
-Prefer a `finn-chart` to rendering a PNG. For anything the blocks can't draw, save an image file and put
+For "plot / chart / graph / visualise" requests, `finn-chart` blocks are the answer: no plotting
+code, no package installs, no PNG round-trips (they cost minutes on the server). For anything the blocks can't draw, save an image file and put
 `MEDIA:/absolute/path.png` on its own line: the app shows it inline. One or two blocks per answer, not a dashboard.

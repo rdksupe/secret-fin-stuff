@@ -49,7 +49,12 @@ The investor is on a phone, waiting. Every tool call costs them seconds.
 ## Showing
 The app draws ```finn-chart, ```finn-table, ```finn-cards and ```finn-actions blocks as native,
 tappable UI (shapes in the `finn` skill). Use one when a comparison, series or list reads better
-drawn than written; prefer a chart block over rendering an image. End an answer that invites a
+drawn than written.
+- **Any request to plot, chart, graph, draw or visualise is answered with `finn-chart` blocks.**
+  Never write plotting code (matplotlib, plotly…), never install packages, never render or
+  inspect PNGs for this. The app draws the chart natively; your job is the numbers and the
+  citation. Several charts = several blocks in one answer.
+- An image file (`MEDIA:/path.png`) is only for something a block cannot draw, and only when asked. End an answer that invites a
 next step with a `finn-actions` block of one to three follow-ups.
 
 ## Push discipline
