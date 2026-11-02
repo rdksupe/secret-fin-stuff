@@ -1,9 +1,10 @@
 import * as Notifications from 'expo-notifications';
 import { router } from 'expo-router';
-import { useEffect } from 'react';
-import { Platform } from 'react-native';
+import { useCallback, useEffect, useState } from 'react';
+import { AppState, Platform } from 'react-native';
 
 import { api } from './api';
+import { getToken, onSessionChange } from './session';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({ shouldShowBanner: true, shouldShowList: true, shouldPlaySound: true, shouldSetBadge: false }),
@@ -50,7 +51,12 @@ export async function askPushPermission(): Promise<boolean> {
 export function usePushRegistration() {
   useEffect(() => {
     if (Platform.OS !== 'android' && Platform.OS !== 'ios') return;
-    registerPush(false);
+    // Register (idempotently) whenever it can matter: launch, a new session, and every return to
+    // the foreground. A reinstall or an FCM token rotation otherwise leaves the server with no device.
+    const sync = () => getToken() && registerPush(false);
+    sync();
+    const offSession = onSessionChange((t) => t && registerPush(false));
+    const appState = AppState.addEventListener('change', (s) => s === 'active' && sync());
 
     const open = (r: Notifications.NotificationResponse) => {
       const data = r.notification.request.content.data ?? {};
@@ -61,6 +67,33 @@ export function usePushRegistration() {
     };
     Notifications.getLastNotificationResponseAsync().then((r) => r && open(r));
     const sub = Notifications.addNotificationResponseReceivedListener(open);
-    return () => sub.remove();
+    return () => {
+      sub.remove();
+      appState.remove();
+      offSession();
+    };
   }, []);
+}
+
+/** Whether this phone will get FINN's notifications, and a way to turn them on (for the Brief banner). */
+export function usePushPermission() {
+  const [state, setState] = useState<'granted' | 'off' | 'unknown'>('unknown');
+  const check = useCallback(async () => {
+    if (Platform.OS !== 'android' && Platform.OS !== 'ios') return setState('granted');
+    try {
+      setState((await Notifications.getPermissionsAsync()).granted ? 'granted' : 'off');
+    } catch {
+      setState('unknown');
+    }
+  }, []);
+  useEffect(() => {
+    check();
+    const s = AppState.addEventListener('change', (a) => a === 'active' && check());
+    return () => s.remove();
+  }, [check]);
+  const turnOn = useCallback(async () => {
+    await registerPush(true);
+    await check();
+  }, [check]);
+  return { state, turnOn };
 }

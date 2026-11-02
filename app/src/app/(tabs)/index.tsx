@@ -8,6 +8,7 @@ import { Screen } from '@/components/screen';
 import { Rule, StoryRow } from '@/components/story-row';
 import { Body, Figure, Strong, Ticker, Title } from '@/components/type';
 import { api, type Digest, type Status, type Story } from '@/lib/api';
+import { usePushPermission } from '@/lib/push';
 import { ago, headline, when } from '@/lib/format';
 import { color, font, size, space } from '@/theme';
 
@@ -150,6 +151,22 @@ function statusLine(hours: number, digest: Digest, status: Status | null): React
   );
 }
 
+/** Notifications are off on this phone: say so where the investor looks first, with the fix one tap away. */
+function PushOffBanner() {
+  const { state, turnOn } = usePushPermission();
+  if (state !== 'off') return null;
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.m, marginBottom: space.l, padding: space.m, borderWidth: 1, borderColor: color.sea, backgroundColor: color.seaTint }}>
+      <Body size={size.small} style={{ flex: 1 }}>
+        Notifications are off on this phone, so FINN can't tell you when something material lands.
+      </Body>
+      <Pressable onPress={turnOn} accessibilityRole="button" style={({ pressed }) => ({ minHeight: 48, paddingHorizontal: 16, justifyContent: 'center', borderRadius: 24, backgroundColor: pressed ? '#25605A' : color.sea })}>
+        <Body size={size.small} c={color.onSea} style={{ fontFamily: font.semibold }}>Turn on</Body>
+      </Pressable>
+    </View>
+  );
+}
+
 export default function Brief() {
   const [hours, setHours] = useState(24);
   const [digest, setDigest] = useState<Digest | null>(null);
@@ -199,6 +216,7 @@ export default function Brief() {
     <View style={{ flex: 1, backgroundColor: color.bg }}>
       <TopBar title="FINN" below={<WindowPicker hours={hours} onChange={setHours} />} />
       <Screen refreshing={refreshing} onRefresh={refresh} bottomPad={space.xl}>
+        <PushOffBanner />
         <View>
           {error ? (
             <Body c={color.text2}>

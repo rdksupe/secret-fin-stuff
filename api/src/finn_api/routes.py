@@ -81,9 +81,10 @@ def story_for(item_id: str, user: User = Depends(current_user), db: Session = De
     for key, group in cluster(nearby).items():
         if any(g.id == item.id for g in group):
             situation = ":situation:" in key
-            group.sort(key=(lambda i: (i.kind == "signal", i.event_at)) if situation
-                       else (lambda i: (-i.tier, i.event_at)))
-            head = group[0]
+            # The item the investor tapped leads; the rest of the story follows, newest first.
+            # (Re-picking a head over this wider window opened a different filing than the card.)
+            head = item
+            group = [item] + sorted((g for g in group if g.id != item.id), key=lambda i: i.event_at, reverse=True)
             extra = situation_summary(group) if situation and len(group) > 1 else {}
             return {**extra, "story_key": key, "symbol": item.symbol, "tier": head.tier,
                     "head": _item(head), "related": [_item(g) for g in group[1:]],
