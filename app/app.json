@@ -2,7 +2,7 @@
   "expo": {
     "name": "FINN",
     "slug": "finn",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "finn",
@@ -24,7 +24,7 @@
         "POST_NOTIFICATIONS",
         "RECORD_AUDIO"
       ],
-      "versionCode": 7
+      "versionCode": 8
     },
     "web": {
       "output": "single",
