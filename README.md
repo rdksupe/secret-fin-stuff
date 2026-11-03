@@ -2,11 +2,9 @@
 
 An always-on investor agent for NSE portfolios. It reads every exchange filing, keeps the few that matter to you, and answers your questions from the companies' own filings, results and call transcripts, with every claim cited.
 
-<p align="center">
-  <a href="docs/media/demo.mp4"><img src="docs/media/demo-poster.png" width="720" alt="Play the one-minute demo"></a><br>
-  <sub>▶ One-minute demo: the real app, answering real questions</sub>
-</p>
+https://github.com/user-attachments/assets/4be877ba-b2c9-4b29-872c-dd857aba49d1
 
+<p align="center"><sub>▶ One-minute demo: the real app, answering real questions</sub></p>
 <p align="center">
   <b><a href="../../releases/latest">Download the app</a></b> ·
   <a href="docs/COVERING_NOTE.md">Covering note</a> ·
