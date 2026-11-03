@@ -188,4 +188,4 @@ Cost stays this low for three reasons:
 
 ## How it was built
 
-It was built with Claude Code, in one long session included as the AI build history (`docs/build-history/`). It reuses the pieces of FieldClaw, our construction-site agent on Hermes: a construction site became a company, keeping the same per-entity markdown brain, PDF ingest, script-gated crons and gateway adapter.
+It was built with Claude Code, in one long session included as the AI build history (`docs/build-history/`).
